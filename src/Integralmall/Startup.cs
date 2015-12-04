@@ -21,6 +21,10 @@ namespace Integralmall
         public void Configure(IApplicationBuilder app)
         {
             app.UseIISPlatformHandler();
+            app.UseDirectoryBrowser();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
 
             app.Run(async (context) =>
             {
