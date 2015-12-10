@@ -1,0 +1,10 @@
+{
+  "name": "ASP.NET",
+  "private": true,
+  "dependencies": {
+    "normalize-scss": "3.0.3",
+    "zeptojs": "~1.1.6",
+    "swiper": "~3.2.6",
+    "gsap": "1.18.0"
+  }
+}

@@ -1,0 +1,12 @@
+﻿{
+    "baseDependencies": [
+        {
+            "desc": "ZeptoJs",
+            "module": "zeptojs/zepto.js"
+        },
+        {
+            "desc": "ZeptoJs Event Module",
+            "module": "zeptojs/event.js"
+        }
+    ]
+}

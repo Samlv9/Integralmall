@@ -1,0 +1,65 @@
+﻿@import "../weui/base/fn";
+@import "../normalize/normalize";
+@import "../mixins/utils";
+@import "../vars/common";
+
+html {
+    height: 100%;
+
+    & > body {
+        line-height: $defaultLineHeight;
+        height: 100%;
+        overflow: hidden;
+        background: $pageDefaultBackgroundColor;
+        font-family: $globalFont;
+        font-size: $globalFontSize;
+        color: $defaultTextColor;
+
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+}
+
+main, content {
+    display: block;
+}
+
+h1, h2, h3, h4 , h5, h6, p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    -webkit-user-drag: none;
+}
+
+img {
+    border: 0;
+    -webkit-user-drag: none;
+}
+
+#main {
+    height: 100%;
+}
+
+
+
+#fixtop {
+    position: absolute;
+    left: 0px;
+    top : 0px;
+    width: 100%;
+    z-index: 10;
+    opacity: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px;
+
+    #fixnav {
+        height: 36px;
+        line-height: 36px;
+        padding: 0px $gap15;
+        background: rgba(255, 255, 255, 0.5);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}

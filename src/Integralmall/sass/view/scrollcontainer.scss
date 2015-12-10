@@ -1,0 +1,10 @@
+﻿@import "../mixins/utils";
+
+.scroll-container {
+    position: relative;
+    overflow: hidden;
+    & > content {
+        min-height: 100%;
+        @include clearfix();
+    }
+}

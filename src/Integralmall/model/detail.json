@@ -1,0 +1,31 @@
+﻿{
+    "title": "商品详情页",
+    "detailImages": [
+        {
+            "link": "javascript:void(0);",
+            "path": "detail/banner/1.jpg"
+        },
+        {
+            "link": "javascript:void(0);",
+            "path": "detail/banner/2.jpg"
+        },
+        {
+            "link": "javascript:void(0);",
+            "path": "detail/banner/3.jpg"
+        }
+    ],
+
+    "dependencies": [
+        {
+            "desc": "Swipe",
+            "module": "swiper/swiper.js"
+        }
+    ],
+
+    "depsStylesheets": [
+        {
+            "desc": "Swipe.css",
+            "module": "swiper/swiper.css"
+        }
+    ]
+}
