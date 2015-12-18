@@ -45,7 +45,7 @@ var reference    = require("./toolkit/reference");
 var pse2class    = require("./toolkit/pse2class");
 
 
-const __WEBROOT__   = "./wwwroot"; 
+const __WEBROOT__   = require("./gulp.json").path; 
 const __RESOURCES__ = "resources";
 const __BITMAPS__   = __RESOURCES__ + "/bitmaps";
 const __CDNIMG__    = __RESOURCES__ + "/bitmaps/cdn"
@@ -249,5 +249,5 @@ gulp.task("watch:templates", function () {
 
 gulp.task("clear", function () {
     /// 清空 WebRoot 目录。 
-    return del([__WEBROOT__ + "/*", "!" + __WEBROOT__ + "/web.config"]);
+    return del([__WEBROOT__ + "/*", "!" + __WEBROOT__ + "/web.config"], { force: require("./gulp.json").force });
 });
