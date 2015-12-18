@@ -2,11 +2,21 @@
 <html>
 <head>
 {{>./partials/headtags}}</head>
-<body>
+<body><div id="stage"><div id="page">
 {{>./widgets/fixtop}}
 <main id="main" class="scroll-container">
+
+
+<!-- ================================================================================ -->
+<!-- 详情页面头像栏 -->
+<!-- ================================================================================ -->
+<a id="avatar" href="usercenter.html"><img src="{{&bitmaps}}/common/avatar.jpg" /></a>
+
+
 <content id="content">
 {{>./widgets/header}}
+
+
 <!-- ================================================================================ -->
 <!-- 图片轮播插件 -->
 <!-- ================================================================================ -->
@@ -17,277 +27,226 @@
     {{/detailImages}}
     </div>
 </div>
-<!-- ================================================================================ -->
-<!-- 商品简介 -->
-<!-- ================================================================================ -->
+
+
 <section id="detailIntroduct">
 <!-- ================================================================================ -->
 <!-- 商品名称/价格 -->
 <!-- ================================================================================ -->
 <div class="goods-summary">
-    
     <div class="goods-header">
-        <h3 class="goods-title">商品名称- 很长很长的文字很长很长的文字很长很长的文字很长很长的文字</h3>
-        <p class="goods-description">
-            商品简介，很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长的文字
-            很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长的
-            文字
-        </p>
+        <h3 class="goods-title">
+            商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长
+        </h3>
+        <div id="descDropdown" class="goods-description drop-down" data-ctor="dropdown" data-droponce="true">
+            <div class="drop-container"><div class="drop-content">
+                商品简介，很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长
+                很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的
+                文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文字很长很
+                长的文字很长很长的文字很长很长的文字很长很长
+            </div></div>
+            <div class="drop-allow"></div>
+        </div>
+        <a class="goods-share share-button" href="javascript:void(0);"><i class="ui-icon ui-share-icon"></i></a>
     </div>
     <div class="weui_cells">
+        <!-- 价格 -->
         <div class="weui_cell">
-            <div class="weui_cell_bd weui_cell_primary">
-                <p><span class="goods-price">￥<output>280.00</output></span><span class="goods-origin">￥<output>1800.00</output></span></p>
-            </div>
-            <div class="weui_cell_ft">
-                <p><span class="goods-sellcount">已有 <output>127542</output> 人付款</span></p>
-            </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <p><span class="goods-price"><small>￥</small><span>280.00</span></span><span class="goods-origin">￥<span>1800.00</span></span></p></div><div class="weui_cell_ft">
+            <p><span class="goods-sellcount">已有 <span>127542</span> 人付款</span></p>
+        </div></div>
+        <!-- 选项 -->
+        <div id="optionTrigger" class="weui_cell weui_cells_access goods-options">
+            <div class="weui_cell_bd weui_cell_primary">选择分类</div>
+            <div class="weui_cell_ft"><output id="formOptionOutput">款式、颜色</output></div>
         </div>
+        <!-- 返现 -->
+        <div class="weui_cell">
+        <div class="weui_cell_bd">
+            <p><span class="goods-rebate">该商品每件返佣 <span>88</span> 积分</span></p>
+        </div></div>
+        <!-- 特性 -->
+        <div class="weui_cell">
+        <div class="weui_cell_bd"><p>
+            <span class="goods-feature"><i class="weui_icon_success_circle"></i>正品保证</span>
+            <span class="goods-feature"><i class="weui_icon_success_circle"></i>工厂直发</span>
+            <span class="goods-feature"><i class="weui_icon_success_circle"></i>7天退换</span>
+        </p></div></div>
     </div>
 </div>
+
+
 <!-- ================================================================================ -->
-<!-- 填充内容 -->
+<!-- 商品选项 -->
 <!-- ================================================================================ -->
-<div style="padding:0px 10px;">
-    <div>
-    <div class="bd">
-
-            <div class="weui_cells_title">表单</div>
-            <div class="weui_cells weui_cells_form">
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="date" value="">
-                    </div>
-                </div>
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="datetime-local" value="" placeholder="">
-                    </div>
-                </div>
-            </div>
-            <div class="weui_cells_title">表单</div>
-            <div class="weui_cells weui_cells_form">
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="date" value="">
-                    </div>
-                </div>
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="datetime-local" value="" placeholder="">
-                    </div>
-                </div>
-            </div>
-            <div class="weui_cells_title">表单</div>
-            <div class="weui_cells weui_cells_form">
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="date" value="">
-                    </div>
-                </div>
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="datetime-local" value="" placeholder="">
-                    </div>
-                </div>
-            </div>
-            <div class="weui_cells_title">表单</div>
-            <div class="weui_cells weui_cells_form">
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="date" value="">
-                    </div>
-                </div>
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="datetime-local" value="" placeholder="">
-                    </div>
-                </div>
-            </div>
-            <div class="weui_cells_title">表单</div>
-            <div class="weui_cells weui_cells_form">
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="date" value="">
-                    </div>
-                </div>
-                <div class="weui_cell">
-                    <div class="weui_cell_hd"><label for="" class="weui_label">时间</label></div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="datetime-local" value="" placeholder="">
-                    </div>
-                </div>
-            </div>
-            <div class="weui_cells_title">选择</div>
-            <div class="weui_cells weui_cells_split">
-
-                <div class="weui_cell weui_cell_select weui_select_before">
-                    <div class="weui_cell_hd">
-                        <select class="weui_select" name="select2">
-                            <option value="1">+86</option>
-                            <option value="2">+80</option>
-                            <option value="3">+84</option>
-                            <option value="4">+87</option>
-                        </select>
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <input class="weui_input" type="text" placeholder="请输入号码">
-                    </div>
-                </div>
-            </div>
-            <div class="weui_cells_title">选择</div>
-            <div class="weui_cells weui_cells_split">
-                <div class="weui_cell weui_cell_select">
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select" name="select1">
-                            <option selected="" value="1">微信号</option>
-                            <option value="2">QQ号</option>
-                            <option value="3">Email</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="weui_cell weui_cell_select weui_select_after">
-                    <div class="weui_cell_hd">
-                        国家/地区
-                    </div>
-                    <div class="weui_cell_bd weui_cell_primary">
-                        <select class="weui_select" name="select2">
-                            <option value="1">中国</option>
-                            <option value="2">美国</option>
-                            <option value="3">英国</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+<!--<div class="weui_cells weui_cells_access goods-options">
+    <div id="optionTrigger" class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">已选</div>
+        <div class="weui_cell_ft"><output id="formOptionOutput">款式、颜色</output></div>
     </div>
-</div>
+</div>-->
+
+
 <!-- ================================================================================ -->
 <!-- 购买按钮 -->
 <!-- ================================================================================ -->
-<div class="goods-controls">
-    <a class="weui_btn weui_btn_primary" href="javascript:void(0)">立即购买</a>
+<div class="goods-controls weui_btn_group">
+    <a class="weui_btn weui_btn_primary" href="order.html">立即购买</a>
+    <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
 </div>
 
+
+<!-- ================================================================================ -->
+<!-- 详细参数 -->
+<!-- ================================================================================ -->
+<!--<a class="weui_cell weui_cell_footer weui_cells_access"><span class="weui_cell_bd weui_cell_primary"><i class="ui-icon ui-m-icon ui-more-icon"></i>更多参数信息...</span></a>-->
+<div id="specTrigger" class="weui_cells arglist goods-arglist">
+    <div class="weui_cell weui_cell_header weui_cells_access"><div class="weui_cell_bd weui_cell_primary">规格&参数</div><div class="weui_cell_ft"></div></div>
+    <div class="weui_cell"><div class="weui_cell_hd">硬盘容量</div><div class="weui_cell_bd weui_cell_primary">240 GB</div></div>
+    <div class="weui_cell"><div class="weui_cell_hd">接口类型</div><div class="weui_cell_bd weui_cell_primary">SATA 3</div></div>
+    <div class="weui_cell"><div class="weui_cell_hd">硬盘容量</div><div class="weui_cell_bd weui_cell_primary">240 GB</div></div>
+    <div class="weui_cell"><div class="weui_cell_hd">接口类型</div><div class="weui_cell_bd weui_cell_primary">SATA 3</div></div>
+
+    <div class="weui_cell"><div class="weui_cell_hd weui_cell_primary args-dotcell">...</div></div>
+</div>
 
 
 </section>
 {{>./widgets/footer}}
+
+
 <!-- ================================================================================ -->
 <!-- 查看详情页面提示 -->
 <!-- ================================================================================ -->
 <div id="detailMorePrompts">
-    <div class="text">继续拖动，查看图文详情 &gt;</div>
+    <div class="text">继续拖动，查看图文详情</div>
+    <div class="loading"><div class="weui_loading_leaf weui_loading_leaf_0"></div><div class="weui_loading_leaf weui_loading_leaf_1"></div><div class="weui_loading_leaf weui_loading_leaf_2"></div><div class="weui_loading_leaf weui_loading_leaf_3"></div><div class="weui_loading_leaf weui_loading_leaf_4"></div><div class="weui_loading_leaf weui_loading_leaf_5"></div><div class="weui_loading_leaf weui_loading_leaf_6"></div><div class="weui_loading_leaf weui_loading_leaf_7"></div><div class="weui_loading_leaf weui_loading_leaf_8"></div><div class="weui_loading_leaf weui_loading_leaf_9"></div><div class="weui_loading_leaf weui_loading_leaf_10"></div><div class="weui_loading_leaf weui_loading_leaf_11"></div></div>
 </div>
+
+
 </content>
 </main>
 <!-- ================================================================================ -->
 <!-- 详情页面 -->
 <!-- ================================================================================ -->
-<aside id="side" class="scroll-container"><content id="sideContent">
+<aside id="side" class="scroll-container">
+
+
+<!-- ================================================================================ -->
+<!-- 详情页面固定头部 -->
+<!-- ================================================================================ -->
+<header id="detTop" class="tooltip tooltip-S" data-label="轻触返回顶部"><nav class="detnav">
+    <div class="detimage"><img src="{{&cdnImg}}/detail/banner/1.jpg" /></div>
+    <div class="detprice">￥<span>280.00</span></div>
+    <div class="dettitle">商品名称- 很长很长的文字很长很长的文字很长很长的文字很长很长的文字</div>
+</nav></header>
+
+
+<content id="sideContent">
 <!-- ================================================================================ -->
 <!-- 返回简介页面提示 -->
 <!-- ================================================================================ -->
-<div id="detailBackPrompts">
-    <div class="text">继续拖动，返回商品简介 &gt;</div>
-</div>
+<div id="detailBackPrompts"><div class="text">继续拖动，返回商品简介</div></div>
+
+
 <!-- ================================================================================ -->
 <!-- 图文详情 -->
 <!-- ================================================================================ -->
-<div style="margin:10px;padding:10px;background:#ddd;">
-    A prime number (or a prime) is a natural number greater than 1 that has
-    no positive divisors other than 1 and itself. A natural number greater
-    than 1 that is not a prime number is called a composite number. For example, 
-    5 is prime because 1 and 5 are its only positive integer factors, whereas 6 
-    is composite because it has the divisors 2 and 3 in addition to 1 and 6. 
-    The fundamental theorem of arithmetic establishes the central role of primes 
-    in number theory: any integer greater than 1 can be expressed as a product 
-    of primes that is unique up to ordering. The uniqueness in this theorem 
-    requires excluding 1 as a prime because one can include arbitrarily many 
-    instances of 1 in any factorization, e.g., 3, 1 · 3, 1 · 1 · 3, etc. 
-    are all valid factorizations of 3.
-    <img style="display:block;margin:10px 0px;max-width:100%;" src="{{&cdnImg}}/detail/banner/1.jpg" />
-    The property of being prime (or not) is called primality. A simple but 
-    slow method of verifying the primality of a given number n is known as 
-    trial division. It consists of testing whether n is a multiple of any 
-    integer between 2 and \sqrt{n}. Algorithms much more efficient than 
-    trial division have been devised to test the primality of large numbers. 
-    Particularly fast methods are available for numbers of special forms, 
-    such as Mersenne numbers. As of November 2015, the largest known prime 
-    number has 17,425,170 decimal digits.
-    There are infinitely many primes, as demonstrated by Euclid around 300 
-    BC. There is no known useful formula that sets apart all of the prime 
-    numbers from composites. However, the distribution of primes, 
-    that is to say, the statistical behaviour of primes in the large, can 
-    be modelled. The first result in that direction is the prime number 
-    theorem, proven at the end of the 19th century, which says that the 
-    probability that a given, randomly chosen number n is prime is inversely
-    proportional to its number of digits, or to the logarithm of n.
-    Many questions regarding prime numbers remain open, such as Goldbach's 
-    <img style="display:block;margin:10px 0px;max-width:100%;" src="{{&cdnImg}}/detail/banner/1.jpg" />
-    conjecture (that every even integer greater than 2 can be expressed as 
-    the sum of two primes), and the twin prime conjecture (that there are 
-    infinitely many pairs of primes whose difference is 2). Such questions 
-    spurred the development of various branches of number theory, focusing 
-    on analytic or algebraic aspects of numbers. Primes are used in several 
-    routines in information technology, such as public-key cryptography, 
-    which makes use of properties such as the difficulty of factoring large 
-    numbers into their prime factors. Prime numbers give rise to various 
-    generalizations in other mathematical domains, mainly algebra, such as 
-    prime elements and prime ideals.
-    <img style="display:block;margin:10px 0px;max-width:100%;" src="{{&cdnImg}}/detail/banner/1.jpg" />
-    A prime number (or a prime) is a natural number greater than 1 that has
-    no positive divisors other than 1 and itself. A natural number greater
-    than 1 that is not a prime number is called a composite number. For example, 
-    5 is prime because 1 and 5 are its only positive integer factors, whereas 6 
-    is composite because it has the divisors 2 and 3 in addition to 1 and 6. 
-    The fundamental theorem of arithmetic establishes the central role of primes 
-    in number theory: any integer greater than 1 can be expressed as a product 
-    of primes that is unique up to ordering. The uniqueness in this theorem 
-    requires excluding 1 as a prime because one can include arbitrarily many 
-    instances of 1 in any factorization, e.g., 3, 1 · 3, 1 · 1 · 3, etc. 
-    are all valid factorizations of 3.
-    <img style="display:block;margin:10px 0px;max-width:100%;" src="{{&cdnImg}}/detail/banner/1.jpg" />
-    The property of being prime (or not) is called primality. A simple but 
-    slow method of verifying the primality of a given number n is known as 
-    trial division. It consists of testing whether n is a multiple of any 
-    integer between 2 and \sqrt{n}. Algorithms much more efficient than 
-    trial division have been devised to test the primality of large numbers. 
-    Particularly fast methods are available for numbers of special forms, 
-    such as Mersenne numbers. As of November 2015, the largest known prime 
-    number has 17,425,170 decimal digits.
-    There are infinitely many primes, as demonstrated by Euclid around 300 
-    BC. There is no known useful formula that sets apart all of the prime 
-    numbers from composites. However, the distribution of primes, 
-    that is to say, the statistical behaviour of primes in the large, can 
-    be modelled. The first result in that direction is the prime number 
-    theorem, proven at the end of the 19th century, which says that the 
-    probability that a given, randomly chosen number n is prime is inversely
-    proportional to its number of digits, or to the logarithm of n.
-    Many questions regarding prime numbers remain open, such as Goldbach's 
-    <img style="display:block;margin:10px 0px;max-width:100%;" src="{{&cdnImg}}/detail/banner/1.jpg" />
-    conjecture (that every even integer greater than 2 can be expressed as 
-    the sum of two primes), and the twin prime conjecture (that there are 
-    infinitely many pairs of primes whose difference is 2). Such questions 
-    spurred the development of various branches of number theory, focusing 
-    on analytic or algebraic aspects of numbers. Primes are used in several 
-    routines in information technology, such as public-key cryptography, 
-    which makes use of properties such as the difficulty of factoring large 
-    numbers into their prime factors. Prime numbers give rise to various 
-    generalizations in other mathematical domains, mainly algebra, such as 
-    prime elements and prime ideals.
+<article id="detialRichContents">
+    {{#detailIntroImages}}
+    <img src="{{&cdnImg}}/{{&path}}" />
+    {{/detailIntroImages}}
+</article>
+</content>
+
+
+<!-- ================================================================================ -->
+<!-- 底部工具栏 -->
+<!-- ================================================================================ -->
+<div id="toolbar" class="toolbar">
+    <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
+    <a class="weui_btn weui_btn_primary" href="order.html">立即购买</a>
 </div>
-</content></aside>
+
+
+</aside></div><!--PAGE END-->
+<!-- ================================================================================ -->
+<!-- 商品属性 -->
+<!-- ================================================================================ -->
+<div id="optionOverlay" class="overlay overlay-E">
+<div class="overlay-mask"></div>
+<aside id="option" class="scroll-container overlay-content"><content>
+    <form action="/">
+    <!-- 摘要 -->
+    <div class="option-subtract weui_cells"><div class="weui_cell">
+        <div class="weui_cell_hd"><img class="option-goods-thumb" src="{{&bitmaps}}/common/thumb.jpg" width="100" height="100" /></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <h2 class="option-goods-title">商品名称- 很长很长的文字很长很长的文字很长很长的文字很长很长的文字</h2>
+            <p><span class="option-goods-price">￥<span>280.00</span></span><span class="option-goods-origin">￥<span>1800.00</span></span></p>
+        </div>
+    </div></div>
+    <!-- 选项 -->
+    <div class="option-chooser">
+        <div class="option-chooser-title">种类</div>
+        <div class="option-chooser-lists">
+            <label class="radio-button"><input name="m" type="radio" value="1" /><span class="radio-label">土豪金土豪金</span></label>
+            <label class="radio-button"><input name="m" type="radio" value="2" /><span class="radio-label">X</span></label>
+            <label class="radio-button"><input name="m" type="radio" value="3" /><span class="radio-label">大XL</span></label>
+            <label class="radio-button"><input name="m" type="radio" value="4" disabled="disabled" /><span class="radio-label">XXL</span></label>
+        </div>
+    </div>
+    <!-- 数量 -->
+    <div class="option-chooser">
+        <div class="option-chooser-title">数量</div>
+        <div class="option-chooser-lists">
+            <div class="counter">
+                <style>
+                    a:focus {
+                        outline: 2px solid #ff6a00;
+                    }
+
+                </style>
+                <a class="counter-button counter-plus" href="javascript:void(0);">+</a>
+                <input class="weui_input counter-input" type="number" value="1" min="0" max="9999" />
+                <a class="counter-button counter-minus" href="javascript:void(0);" >-</a>
+            </div>
+        </div>
+    </div>
+    <!-- 按钮 -->
+    <div class="option-controls weui_btn_group">
+        <a class="weui_btn weui_btn_primary overlay-cancel" href="javascript:void(0);">确定</a>
+        <a class="weui_btn weui_btn_default overlay-cancel" href="javascript:void(0);">取消</a>
+    </div></form>
+</content>
+</aside>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 全部规格&参数 -->
+<!-- ================================================================================ -->
+<div id="specOverlay" class="overlay overlay-E">
+<div class="overlay-mask"></div><aside id="spec" class="scroll-container overlay-content"><content>
+    <div class="weui_cells">
+        <a class="weui_cell weui_cell_header weui_cells_access"><div class="weui_cell_bd weui_cell_primary">规格&参数</div></a>
+        <div class="weui_cell"><div class="weui_cell_hd">硬盘容量</div><div class="weui_cell_bd weui_cell_primary">240 GB</div></div>
+        <div class="weui_cell"><div class="weui_cell_hd">接口类型</div><div class="weui_cell_bd weui_cell_primary">SATA 3</div></div>
+        <div class="weui_cell"><div class="weui_cell_hd">尺寸</div><div class="weui_cell_bd weui_cell_primary">2.5 英寸</div></div>
+        <div class="weui_cell"><div class="weui_cell_hd">售后服务</div><div class="weui_cell_bd weui_cell_primary">2 年</div></div>
+        <div class="weui_cell"><div class="weui_cell_hd">品牌</div><div class="weui_cell_bd weui_cell_primary">Kingston/金士顿</div></div>
+        <div class="weui_cell"><div class="weui_cell_hd">固态硬盘</div><div class="weui_cell_bd weui_cell_primary">是</div></div>
+        <div class="weui_cell"><div class="weui_cell_hd">硬盘容量</div><div class="weui_cell_bd weui_cell_primary">240 GB</div></div>
+        <div class="weui_cell"><div class="weui_cell_hd">接口类型</div><div class="weui_cell_bd weui_cell_primary">SATA 3</div></div>
+    </div>
+    <div class="weui_btn_group">
+        <a class="weui_btn weui_btn_default overlay-cancel" href="javascript:void(0);">返回</a>
+    </div>
+</content>
+</aside></div>
+
+
+</div><!--STAGE END-->
 {{>./partials/foottags}}
 </body>
 </html>

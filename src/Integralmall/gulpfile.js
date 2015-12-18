@@ -139,11 +139,17 @@ gulp.task("build:sass", ["update"], function () {
     /// 编译项目中的 sass/scss 文件。
     return gulp.src([
         /* 商品详情页 */
-        "sass/detail.scss"
+        "sass/detail.scss",
+
+        /* 确认订单页 */
+        "sass/order.scss",
+
+        /* 用户中心 */
+        "sass/usercenter.scss"
     ])
     .pipe(sourcemaps.init())
     .pipe(sass({ "outputStyle":"compressed" }).on("error", console.log))
-    .pipe(pse2class({ "pseudos":['active'] }))
+    //.pipe(pse2class({ "pseudos":['active'] }))
     .pipe(autoprefixer({ "browsers":["> 5%"] }))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(__WEBROOT__ + "/" + __STYLES__));
@@ -157,7 +163,13 @@ gulp.task("build:script", ["update"], function () {
         "src/system.js",
 
         /* 商品详情页 */
-        "src/detail.js"
+        "src/detail.js",
+
+        /* 确认订单页 */
+        "src/order.js",
+
+        /* 用户中心 */
+        "src/usercenter.js"
     ])
     .pipe(sourcemaps.init())
     .pipe(reference())
@@ -175,14 +187,29 @@ gulp.task("build:templates", ["update"], function () {
     /// 编译项目中的模板文件。
     return gulp.src([
         /* 商品详情页 */
-        "tmpl/detail.html"
+        "tmpl/detail.html",
+
+        /* 确认订单页 */
+        "tmpl/order.html",
+
+        /* 用户中心页 */
+        "tmpl/usercenter.html"
+        
     ])
     .pipe(data(function(file) {
-        var opts , filename = path.basename(file.path, path.extname(file.path)), 
+        var opts = {}, filename = path.basename(file.path, path.extname(file.path)), 
             base = require("./model/common/base.json"),
             data = require("./model/" + filename + ".json");
 
-        for ( var name in opts = {
+        for ( var name in base ) {
+            opts[name] = base[name];
+        }
+
+        for ( var name in data ) {
+            opts[name] = data[name];
+        }
+
+        for ( var name in cfgs = {
             "system"     : "system",
             "filename"   : filename,
             "cdnImg"     : __CDNIMG__,
@@ -192,14 +219,10 @@ gulp.task("build:templates", ["update"], function () {
             "scripts"    : __SCRIPTS__,
             "libraries"  : __LIBRARIES__ }) { 
 
-            base[name] = opts[name]; 
+            opts[name] = cfgs[name]; 
         }
 
-        for ( var name in data ) {
-            base[name] = data[name];
-        }
-
-        return base;
+        return opts;
     }))
     .pipe(mustache(null, { "extension": ".html" }).on("error", console.log))
     .pipe(gulp.dest(__WEBROOT__));

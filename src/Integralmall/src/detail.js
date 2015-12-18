@@ -29,6 +29,10 @@
 /// <reference path='core/derive.js' />
 /// <reference path='page/PageBase.js' />
 /// <reference path='view/Sprite.js' />
+/// <reference path='view/ScrollContainer.js' />
+/// <reference path='view/Overlay.js' />
+/// <reference path='view/Dropdown.js' />
+/// <reference path='utils/Preferences.js' />
 
 
 var Page = derive(PageBase, function Page() {
@@ -36,7 +40,10 @@ var Page = derive(PageBase, function Page() {
 
     /// 配置参数；
     this._distance = 88;
-    this._threshold = 56;
+    this._threshold = 48;
+    this._avatarOverlay = 30;
+    this._fadeTopDistance = 120;
+    this._allowScrollSize = 100;
     this._isShowMore = false;
     this._isLoadMore = false;
 
@@ -44,26 +51,64 @@ var Page = derive(PageBase, function Page() {
     this._swiperSprite = new Sprite("#detailSwiper");
     this._detailSwiper = new Swiper(this._swiperSprite.natural, {
         "pagination": ".swiper-pagination",
-        "loop": true
+        "loop": true,
+        "simulateTouch": false,
+        "threshold": 5,
+        "autoplay": 4000,
+        "preloadImages": false,
+        "lazyLoading": true
     });
 
     /// 下拉加载更多。
     this._morePromptsSprite = new Sprite("#detailMorePrompts");
     this._backPromptsSprite = new Sprite("#detailBackPrompts");
 
+    /// 简介页面容器；
+    this._mainContainer.disableIndicator = true;
+    this._avatar = new Sprite("#avatar");
+    this._intros = new Sprite("#detailIntroduct");
+
     /// 详情页面容器；
     this._sideContainer = new ScrollContainer("#side");
+
+    /// 属性选择容器；
+    this._optionOverlay   = new Overlay("#optionOverlay");
+    this._optionContainer = new ScrollContainer("#option");
+    this._optionTrigger   = new Sprite("#optionTrigger");
+
+    /// 规格参数层；
+    this._specOverlay = new Overlay("#specOverlay");
+    this._specContainer = new ScrollContainer("#spec");
+    this._specTrigger = new Sprite("#specTrigger");
+
+
+    /// 头/底部工具栏；
+    this._topbar = new Sprite("#detTop");
+    this._toolbar = new Sprite("#toolbar");
+
+    /// dropdown
+    this._descDropdown = new Dropdown("#descDropdown");
 
     /// 事件处理；
     this._viewPullUpHandler = this._viewPullUpHandler.bind(this);
     this._viewScrollHandler = this._viewScrollHandler.bind(this);
     this._sidePullUpHandler = this._sidePullUpHandler.bind(this);
     this._sideScrollHandler = this._sideScrollHandler.bind(this);
+    this._dragSideViewHandler = this._dragSideViewHandler.bind(this);
+    this._topbarClickHandler = this._topbarClickHandler.bind(this);
+    this._showOptionLayer = this._showOptionLayer.bind(this);
+    this._showSpecLayer = this._showSpecLayer.bind(this);
+    this._sidePullDownHandler = this._sidePullDownHandler.bind(this);
 
     this._mainContainer.addEventListener("pull"  , this._viewPullUpHandler);
     this._mainContainer.addEventListener("scroll", this._viewScrollHandler);
     this._sideContainer.addEventListener("pull"  , this._sidePullUpHandler);
+    this._sideContainer.addEventListener("pull"  , this._sidePullDownHandler); 
     this._sideContainer.addEventListener("scroll", this._sideScrollHandler);
+    this._sideContainer.addEventListener("drag"  , this._dragSideViewHandler);
+    this._topbar.natural.addEventListener("click", this._topbarClickHandler);
+    this._optionTrigger.natural.addEventListener("click", this._showOptionLayer);
+    this._specTrigger.natural.addEventListener("click", this._showSpecLayer);
 });
 
 
@@ -92,7 +137,24 @@ Page.prototype._sidePullUpHandler = function _sidePullUpHandler( evt ) {
 }
 
 
+Page.prototype._sidePullDownHandler = function _sidePullDownHandler() {
+    /// 拉动底部，显示购买按钮；
+    var bottom = Math.max(0, -this._sideContainer.scrollHeight - this._sideContainer.scrollY);
+
+    if ( bottom >= this._threshold ) {
+        this._showTopbar();
+        this._showToolbar();
+    }
+}
+
+
 Page.prototype._viewScrollHandler = function _viewScrollHandler( evt ) {
+    var bound  = this._intros.natural.getBoundingClientRect().top;
+    var offset = Math.min((this._avatar.height + this._avatarOverlay), bound);
+
+    /// 头像位置；
+    this._avatar.y = offset - (this._avatar.height + this._avatarOverlay);
+
     /// 更新 Swiper 的偏移位置；
     this._swiperSprite.y = Math.min(this._swiperSprite.height, Math.max(0, -this._mainContainer.scrollY) * 0.5);
 
@@ -101,22 +163,17 @@ Page.prototype._viewScrollHandler = function _viewScrollHandler( evt ) {
     var height = Math.max(44, bottom * 0.75);
 
     this._morePromptsSprite.y = bottom * 0.25;
-    this._morePromptsSprite.element.find(".text").css({ "height": height + "px", "line-height": height + "px" });
+    //this._moreTips.y = bottom * 0.20;
+    //this._morePromptsSprite.element.find(".loading").css({ "opacity": bottom / this._distance });
 
     if ( height >= this._threshold ) {
-        this._morePromptsSprite.element.find(".text").text("释放手指，加载图文详情 >");
+        this._morePromptsSprite.element.find(".text").text("释放手指，加载图文详情");
+        this._morePromptsSprite.element.find(".loading").addClass("fade-in");
     }
 
     else {
-        this._morePromptsSprite.element.find(".text").text("继续拖动，查看图文详情 >");
-    }
-
-    /// 更新头部透明度；
-    var fixtop = document.getElementById("fixtop");
-    var opacity = Math.min(300, Math.max(0, -this._mainContainer.scrollY)) / 300;
-
-    if ( fixtop ) {
-        fixtop.style.opacity = opacity;
+        this._morePromptsSprite.element.find(".text").text("继续拖动，查看图文详情");
+        this._morePromptsSprite.element.find(".loading").removeClass("fade-in");
     }
 }
 
@@ -130,22 +187,100 @@ Page.prototype._sideScrollHandler = function _sideScrollHandler( evt ) {
     this._backPromptsSprite.element.find(".text").css({ "height": height + "px", "line-height": height + "px" });
 
     if ( height >= this._threshold ) {
-        this._backPromptsSprite.element.find(".text").text("释放手指，返回商品简介 >");
+        this._backPromptsSprite.element.find(".text").text("释放手指，查看商品简介");
     }
 
     else {
-        this._backPromptsSprite.element.find(".text").text("继续拖动，返回商品简介 >");
+        this._backPromptsSprite.element.find(".text").text("继续拖动，返回商品简介");
     }
+
+    /// 更新头部位置；
+    var factor = Math.min(this._fadeTopDistance, Math.max(0, -this._sideContainer.scrollY - this._allowScrollSize)) / this._fadeTopDistance;
+    this._topbar.y = -(1 - factor) * this._topbar.height;
+
+    var showToptip = Preferences.get("showToptip", false) || 0;
+
+    if ( !showToptip && (-this._sideContainer.scrollY >= (this._allowScrollSize + this._fadeTopDistance)) ) {
+        Preferences.set("showToptip", 1, false);
+
+        this._topbar.natural.classList.add("tooltip-showing");
+    }
+}
+
+
+Page.prototype._dragSideViewHandler = function _dragSideViewHandler( evt ) {
+    /// 滑动；
+    if ( evt.vy > 0 ) {
+        this._showToolbar();
+        //this._showTopbar();
+    }
+
+    else {
+        //this._hideTopbar();
+        this._hideToolbar();
+    }
+}
+
+
+Page.prototype._topbarClickHandler = function _topbarClickHandler( evt ) {
+    if ( this._isShowMore ) {
+        this._isShowMore = false;
+        this._showMainPage();
+        this._mainContainer.scrollY = 0;
+        this._avatar.y = 0;
+        //this._mainContainer.scrollTo(500, this._mainContainer.scrollX, 0);
+        //this._sideContainer.scrollTo(600, this._sideContainer.scrollX, 0);
+    } 
 }
 
 
 Page.prototype._showMorePage = function _showMorePage () {
     /// 切换至详情页面；
-    this.y = -this.height;
+    this._mainContainer.y = -this.height;
+    this._sideContainer.y = -this.height;
 }
 
 
 Page.prototype._showMainPage = function _showMainPage () {
     /// 切换至简介页面
-    this.y = 0;
+    this._mainContainer.y = 0;
+    this._sideContainer.y = 0;
+}
+
+
+Page.prototype._showToolbar = function _showToolbar() {
+    // 显示工具条；
+    this._toolbar.natural.classList.add("toolbar-showing");
+}
+
+
+Page.prototype._hideToolbar = function _hideToolbar() {
+    // 隐藏工具条；
+    this._toolbar.natural.classList.remove("toolbar-showing");
+}
+
+
+Page.prototype._showTopbar = function _showTopbar() {
+    this._topbar.natural.classList.add("topbar-showing");
+}
+
+
+Page.prototype._hideTopbar = function _hideTopbar() {
+    this._topbar.natural.classList.remove("topbar-showing");
+}
+
+
+Page.prototype._showOptionLayer = function _showOptionLayer() {
+    /// <summary>
+    /// 显示选项弹出层；</summary>
+
+    this._optionOverlay.open();
+}
+
+
+Page.prototype._showSpecLayer = function _showSpecLayer() {
+    /// <summary>
+    /// 显示规格参数层；</summary>
+
+    this._specOverlay.open();
 }

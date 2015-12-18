@@ -1,0 +1,47 @@
+﻿.overlay {
+    position: absolute;
+    z-index: 999;
+    left: 0px;
+    top : 0px;
+    width: 100%;
+    height: 100%;
+
+    & > .overlay-mask {
+        transition: opacity ease-in-out 0.3s;
+        background: rgba(0, 0, 0, 0.6);
+
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width : 100%;
+        height: 100%;
+    }
+
+    & > .overlay-content {
+        transition: transform ease-in-out 0.3s;
+    }
+
+    /*&.overlay-E > .overlay-content {
+        margin-left: 44px;
+    }
+
+    &.overlay-W > .overlay-content {
+        margin-right: 44px;
+    }*/
+
+    &:not(.stat-open) {
+        display: none;
+
+        & > .overlay-mask {
+            opacity: 0;
+        }
+
+        &.overlay-E > .overlay-content {
+            transform: translateX(100%) translateZ(0px);
+        }
+
+        &.overlay-W > .overlay-content {
+            transform: translateX(-100%) translateZ(0px);
+        }
+    }
+}

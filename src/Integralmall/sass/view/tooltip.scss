@@ -1,0 +1,70 @@
+﻿.tooltip {
+
+    &:after {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        -webkit-backdrop-filter: blur(8px);
+        content: attr(data-label);
+        padding: 6px 8px;
+        color: rgba(255, 255, 255, 0.95);
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &:before {
+        z-index: 2;
+        position: absolute;
+        content: "";
+        border: 6px solid transparent;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+
+    &.tooltip-S:after {
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+    }
+
+    &.tooltip-S:before {
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+
+        border-bottom-color: rgba(0, 0, 0, 0.5);
+        margin-top: -12px;
+    }
+
+    &.tooltip-showing:before,
+    &.tooltip-showing:after {
+        animation: fadeTooltip 3s ease-in-out;
+    }
+}
+
+
+@keyframes fadeTooltip {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    15% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    85% {
+        opacity: 1;
+        visibility: visible; 
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

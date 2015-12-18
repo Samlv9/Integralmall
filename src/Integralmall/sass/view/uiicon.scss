@@ -1,0 +1,44 @@
+﻿.ui-icon {
+    display: inline-block;
+    vertical-align: top;
+    width : 32px;
+    height: 32px;
+    background: url(../bitmaps/common/icon.png) no-repeat 0px 0px;
+    background-size: 320px 320px;
+}
+
+.ui-icon.ui-m-icon {
+    background-size: 200px 200px;
+    width : 20px;
+    height: 20px;
+}
+
+.ui-icon.ui-share-icon {
+    background-position: 0px 0px;
+}
+
+:active > .ui-icon.ui-share-icon {
+    background-position: -32px 0px;
+}
+
+
+.ui-icon.ui-more-icon {
+    background-position: -64px 0px;
+}
+
+.ui-icon.ui-m-icon.ui-more-icon {
+    background-position: -40px 0px;
+}
+
+
+.ui-icon.ui-order-query-icon {
+    background-position: 0px -32px;
+}
+
+.ui-icon.ui-credit-icon {
+    background-position: -32px -32px;
+}
+
+.ui-icon.ui-member-icon {
+    background-position: -64px -32px;
+}

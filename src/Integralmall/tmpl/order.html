@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+{{>./partials/headtags}}</head>
+<body><div id="stage">
+<main id="main" class="scroll-container">
+{{>./widgets/fixtop}}
+<content id="content">
+{{>./widgets/header}}
+
+
+<!-- ================================================================================ -->
+<!-- 地址栏 -->
+<!-- ================================================================================ -->
+<div class="weui_cells_title">收货地址</div>
+<div class="weui_cells weui_cells_access"><div class="weui_cell">
+    <address class="weui_cell_bd weui_cell_primary" id="address">
+        <div class="fillguid">请选择收货地址</div>
+        <div class="headline"><span class="username">老先生</span>，<span class="telnum">13661210903</span></div>
+        <div class="location">
+            <span class="province">广东省</span>
+            <span class="city">广州市</span>
+            <span class="region">番禺区</span>
+            <span class="street">白云公园绿地中心3402号</span>
+        </div>
+    </address>
+    <div class="weui_cell_ft"></div>
+</div></div>
+
+
+<!-- ================================================================================ -->
+<!-- 订单商品 -->
+<!-- ================================================================================ -->
+<div class="weui_cells order-cells">
+<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary order-header">微积分商城</div></div>
+<div class="weui_cell">
+    <div class="weui_cell_hd"><img class="goods-thumb" src="{{&bitmaps}}/common/thumb.jpg" width="72" height="72" /></div>
+    <div class="weui_cell_bd weui_cell_primary goods-detail">
+        <div class="goods-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文</div>
+        <div class="goods-prop">款式、颜色</div>
+        <div class="goods-rebate">返佣 <span>88</span> 积分</div>
+        <div class="goods-info"><span class="goods-price"><small>￥</small><span>280.00</span></span><span class="goods-origin">￥<span>1800.00</span></span></div>
+    </div>
+    <div class="weui_cell_ft">x <span class="goods-count">2</span></div>
+</div>
+<div class="weui_cell"><div class="autoresize weui_cell_bd weui_cell_primary"><div class="textwrap"></div>
+    <textarea class="order-message" placeholder="给卖家留言"></textarea></div></div>
+<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary">
+    <p class="total-rebate">全部返佣 <span class="rebate">22</span> 积分</p>
+</div></div>
+<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary">
+    <p class="total-desc">共 <span class="total-count">4</span> 件商品，合计 ￥<span class="total-amount">177.00</span></p>
+</div></div>
+
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 支付按钮 -->
+<!-- ================================================================================ -->
+<div class="order-controls weui_btn_group">
+    <a class="weui_btn weui_btn_primary" href="javascript:void(0);">微信支付</a>
+</div>
+
+
+
+
+
+
+{{>./widgets/footer}}
+</content>
+</main>
+
+
+</div><!--STAGE END-->
+{{>./partials/foottags}}
+</body>
+</html>

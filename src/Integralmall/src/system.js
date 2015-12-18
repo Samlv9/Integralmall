@@ -35,6 +35,111 @@ document.addEventListener("touchmove", function disableMovement( evt ) {
 });
 
 
-document.addEventListener("touchstart", function disableBehavior( evt ) {
-    evt.preventDefault();
-});
+/// TODU:
+/// 这里禁用 `click` 事件的 300ms 延时；
+var startX = 0;
+var startY = 0;
+var startT = 0;
+var identy = 0;
+var isMove = false;
+var threshold = 5;
+var holdDelay = 1000;
+
+
+function doTapClickHandler( evt ) {
+    if ( evt.type == "touchstart" ) {
+        if ( evt.targetTouches.length >= 2 ) {
+            return;
+        }
+
+        var target = evt.target;
+        var nodeName = target.nodeName.toLowerCase();
+        var nodeType = target.nodeType;
+
+        if ( (nodeType == 1) && (nodeName == "input" || nodeName == "textarea") ) {
+            /// 忽略 Input/Textarea；
+            return;
+        }
+
+        while( target && target != document ) {
+            if ( target.classList.contains(".not-click") ) {
+                /// 常规的 click 对象；
+                return;
+            }
+
+            target = target.parentNode;
+        }
+
+        isMove = false;
+        startT = Date.now();
+        identy = evt.targetTouches[0].identifier;
+        startX = evt.targetTouches[0].clientX;
+        startY = evt.targetTouches[0].clientY;
+        
+        document.addEventListener("touchmove", doTapClickHandler, true);
+        document.addEventListener("touchend" , doTapClickHandler, true);
+        document.addEventListener("touchcancel", doTapClickHandler, true);
+
+        /// 禁用默认的 click 事件调度；
+        evt.preventDefault();
+
+        /// 隐藏焦点状态；
+        if ( document.activeElement ) {
+            document.activeElement.blur();
+        }
+        return;
+    }
+
+    if ( evt.type == "touchmove" ) {
+        if ( isMove ) {
+            return;
+        }
+
+        var distX = evt.changedTouches[0].clientX - startX;
+        var distY = evt.changedTouches[0].clientY - startY;
+
+        if ( (distX * distX + distY * distY) <= (threshold * threshold) ) {
+            /// 移动距离小于阀值；
+            return;
+        }
+
+        isMove = true;
+        return;
+    }
+
+    if ( evt.type == "touchend" ) {
+        document.removeEventListener("touchmove", doTapClickHandler, true);
+        document.removeEventListener("touchend" , doTapClickHandler, true);
+        document.removeEventListener("touchcancel", doTapClickHandler, true);
+
+        if ( isMove ) {
+            return;
+        }
+
+        var type   = ((Date.now() - startT) >= holdDelay) ? "hold" : "click";
+        var touch  = evt.changedTouches[0];
+        var target = evt.target;
+        var event  = document.createEvent("MouseEvent");
+
+        event.initMouseEvent(
+            type, true, true, evt.view, evt.detail, 
+            touch.screenX, touch.screenY, touch.clientX, touch.clientY, 
+            false, false, false, false, 
+            0, null);
+        
+		target.dispatchEvent(event);
+        return;
+    }
+
+    if ( evt.type == "touchcancel" ) {
+        document.removeEventListener("touchmove", doTapClickHandler, true);
+        document.removeEventListener("touchend" , doTapClickHandler, true);
+        document.removeEventListener("touchcancel", doTapClickHandler, true);
+        return;
+    }
+}
+
+
+document.addEventListener("touchstart", doTapClickHandler);
+
+

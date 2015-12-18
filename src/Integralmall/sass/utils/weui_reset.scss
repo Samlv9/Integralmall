@@ -1,0 +1,42 @@
+﻿@import "../weui/base/fn";
+
+.weui_cells {
+    font-size: inherit;
+}
+
+.weui_cell_header .weui_cell_bd {
+    position: relative;
+
+    &:before {
+        display: block !important;
+        height: 1.414em;
+        content: " ";
+        border-left: 3px solid #04be02;
+        position: absolute;
+        left: -$gap15;
+        top: 0px;
+    }
+}
+
+.weui_cell_header {
+    &:active {
+        background-color: #ECECEC;
+    }
+}
+
+.weui_cell_footer {
+    color: $globalLinkColor;
+
+    &:active {
+        background-color: #ECECEC;
+    }
+
+    & .ui-icon {
+        margin-right: $gap5;
+    }
+}
+
+.weui_btn_group {
+    margin : 25px 0px;
+    padding: 0px $gap10;
+}

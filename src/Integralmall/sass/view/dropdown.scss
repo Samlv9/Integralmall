@@ -1,0 +1,24 @@
+﻿@import "../weui/base/fn";
+
+.drop-down {
+    & > .drop-container {
+        /*transition: height ease-out 0.2s;*/
+        overflow: hidden;
+    }
+
+    & > .drop-allow {
+        display: none;
+        line-height: 1;
+        text-align: center;
+        margin-top: 2px;
+
+        &:before {
+            content: " ";
+            @include setArrow_Wap(down, 6px, #D8D8CD, 2px);
+        }
+    }
+
+    &.drop-open > .drop-allow {
+        display: none !important;
+    }
+}

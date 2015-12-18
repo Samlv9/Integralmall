@@ -30,14 +30,11 @@
 /// <reference path='../view/Sprite.js' />
 /// <reference path='../view/ScrollContainer.js' />
 
+
 var PageBase = derive(Sprite, function PageBase( disableContainer ) {
     Sprite.call(this, document.body);
 
     /// 主滚动容器；
-    this._mainContainer = null;
-
-    if ( !disableContainer ) {
-        /// 自动创建主容器。
-        this._mainContainer = new ScrollContainer("#main");
-    }
+    this._mainContainer = new ScrollContainer("#main");;
 });
+

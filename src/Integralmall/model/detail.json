@@ -15,6 +15,42 @@
         }
     ],
 
+    "detailIntroImages": [
+        {
+            "path": "detail/intro/1.jpg"
+        },
+        {
+            "path": "detail/intro/2.jpg"
+        },
+        {
+            "path": "detail/intro/3.jpg"
+        },
+        {
+            "path": "detail/intro/4.jpg"
+        },
+        {
+            "path": "detail/intro/5.jpg"
+        },
+        {
+            "path": "detail/intro/6.jpg"
+        },
+        {
+            "path": "detail/intro/7.jpg"
+        },
+        {
+            "path": "detail/intro/8.jpg"
+        },
+        {
+            "path": "detail/intro/9.jpg"
+        },
+        {
+            "path": "detail/intro/10.jpg"
+        },
+        {
+            "path": "detail/intro/11.jpg"
+        }
+    ],
+
     "dependencies": [
         {
             "desc": "Swipe",

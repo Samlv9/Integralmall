@@ -1,0 +1,35 @@
+﻿@import "../weui/base/fn";
+@import "../mixins/utils";
+
+
+.toolbar {
+    z-index: 9;
+    display: flex;
+    position: absolute;
+    left  : 0px;
+    right : 0px;
+    bottom: 0px;
+    padding: $gap10 $gap10;
+    transform: translateY(100%);
+    transition: transform ease-in-out 0.3s;
+
+    @include backdrop(-1px);
+
+    & > .weui_btn {
+        font-size: 16px;
+        align-self: flex-start;
+    }
+
+    & > .weui_btn.weui_btn_default {
+        flex: 1;
+    }
+
+    & > .weui_btn + .weui_btn {
+        margin: 0;
+        margin-left: $gap10;
+    }
+
+    &.toolbar-showing {
+        transform: translateY(0);
+    }
+}

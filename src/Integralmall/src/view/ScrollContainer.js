@@ -44,6 +44,12 @@ var ScrollContainer = derive(Sprite, function ScrollContainer( selector ) {
     this._bounces = true;
     this._scrollXEnabled = false;
     this._scrollYEnabled = true;
+    this._scrollXIndicator = null;
+    this._scrollYIndicator = null;
+    this._scrollXTracker = null;
+    this._scrollYTracker = null;
+    this._disableIndicator = false;
+    this._resizeIndicator  = true;
 
     this._lockAtDir = ScrollDirection.NONE;
     this._startXval = 0;
@@ -71,6 +77,7 @@ var ScrollContainer = derive(Sprite, function ScrollContainer( selector ) {
     this._pullbkInt = 0;
     this._bounceInt = 0;
     this._threshold = 5;
+    this._timedelay = 0;
     this._amplsFactor    = 0.5;
     this._timeConstant   = 875;
     this._elasticFactor  = 0.35;
@@ -79,9 +86,11 @@ var ScrollContainer = derive(Sprite, function ScrollContainer( selector ) {
     this._forceDamping   = 0.85;
     this._speedThreshold = 10;
     this._maxEdgeBounces = 88;
+    this._dragDetection  = 200;
     this._doAutoScroll        = this._doAutoScroll.bind(this);
     this._doPullback          = this._doPullback.bind(this);
     this._doForceBounces      = this._doForceBounces.bind(this);
+    this._doScrollTo          = this._doScrollTo.bind(this);
     this._calcTouchesSpeed    = this._calcTouchesSpeed.bind(this);
     this._calcTouchesPosition = this._calcTouchesPosition.bind(this);
     this._drawScrollContainer = this._drawScrollContainer.bind(this);
@@ -116,6 +125,24 @@ Object.defineProperties(ScrollContainer.prototype, {
     bounces: {
         get: function () { return this._bounces; },
         set: function( value ) { this._bounces = value; }
+    },
+
+    /// <field type='Number'>
+    /// 指示是否显示滚动位置指示器。</field>
+    disableIndicator: {
+        get: function () { return this._disableIndicator; },
+        set: function( value ) {
+            this._disableIndicator = value;
+        }
+    },
+
+    /// <field type='Boolean'>
+    /// 指示是否动态调整滚动位置指示器的大小。</field>
+    resizeIndicator: {
+        get: function () { return this._resizeIndicator; },
+        set: function( value ) {
+            this._resizeIndicator = value;
+        }
     },
 
     /// <field type='Number'>
@@ -260,6 +287,8 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
         this._velocYval = 0;
         this._forceXval = 0;
         this._forceYval = 0;
+        //this._speedXval = 0;
+        //this._speedYval = 0;
         this._startXval = this.scrollX;
         this._startYval = this.scrollY;
         this._tickerInt = requestAnimation(this._calcTouchesSpeed);
@@ -307,6 +336,8 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             else {
                 this.scrollX = this.scrollX + movedXval;
             }
+
+            this._showIndicator(0, 1);
         } 
             
         if ( this._lockAtDir == ScrollDirection.Y_AXIS || this._lockAtDir == ScrollDirection.XY_AXIS ) {
@@ -319,6 +350,8 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             else {
                 this.scrollY = this.scrollY + movedYval;
             }
+
+            this._showIndicator(1, 1);
         }
 
         if ( doPrevent ) {
@@ -381,6 +414,10 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
                 this._velocXval = this._amplsFactor * this._speedXval;
                 this._distsXval = this.scrollX + this._velocXval;
             }
+
+            else {
+                this._showIndicator(0, 0);
+            }
         }
 
         if ( !(doPullYs) && (this._lockAtDir == ScrollDirection.Y_AXIS || this._lockAtDir == ScrollDirection.XY_AXIS) ) {
@@ -389,6 +426,15 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
                 this._velocYval = this._amplsFactor * this._speedYval;
                 this._distsYval = this.scrollY + this._velocYval;
             }
+
+            else {
+                this._showIndicator(1, 0);
+            }
+        }
+
+        if ( this._lockAtDir == ScrollDirection.NONE ) {
+            this._showIndicator(0, 0);
+            this._showIndicator(1, 0);
         }
 
         if ( doPullXs || doPullYs ) {
@@ -400,7 +446,22 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
         if ( doScroll ) {
             this._timestamp = timeNow();
             this._scrollInt = requestAnimation(this._doAutoScroll);
+
+            var dragEvent = new Event("drag", false, false);
+                dragEvent.vx = this._velocXval;
+                dragEvent.vy = this._velocYval;
+
+            this.dispatchEvent( dragEvent );
         }
+        
+        //if ( evt.type == "touchend" && this._lockAtDir == ScrollDirection.NONE) {
+        //    /// 触发 tap 事件；
+        //    var tapEvent = document.createEvent("Event");
+        //        tapEvent.initEvent("tap", true, true);
+
+        //    var target = evt.target;
+        //    target.dispatchEvent( tapEvent);
+        //}
 
         return;
     }
@@ -494,6 +555,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             dist = this._distsXval + dist;
             this._forceXval = 0.8 * (dist - this.scrollX) + 0.2 * this._forceXval;
             this.scrollX = dist;
+            this._showIndicator(0, 1);
         }
 
         else {
@@ -501,6 +563,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             this._forceXval = 0.8 * (dist - this.scrollX) + 0.2 * this._forceXval;
             this.scrollX = dist;
             this._velocXval = 0;
+            this._showIndicator(0, 0);
         }
 
         if ( dist > 0 || dist < -this.scrollWidth ) {
@@ -523,6 +586,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             dist = this._distsYval + dist;
             this._forceYval = 0.8 * (dist - this.scrollY) + 0.2 * this._forceYval;
             this.scrollY = dist;
+            this._showIndicator(1, 1);
         }
 
         else {
@@ -530,6 +594,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             this._forceYval = 0.8 * (dist - this.scrollY) + 0.2 * this._forceYval;
             this.scrollY = dist;
             this._velocYval = 0;
+            this._showIndicator(1, 0);
         }
 
         if ( dist > 0 || dist < -this.scrollHeight ) {
@@ -569,11 +634,13 @@ ScrollContainer.prototype._doPullback = function _doPullback () {
         if ( Math.abs(dist) >= 0.5 ) {
             next = true;
             this.scrollX = this._targtXval + dist;
+            this._showIndicator(0, 1);
         }
 
         else {
             this.scrollX = this._targtXval;
             this._amplsXval = 0;
+            this._showIndicator(0, 0);
         }
     }
 
@@ -583,11 +650,13 @@ ScrollContainer.prototype._doPullback = function _doPullback () {
         if ( Math.abs(dist) >= 0.5 ) {
             next = true;
             this.scrollY = this._targtYval + dist;
+            this._showIndicator(1, 1);
         }
 
         else {
             this.scrollY = this._targtYval;
             this._amplsYval = 0;
+            this._showIndicator(1, 0);
         }
     }
 
@@ -614,11 +683,13 @@ ScrollContainer.prototype._doForceBounces = function _doForceBounces() {
         if ( Math.abs(this._forceXval) >= 0.001 ) {
             next = true;
             this.scrollX += this._forceXval * this._elasticFactor;
+            this._showIndicator(0, 1);
         }
 
         else {
             this._forceXval = 0;
             this.scrollX = this._edgesXval;
+            this._showIndicator(0, 0);
         }
     }
 
@@ -631,15 +702,160 @@ ScrollContainer.prototype._doForceBounces = function _doForceBounces() {
         if ( Math.abs(this._forceYval) >= 0.001 ) {
             next = true;
             this.scrollY += this._forceYval * this._elasticFactor;
+            this._showIndicator(1, 1);
         }
 
         else {
             this._forceYval = 0;
             this.scrollY = this._edgesYval;
+            this._showIndicator(1, 0);
         }
     }
 
     if ( next ) {
         this._bounceInt = requestAnimation(this._doForceBounces);
+    }
+}
+
+
+ScrollContainer.prototype.scrollTo = function scrollTo( time, x, y ) {
+    /// 手动滚动；
+    this._stopAllDelayTimer();
+
+    this._distsXval = x;
+    this._distsYval = y;
+    this._velocXval = this._distsXval - this.scrollX;
+    this._velocYval = this._distsYval - this.scrollY;
+    this._timedelay = time;
+    this._timestamp = timeNow();
+    this._scrollInt = requestAnimation(this._doScrollTo);
+}
+
+
+ScrollContainer.prototype._doScrollTo = function _doScrollTo() {
+    var time = timeNow() - this._timestamp;
+    var next = false;
+
+    if ( (time < this._timedelay) && (this._timedelay > 0) ) {
+        if ( Math.abs(this._velocXval) > 0.001 ) {
+            next = true;
+            this.scrollX = (this._distsXval - this._velocXval) + this._velocXval * (time / this._timedelay);
+        }
+
+        if ( Math.abs(this._velocYval) > 0.001 ) {
+            next = true;
+            this.scrollY = (this._distsYval - this._velocYval) + this._velocYval * (time / this._timedelay);
+        }
+
+        if ( next ) {
+            this._scrollInt = requestAnimation(this._doScrollTo);
+        }
+    }
+
+    else {
+        this.scrollX = this._distsXval;
+        this.scrollY = this._distsYval;
+    }
+}
+
+
+ScrollContainer.prototype._stopAllDelayTimer = function _stopAllDelayTimer() {
+    cancelAnimation(this._pullbkInt);
+    cancelAnimation(this._scrollInt);
+    cancelAnimation(this._bounceInt);
+    cancelAnimation(this._tickerInt);
+}
+
+
+ScrollContainer.prototype._showIndicator = function _showIndicator( type, alpha ) {
+    /// 显示/绘制/更新滚动位置指示器。
+
+    if ( this._disableIndicator ) {
+        /// 禁止显示指示器
+        return;
+    }
+
+    this._createIndicator();
+
+    if ( type == 0 && this._scrollXTracker ) {
+        if ( alpha == 1 ) {
+            this._updateIndicator(type);
+            this._scrollXTracker.natural.classList.remove("scroll-track-showing");
+        }
+
+        else {
+            this._scrollXTracker.natural.classList.remove("scroll-track-showing");
+        }
+    }
+
+    if ( type == 1 && this._scrollYTracker ) {
+        if ( alpha == 1 ) {
+            this._updateIndicator(type);
+            this._scrollYTracker.natural.classList.add("scroll-track-showing");
+        }
+
+        else {
+            this._scrollYTracker.natural.classList.remove("scroll-track-showing");
+        }
+    }
+}
+
+
+ScrollContainer.prototype._createIndicator = function _createIndicator() {
+    if ( this.scrollXEnabled && !this._scrollXIndicator ) {
+        this._scrollXTracker = new Sprite(document.createElement("div"));
+        this._scrollXTracker.natural.className = "scroll-track scroll-x-track";
+        this._scrollXIndicator = new Sprite(document.createElement("div"));
+        this._scrollXIndicator.natural.className = "scroll-indicator";
+
+        this._scrollXTracker.natural.appendChild(this._scrollXIndicator.natural);
+        this.natural.appendChild(this._scrollXTracker.natural);
+    }
+
+    if ( this.scrollYEnabled && !this._scrollYIndicator ) {
+        this._scrollYTracker = new Sprite(document.createElement("div"));
+        this._scrollYTracker.natural.className = "scroll-track scroll-y-track";
+        this._scrollYIndicator = new Sprite(document.createElement("div"));
+        this._scrollYIndicator.natural.className = "scroll-indicator";
+
+        this._scrollYTracker.natural.appendChild(this._scrollYIndicator.natural);
+        this.natural.appendChild(this._scrollYTracker.natural);
+    }
+}
+
+
+ScrollContainer.prototype._updateIndicator = function _updateIndicator( type ) {
+    if ( type == 0 ) {
+        var scale = ((this.width <= 0 || this.contentWidth <= 0) ? 0 : this.width / this.contentWidth);
+        var value = (this.scrollX > 0 ? 0 : this.scrollX < -this.scrollWidth ? this.scrollWidth : -this.scrollX);
+        var percent = (this.scrollWidth <= 0 ? (this.scrollY >= 0 ? 0 : 1) : value / this.scrollWidth);
+
+
+        if ( this.resizeIndicator ) {
+            var width = this._scrollXTracker.width * scale;
+            var flowX = this.scrollX > 0 ? this.scrollX : this.scrollX < -this.scrollWidth ? -this.scrollWidth - this.scrollX : 0;
+                flowX = (width <= 0 ? 0 : 1 - Math.min(1, flowX / width)); 
+
+            this._scrollXIndicator.natural.style.width = (width * flowX) + "px";
+        }
+
+        this._scrollXIndicator.x = Math.max(0, this._scrollXTracker.width - this._scrollXIndicator.width) * percent;
+    }
+
+    if ( type == 1 ) {
+        var scale = ((this.height <= 0 || this.contentHeight <= 0) ? 0 : this.height / this.contentHeight);
+        var value = (this.scrollY > 0 ? 0 : this.scrollY < -this.scrollHeight ? this.scrollHeight : -this.scrollY);
+        var percent = (this.scrollHeight <= 0 ? (this.scrollY >= 0 ? 0 : 1) : value / this.scrollHeight);
+
+
+        if ( this.resizeIndicator ) {
+            var height = this._scrollYTracker.height * scale;
+            var flowY  = this.scrollY > 0 ? this.scrollY : this.scrollY < -this.scrollHeight ? -this.scrollHeight - this.scrollY : 0;
+                flowY = (height <= 0 ? 0 : 1 - Math.min(1, flowY / height)); 
+
+            this._scrollYIndicator.natural.style.height = (height * flowY) + "px";
+        }
+
+        this._scrollYIndicator.y = Math.max(0, this._scrollYTracker.height - this._scrollYIndicator.height) * percent;
     }
 }
