@@ -45,7 +45,7 @@ var reference    = require("./toolkit/reference");
 var pse2class    = require("./toolkit/pse2class");
 
 
-const __WEBROOT__   = "./wwwroot";
+const __WEBROOT__   = "./wwwroot"; 
 const __RESOURCES__ = "resources";
 const __BITMAPS__   = __RESOURCES__ + "/bitmaps";
 const __CDNIMG__    = __RESOURCES__ + "/bitmaps/cdn"
