@@ -458,6 +458,10 @@
             margin-right: $gap10;
             margin-top: $gap10;
         }
+
+        & .counter {
+            margin-top: $gap10;
+        }
     }
 
     & > .option-chooser-title {
