@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+{{>./partials/headtags}}</head>
+<body><div id="stage">
+<main id="main" class="scroll-container">
+{{>./widgets/fixtop}}
+<content id="content">
+{{>./widgets/header}}
+
+
+<!-- ================================================================================ -->
+<!-- 返佣金额 -->
+<!-- ================================================================================ -->
+<div id="rebate">
+    <div class="rebate-amount">88,612,736.00</div>
+    <div class="rebate-description">累计返佣收益</div>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 合作伙伴列表 -->
+<!-- ================================================================================ -->
+<div id="listPartnerTitle" class="weui_cells_title">我的合伙人</div>
+<div id="listPartner" class="weui_cells weui_cells_access">
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><img class="avatar" src="{{&bitmaps}}/common/avatar.jpg" width="36" height="36" /></div>
+        <div class="weui_cell_bd weui_cell_primary">老先生</div>
+        <div class="weui_cell_ft"><span class="amount">20.00</span></div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><img class="avatar" src="{{&bitmaps}}/common/avatar.jpg" width="36" height="36" /></div>
+        <div class="weui_cell_bd weui_cell_primary">老先生</div>
+        <div class="weui_cell_ft"><span class="amount">20.00</span></div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><img class="avatar" src="{{&bitmaps}}/common/avatar.jpg" width="36" height="36" /></div>
+        <div class="weui_cell_bd weui_cell_primary">老先生</div>
+        <div class="weui_cell_ft"><span class="amount">20.00</span></div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><img class="avatar" src="{{&bitmaps}}/common/avatar.jpg" width="36" height="36" /></div>
+        <div class="weui_cell_bd weui_cell_primary">老先生</div>
+        <div class="weui_cell_ft"><span class="amount no-data">最近无返佣</span></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{{>./widgets/footer}}
+</content>
+</main>
+
+
+</div><!--STAGE END-->
+{{>./partials/foottags}}
+</body>
+</html>

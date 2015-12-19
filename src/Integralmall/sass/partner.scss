@@ -1,0 +1,65 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+/*@import "./view/uiicon";*/
+@import "./view/scrollcontainer";
+
+@import "./weui/base/fn";
+/*@import "./weui/icon/weui_icon_font";*/
+/*@import "./weui/widget/weui_button/weui_button";*/
+@import "./weui/widget/weui_cell/weui_cell_global";
+/*@import "./weui/widget/weui_cell/weui_form";*/
+@import "./weui/widget/weui_cell/weui_access";
+
+/*@import "./utils/weui_reset";*/
+
+
+#rebate {
+    margin-top: 40px;
+    text-align: center;
+
+    .rebate-amount {
+        font-size: 30px;
+        color: #04be02;
+        line-height: 1;
+    }
+
+    .rebate-description {
+        font-size: 16px;
+        color: #808080;
+    }
+}
+
+
+#listPartnerTitle {
+    padding: 0px $gap10;
+
+}
+
+
+#listPartner {
+    .avatar {
+        display: block;
+        width: 36px;
+        height: 36px;
+    }
+
+    .amount {
+        margin-right: $gap5;
+
+        &:not(.no-data) {
+            color: #04be02;
+            &:before {
+                content: "+";
+            }
+        }
+    }
+
+    .weui_cell {
+        padding: $gap10;
+    }
+
+    .weui_cell_bd {
+        margin-left: $gap10;
+    }
+}

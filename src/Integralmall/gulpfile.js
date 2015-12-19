@@ -145,7 +145,10 @@ gulp.task("build:sass", ["update"], function () {
         "sass/order.scss",
 
         /* 用户中心 */
-        "sass/usercenter.scss"
+        "sass/usercenter.scss",
+
+        /* 我的合伙人 */
+        "sass/partner.scss"
     ])
     .pipe(sourcemaps.init())
     .pipe(sass({ "outputStyle":"compressed" }).on("error", console.log))
@@ -169,7 +172,11 @@ gulp.task("build:script", ["update"], function () {
         "src/order.js",
 
         /* 用户中心 */
-        "src/usercenter.js"
+        "src/usercenter.js",
+
+        /* 我的合伙人 */
+        "src/partner.js"
+
     ])
     .pipe(sourcemaps.init())
     .pipe(reference())
@@ -193,7 +200,10 @@ gulp.task("build:templates", ["update"], function () {
         "tmpl/order.html",
 
         /* 用户中心页 */
-        "tmpl/usercenter.html"
+        "tmpl/usercenter.html",
+
+        /* 我的合伙人 */
+        "tmpl/partner.html"
         
     ])
     .pipe(data(function(file) {
