@@ -104,7 +104,9 @@ function WeShowDialog( dialog, dispatcher, callback ) {
         while( target && target != dialog ) {
             if ( target.classList.contains("dialog-cancel") ) {
                 document.body.removeChild(dialog);
-                callback.call(dispatcher, +(target.getAttribute("data-rogs")), target, evt);
+                if ( typeof callback == "function" ) {
+                    callback.call(dispatcher || window, +(target.getAttribute("data-rogs")), target, evt);
+                }
                 return;
             }
 
