@@ -156,6 +156,10 @@
     .goods-header {
         position: relative;
         padding: $gap10 $gap15;
+
+        &:before {
+            @include setTopLine($weuiCellBorderColor);
+        }
     }
 
     .goods-share {
