@@ -42,5 +42,10 @@ var PageBase = derive(Sprite, function PageBase( disableContainer ) {
     if ( !disableContainer ) {
         this._mainContainer = new ScrollContainer("#main");
     }
+
+    /// 页面加载完成；
+    window.addEventListener("load", function( evt ) {
+        document.body.classList.add("body-load");
+    });
 });
 

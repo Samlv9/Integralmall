@@ -376,12 +376,18 @@
     width: 58px;
     height: 59px;
     z-index: 5;
+    transform: translateY(-80px) translateZ(0px);
     /*border-radius: 4px;*/
     /*overflow: hidden;*/
     /*background: #fff;*/
     /*border: 1px solid #fff;*/
     background: url(../bitmaps/common/avatar.png) no-repeat 0px 0px;
     background-size: cover;
+
+    .body-load & {
+        transition: transform ease-in-out 0.3s;
+        transform: translateY(0px) translateZ(0px);
+    }
 
     & > img {
         display: block;
