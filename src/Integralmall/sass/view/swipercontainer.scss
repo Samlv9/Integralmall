@@ -3,6 +3,10 @@
         display: block;
     }
 
+    & .swiper-pagination {
+        white-space: nowrap;
+    }
+
     & .swiper-image {
         display: inline-block;
         vertical-align: top;
