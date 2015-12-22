@@ -198,10 +198,10 @@ Page.prototype._sideScrollHandler = function _sideScrollHandler( evt ) {
     var factor = Math.min(this._fadeTopDistance, Math.max(0, -this._sideContainer.scrollY - this._allowScrollSize)) / this._fadeTopDistance;
     this._topbar.y = -(1 - factor) * this._topbar.height;
 
-    var showToptip = Preferences.get("showToptip", false) || 0;
+    var showToptip = Preferences.get("showToptip", true) || 0;
 
     if ( !showToptip && (-this._sideContainer.scrollY >= (this._allowScrollSize + this._fadeTopDistance)) ) {
-        Preferences.set("showToptip", 1, false);
+        Preferences.set("showToptip", 1, true);
 
         this._topbar.natural.classList.add("tooltip-showing");
     }
