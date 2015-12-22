@@ -85,7 +85,7 @@ var ScrollContainer = derive(Sprite, function ScrollContainer( selector ) {
     this._timePullFactor = 0.15;
     this._forceDamping   = 0.85;
     this._speedThreshold = 10;
-    this._maxEdgeBounces = 88;
+    this._maxTopEdgeBounces = -1;
     this._dragDetection  = 200;
     this._doAutoScroll        = this._doAutoScroll.bind(this);
     this._doPullback          = this._doPullback.bind(this);
@@ -115,6 +115,10 @@ Object.defineProperties(ScrollContainer.prototype, {
     scrollY: {
         get: function () { return this._scrollY; },
         set: function( value ) { 
+            if ( this.maxTopEdgeBounces >= 0 ) {
+                value = Math.min(this.maxTopEdgeBounces, value);
+            }
+
             this._scrollY = value;
             this._drawScrollPosition();
         }
@@ -194,6 +198,15 @@ Object.defineProperties(ScrollContainer.prototype, {
     threshold: {
         get: function () { return this._threshold; },
         set: function( value ) { this._threshold = value; }
+    },
+
+    /// <field type='Number'>
+    /// 限制头部最大可拉动距离。</field>
+    maxTopEdgeBounces: {
+        get: function () { return this._maxTopEdgeBounces; },
+        set: function( value ) {
+            this._maxTopEdgeBounces = value;
+        }
     }
 });
 
@@ -221,21 +234,21 @@ ScrollContainer.prototype._setScrollPosition = function _setScrollPosition( scro
     /// <summary>
     /// 根据滚动位置更新 DOM 位置。</summary>
 
-    if ( scrollX > this._maxEdgeBounces ) {
-        scrollX = this._maxEdgeBounces;
-    }
+    //if ( scrollX > this._maxEdgeBounces ) {
+    //    scrollX = this._maxEdgeBounces;
+    //}
 
-    if ( scrollY > this._maxEdgeBounces ) {
-        scrollY = this._maxEdgeBounces;
-    }
+    //if ( scrollY > this._maxEdgeBounces ) {
+    //    scrollY = this._maxEdgeBounces;
+    //}
 
-    if ( scrollX < -this.scrollWidth - this._maxEdgeBounces ) {
-        scrollX = -this.scrollWidth - this._maxEdgeBounces;
-    }
+    //if ( scrollX < -this.scrollWidth - this._maxEdgeBounces ) {
+    //    scrollX = -this.scrollWidth - this._maxEdgeBounces;
+    //}
 
-    if ( scrollY < -this.scrollHeight - this._maxEdgeBounces ) {
-        scrollY = -this.scrollHeight - this._maxEdgeBounces;
-    }
+    //if ( scrollY < -this.scrollHeight - this._maxEdgeBounces ) {
+    //    scrollY = -this.scrollHeight - this._maxEdgeBounces;
+    //}
 
     /// TIPS: 子类可自行覆盖实现下拉刷新等效果。
     this._content.transform(scrollX, scrollY);

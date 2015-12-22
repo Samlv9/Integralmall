@@ -33,6 +33,7 @@
 /// <reference path='view/Overlay.js' />
 /// <reference path='view/Dropdown.js' />
 /// <reference path='utils/Preferences.js' />
+/// <reference path='view/WeDialog.js' />
 
 
 var Page = derive(PageBase, function Page() {
@@ -46,6 +47,9 @@ var Page = derive(PageBase, function Page() {
     this._allowScrollSize = 100;
     this._isShowMore = false;
     this._isLoadMore = false;
+
+    this._buyNow = false;
+    this._isAjax = false;
 
     /// 图片轮播插件；
     this._swiperSprite = new Sprite("#detailSwiper");
@@ -65,16 +69,24 @@ var Page = derive(PageBase, function Page() {
 
     /// 简介页面容器；
     this._mainContainer.disableIndicator = true;
+    this._mainContainer.maxTopEdgeBounces = 64;
     this._avatar = new Sprite("#avatar");
     this._intros = new Sprite("#detailIntroduct");
 
     /// 详情页面容器；
     this._sideContainer = new ScrollContainer("#side");
+    this._sideContainer.maxTopEdgeBounces = 88;
 
     /// 属性选择容器；
     this._optionOverlay   = new Overlay("#optionOverlay");
     this._optionContainer = new ScrollContainer("#option");
     this._optionTrigger   = new Sprite("#optionTrigger");
+
+
+    /// 立即购买
+    this._buyNowTrigger = $(".buyNow");
+    /// 选择属性确认按钮
+    this._chooseAttribute = $("#choose-attribute");
 
     /// 规格参数层；
     this._specOverlay = new Overlay("#specOverlay");
@@ -89,7 +101,12 @@ var Page = derive(PageBase, function Page() {
     /// dropdown
     this._descDropdown = new Dropdown("#descDropdown");
 
+    /// 分享提示层
+    this._shareButton = $(".share-button");
+    this._shareTipLayer = null;
+
     /// 事件处理；
+    this._showShareTipLayer = this._showShareTipLayer.bind(this);
     this._viewPullUpHandler = this._viewPullUpHandler.bind(this);
     this._viewScrollHandler = this._viewScrollHandler.bind(this);
     this._sidePullUpHandler = this._sidePullUpHandler.bind(this);
@@ -99,6 +116,11 @@ var Page = derive(PageBase, function Page() {
     this._showOptionLayer = this._showOptionLayer.bind(this);
     this._showSpecLayer = this._showSpecLayer.bind(this);
     this._sidePullDownHandler = this._sidePullDownHandler.bind(this);
+    this._chooseAttributeconfirm = this._chooseAttributeconfirm.bind(this);
+    this._showBuyNowOptionLayer = this._showBuyNowOptionLayer.bind(this);
+    this._sendAjax = this._sendAjax.bind(this);
+
+    this._confirmAjax = this._confirmAjax.bind(this);
 
     this._mainContainer.addEventListener("pull"  , this._viewPullUpHandler);
     this._mainContainer.addEventListener("scroll", this._viewScrollHandler);
@@ -109,9 +131,115 @@ var Page = derive(PageBase, function Page() {
     this._topbar.natural.addEventListener("click", this._topbarClickHandler);
     this._optionTrigger.natural.addEventListener("click", this._showOptionLayer);
     this._specTrigger.natural.addEventListener("click", this._showSpecLayer);
+    this._shareButton.on("click", this._showShareTipLayer);
+
+    this._buyNowTrigger.on("click", this._showBuyNowOptionLayer);
+    this._chooseAttribute.on("click", this._chooseAttributeconfirm);
+
 });
 
+Page.prototype._chooseAttributeconfirm = function( evt ){
+    /// 选择属性确认按钮
+    var product_attributes = $(".product-attributes");
+    //skuID
+    var sku_prop_id = '';
+    //sku名字 返回时使用
+    var sku_prop_name = '';
+    //数量
+    var num = $('.weui_input.counter-input').val();
+    for(var i = 0; i < product_attributes.length; i++){
+        var ratio_val = $("input[name='"+i+"']:checked").val();
+        var ratio_text = $("input[name='"+i+"']:checked").next().text();
+        if(typeof ratio_val == 'undefined'){
+            var attributes_value = product_attributes.eq(i).find(".option-chooser-title").text();
+            WeAlert('温馨提示', '请选择 '+attributes_value, this, this._alertAfter);
+            return;
+        }else{
+            sku_prop_id += ratio_val + ';';
+            sku_prop_name += ratio_text + '、';
+        }
+    }
+    $("#formOptionOutput").text(sku_prop_name + num + '件');
+    $("#sku_id").val(sku_prop_id);
+    $("#num_id").val(num);
 
+    if(product_attributes.length < 0 && sku_prop_id == ''){
+        WeAlert('温馨提示', '请选择 完整的属性 ', this, this._alertAfter);
+        return;
+    }
+    this._sendAjax(num,sku_prop_id,evt.currentTarget);
+
+
+}
+////**jiajia start**///
+
+Page.prototype._alertAfter = function(status, dom, evt){
+
+}
+
+Page.prototype._showBuyNowOptionLayer = function( evt ){
+    /// <summary>
+    /// 立即购买处理；</summary>
+    var product_attributes = $(".product-attributes").length;
+    if($(evt.currentTarget).hasClass("buyNow")){
+        this._buyNow = true;
+    }
+    if(product_attributes > 0  && $("#checkout-after-data").val() == ''){
+        this._optionOverlay.open();
+    }else if(product_attributes == 0 && $("#num_id").val() == ''){
+        this._optionOverlay.open();
+    }else{
+        var sku_prop_id = $("#sku_id").val();
+        var num         = $(".weui_input.counter-input").val();
+        this._sendAjax(num,sku_prop_id,evt.currentTarget);
+    }
+}
+
+
+Page.prototype._sendAjax = function(num,sku_prop_id,currentTarget){
+    /// <summary>
+    /// 发送ajax检验库存等信息；</summary>
+    if(!!(this._isAjax)){
+        return;
+    }
+
+    this._isAjax = true;
+    if($(currentTarget).hasClass("buyNow")){
+        //立即购买 ajax成功后提交表单
+        this._buyNow = true;
+    }
+    var csrf  = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        type: "post",
+        url: this._appConfigParam.POST_URL,
+        data: {
+            id:$("#goods_id").val(),
+            sid:$("#share_id").val(),
+            num:num,sku:sku_prop_id,
+            _csrf:csrf
+        },
+        dataType: "json",
+        success: this._confirmAjax
+    });
+
+}
+
+Page.prototype._confirmAjax = function(data, textStatus, jqXHR){
+    this._isAjax = false;
+    if(data.status == true){
+        $("#checkout-after-data").val(data.data);
+        if(this._buyNow){
+            //提交表单
+            $('#order-form').submit();
+            return ;
+        }
+        this._optionOverlay.close();
+    }else{
+        WeAlert('温馨提示', data.message, this, this._alertAfter, {});
+    }
+}
+
+////**jiajia end**///
 
 Page.prototype._viewPullUpHandler = function _viewPullUpHandler( evt ) {
     /// 查看更多
@@ -274,6 +402,7 @@ Page.prototype._showOptionLayer = function _showOptionLayer() {
     /// <summary>
     /// 显示选项弹出层；</summary>
 
+
     this._optionOverlay.open();
 }
 
@@ -283,4 +412,25 @@ Page.prototype._showSpecLayer = function _showSpecLayer() {
     /// 显示规格参数层；</summary>
 
     this._specOverlay.open();
+}
+
+
+Page.prototype._cancelOverlayHandler = function _cancelOverlayHandler( evt ) {
+    evt.preventDefault();
+    evt.stopPropagation();
+
+    this.close();
+}
+
+
+Page.prototype._showShareTipLayer = function _showShareTipLayer( evt ) {
+    if ( !this._shareTipLayer ) {
+        this._shareTipLayer = document.createElement("div");
+        this._shareTipLayer.className = "share-layer";
+        this._shareTipLayer.addEventListener("click", function( evt ) {
+            document.body.removeChild(this);
+        });
+    }
+
+    document.body.appendChild(this._shareTipLayer);
 }
