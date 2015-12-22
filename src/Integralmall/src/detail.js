@@ -70,6 +70,7 @@ var Page = derive(PageBase, function Page() {
     /// 简介页面容器；
     this._mainContainer.disableIndicator = true;
     this._mainContainer.maxTopEdgeBounces = 64;
+    this._resetAvatarTransition = false;
     this._avatar = new Sprite("#avatar");
     this._intros = new Sprite("#detailIntroduct");
 
@@ -282,6 +283,12 @@ Page.prototype._viewScrollHandler = function _viewScrollHandler( evt ) {
 
     /// 头像位置；
     this._avatar.y = offset - (this._avatar.height + this._avatarOverlay);
+
+    if ( !this._resetAvatarTransition ) {
+        this._resetAvatarTransition = true;
+        this._avatar.natural.style.transition = 
+        this._avatar.natural.style.webkitTransition = "none";
+    }
 
     /// 更新 Swiper 的偏移位置；
     this._swiperSprite.y = Math.min(this._swiperSprite.height, Math.max(0, -this._mainContainer.scrollY) * 0.5);
