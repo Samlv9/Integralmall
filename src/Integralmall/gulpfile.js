@@ -148,7 +148,20 @@ gulp.task("build:sass", ["update"], function () {
         "sass/usercenter.scss",
 
         /* 我的合伙人 */
-        "sass/partner.scss"
+        "sass/partner.scss",
+
+        /* 订单查询 */
+        "sass/query.scss",
+
+        /* 订单详情 */
+        "sass/result.scss",
+
+        /* 物流详情 */
+        "sass/express.scss",
+
+
+        /* 404 页面 */
+        "sass/404.scss"
     ])
     .pipe(sourcemaps.init())
     .pipe(sass({ "outputStyle":"compressed" }).on("error", console.log))
@@ -175,7 +188,20 @@ gulp.task("build:script", ["update"], function () {
         "src/usercenter.js",
 
         /* 我的合伙人 */
-        "src/partner.js"
+        "src/partner.js",
+
+        /* 订单查询 */
+        "src/query.js",
+
+        /* 订单详情 */
+        "src/result.js",
+
+        /* 物流详情 */
+        "src/express.js",
+
+
+        /* 404 */
+        "src/404.js"
 
     ])
     .pipe(sourcemaps.init())
@@ -203,7 +229,19 @@ gulp.task("build:templates", ["update"], function () {
         "tmpl/usercenter.html",
 
         /* 我的合伙人 */
-        "tmpl/partner.html"
+        "tmpl/partner.html",
+
+        /* 订单查询 */
+        "tmpl/query.html",
+
+        /* 订单详情 */
+        "tmpl/result.html",
+
+        /* 物流详情 */
+        "tmpl/express.html",
+
+        /* 404 */
+        "tmpl/404.html"
         
     ])
     .pipe(data(function(file) {

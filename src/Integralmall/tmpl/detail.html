@@ -23,7 +23,7 @@
 <div id="detailSwiper" class="swiper-container"><div class="swiper-pagination"></div>
     <div class="swiper-wrapper">
     {{#detailImages}}
-        <a class="swiper-slide" href="{{&link}}"><img class="swiper-image" src="{{&cdnImg}}/{{&path}}" /></a>
+        <a class="swiper-slide" href="{{&link}}"><img class="swiper-image swiper-lazy" data-src="{{&cdnImg}}/{{&path}}" /><span class="swiper-lazy-preloader"></span></a>
     {{/detailImages}}
     </div>
 </div>
@@ -136,7 +136,7 @@
 <!-- ================================================================================ -->
 <!-- 详情页面固定头部 -->
 <!-- ================================================================================ -->
-<header id="detTop" class="tooltip tooltip-S" data-label="轻触返回顶部"><nav class="detnav">
+<header id="detTop" data-label="轻触返回顶部"><nav class="detnav">
     <div class="detimage"><img src="{{&cdnImg}}/detail/banner/1.jpg" /></div>
     <div class="detprice">￥<span>280.00</span></div>
     <div class="dettitle">商品名称- 很长很长的文字很长很长的文字很长很长的文字很长很长的文字</div>

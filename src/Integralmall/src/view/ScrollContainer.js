@@ -187,6 +187,13 @@ Object.defineProperties(ScrollContainer.prototype, {
     /// 获取内容元素容器对象。</field>
     content: {
         get: function () { return this._content; }
+    },
+
+    /// <field type='Number'>
+    /// 设置 touchmove 阀值。</field>
+    threshold: {
+        get: function () { return this._threshold; },
+        set: function( value ) { this._threshold = value; }
     }
 });
 
@@ -307,11 +314,11 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
 
 
         if ( this._lockAtDir == ScrollDirection.NONE ) {
-            if ( this.scrollXEnabled && Math.abs(movedXval) > this._threshold ) {
+            if ( Math.abs(movedXval) > this._threshold ) {
                 this._lockAtDir = ScrollDirection.X_AXIS;
             }
 
-            if ( this.scrollYEnabled && Math.abs(movedYval) > this._threshold ) {
+            if ( Math.abs(movedYval) > this._threshold ) {
                 if ( this._lockAtDir == ScrollDirection.X_AXIS ) {
                     this._lockAtDir = ScrollDirection.XY_AXIS;
                 }
@@ -326,7 +333,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             }
         }
 
-        if ( this._lockAtDir == ScrollDirection.X_AXIS || this._lockAtDir == ScrollDirection.XY_AXIS ) {
+        if ( this.scrollXEnabled && (this._lockAtDir == ScrollDirection.X_AXIS || this._lockAtDir == ScrollDirection.XY_AXIS) ) {
             doPrevent = true;
 
             if ( this.scrollX > 0 || this.scrollX < -this.scrollWidth ) {
@@ -340,7 +347,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             this._showIndicator(0, 1);
         } 
             
-        if ( this._lockAtDir == ScrollDirection.Y_AXIS || this._lockAtDir == ScrollDirection.XY_AXIS ) {
+        if ( this.scrollYEnabled && (this._lockAtDir == ScrollDirection.Y_AXIS || this._lockAtDir == ScrollDirection.XY_AXIS) ) {
             doPrevent = true;
 
             if ( this.scrollY > 0 || this.scrollY < -this.scrollHeight ) {

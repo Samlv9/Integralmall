@@ -1,0 +1,92 @@
+﻿@import "../vars/common";
+@import "../weui/base/fn";
+
+.order-cells {
+    .order-header {
+        font-size: 16px;
+    }
+
+    .goods-thumb {
+        display: block;
+        width: 80px;
+        height: 80px;
+    }
+
+    .goods-name {
+        line-height: 18px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+
+    .goods-prop {
+        line-height: 18px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        color: $defaultGraysColor;
+    }
+
+    .goods-rebate {
+        display: inline;
+        font-size: 75%;
+        padding: 2px 4px;
+        border-radius: 2px;
+        background: #04be02;
+        color: #fff;
+    }
+
+    .goods-price {
+        font-size: 20px;
+    }
+
+    .goods-origin {
+        text-decoration:line-through;
+        color: $defaultGraysColor;
+        margin-left: 6px;
+    }
+
+    .order-message {
+        margin: 0;
+        padding: 0;
+        resize: none;
+        border: none;
+        background: none;
+        box-sizing: border-box;
+        width: 100%;
+        height: 38px;
+        min-height: 38px;
+        color: $defaultGraysColor;
+    }
+
+    .order-message-display {
+        color: $defaultGraysColor;
+    }
+
+    .order-message:focus {
+        outline: none;
+    }
+
+    .goods-detail {
+        align-self: flex-start;
+        margin-left: $gap10;
+        margin-right: $gap5;
+    }
+
+    .total-rebate {
+        color: #04be02;
+    }
+
+    .order-address {
+        & > .headline {
+            font-size: 16px;
+        }
+        & > .location {
+            color: #808080;
+            overflow: hidden;
+            max-height: 40px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}

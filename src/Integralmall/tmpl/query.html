@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+{{>./partials/headtags}}</head>
+<body><div id="stage">
+
+
+<!-- ================================================================================ -->
+<!-- 查询订单导航 -->
+<!-- ================================================================================ -->
+<header id="queryHeader"><nav id="queryNav">
+    <a class="query-button" href="javascript:void(0);"><span class="query-label">所有订单</span></a>
+    <a class="query-button" href="javascript:void(0);"><span class="query-label">未付款</span></a>
+    <a class="query-button" href="javascript:void(0);"><span class="query-label">已付款</span></a>
+    <a class="query-button" href="javascript:void(0);"><span class="query-label">待收货</span></a>
+    <a class="query-button" href="javascript:void(0);"><span class="query-label">交易完成</span></a>
+</nav></header>
+
+
+<!-- ================================================================================ -->
+<!-- 订单页面切换器 -->
+<!-- ================================================================================ -->
+<div id="querySwiper" class="swiper-container"><div class="swiper-wrapper">
+<!-- ================================================================================ -->
+<!-- 订单摘要 -->
+<!-- ================================================================================ -->
+<article id="allOrder" class="swiper-slide scroll-container"><content>
+    
+
+{{#orderList}}
+{{>./widgets/orderpart}}
+{{/orderList}}
+
+
+</content></article>
+<!-- 未付款订单 -->
+<article id="notPayOrder" class="swiper-slide scroll-container"><content>
+
+
+{{#orderList}}
+{{>./widgets/orderpart}}
+{{/orderList}}
+
+
+</content></article>
+<!-- 已付款订单 -->
+<article id="hasPayOrder" class="swiper-slide scroll-container"><content>
+
+
+{{#orderList}}
+{{>./widgets/orderpart}}
+{{/orderList}}
+
+
+</content></article>
+<!-- 待收货订单 -->
+<article id="flowOrder" class="swiper-slide scroll-container"><content>
+
+
+{{#orderList}}
+{{>./widgets/orderpart}}
+{{/orderList}}
+
+
+</content></article>
+<!-- 已完成订单 -->
+<article id="doneOrder" class="swiper-slide scroll-container"><content>
+
+
+{{#orderList}}
+{{>./widgets/orderpart}}
+{{/orderList}}
+
+
+</content></article>
+</div></div>
+
+
+</div><!--STAGE END-->
+{{>./partials/foottags}}
+</body>
+</html>

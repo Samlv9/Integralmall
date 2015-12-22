@@ -26,21 +26,11 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// <reference path='../core/derive.js' />
-/// <reference path='../view/Sprite.js' />
-/// <reference path='../view/ScrollContainer.js' />
+/// <reference path='core/derive.js' />
+/// <reference path='page/PageBase.js' />
 
 
-var PageBase = derive(Sprite, function PageBase( disableContainer ) {
-    Sprite.call(this, document.body);
 
-    /// 全局配置文件；
-    this._appConfigParam = domain["APP_CONFIG_PARAMS"] || {};
-
-
-    /// 主滚动容器；
-    if ( !disableContainer ) {
-        this._mainContainer = new ScrollContainer("#main");
-    }
+var Page = derive(PageBase, function Page() {
+    PageBase.call(this);
 });
-

@@ -40,3 +40,13 @@
     margin : 25px 0px;
     padding: 0px $gap10;
 }
+
+
+.weui_cells_no_spliter {
+    .weui_cell:before {
+        display: none;
+    }
+    .weui_cell:not(:first-child) {
+        padding-top: 0px;
+    }
+}

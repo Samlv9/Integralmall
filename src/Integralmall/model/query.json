@@ -1,0 +1,19 @@
+﻿{
+    "title": "订单查询",
+
+    "dependencies": [
+        {
+            "desc": "Swipe",
+            "module": "swiper/swiper.js"
+        }
+    ],
+
+    "depsStylesheets": [
+        {
+            "desc": "Swipe.css",
+            "module": "swiper/swiper.css"
+        }
+    ],
+
+    "orderList": [ {}, {} ]
+}

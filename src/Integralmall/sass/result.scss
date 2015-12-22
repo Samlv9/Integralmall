@@ -1,8 +1,9 @@
 ﻿@import "./core/default.scss";
 @import "./vars/common";
 
-/*@import "./view/uiicon";*/
+@import "./view/uiicon";
 @import "./view/scrollcontainer";
+/*@import "./view/swipercontainer";*/
 
 @import "./weui/base/fn";
 /*@import "./weui/icon/weui_icon_font";*/
@@ -18,48 +19,52 @@
 @import "./view/ordercells";
 
 
-#address {
-    margin-right: $gap5;
+.order-status-overview {
+    font-size: 16px;
 
-    & > .fillguid {
-        font-size: 16px;
+
+    & .weui_cell_ft {
+        font-size: 14px;
     }
 
+
+    &.order-done-status .status .weui_cell_ft {
+        color: #04be02;
+    }
+
+    &.order-processing-status .status .weui_cell_ft {
+        color: #E64340;
+
+    }
+
+    .express:active {
+        background: #ECECEC;
+    }
+}
+
+
+
+.order-address {
     & > .headline {
         font-size: 16px;
     }
     & > .location {
         color: #808080;
         overflow: hidden;
-        max-height: 40px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-
-    &.no-data {
-        .headline { display: none; }
-        .location { display: none; }
-    }
-
-    &:not(.no-data) {
-        .fillguid { display: none; }
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }
 
+.order-help {
+    margin-bottom: $weuiCellsMarginTop;
 
-.autoresize {
-    position: relative;
 
-    & > textarea {
-        position: relative;
+    a {
+        color: $globalLinkColor;
     }
+}
 
-    & > .textwrap {
-        width: 100%;
-        position: absolute;
-        left: -9999px;
-        top : 0px;
-        word-break: break-all;
-    }
+.weui_cells_title {
+    margin: 0.5em 0em;
 }

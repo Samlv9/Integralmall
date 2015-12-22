@@ -34,6 +34,13 @@
     & .swiper-pagination-bullet-active {
         background: rgba(255, 255, 255, 0.8);
     }
+
+    & .swiper-lazy-preloader {
+        width: 20px;
+        height: 20px;
+        margin-left: -10px;
+        margin-top: 44px - 10px;
+    }
 }
 
 
@@ -284,19 +291,40 @@
     transform: translateY(-100%);
     /*transition: transform ease-in-out 0.3s;*/
 
-    &:before {
-        /*left: 75%;*/
+    /*&:before {
         margin-top: -16px;
     }
 
     &:after {
-        /*left: 75%;*/
         margin-top: -4px;
+    }*/
+
+    &:after {
+        content: attr(data-label);
+        line-height: 1;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.85);
+        position: absolute;
+        left: 50%;
+        top: 0px;
+        transform: translate(-50%, 0px);
+        transform-origin: 0% 0%;
+        background: rgba(0, 0, 0, 0.10);
+        padding: 2px 4px;
+        border-radius: 2px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        opacity: 0;
+        visibility: hidden;
     }
 
-    &.topbar-showing {
-        transform: translateY(0);
+    &.tooltip-showing:after {
+        animation: fadeTooltip 4s ease-in-out;
     }
+
+    /*&.topbar-showing {
+        transform: translateY(0);
+    }*/
 
     .detnav {
         padding: 6px 8px;

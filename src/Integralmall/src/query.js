@@ -26,21 +26,45 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// <reference path='../core/derive.js' />
-/// <reference path='../view/Sprite.js' />
-/// <reference path='../view/ScrollContainer.js' />
+/// <reference path='core/derive.js' />
+/// <reference path='page/PageBase.js' />
+/// <reference path='view/ScrollContainer.js' />
 
 
-var PageBase = derive(Sprite, function PageBase( disableContainer ) {
-    Sprite.call(this, document.body);
+var Page = derive(PageBase, function Page() {
+    PageBase.call(this, true);
 
-    /// 全局配置文件；
-    this._appConfigParam = domain["APP_CONFIG_PARAMS"] || {};
+    /// 容器列表；
+    this._querySwiper = new Swiper("#querySwiper", { 
+        "threshold": 5,
+        "pagination": document.getElementById("queryNav"),
+        "paginationClickable": true,
+        "bulletClass": "query-button",
+        "preventClicksPropagation": false,
+        "preventClicks": false,
+        "touchMoveStopPropagation": false,
+        "bulletActiveClass": "selected",
+        "paginationBulletRender": function( index, className ) {
+            var labels = [ "所有订单", "未付款", "已付款", "待收货", "交易完成" ];
+            return '<a class="' + className + '" href="javascript:void(0);"><span class="query-label">' + labels[index] + '</span></a>';
+        }
+    });
+    this._allOrder = new ScrollContainer("#allOrder");
+    this._notPayOrder = new ScrollContainer("#notPayOrder");
+    this._hasPayOrder = new ScrollContainer("#hasPayOrder");
+    this._flowOrder = new ScrollContainer("#flowOrder");
+    this._doneOrder = new ScrollContainer("#doneOrder");
 
+    this._initAllScrollContainer([ this._allOrder, this._notPayOrder, this._hasPayOrder, this._flowOrder, this._doneOrder ]);
 
-    /// 主滚动容器；
-    if ( !disableContainer ) {
-        this._mainContainer = new ScrollContainer("#main");
-    }
 });
 
+
+Page.prototype._initAllScrollContainer = function _initAllScrollContainer( list ) {
+    for ( var i = 0; i < list.length; ++i ) {
+        var container = list[i];
+
+        container.disableIndicator = true;
+        container.threshold = 10;
+    }
+}
