@@ -18,6 +18,14 @@
 
 
 #brand {
+    position: relative;
+    &:before {
+        @include setTopLine($weuiCellBorderColor);
+    }
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
+
     & > .brand-image {
         display: block;
         width: 100%;

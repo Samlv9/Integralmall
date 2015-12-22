@@ -33,4 +33,37 @@
 
 var Page = derive(PageBase, function Page() {
     PageBase.call(this);
+
+    /// 发货提醒；
+    this._toast = new Sprite("#toast");
+    this._toastTrigger = $(".toast-trigger");
+    this._toastTrigger.on("click", this._showRemindToast.bind(this));
 });
+
+
+
+Page.prototype._showRemindToast = function _showRemindToast() {
+    /// <summary>
+    /// 显示发货提醒。</summary>
+
+    this._toast.natural.classList.add("show-toast");
+    this._toastTrigger.addClass("weui_btn_disabled");
+
+    setTimeout(function() {
+        this._toast.natural.classList.remove("weui_loading_toast");
+        this._toast.natural.classList.add("toast-complete");
+        this._toast.element.find(".weui_toast_content").text("提醒成功");
+    }.bind(this), 1000);
+
+
+    setTimeout(function() {
+        this._toast.natural.classList.remove("show-toast");
+    }.bind(this), 1800);
+
+    setTimeout(function() {
+        this._toast.natural.classList.add("weui_loading_toast");
+        this._toast.natural.classList.remove("toast-complete");
+        this._toast.element.find(".weui_toast_content").text("请稍后...");
+        this._toastTrigger.removeClass("weui_btn_disabled");
+    }.bind(this), 2100);
+}

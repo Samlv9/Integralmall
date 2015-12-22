@@ -6,7 +6,7 @@
 /*@import "./view/swipercontainer";*/
 
 @import "./weui/base/fn";
-/*@import "./weui/icon/weui_icon_font";*/
+@import "./weui/icon/weui_icon_font";
 @import "./weui/widget/weui_button/weui_button";
 @import "./weui/widget/weui_cell/weui_cell_global";
 @import "./weui/widget/weui_cell/weui_form";
@@ -72,3 +72,27 @@
 /*.weui_cells_title {
     margin: 0.5em 0em;
 }*/
+
+#toast {
+    font-size: 16px;
+    transition: opacity linear 0.3s, visibility linear 0.3s;
+    opacity: 0;
+    visibility: hidden;
+
+    &.show-toast {
+        opacity: 1;
+        visibility: visible; 
+    }
+
+    &:not(.toast-complete) {
+        .weui_icon_toast {
+            display: none;
+        }
+    }
+
+    &.toast-complete {
+        .weui_loading {
+            display: none;
+        }
+    }
+}

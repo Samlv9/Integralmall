@@ -7,5 +7,14 @@
         display: inline-block;
         vertical-align: top;
         width : 100%;
+        /*filter: blur(8px);*/
+
+        opacity: 0;
+
+        &.swiper-lazy-loaded {
+            opacity: 1;
+            /*filter: blur(0px);*/
+            transition: opacity ease-in-out 0.6s;
+        }
     }
 }
