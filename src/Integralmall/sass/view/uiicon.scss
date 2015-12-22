@@ -13,6 +13,13 @@
     height: 20px;
 }
 
+.ui-icon.ui-lg-icon {
+    background: url(../bitmaps/common/icon44x44.png) no-repeat 0px 0px;
+    background-size: 176px 176px;
+    width: 44px;
+    height: 44px;
+}
+
 .ui-icon.ui-share-icon {
     background-position: 0px 0px;
 }
@@ -41,4 +48,12 @@
 
 .ui-icon.ui-member-icon {
     background-position: -64px -32px;
+}
+
+.ui-icon.ui-lg-icon.ui-diamond-icon {
+    background-position: 0px 0px;
+}
+
+.ui-icon.ui-lg-icon.ui-cash-icon {
+    background-position: -44px 0px;
 }

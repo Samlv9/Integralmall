@@ -159,6 +159,17 @@ gulp.task("build:sass", ["update"], function () {
         /* 物流详情 */
         "sass/express.scss",
 
+        /* 我的积分 */
+        "sass/credit.scss",
+
+        /* 积分提现 */
+        "sass/drawcash.scss",
+
+        /* 积分概览 */
+        "sass/logs.scss",
+
+        /* 积分明细 */
+        "sass/extra.scss",
 
         /* 404 页面 */
         "sass/404.scss"
@@ -198,6 +209,18 @@ gulp.task("build:script", ["update"], function () {
 
         /* 物流详情 */
         "src/express.js",
+
+        /* 我的积分 */
+        "src/credit.js",
+
+        /* 积分提现 */
+        "src/drawcash.js",
+
+        /* 积分概览 */
+        "src/logs.js",
+
+        /* 积分明细 */
+        "src/extra.js",
 
 
         /* 404 */
@@ -239,6 +262,18 @@ gulp.task("build:templates", ["update"], function () {
 
         /* 物流详情 */
         "tmpl/express.html",
+
+        /* 我的积分 */
+        "tmpl/credit.html",
+
+        /* 积分提现 */
+        "tmpl/drawcash.html",
+
+        /* 积分概览 */
+        "tmpl/logs.html",
+
+        /* 积分明细 */
+        "tmpl/extra.html",
 
         /* 404 */
         "tmpl/404.html"

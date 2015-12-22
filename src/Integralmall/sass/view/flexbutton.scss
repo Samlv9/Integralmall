@@ -1,0 +1,35 @@
+﻿.flex-group {
+    height: 120px;
+    display: flex;
+}
+
+.flex-button {
+    flex: 1;
+    align-self: flex-start;
+    text-align: center;
+    background: #686f78;
+    height: 100%;
+    color: #fff;
+    
+
+    &:active {
+        background: #595e66;
+    }
+    
+    .flex-button-icons {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 6px;
+    }
+
+    .flex-button-label {
+        line-height: 1;
+        font-size: 16px;
+    }
+
+    .flex-button-value {
+        line-height: 1;
+        opacity: 0.5;
+    }
+}
