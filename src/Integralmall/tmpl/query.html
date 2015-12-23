@@ -24,59 +24,71 @@
 <!-- ================================================================================ -->
 <!-- 订单摘要 -->
 <!-- ================================================================================ -->
-<article id="allOrder" class="swiper-slide scroll-container"><content>
-    
-
-{{#orderList}}
-{{>./widgets/orderpart}}
-{{/orderList}}
-
-
+<article id="allOrder" class="swiper-slide scroll-container"><content class="scroll-content">
+<div class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
 </content></article>
 <!-- 未付款订单 -->
-<article id="notPayOrder" class="swiper-slide scroll-container"><content>
-
-
-{{#orderList}}
-{{>./widgets/orderpart}}
-{{/orderList}}
-
-
+<article id="notPayOrder" class="swiper-slide scroll-container"><content class="scroll-content">
+<div class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
 </content></article>
 <!-- 已付款订单 -->
-<article id="hasPayOrder" class="swiper-slide scroll-container"><content>
-
-
-{{#orderList}}
-{{>./widgets/orderpart}}
-{{/orderList}}
-
-
+<article id="hasPayOrder" class="swiper-slide scroll-container"><content class="scroll-content">
+<div class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
 </content></article>
 <!-- 待收货订单 -->
-<article id="flowOrder" class="swiper-slide scroll-container"><content>
-
-
-{{#orderList}}
-{{>./widgets/orderpart}}
-{{/orderList}}
-
-
+<article id="flowOrder" class="swiper-slide scroll-container"><content class="scroll-content">
+<div class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
 </content></article>
 <!-- 已完成订单 -->
-<article id="doneOrder" class="swiper-slide scroll-container"><content>
-
-
-{{#orderList}}
-{{>./widgets/orderpart}}
-{{/orderList}}
-
-
+<article id="doneOrder" class="swiper-slide scroll-container"><content class="scroll-content">
+<div class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
 </content></article>
 </div></div>
 
 
 </div><!--STAGE END-->
+<!-- ================================================================================ -->
+<!-- 页面模板区 -->
+<!-- ================================================================================ -->
+{{=<% %>=}}
+<script type="text/template" id="tmplOrderItem">
+<a class="weui_cells order-cells {{status}}" href="{{order_url}}">
+    <div class="weui_cell weui_cells_access">
+        <div class="weui_cell_bd weui_cell_primary order-header">{{status_str}}</div>
+        <time class="weui_cell_ft">{{createtime}}</time>
+    </div>
+    {{list}}
+    <div class="weui_cell"><div class="weui_cell_bd weui_cell_primary">
+        <p class="total-desc">合计 ￥<span class="total-amount">{{money}}</span>，<span class="total-rebate">共获得<span class="rebate">{{ratio_money}}</span>积分</span></p></div></div>
+</a>
+</script>
+<script type="text/template" id="tmplOrderGoods">
+<div class="weui_cell">
+    <div class="weui_cell_hd"><img class="goods-thumb" src="{{goods_img}}" width="72" height="72" /></div>
+    <div class="weui_cell_bd weui_cell_primary goods-detail">
+        <div class="goods-name">{{goods_name}}</div>
+        <div class="goods-prop">{{sku_name}}</div>
+        <div class="goods-info"><span class="goods-price"><small>￥</small><span>{{shop_price}}</span></span><span class="goods-origin {{show_market_class}}">￥<span>{{market_price}}</span></span></div>
+    </div>
+    <div class="weui_cell_ft">x <span class="goods-count">{{num}}</span></div>
+</div>
+</script>
+<%={{ }}=%>
 {{>./partials/foottags}}
 </body>
 </html>

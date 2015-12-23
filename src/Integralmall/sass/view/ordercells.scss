@@ -44,6 +44,10 @@
         text-decoration:line-through;
         color: $defaultGraysColor;
         margin-left: 6px;
+
+        &.hidden-origin {
+            display: none;
+        }
     }
 
     .order-message {

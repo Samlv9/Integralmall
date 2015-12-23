@@ -315,6 +315,8 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
         this._lockAtDir = ScrollDirection.NONE;
 
         this._setupTouchEvents(true);
+        this._showIndicator(0, 0);
+        this._showIndicator(1, 0);
         return;
     }
     

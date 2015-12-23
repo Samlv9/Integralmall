@@ -28,6 +28,9 @@
     z-index: 9;
     background: #fff;
 
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
 
     & > #queryNav {
         display: flex;
@@ -98,5 +101,55 @@
             margin-right: 10px;
             opacity: 0.5;
         }
+    }
+}
+
+
+.scroll-content {
+    position: relative;
+
+    .scroll-container.no-data & {
+        background: url(../bitmaps/common/orderempty.png) no-repeat center center;
+        background-size: 120px 120px;
+    }
+}
+
+
+.loader-tiper {
+    pointer-events: none;
+    padding: $gap15 0px;
+    text-align: center;
+    color: #C8C8C8;
+    opacity: 0;
+    margin-top: 10px;
+    transform: translateY(-100%) translateZ(0px);
+
+    .swiper-lazy-preloader {
+        position: static;
+        width: 20px;
+        height: 20px;
+        margin-left: 0px;
+        margin-top : 0px;
+        top: 0px;
+        left: 0px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .loader-text {
+        display: block;
+        font-size: 12px;
+        margin-top: 4px;
+        text-shadow: rgba(255, 255, 255, 1) 1px 1px 1px;
+    }
+
+    .show-loading & {
+        transition: transform ease-in-out 0.35s, opacity ease-in-out 0.35s;
+        opacity: 1;
+        transform: translateY(0%) translateZ(0px);
+    }
+
+    .order-cells + & {
+        margin-top: 0px;
     }
 }
