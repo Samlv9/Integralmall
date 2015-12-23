@@ -64,7 +64,7 @@ var Page = derive(PageBase, function Page() {
     this._allListFillData  = [ false, false, false, false, false ];
     this._allListStatus    = [ false, false, false, false, false ];
     this._allListPageNum   = [ 1, 1, 1, 1, 1 ];
-    this._allListPageSize  = [ 3, 5, 5, 5, 5 ];
+    this._allListPageSize  = [ 5, 5, 5, 5, 5 ];
     //this._allListUID = this._appConfigParam["ALL_LIST_UID"] || "1010030";
     this._allListURL = this._appConfigParam["ALL_LIST_URL"] || "http://quanqiugou.cn/user-message/order-list-ajax?order_type={{pageId}}&pageNo={{pageNum}}&pageSize={{pageSize}}";
 
@@ -152,7 +152,7 @@ Page.prototype._fetchPageOrderListData = function _fetchPageOrderListData( pageI
     var tiper = container.element.find(".loader-tiper");
         tiper.children(".loader-text").text("加载数据中");
 
-    console.log("fetch:", request);
+    //console.log("fetch:", request);
 }
 
 
