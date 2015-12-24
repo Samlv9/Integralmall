@@ -423,7 +423,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
                     this.scrollX = this.scrollX + movedXval;
                 }
 
-                //this._showIndicator(0, 1);
+                this._showIndicator(0, 1);
             //}
         } 
             
@@ -441,7 +441,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
                     this.scrollY = this.scrollY + movedYval;
                 }
 
-                //this._showIndicator(1, 1);
+                this._showIndicator(1, 1);
             //}
         }
 
@@ -507,7 +507,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             }
 
             else {
-                //this._showIndicator(0, 0);
+                this._showIndicator(0, 0);
             }
         }
 
@@ -519,13 +519,13 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             }
 
             else {
-                //this._showIndicator(1, 0);
+                this._showIndicator(1, 0);
             }
         }
 
         if ( this._lockAtDir == ScrollDirection.NONE ) {
-            //this._showIndicator(0, 0);
-            //this._showIndicator(1, 0);
+            this._showIndicator(0, 0);
+            this._showIndicator(1, 0);
         }
 
         if ( doPullXs || doPullYs ) {
@@ -646,7 +646,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             dist = this._distsXval + dist;
             this._forceXval = 0.8 * (dist - this.scrollX) + 0.2 * this._forceXval;
             this.scrollX = dist;
-            //this._showIndicator(0, 1);
+            this._showIndicator(0, 1);
         }
 
         else {
@@ -654,7 +654,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             this._forceXval = 0.8 * (dist - this.scrollX) + 0.2 * this._forceXval;
             this.scrollX = dist;
             this._velocXval = 0;
-            //this._showIndicator(0, 0);
+            this._showIndicator(0, 0);
         }
 
         if ( dist > 0 || dist < -this.scrollWidth ) {
@@ -677,7 +677,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             dist = this._distsYval + dist;
             this._forceYval = 0.8 * (dist - this.scrollY) + 0.2 * this._forceYval;
             this.scrollY = dist;
-            //this._showIndicator(1, 1);
+            this._showIndicator(1, 1);
         }
 
         else {
@@ -685,7 +685,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             this._forceYval = 0.8 * (dist - this.scrollY) + 0.2 * this._forceYval;
             this.scrollY = dist;
             this._velocYval = 0;
-            //this._showIndicator(1, 0);
+            this._showIndicator(1, 0);
         }
 
         if ( dist > 0 || dist < -this.scrollHeight ) {
@@ -725,13 +725,13 @@ ScrollContainer.prototype._doPullback = function _doPullback () {
         if ( Math.abs(dist) >= 0.5 ) {
             next = true;
             this.scrollX = this._targtXval + dist;
-            //this._showIndicator(0, 1);
+            this._showIndicator(0, 1);
         }
 
         else {
             this.scrollX = this._targtXval;
             this._amplsXval = 0;
-            //this._showIndicator(0, 0);
+            this._showIndicator(0, 0);
         }
     }
 
@@ -741,13 +741,13 @@ ScrollContainer.prototype._doPullback = function _doPullback () {
         if ( Math.abs(dist) >= 0.5 ) {
             next = true;
             this.scrollY = this._targtYval + dist;
-            //this._showIndicator(1, 1);
+            this._showIndicator(1, 1);
         }
 
         else {
             this.scrollY = this._targtYval;
             this._amplsYval = 0;
-            //this._showIndicator(1, 0);
+            this._showIndicator(1, 0);
         }
     }
 
@@ -774,13 +774,13 @@ ScrollContainer.prototype._doForceBounces = function _doForceBounces() {
         if ( Math.abs(this._forceXval) >= 0.001 ) {
             next = true;
             this.scrollX += this._forceXval * this._elasticFactor;
-            //this._showIndicator(0, 1);
+            this._showIndicator(0, 1);
         }
 
         else {
             this._forceXval = 0;
             this.scrollX = this._edgesXval;
-            //this._showIndicator(0, 0);
+            this._showIndicator(0, 0);
         }
     }
 
@@ -793,13 +793,13 @@ ScrollContainer.prototype._doForceBounces = function _doForceBounces() {
         if ( Math.abs(this._forceYval) >= 0.001 ) {
             next = true;
             this.scrollY += this._forceYval * this._elasticFactor;
-            //this._showIndicator(1, 1);
+            this._showIndicator(1, 1);
         }
 
         else {
             this._forceYval = 0;
             this.scrollY = this._edgesYval;
-            //this._showIndicator(1, 0);
+            this._showIndicator(1, 0);
         }
     }
 
@@ -860,7 +860,7 @@ ScrollContainer.prototype._stopAllDelayTimer = function _stopAllDelayTimer() {
 
 ScrollContainer.prototype._showIndicator = function _showIndicator( type, alpha ) {
     /// 显示/绘制/更新滚动位置指示器。
-    return;
+
     if ( this._disableIndicator ) {
         /// 禁止显示指示器
         return;
