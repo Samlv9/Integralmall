@@ -267,6 +267,7 @@ Page.prototype._sidePullUpHandler = function _sidePullUpHandler( evt ) {
         this._isShowMore = false;
         this._showMainPage();
         this._mainContainer.scrollY = 0;
+        this._avatar.y = 0;
     }
 }
 

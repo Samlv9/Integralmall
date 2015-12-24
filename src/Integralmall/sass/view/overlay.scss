@@ -18,6 +18,7 @@
     }
 
     & > .overlay-content {
+        transform: translateX(0%) translateZ(0px);
         transition: transform ease-in-out 0.3s;
     }
 

@@ -1,4 +1,6 @@
-﻿.flex-group {
+﻿@import "../mixins/utils";
+
+.flex-group {
     height: 120px;
     display: flex;
 }
@@ -10,6 +12,9 @@
     background: #686f78;
     height: 100%;
     color: #fff;
+    display: block;
+    box-sizing: border-box;
+    padding: 1px 0px;
     
 
     &:active {
@@ -29,7 +34,7 @@
     }
 
     .flex-button-value {
-        line-height: 1;
+        line-height: 1.2;
         opacity: 0.5;
     }
 }
