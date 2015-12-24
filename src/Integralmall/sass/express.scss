@@ -114,15 +114,16 @@
             }
 
             .track-leaf-dot:after {
-                background: #04be02;
+                background: $weuiBtnPrimaryActiveBg;
                 width: 6px;
                 height: 6px;
             }
             .track-message {
-                color: #04be02;
+                color: $weuiBtnPrimaryActiveBg;
             }
             .trace-timestamp {
-                color: #04be02;
+                color: $weuiBtnPrimaryBg;
+                
             }
         }
 
