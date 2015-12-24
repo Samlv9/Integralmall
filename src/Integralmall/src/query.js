@@ -105,6 +105,9 @@ Page.prototype._listScrollHandler = function _listScrollHandler( evt ) {
         var pageId = this._allListContainer.indexOf(container);
         this._fetchPageOrderListData(pageId, this._allListPageNum[pageId], this._allListPageSize[pageId]);
     }
+
+
+    //$(".query-label").first().text(++TY);
 }
 
 
@@ -180,6 +183,7 @@ Page.prototype._fetchPageOrderListSuccess = function _fetchPageOrderListSuccess(
     }
 
     this._allListStatus[pageId] = false;
+    container.updateFrameSizes();
     //console.log("dataJSON:", dataJSON);
 }
 

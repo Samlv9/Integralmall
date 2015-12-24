@@ -39,6 +39,7 @@ var Sprite = derive(EventDispatcher, function Sprite( selector ) {
     EventDispatcher.call(this);
 
     this._element = $(selector);
+    this._natural = this._element[0];
     this._scaleX = 1;
     this._scaleY = 1;
     this._rotation   = 0;
@@ -64,7 +65,7 @@ Object.defineProperties(Sprite.prototype, {
     /// <field type='HTMLElement'>
     /// 获取显示对象的 DOM 元素。</field>
     natural: {
-        get: function () { return this._element[0]; }
+        get: function () { return this._natural; }
     },
 
     /// <field type='Boolean'>

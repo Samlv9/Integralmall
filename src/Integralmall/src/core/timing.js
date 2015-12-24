@@ -37,33 +37,32 @@ var requestAnimation = window.requestAnimationFrame
 var cancelAnimation  = window.cancelAnimationFrame
                      || window.webkitCancelAnimationFrame;
 
-
-var __TIMER_OBJ__ = null;
-var __TIMER_KEY__ = null;
-
-
-if ( window.performance ) {
-    if ( typeof window.performance.now == "function" ) {
-        __TIMER_OBJ__ = window.performance;
-        __TIMER_KEY__ = "now";
-    }
-
-    else if ( typeof window.performance.webkitNow == "function" ) {
-        __TIMER_OBJ__ = window.performance;
-        __TIMER_KEY__ = "webkitNow";
-    }
-}
+//var __TIMER_OBJ__ = null;
+//var __TIMER_KEY__ = null;
 
 
-if ( !__TIMER_OBJ__ || !__TIMER_KEY__ ) {
-    __TIMER_OBJ__ = Date;
-    __TIMER_KEY__ = "now";
-}
+//if ( window.performance ) {
+//    if ( typeof window.performance.now == "function" ) {
+//        __TIMER_OBJ__ = window.performance;
+//        __TIMER_KEY__ = "now";
+//    }
+
+//    else if ( typeof window.performance.webkitNow == "function" ) {
+//        __TIMER_OBJ__ = window.performance;
+//        __TIMER_KEY__ = "webkitNow";
+//    }
+//}
 
 
-function timeNow() {
-    /// <summary>
-    /// 获取系统当前时间戳（浮点数）。</summary>
+//if ( !__TIMER_OBJ__ || !__TIMER_KEY__ ) {
+//    __TIMER_OBJ__ = Date;
+//    __TIMER_KEY__ = "now";
+//}
 
-    return __TIMER_OBJ__[__TIMER_KEY__]();
-}
+
+//function timeNow() {
+//    /// <summary>
+//    /// 获取系统当前时间戳（浮点数）。</summary>
+
+//    return __TIMER_OBJ__[__TIMER_KEY__]();
+//}

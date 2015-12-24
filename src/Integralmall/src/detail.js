@@ -34,6 +34,7 @@
 /// <reference path='view/Dropdown.js' />
 /// <reference path='utils/Preferences.js' />
 /// <reference path='view/WeDialog.js' />
+/// <reference path='utils/Device.js' />
 
 
 var Page = derive(PageBase, function Page() {
@@ -47,6 +48,7 @@ var Page = derive(PageBase, function Page() {
     this._allowScrollSize = 100;
     this._isShowMore = false;
     this._isLoadMore = false;
+    this._isIOS = Device.isIOS();
 
     this._buyNow = false;
     this._isAjax = false;
@@ -278,68 +280,71 @@ Page.prototype._sidePullDownHandler = function _sidePullDownHandler() {
 
 
 Page.prototype._viewScrollHandler = function _viewScrollHandler( evt ) {
-    var bound  = this._intros.natural.getBoundingClientRect().top;
-    var offset = Math.min((this._avatar.height + this._avatarOverlay), bound);
+    //var bound  = this._intros.natural.getBoundingClientRect().top;
+    //var offset = Math.min((this._avatar.height + this._avatarOverlay), bound);
+    //console.log("Y:", this._mainContainer.scrollY, this._mainContainer.scrollHeight);
 
-    /// 头像位置；
-    this._avatar.y = offset - (this._avatar.height + this._avatarOverlay);
+    ///// 头像位置；
+    //this._avatar.y = offset - (this._avatar.height + this._avatarOverlay);
 
-    if ( !this._resetAvatarTransition ) {
-        this._resetAvatarTransition = true;
-        this._avatar.natural.style.transition = 
-        this._avatar.natural.style.webkitTransition = "none";
-    }
+    //if ( !this._resetAvatarTransition ) {
+    //    this._resetAvatarTransition = true;
+    //    this._avatar.natural.style.transition = 
+    //    this._avatar.natural.style.webkitTransition = "none";
+    //}
 
-    /// 更新 Swiper 的偏移位置；
-    this._swiperSprite.y = Math.min(this._swiperSprite.height, Math.max(0, -this._mainContainer.scrollY) * 0.5);
+    ///// 更新 Swiper 的偏移位置；
+    //if ( this._isIOS ) {
+    //    this._swiperSprite.y = Math.min(this._swiperSprite.height, Math.max(0, -this._mainContainer.scrollY) * 0.25);
+    //}
 
-    /// 更新 morePrompts 位置;
-    var bottom = Math.min(this._distance, Math.max(0, -this._mainContainer.scrollHeight - this._mainContainer.scrollY));
-    var height = Math.max(44, bottom * 0.75);
+    ///// 更新 morePrompts 位置;
+    //var bottom = Math.min(this._distance, Math.max(0, -this._mainContainer.scrollHeight - this._mainContainer.scrollY));
+    //var height = Math.max(44, bottom * 0.75);
 
-    this._morePromptsSprite.y = bottom * 0.25;
-    //this._moreTips.y = bottom * 0.20;
-    //this._morePromptsSprite.element.find(".loading").css({ "opacity": bottom / this._distance });
+    //this._morePromptsSprite.y = bottom * 0.25;
+    ////this._moreTips.y = bottom * 0.20;
+    ////this._morePromptsSprite.element.find(".loading").css({ "opacity": bottom / this._distance });
 
-    if ( height >= this._threshold ) {
-        this._morePromptsSprite.element.find(".text").text("释放手指，加载图文详情");
-        this._morePromptsSprite.element.find(".loading").addClass("fade-in");
-    }
+    //if ( height >= this._threshold ) {
+    //    this._morePromptsSprite.element.find(".text").text("释放手指，加载图文详情");
+    //    this._morePromptsSprite.element.find(".loading").addClass("fade-in");
+    //}
 
-    else {
-        this._morePromptsSprite.element.find(".text").text("继续拖动，查看图文详情");
-        this._morePromptsSprite.element.find(".loading").removeClass("fade-in");
-    }
+    //else {
+    //    this._morePromptsSprite.element.find(".text").text("继续拖动，查看图文详情");
+    //    this._morePromptsSprite.element.find(".loading").removeClass("fade-in");
+    //}
 }
 
 
 Page.prototype._sideScrollHandler = function _sideScrollHandler( evt ) {
-    /// 更新 backPrompts 位置;
-    var top = Math.min(this._distance, Math.max(0, this._sideContainer.scrollY));
-    var height = Math.max(44, top * 0.75);
+    ///// 更新 backPrompts 位置;
+    //var top = Math.min(this._distance, Math.max(0, this._sideContainer.scrollY));
+    //var height = Math.max(44, top * 0.75);
 
-    this._backPromptsSprite.y = -top * 0.25;
-    this._backPromptsSprite.element.find(".text").css({ "height": height + "px", "line-height": height + "px" });
+    //this._backPromptsSprite.y = -top * 0.25;
+    //this._backPromptsSprite.element.find(".text").css({ "height": height + "px", "line-height": height + "px" });
 
-    if ( height >= this._threshold ) {
-        this._backPromptsSprite.element.find(".text").text("释放手指，查看商品简介");
-    }
+    //if ( height >= this._threshold ) {
+    //    this._backPromptsSprite.element.find(".text").text("释放手指，查看商品简介");
+    //}
 
-    else {
-        this._backPromptsSprite.element.find(".text").text("继续拖动，返回商品简介");
-    }
+    //else {
+    //    this._backPromptsSprite.element.find(".text").text("继续拖动，返回商品简介");
+    //}
 
-    /// 更新头部位置；
-    var factor = Math.min(this._fadeTopDistance, Math.max(0, -this._sideContainer.scrollY - this._allowScrollSize)) / this._fadeTopDistance;
-    this._topbar.y = -(1 - factor) * this._topbar.height;
+    ///// 更新头部位置；
+    //var factor = Math.min(this._fadeTopDistance, Math.max(0, -this._sideContainer.scrollY - this._allowScrollSize)) / this._fadeTopDistance;
+    //this._topbar.y = -(1 - factor) * this._topbar.height;
 
-    var showToptip = Preferences.get("showToptip", true) || 0;
+    //var showToptip = Preferences.get("showToptip", true) || 0;
 
-    if ( !showToptip && (-this._sideContainer.scrollY >= (this._allowScrollSize + this._fadeTopDistance)) ) {
-        Preferences.set("showToptip", 1, true);
+    //if ( !showToptip && (-this._sideContainer.scrollY >= (this._allowScrollSize + this._fadeTopDistance)) ) {
+    //    Preferences.set("showToptip", 1, true);
 
-        this._topbar.natural.classList.add("tooltip-showing");
-    }
+    //    this._topbar.natural.classList.add("tooltip-showing");
+    //}
 }
 
 

@@ -41,6 +41,8 @@ var ScrollContainer = derive(Sprite, function ScrollContainer( selector ) {
     this._content = new Sprite(this._element.children("content"));
     this._scrollX = 0;
     this._scrollY = 0;
+    this._scrollRealX = 0;
+    this._scrollRealY = 0;
     this._bounces = true;
     this._scrollXEnabled = false;
     this._scrollYEnabled = true;
@@ -50,6 +52,12 @@ var ScrollContainer = derive(Sprite, function ScrollContainer( selector ) {
     this._scrollYTracker = null;
     this._disableIndicator = false;
     this._resizeIndicator  = true;
+
+    /// frame
+    this._contentWidth   = 0;
+    this._contentHeight  = 0;
+    this._viewportWidth  = 0;
+    this._viewportHeight = 0;
 
     this._lockAtDir = ScrollDirection.NONE;
     this._startXval = 0;
@@ -85,8 +93,8 @@ var ScrollContainer = derive(Sprite, function ScrollContainer( selector ) {
     this._timePullFactor = 0.15;
     this._forceDamping   = 0.85;
     this._speedThreshold = 10;
+    //this._lastUpdateTime = -1;
     this._maxTopEdgeBounces = -1;
-    this._dragDetection  = 200;
     this._doAutoScroll        = this._doAutoScroll.bind(this);
     this._doPullback          = this._doPullback.bind(this);
     this._doForceBounces      = this._doForceBounces.bind(this);
@@ -104,9 +112,13 @@ Object.defineProperties(ScrollContainer.prototype, {
     /// 获取/设置容器的 X 轴滚动位置。</field>
     scrollX: {
         get: function () { return this._scrollX; },
-        set: function( value ) { 
+        set: function( value ) {
             this._scrollX = value;
-            this._drawScrollPosition();
+
+            if ( (this._scrollX >> 0) !== (this._scrollRealX) ) {
+                this._scrollRealX = this._scrollX >> 0;
+                this._drawScrollPosition();
+            }
         }
     },
 
@@ -114,13 +126,17 @@ Object.defineProperties(ScrollContainer.prototype, {
     /// 获取/设置容器的 Y 轴滚动位置。</field>
     scrollY: {
         get: function () { return this._scrollY; },
-        set: function( value ) { 
+        set: function( value ) {
             if ( this.maxTopEdgeBounces >= 0 ) {
                 value = Math.min(this.maxTopEdgeBounces, value);
             }
 
             this._scrollY = value;
-            this._drawScrollPosition();
+
+            if ( (this._scrollY >> 0) !== (this._scrollRealY) ) {
+                this._scrollRealY = this._scrollY >> 0;
+                this._drawScrollPosition();
+            }
         }
     },
 
@@ -152,25 +168,37 @@ Object.defineProperties(ScrollContainer.prototype, {
     /// <field type='Number'>
     /// 获取最大 X 轴滚动范围。（注意：计算百分比时，0 不能作为分母！）</field>
     scrollWidth: {
-        get: function () { return Math.max(0, this._content.width - this.width); }
+        get: function () { return Math.max(0, this.contentWidth - this.viewportWidth); }
     },
 
     /// <field type='Number'>
     /// 获取最大 Y 轴滚动范围。（注意：计算百分比时，0 不能作为分母！）</field>
     scrollHeight: {
-        get: function () { return Math.max(0, this._content.height - this.height); }
+        get: function () { return Math.max(0, this.contentHeight - this.viewportHeight); }
     },
 
     /// <field type='Number'>
     /// 获取内容区的宽度。</field>
     contentWidth: {
-        get: function () { return this._content.width; }
+        get: function () { return this._contentWidth; }
     },
 
     /// <field type='Number'>
     /// 获取内容区的高度。</field>
     contentHeight: {
-        get: function () { return this._content.height; }
+        get: function () { return this._contentHeight; }
+    },
+
+    /// <filed type='Number'>
+    /// 获取滚动区域的宽度。</field>
+    viewportWidth: {
+        get: function () { return this._viewportWidth; }
+    },
+
+    /// <field type='Number'>
+    /// 获取滚动区域的高度。</field>
+    viewportHeight: {
+        get: function () { return this._viewportHeight; }
     },
 
     /// <field type='Boolean'>
@@ -211,9 +239,32 @@ Object.defineProperties(ScrollContainer.prototype, {
 });
 
 
+ScrollContainer.prototype.updateFrameSizes = function updateFrameSizes() {
+    /// <summary>
+    /// 更新滚动条区域；</summary>
+
+    this._contentWidth  = this._content.width;
+    this._contentHeight = this._content.height;
+    this._viewportWidth = this.width;
+    this._viewportHeight= this.height;
+
+
+    //this._contentWidth  = this._content.natural.scrollWidth;
+    //this._contentHeight = this._content.natural.scrollHeight;
+    //this._viewportWidth = this._content.natural.offsetWidth;
+    //this._viewportHeight= this._content.natural.offsetHeight;
+}
+
+
 ScrollContainer.prototype._initScrollContainer = function _initScrollContainer () {
     /// <summary>
     /// 初始化构造函数。</summary>
+
+    //this._content.natural.addEventListener("touchmove", function( evt ) {
+    //    console.log("move");
+    //    evt.stopPropagation();
+
+    //});
 
     this.natural.addEventListener("touchstart",  this._drawScrollContainer);
 }
@@ -223,7 +274,12 @@ ScrollContainer.prototype._drawScrollPosition = function _drawScrollPosition() {
     /// <summary>
     /// 对元素应用滚动位置属性。</summary>
     
-    this._setScrollPosition(this._scrollX, this._scrollY);
+    //this._setScrollPosition(this._scrollRealX, this._scrollRealX);
+    //this._content.transform(this._scrollRealX, this._scrollRealY);
+    var style = this._content.natural.style;
+
+    style.transform =
+    style.webkitTransform = 'translateY(' + this._scrollRealY + 'px) translateZ(0px)';
 
     /// 调度位置更新事件；
     this.dispatchEvent( new Event("scroll", false, false) );
@@ -251,7 +307,8 @@ ScrollContainer.prototype._setScrollPosition = function _setScrollPosition( scro
     //}
 
     /// TIPS: 子类可自行覆盖实现下拉刷新等效果。
-    this._content.transform(scrollX, scrollY);
+    //this._content.transform(scrollX, scrollY);
+    //this._content.natural.scrollTop = -scrollY;
 }
 
 
@@ -294,6 +351,9 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             return;
         }
 
+        /// 更新 frame 大小；
+        this.updateFrameSizes();
+
         cancelAnimation(this._pullbkInt);
         cancelAnimation(this._scrollInt);
         cancelAnimation(this._bounceInt);
@@ -315,8 +375,8 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
         this._lockAtDir = ScrollDirection.NONE;
 
         this._setupTouchEvents(true);
-        this._showIndicator(0, 0);
-        this._showIndicator(1, 0);
+        //this._showIndicator(0, 0);
+        //this._showIndicator(1, 0);
         return;
     }
     
@@ -326,6 +386,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
         var movedXval = dt[0] - this._touchXval;
         var movedYval = dt[1] - this._touchYval;
         var doPrevent = false;
+        //var currTime  = Date.now();
 
 
         if ( this._lockAtDir == ScrollDirection.NONE ) {
@@ -351,29 +412,37 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
         if ( this.scrollXEnabled && (this._lockAtDir == ScrollDirection.X_AXIS || this._lockAtDir == ScrollDirection.XY_AXIS) ) {
             doPrevent = true;
 
-            if ( this.scrollX > 0 || this.scrollX < -this.scrollWidth ) {
-                this.scrollX = this.scrollX + movedXval * this._elasticFactor;
-            }
+            //if ( currTime - this._lastUpdateTime >= 16 ) {
+            //    this._lastUpdateTime = currTime;
 
-            else {
-                this.scrollX = this.scrollX + movedXval;
-            }
+                if ( this.scrollX > 0 || this.scrollX < -this.scrollWidth ) {
+                    this.scrollX = this.scrollX + movedXval * this._elasticFactor;
+                }
 
-            this._showIndicator(0, 1);
+                else {
+                    this.scrollX = this.scrollX + movedXval;
+                }
+
+                //this._showIndicator(0, 1);
+            //}
         } 
             
         if ( this.scrollYEnabled && (this._lockAtDir == ScrollDirection.Y_AXIS || this._lockAtDir == ScrollDirection.XY_AXIS) ) {
             doPrevent = true;
+            
+            //if ( currTime - this._lastUpdateTime >= 16 ) {
+            //    this._lastUpdateTime = currTime;
 
-            if ( this.scrollY > 0 || this.scrollY < -this.scrollHeight ) {
-                this.scrollY = this.scrollY + movedYval * this._elasticFactor;
-            }
+                if ( this.scrollY > 0 || this.scrollY < -this.scrollHeight ) {
+                    this.scrollY = this.scrollY + movedYval * this._elasticFactor;
+                }
 
-            else {
-                this.scrollY = this.scrollY + movedYval;
-            }
+                else {
+                    this.scrollY = this.scrollY + movedYval;
+                }
 
-            this._showIndicator(1, 1);
+                //this._showIndicator(1, 1);
+            //}
         }
 
         if ( doPrevent ) {
@@ -438,7 +507,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             }
 
             else {
-                this._showIndicator(0, 0);
+                //this._showIndicator(0, 0);
             }
         }
 
@@ -450,23 +519,23 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
             }
 
             else {
-                this._showIndicator(1, 0);
+                //this._showIndicator(1, 0);
             }
         }
 
         if ( this._lockAtDir == ScrollDirection.NONE ) {
-            this._showIndicator(0, 0);
-            this._showIndicator(1, 0);
+            //this._showIndicator(0, 0);
+            //this._showIndicator(1, 0);
         }
 
         if ( doPullXs || doPullYs ) {
-            this._pullstamp = timeNow();
+            this._pullstamp = Date.now();
             this._pullbkInt = requestAnimation(this._doPullback);
             this.dispatchEvent(new Event("pull", false, false));
         }
 
         if ( doScroll ) {
-            this._timestamp = timeNow();
+            this._timestamp = Date.now();
             this._scrollInt = requestAnimation(this._doAutoScroll);
 
             var dragEvent = new Event("drag", false, false);
@@ -493,7 +562,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
 ScrollContainer.prototype._calcTouchesSpeed = function _calcTouchesSpeed () {
     /// <summary>
     /// 计算手指移动速度。</summary>
-    var now = timeNow();
+    var now = Date.now();
     var elapsed = now - this._timestamp;
     
     var deltaXval = this.scrollX - this._startXval;
@@ -564,7 +633,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
     /// <summary>
     /// 根据移动速度自动滚动一定距离。</summary>
 
-    var fact = Math.exp((this._timestamp - timeNow()) / (this._timeConstant));
+    var fact = Math.exp((this._timestamp - Date.now()) / (this._timeConstant));
     var dist = 0;
     var next = false;
     var bounce = false;
@@ -577,7 +646,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             dist = this._distsXval + dist;
             this._forceXval = 0.8 * (dist - this.scrollX) + 0.2 * this._forceXval;
             this.scrollX = dist;
-            this._showIndicator(0, 1);
+            //this._showIndicator(0, 1);
         }
 
         else {
@@ -585,7 +654,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             this._forceXval = 0.8 * (dist - this.scrollX) + 0.2 * this._forceXval;
             this.scrollX = dist;
             this._velocXval = 0;
-            this._showIndicator(0, 0);
+            //this._showIndicator(0, 0);
         }
 
         if ( dist > 0 || dist < -this.scrollWidth ) {
@@ -608,7 +677,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             dist = this._distsYval + dist;
             this._forceYval = 0.8 * (dist - this.scrollY) + 0.2 * this._forceYval;
             this.scrollY = dist;
-            this._showIndicator(1, 1);
+            //this._showIndicator(1, 1);
         }
 
         else {
@@ -616,7 +685,7 @@ ScrollContainer.prototype._doAutoScroll = function _doAutoScroll () {
             this._forceYval = 0.8 * (dist - this.scrollY) + 0.2 * this._forceYval;
             this.scrollY = dist;
             this._velocYval = 0;
-            this._showIndicator(1, 0);
+            //this._showIndicator(1, 0);
         }
 
         if ( dist > 0 || dist < -this.scrollHeight ) {
@@ -646,7 +715,7 @@ ScrollContainer.prototype._doPullback = function _doPullback () {
     /// <summary>
     /// 边缘拉回。</summary>
 
-    var fact = Math.exp((this._pullstamp - timeNow()) / (this._timeConstant * this._timePullFactor));
+    var fact = Math.exp((this._pullstamp - Date.now()) / (this._timeConstant * this._timePullFactor));
     var dist = 0;
     var next = false;
 
@@ -656,13 +725,13 @@ ScrollContainer.prototype._doPullback = function _doPullback () {
         if ( Math.abs(dist) >= 0.5 ) {
             next = true;
             this.scrollX = this._targtXval + dist;
-            this._showIndicator(0, 1);
+            //this._showIndicator(0, 1);
         }
 
         else {
             this.scrollX = this._targtXval;
             this._amplsXval = 0;
-            this._showIndicator(0, 0);
+            //this._showIndicator(0, 0);
         }
     }
 
@@ -672,13 +741,13 @@ ScrollContainer.prototype._doPullback = function _doPullback () {
         if ( Math.abs(dist) >= 0.5 ) {
             next = true;
             this.scrollY = this._targtYval + dist;
-            this._showIndicator(1, 1);
+            //this._showIndicator(1, 1);
         }
 
         else {
             this.scrollY = this._targtYval;
             this._amplsYval = 0;
-            this._showIndicator(1, 0);
+            //this._showIndicator(1, 0);
         }
     }
 
@@ -705,13 +774,13 @@ ScrollContainer.prototype._doForceBounces = function _doForceBounces() {
         if ( Math.abs(this._forceXval) >= 0.001 ) {
             next = true;
             this.scrollX += this._forceXval * this._elasticFactor;
-            this._showIndicator(0, 1);
+            //this._showIndicator(0, 1);
         }
 
         else {
             this._forceXval = 0;
             this.scrollX = this._edgesXval;
-            this._showIndicator(0, 0);
+            //this._showIndicator(0, 0);
         }
     }
 
@@ -724,13 +793,13 @@ ScrollContainer.prototype._doForceBounces = function _doForceBounces() {
         if ( Math.abs(this._forceYval) >= 0.001 ) {
             next = true;
             this.scrollY += this._forceYval * this._elasticFactor;
-            this._showIndicator(1, 1);
+            //this._showIndicator(1, 1);
         }
 
         else {
             this._forceYval = 0;
             this.scrollY = this._edgesYval;
-            this._showIndicator(1, 0);
+            //this._showIndicator(1, 0);
         }
     }
 
@@ -749,13 +818,13 @@ ScrollContainer.prototype.scrollTo = function scrollTo( time, x, y ) {
     this._velocXval = this._distsXval - this.scrollX;
     this._velocYval = this._distsYval - this.scrollY;
     this._timedelay = time;
-    this._timestamp = timeNow();
+    this._timestamp = Date.now();
     this._scrollInt = requestAnimation(this._doScrollTo);
 }
 
 
 ScrollContainer.prototype._doScrollTo = function _doScrollTo() {
-    var time = timeNow() - this._timestamp;
+    var time = Date.now() - this._timestamp;
     var next = false;
 
     if ( (time < this._timedelay) && (this._timedelay > 0) ) {
@@ -791,7 +860,7 @@ ScrollContainer.prototype._stopAllDelayTimer = function _stopAllDelayTimer() {
 
 ScrollContainer.prototype._showIndicator = function _showIndicator( type, alpha ) {
     /// 显示/绘制/更新滚动位置指示器。
-
+    return;
     if ( this._disableIndicator ) {
         /// 禁止显示指示器
         return;
@@ -848,7 +917,7 @@ ScrollContainer.prototype._createIndicator = function _createIndicator() {
 
 ScrollContainer.prototype._updateIndicator = function _updateIndicator( type ) {
     if ( type == 0 ) {
-        var scale = ((this.width <= 0 || this.contentWidth <= 0) ? 0 : this.width / this.contentWidth);
+        var scale = ((this.viewportWidth <= 0 || this.contentWidth <= 0) ? 0 : this.viewportWidth / this.contentWidth);
         var value = (this.scrollX > 0 ? 0 : this.scrollX < -this.scrollWidth ? this.scrollWidth : -this.scrollX);
         var percent = (this.scrollWidth <= 0 ? (this.scrollY >= 0 ? 0 : 1) : value / this.scrollWidth);
 
@@ -865,7 +934,7 @@ ScrollContainer.prototype._updateIndicator = function _updateIndicator( type ) {
     }
 
     if ( type == 1 ) {
-        var scale = ((this.height <= 0 || this.contentHeight <= 0) ? 0 : this.height / this.contentHeight);
+        var scale = ((this.viewportHeight <= 0 || this.contentHeight <= 0) ? 0 : this.viewportHeight / this.contentHeight);
         var value = (this.scrollY > 0 ? 0 : this.scrollY < -this.scrollHeight ? this.scrollHeight : -this.scrollY);
         var percent = (this.scrollHeight <= 0 ? (this.scrollY >= 0 ? 0 : 1) : value / this.scrollHeight);
 
