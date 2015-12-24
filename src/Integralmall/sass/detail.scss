@@ -343,6 +343,10 @@
 
         @include backdrop();
         @include clearfix();
+
+        &:after {
+            @include setBottomLine(rgba(0, 0, 0, 0.2));
+        }
     }
 
     .detimage {

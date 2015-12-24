@@ -13,7 +13,11 @@
     transform: translateY(100%);
     transition: transform ease-in-out 0.3s;
 
-    @include backdrop(-1px);
+    @include backdrop();
+
+    &:before {
+        @include setTopLine(rgba(0, 0, 0, 0.2));
+    }
 
     & > .weui_btn {
         font-size: 16px;
