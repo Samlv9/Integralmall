@@ -294,7 +294,7 @@
     z-index: 10;
     /*opacity: 0;*/
     transform: translateY(-100%);
-    /*transition: transform ease-in-out 0.3s;*/
+    transition: transform ease-in-out 0.3s;
 
     /*&:before {
         margin-top: -16px;
@@ -327,9 +327,9 @@
         animation: fadeTooltip 4s ease-in-out;
     }
 
-    /*&.topbar-showing {
+    &.topbar-showing {
         transform: translateY(0);
-    }*/
+    }
 
     .detnav {
         padding: 6px 8px;

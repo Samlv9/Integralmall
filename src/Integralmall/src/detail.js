@@ -78,7 +78,7 @@ var Page = derive(PageBase, function Page() {
 
     /// 详情页面容器；
     this._sideContainer = new ScrollContainer("#side");
-    this._sideContainer.maxTopEdgeBounces = 88;
+    this._sideContainer.maxTopEdgeBounces = 92;
 
     /// 属性选择容器；
     this._optionOverlay   = new Overlay("#optionOverlay");
@@ -252,6 +252,8 @@ Page.prototype._viewPullUpHandler = function _viewPullUpHandler( evt ) {
     if ( !this._isShowMore && height >= this._threshold ) {
         this._isShowMore = true;
         this._showMorePage();
+        this._showToolbar();
+        this._showTopbar();
     }
 }
 
@@ -264,6 +266,7 @@ Page.prototype._sidePullUpHandler = function _sidePullUpHandler( evt ) {
     if ( this._isShowMore && height >= this._threshold ) {
         this._isShowMore = false;
         this._showMainPage();
+        this._mainContainer.scrollY = 0;
     }
 }
 
@@ -280,41 +283,55 @@ Page.prototype._sidePullDownHandler = function _sidePullDownHandler() {
 
 
 Page.prototype._viewScrollHandler = function _viewScrollHandler( evt ) {
-    //var bound  = this._intros.natural.getBoundingClientRect().top;
-    //var offset = Math.min((this._avatar.height + this._avatarOverlay), bound);
-    //console.log("Y:", this._mainContainer.scrollY, this._mainContainer.scrollHeight);
+    if ( !this._isIOS ) {
+        var sY = this._mainContainer.scrollY;
+        var dY = window.innerWidth - 154;
 
-    ///// 头像位置；
-    //this._avatar.y = offset - (this._avatar.height + this._avatarOverlay);
+        if ( sY <= -dY ) {
+            this._avatar.natural.style.display = "none";
+        }
 
-    //if ( !this._resetAvatarTransition ) {
-    //    this._resetAvatarTransition = true;
-    //    this._avatar.natural.style.transition = 
-    //    this._avatar.natural.style.webkitTransition = "none";
-    //}
+        else {
+            this._avatar.natural.style.display = "block";
+        }
+    }
 
-    ///// 更新 Swiper 的偏移位置；
-    //if ( this._isIOS ) {
-    //    this._swiperSprite.y = Math.min(this._swiperSprite.height, Math.max(0, -this._mainContainer.scrollY) * 0.25);
-    //}
+    else {
+        var bound  = this._intros.natural.getBoundingClientRect().top;
+        var offset = Math.min((this._avatar.height + this._avatarOverlay), bound);
 
-    ///// 更新 morePrompts 位置;
-    //var bottom = Math.min(this._distance, Math.max(0, -this._mainContainer.scrollHeight - this._mainContainer.scrollY));
-    //var height = Math.max(44, bottom * 0.75);
+        /// 头像位置；
+        this._avatar.y = offset - (this._avatar.height + this._avatarOverlay);
 
-    //this._morePromptsSprite.y = bottom * 0.25;
-    ////this._moreTips.y = bottom * 0.20;
-    ////this._morePromptsSprite.element.find(".loading").css({ "opacity": bottom / this._distance });
+        if ( !this._resetAvatarTransition ) {
+            this._resetAvatarTransition = true;
+            this._avatar.natural.style.transition = 
+            this._avatar.natural.style.webkitTransition = "none";
+        }
 
-    //if ( height >= this._threshold ) {
-    //    this._morePromptsSprite.element.find(".text").text("释放手指，加载图文详情");
-    //    this._morePromptsSprite.element.find(".loading").addClass("fade-in");
-    //}
+        /// 更新 Swiper 的偏移位置；
+        this._swiperSprite.y = Math.min(this._swiperSprite.height, Math.max(0, -this._mainContainer.scrollY) * 0.5);
+    }
 
-    //else {
-    //    this._morePromptsSprite.element.find(".text").text("继续拖动，查看图文详情");
-    //    this._morePromptsSprite.element.find(".loading").removeClass("fade-in");
-    //}
+    /// 更新 morePrompts 位置;
+    var bottom = Math.min(this._distance, Math.max(0, -this._mainContainer.scrollHeight - this._mainContainer.scrollY));
+    var height = Math.max(44, bottom * 0.75);
+
+    if ( this._isIOS ) {
+        this._morePromptsSprite.y = bottom * 0.25;
+    }
+    //this._moreTips.y = bottom * 0.20;
+    //this._morePromptsSprite.element.find(".loading").css({ "opacity": bottom / this._distance });
+
+    if ( height >= this._threshold ) {
+        this._morePromptsSprite.element.find(".text").text("释放手指，加载图文详情");
+        this._morePromptsSprite.element.find(".loading").addClass("fade-in");
+    }
+
+    else {
+        this._morePromptsSprite.element.find(".text").text("继续拖动，查看图文详情");
+        this._morePromptsSprite.element.find(".loading").removeClass("fade-in");
+    }
 }
 
 
@@ -334,7 +351,7 @@ Page.prototype._sideScrollHandler = function _sideScrollHandler( evt ) {
     //    this._backPromptsSprite.element.find(".text").text("继续拖动，返回商品简介");
     //}
 
-    ///// 更新头部位置；
+    /// 更新头部位置；
     //var factor = Math.min(this._fadeTopDistance, Math.max(0, -this._sideContainer.scrollY - this._allowScrollSize)) / this._fadeTopDistance;
     //this._topbar.y = -(1 - factor) * this._topbar.height;
 
@@ -352,11 +369,19 @@ Page.prototype._dragSideViewHandler = function _dragSideViewHandler( evt ) {
     /// 滑动；
     if ( evt.vy > 0 ) {
         this._showToolbar();
-        //this._showTopbar();
+        this._showTopbar();
+
+        var showToptip = Preferences.get("showToptip", true) || 0;
+
+        if ( !showToptip && (-this._sideContainer.scrollY >= (this._allowScrollSize + this._fadeTopDistance)) ) {
+            Preferences.set("showToptip", 1, true);
+
+            this._topbar.natural.classList.add("tooltip-showing");
+        }
     }
 
     else {
-        //this._hideTopbar();
+        this._hideTopbar();
         this._hideToolbar();
     }
 }
