@@ -27,32 +27,52 @@
 /// THE SOFTWARE.
 ///
 /// <reference path='../core/derive.js' />
-/// <reference path='../view/Sprite.js' />
-/// <reference path='../view/ScrollContainer.js' />
-/// <reference path='../view/FPSRendener.js' />
+/// <reference path='../core/timing.js' />
+/// <reference path='./Sprite.js' />
 
 
-var PageBase = derive(Sprite, function PageBase( disableContainer ) {
-    Sprite.call(this, document.body);
-
-    /// 帧频计数器；
-    new FPSRendener();
-    
-    /// Remote Console JS;
-    console.log("PageBase -> Remote Init: " + (new Date().toJSON()));
-
-    /// 全局配置文件；
-    this._appConfigParam = domain["APP_CONFIG_PARAMS"] || {};
+var FPSRendener = derive(Sprite, function FPSRendener() {
+    Sprite.call(this, document.createElement("div"));
 
 
-    /// 主滚动容器；
-    if ( !disableContainer ) {
-        this._mainContainer = new ScrollContainer("#main");
-    }
-
-    /// 页面加载完成；
-    window.addEventListener("load", function( evt ) {
-        document.body.classList.add("body-load");
+    this._element.css({
+        "position": "fixed",
+        "left": "0px",
+        "top" : "0px",
+        "color": "#04be02",
+        "padding": "0px 4px",
+        "background": "rgba(255, 255, 255, 0.6)",
+        "zIndex": 9999999
     });
+
+    document.body.appendChild(this._natural);
+
+    this._frameRate = 0;
+    this._lastTimer = 0;
+    this._currTimer = 0;
+    this._updateFrameRateHandler = this._updateFrameRateHandler.bind(this);
+
+    requestAnimation(this._updateFrameRateHandler);
 });
 
+
+FPSRendener.prototype._updateFrameRateHandler = function _updateFrameRateHandler( evt ) {
+    /// <summary>
+    /// 更新帧频；</summary>
+
+    this._frameRate++;
+    this._currTimer = Date.now();
+
+    if ( this._currTimer - this._lastTimer >= 1000 ) {
+        this._lastTimer = this._currTimer;
+        this._updateTextContent();
+        this._frameRate = 0;
+    }
+
+    requestAnimation(this._updateFrameRateHandler);
+}
+
+
+FPSRendener.prototype._updateTextContent = function _updateTextContent() {
+    this._element.text("fps:" + this._frameRate);
+}
