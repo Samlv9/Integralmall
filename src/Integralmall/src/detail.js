@@ -129,7 +129,7 @@ var Page = derive(PageBase, function Page() {
     this._mainContainer.addEventListener("scroll", this._viewScrollHandler);
     this._sideContainer.addEventListener("pull"  , this._sidePullUpHandler);
     this._sideContainer.addEventListener("pull"  , this._sidePullDownHandler); 
-    this._sideContainer.addEventListener("scroll", this._sideScrollHandler);
+    //this._sideContainer.addEventListener("scroll", this._sideScrollHandler);
     this._sideContainer.addEventListener("drag"  , this._dragSideViewHandler);
     this._topbar.natural.addEventListener("click", this._topbarClickHandler);
     this._optionTrigger.natural.addEventListener("click", this._showOptionLayer);

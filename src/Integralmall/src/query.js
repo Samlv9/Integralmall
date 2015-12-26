@@ -87,7 +87,7 @@ Page.prototype._initPage = function _initPage () {
     for ( var i = 0; i < this._allListContainer.length; ++i ) {
         var container = this._allListContainer[i];
 
-        //container.disableIndicator = true;
+        container.disableIndicator = true;
         container.threshold = 10;
         container.addEventListener("scroll", this._listScrollHandler);
     }
