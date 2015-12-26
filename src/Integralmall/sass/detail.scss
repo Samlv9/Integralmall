@@ -71,6 +71,7 @@
     padding: $gap15 0px;
     line-height: 1;
     color: $defaultGraysColor;
+    transform: translateY(0px) translateZ(0px);
 
     & > .text {
         padding: 0px $gap10;
@@ -114,6 +115,7 @@
     font-size: 12px;
     position: relative;
     height: 0px;
+    transform: translateY(0px) translateZ(0px);
 
     & > .text {
         background: #fff;

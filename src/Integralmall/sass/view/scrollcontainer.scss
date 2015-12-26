@@ -4,7 +4,7 @@
     position: relative;
     overflow: hidden;
     & > content {
-        transform: translateX(0px) translateY(0px) translateZ(0px);
+        transform: translateY(0px) translateZ(0px);
         min-height: 100%;
         @include clearfix();
     }
