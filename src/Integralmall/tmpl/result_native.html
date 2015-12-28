@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html class="allow-native-touch">
+<head>
+{{>./partials/headtags}}</head>
+<body>
+
+
+
+<!-- ================================================================================ -->
+<!-- 订单状态概览 -->
+<!-- ================================================================================ -->
+<div class="weui_cells order-status-overview order-done-status">
+    <div class="weui_cell status">
+        <div class="weui_cell_bd weui_cell_primary">订单状态</div>
+        <div class="weui_cell_ft">交易完成</div>
+    </div>
+    <a class="weui_cell weui_cells_access express" href="express_native.html">
+        <div class="weui_cell_bd weui_cell_primary">申通快递</div>
+        <div class="weui_cell_ft">正在为您派件</div>
+    </a>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 订单操作控件 -->
+<!-- ================================================================================ -->
+<div class="weui_btn_group">
+    <a class="weui_btn weui_btn_primary toast-trigger" href="javascript:void(0);">确认收货</a>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 订单商品列表 -->
+<!-- ================================================================================ -->
+<div class="weui_cells order-cells">
+<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary order-header">微积分商城</div></div>
+<a class="weui_cell" href="detail_native.html">
+    <div class="weui_cell_hd"><img class="goods-thumb" src="{{&bitmaps}}/common/thumb.jpg" width="72" height="72" /></div>
+    <div class="weui_cell_bd weui_cell_primary goods-detail">
+        <div class="goods-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文</div>
+        <div class="goods-prop">款式、颜色</div>
+        <div class="goods-rebate">返佣 <span>88</span> 积分</div>
+        <div class="goods-info"><span class="goods-price"><small>￥</small><span>280.00</span></span><span class="goods-origin">￥<span>1800.00</span></span></div>
+    </div>
+    <div class="weui_cell_ft">x <span class="goods-count">2</span></div>
+</a>
+<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary">
+    <p class="order-message-display">上晚自习的时候，同桌脸上爬了一个虫子，出于好心，我啪的一巴掌打过去。</p>
+</div></div>
+<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary">
+    <p class="total-rebate">全部返佣 <span class="rebate">22</span> 积分</p>
+</div></div>
+<div class="weui_cell">
+    <div class="weui_cell_bd weui_cell_primary">快递费用</div>
+    <div class="weui_cell_ft"><span class="order-express-price">￥<output class="order-express-value">10.00</output></span></div>
+</div>
+<div class="weui_cell"><div class="weui_cell_bd weui_cell_primary">
+    <p class="total-desc">共 <span class="total-count">4</span> 件商品，合计 ￥<span class="total-amount">177.00</span></p>
+</div></div>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 订单地址信息 -->
+<!-- ================================================================================ -->
+<div class="weui_cells_title">收货地址</div>
+<div class="weui_cells"><div class="weui_cell">
+    <address class="weui_cell_bd weui_cell_primary order-address">
+        <div class="headline"><span class="username">老先生</span>，<span class="telnum">13661210903</span></div>
+        <div class="location">
+            <span class="province">广东省</span>
+            <span class="city">广州市</span>
+            <span class="region">番禺区</span>
+            <span class="street">白云公园绿地中心3402号</span>
+        </div>
+    </address>
+    <div class="weui_cell_ft"></div>
+</div></div>
+
+
+
+<!-- ================================================================================ -->
+<!-- 订单信息 -->
+<!-- ================================================================================ -->
+<div class="weui_cells_title">其他信息</div>
+<div class="weui_cells order-timestamp weui_cells_no_spliter">
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">订单编号</div>
+        <div class="weui_cell_ft">GBK-1234567890</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">创建时间</div>
+        <div class="weui_cell_ft">2015-12-21 12:00:00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">付款时间</div>
+        <div class="weui_cell_ft">2015-12-21 12:00:00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">发货时间</div>
+        <div class="weui_cell_ft">2015-12-21 12:00:00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">成交时间</div>
+        <div class="weui_cell_ft">2015-12-21 12:00:00</div>
+    </div>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 帮助 -->
+<!-- ================================================================================ -->
+<div class="weui_cells_title">帮助</div>
+<div class="weui_cells order-help"><div class="weui_cell">
+    <div class="weui_cell_bd weui_cell_primary">客服热线</div>
+    <div class="weui_cell_ft"><a href="tel:020-88888888">020-88888888</a></div>
+</div></div>
+
+
+
+
+
+
+<!-- ================================================================================ -->
+<!-- 提醒发货 -->
+<!-- ================================================================================ -->
+<div id="toast" class="weui_loading_toast">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toast">
+        <div class="weui_loading">
+            <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+            <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+        </div>
+        <i class="weui_icon_toast"></i>
+        <p class="weui_toast_content">请稍后...</p>
+    </div>
+</div>
+
+
+
+
+{{>./partials/foottags}}
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="allow-native-touch">
+<head>
+<!-- UTF-8 页面编码 -->
+<meta charset="utf-8" />
+<!-- DNS 预解析 -->
+<meta http-equiv="X-DNS-Prefetch-Control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!-- App 独立模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<title>商品详情页</title>
+<!-- Apple Touch Icon -->
+<!-- IPhone 4s/5/5s/6/6s -->
+<!--<link rel="apple-touch-icon" sizes="120x120" href="icon_120x120.png" />-->
+<!-- IPhone 6/6s Plus -->
+<!--<link rel="apple-touch-icon" sizes="180x180" href="icon_180x180.png" />-->
+<!-- Chrome Touch Icon -->
+<!--<link rel="apple-touch-icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="apple-touch-icon" sizes="128x128" href="icon_128x128.png" />-->
+<!--<link rel="icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="icon" sizes="128x128" href="icon_128x128.png" />-->
+<!-- ================================================================================ -->
+<!-- StyleManager -->
+<!-- ================================================================================ -->
+<!-- Swipe.css -->
+<link rel="stylesheet" href="resources/libraries/swiper/swiper.css" />
+<!-- ================================================================================ -->
+<!-- 页面样式文件 -->
+<!-- ================================================================================ -->
+<link rel="stylesheet" href="resources/stylesheets/detail_native.css" />
+<!-- html5 标签补丁 -->
+<script type="text/javascript" id="html5shiv">///<![CDATA[
+    document.createElement("main");
+    document.createElement("content");
+///]]></script>
+<!-- 运行环境设置 -->
+<script type="text/javascript" src="resources/scripts/system.js"></script>
+<!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
+<body>
+<!-- ================================================================================ -->
+<!-- 详情页面头像栏 -->
+<!-- ================================================================================ -->
+<a id="avatar" href="usercenter_native.html"><img src="resources/bitmaps/common/avatar.jpg" /></a>
+
+
+<!-- ================================================================================ -->
+<!-- 底部工具栏 -->
+<!-- ================================================================================ -->
+<div id="toolbar" class="toolbar">
+    <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
+    <a class="weui_btn weui_btn_primary" href="order_native.html">立即购买</a>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 图片轮播插件 -->
+<!-- ================================================================================ -->
+<div id="detailSwiper" class="swiper-container"><div class="swiper-pagination"></div>
+    <div class="swiper-wrapper">
+        <a class="swiper-slide" href="javascript:void(0);"><img class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/detail/banner/1.jpg" /><span class="swiper-lazy-preloader"></span></a>
+        <a class="swiper-slide" href="javascript:void(0);"><img class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/detail/banner/2.jpg" /><span class="swiper-lazy-preloader"></span></a>
+        <a class="swiper-slide" href="javascript:void(0);"><img class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/detail/banner/3.jpg" /><span class="swiper-lazy-preloader"></span></a>
+    </div>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 商品名称/价格 -->
+<!-- ================================================================================ -->
+<div class="goods-summary">
+    <div class="goods-header">
+        <h3 class="goods-title">
+            商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长
+        </h3>
+        <div id="descDropdown" class="goods-description drop-down" data-ctor="dropdown" data-droponce="true">
+            <div class="drop-container"><div class="drop-content">
+                商品简介，很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长
+                很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的
+                文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文字很长很
+                长的文字很长很长的文字很长很长的文字很长很长
+            </div></div>
+            <div class="drop-allow"></div>
+        </div>
+        <a class="goods-share share-button" href="javascript:void(0);"><i class="ui-icon ui-share-icon"></i></a>
+    </div>
+    <div class="weui_cells">
+        <!-- 价格 -->
+        <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <p><span class="goods-price"><small>￥</small><span>280.00</span></span><span class="goods-origin">￥<span>1800.00</span></span></p></div><div class="weui_cell_ft">
+            <p><span class="goods-sellcount">已有 <span>127542</span> 人付款</span></p>
+        </div></div>
+        <!-- 选项 -->
+        <a href="option_native.html" id="optionTrigger" class="weui_cell weui_cells_access goods-options">
+            <div class="weui_cell_bd weui_cell_primary">选择分类</div>
+            <div class="weui_cell_ft"><span id="formOptionOutput">款式、颜色</span></div>
+        </a>
+        <!-- 返现 -->
+        <div class="weui_cell">
+        <div class="weui_cell_bd">
+            <p><span class="goods-rebate">该商品每件返佣 <span>88</span> 积分</span></p>
+        </div></div>
+        <!-- 特性 -->
+        <div class="weui_cell">
+        <div class="weui_cell_bd"><p>
+            <span class="goods-feature"><i class="weui_icon_success_circle"></i>正品保证</span>
+            <span class="goods-feature"><i class="weui_icon_success_circle"></i>工厂直发</span>
+            <span class="goods-feature"><i class="weui_icon_success_circle"></i>7天退换</span>
+        </p></div></div>
+    </div>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 购买按钮 -->
+<!-- ================================================================================ -->
+<div class="goods-controls weui_btn_group">
+    <a class="weui_btn weui_btn_primary" href="order_native.html">立即购买</a>
+    <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 详细参数 -->
+<!-- ================================================================================ -->
+<!--<a class="weui_cell weui_cell_footer weui_cells_access"><span class="weui_cell_bd weui_cell_primary"><i class="ui-icon ui-m-icon ui-more-icon"></i>更多参数信息...</span></a>-->
+<a id="specTrigger" class="weui_cells arglist goods-arglist" href="spec_native.html">
+    <div class="weui_cell weui_cell_header weui_cells_access"><div class="weui_cell_bd weui_cell_primary">规格&参数</div><div class="weui_cell_ft"></div></div>
+    <div class="weui_cell"><div class="weui_cell_hd">硬盘容量</div><div class="weui_cell_bd weui_cell_primary">240 GB</div></div>
+    <div class="weui_cell"><div class="weui_cell_hd">接口类型</div><div class="weui_cell_bd weui_cell_primary">SATA 3</div></div>
+    <div class="weui_cell"><div class="weui_cell_hd">硬盘容量</div><div class="weui_cell_bd weui_cell_primary">240 GB</div></div>
+    <div class="weui_cell"><div class="weui_cell_hd">接口类型</div><div class="weui_cell_bd weui_cell_primary">SATA 3</div></div>
+    <div class="weui_cell"><div class="weui_cell_hd weui_cell_primary args-dotcell">...</div></div>
+</a>
+
+
+<div id="detailMorePrompts">
+    <div class="text">以下为商品图文详情</div>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 图文详情 -->
+<!-- ================================================================================ -->
+<article id="detialRichContents">
+<p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234669550.jpg" style="" title="1442218234669550.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234799622.jpg" style="" title="1442218234799622.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234850608.jpg" style="" title="1442218234850608.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234479567.jpg" style="" title="1442218234479567.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234872490.jpg" style="" title="1442218234872490.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234786821.jpg" style="" title="1442218234786821.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234967636.jpg" style="" title="1442218234967636.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234843115.jpg" style="" title="1442218234843115.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234556735.jpg" style="" title="1442218234556735.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234918292.jpg" style="" title="1442218234918292.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235889701.jpg" style="" title="1442218235889701.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235824362.jpg" style="" title="1442218235824362.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235453511.jpg" style="" title="1442218235453511.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235633069.jpg" style="" title="1442218235633069.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235421874.jpg" style="" title="1442218235421874.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235245943.jpg" style="" title="1442218235245943.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235537253.jpg" style="" title="1442218235537253.jpg"/></p>
+</article>
+
+
+
+<!-- ================================================================================ -->
+<!-- ScriptManager -->
+<!-- ================================================================================ -->
+<!-- ZeptoJs -->
+<script type="text/javascript" src="resources/libraries/zeptojs/zepto.js"></script>
+<!-- ZeptoJs Event Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/event.js"></script>
+<!-- Swipe -->
+<script type="text/javascript" src="resources/libraries/swiper/swiper.js"></script>
+<!-- ================================================================================ -->
+<!-- 页面入口点 -->
+<!-- ================================================================================ -->
+<script type="text/javascript" src="resources/scripts/detail_native.js"></script>
+</body>
+</html>

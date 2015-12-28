@@ -1,0 +1,154 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+@import "./view/uiicon";
+/*@import "./view/scrollcontainer";*/
+/*@import "./view/swipercontainer";*/
+
+@import "./weui/base/fn";
+/*@import "./weui/icon/weui_icon_font";*/
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+@import "./weui/widget/weui_cell/weui_access";
+@import "./weui/widget/weui_tips/weui_toast";
+@import "./weui/widget/weui_tips/weui_mask";
+@import "./weui/widget/weui_tips/weui_dialog";
+
+@import "./utils/weui_reset";
+@import "./view/ordercells";
+
+
+#queryHeader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 44px;
+    z-index: 9;
+    background: #fff;
+
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
+
+    & > #queryNav {
+        display: flex;
+        height: 100%;
+    }
+
+    & .query-button {
+        flex: 1;
+        display: block;
+        height: 100%;
+        text-align: center;
+        line-height: 44px;
+        
+
+        & > .query-label {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        &.selected {
+            color: #04be02;
+
+            & > .query-label:after {
+                content: " ";
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                bottom: 0px;
+                border-bottom: 2px solid #04be02;
+            }
+        }
+    }
+}
+
+
+#queryContainer {
+    padding-top: 44px;
+    &.no-data {
+        background: url(../bitmaps/common/orderempty.png) no-repeat center center;
+        background-size: 120px 120px;
+    }
+}
+
+
+#querySwiper {
+    position:absolute;
+    left: 0px;
+    top : 44px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.order-cells {
+    display: block;
+
+    &:last-child {
+        margin-bottom: $weuiCellsMarginTop;
+    }
+}
+
+
+.order-done-status {
+    .weui_cell:first-child {
+        z-index: 1;
+
+        &:after {
+            position: absolute;
+            width: 72px;
+            height: 72px;
+            top: 0px;
+            right: 0px;
+            content: " ";
+            background: url(../bitmaps/common/tag.png) no-repeat 0px 0px;
+            background-size: contain;
+            margin-top: 10px;
+            margin-right: 10px;
+            opacity: 0.5;
+        }
+    }
+}
+
+
+.loader-tiper {
+    pointer-events: none;
+    padding: $gap15 0px;
+    text-align: center;
+    color: #C8C8C8;
+    opacity: 0;
+    margin-top: 10px;
+    transform: translateY(-100%) translateZ(0px);
+
+    .swiper-lazy-preloader {
+        position: static;
+        width: 20px;
+        height: 20px;
+        margin-left: 0px;
+        margin-top : 0px;
+        top: 0px;
+        left: 0px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .loader-text {
+        display: block;
+        font-size: 12px;
+        margin-top: 4px;
+        text-shadow: rgba(255, 255, 255, 1) 1px 1px 1px;
+    }
+
+    .show-loading & {
+        transition: transform ease-in-out 0.35s, opacity ease-in-out 0.35s;
+        opacity: 1;
+        transform: translateY(0%) translateZ(0px);
+    }
+
+    .order-cells + & {
+        margin-top: 0px;
+    }
+}

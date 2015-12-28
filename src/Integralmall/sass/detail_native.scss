@@ -1,0 +1,415 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+@import "./view/uiicon";
+/*@import "./view/scrollcontainer";*/
+@import "./view/swipercontainer";
+@import "./view/dropdown";
+@import "./view/toolbar";
+/*@import "./view/overlay";*/
+/*@import "./view/radiobutton";*/
+/*@import "./view/counter";*/
+/*@import "./view/tooltip";*/
+
+@import "./weui/base/fn";
+@import "./weui/icon/weui_icon_font";
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+@import "./weui/widget/weui_cell/weui_access";
+@import "./weui/widget/weui_tips/weui_toast";
+@import "./weui/widget/weui_tips/weui_mask";
+@import "./weui/widget/weui_tips/weui_dialog";
+
+@import "./utils/weui_reset";
+
+
+#detailSwiper {
+    position: relative;
+    z-index: 1;
+    /*margin-top: -64px;*/
+    width: 100%;
+    height: 0px;
+    padding-bottom: 100%;
+    background: #ddd;
+
+    & .swiper-wrapper {
+        position: absolute;
+        left: 0px;
+        top : 0px;
+    }
+
+
+    & .swiper-pagination-bullet-active {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    & .swiper-lazy-preloader {
+        width: 20px;
+        height: 20px;
+        margin-left: -10px;
+        margin-top : -10px;
+    }
+}
+
+
+#detailMorePrompts {
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    padding: $gap15 0px;
+    line-height: 1;
+    color: $defaultGraysColor;
+    transform: translateY(0px) translateZ(0px);
+
+    & > .text {
+        padding: 0px $gap10;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        background: $pageDefaultBackgroundColor;
+    }
+
+    &:before {
+        content: " ";
+        position: absolute;
+        left: $gap15;
+        right: $gap15;
+        top: 50%;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+}
+
+
+.goods-summary {
+    background: $defaultWhiteBackground;
+
+    .goods-header {
+        position: relative;
+        padding: $gap10 $gap15;
+
+        &:before {
+            @include setTopLine($weuiCellBorderColor);
+        }
+    }
+
+    .goods-share {
+        position: absolute;
+        top  : 10px;
+        right: 0px;
+        padding: 4px 8px;
+        border-left: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .goods-title {
+        margin-right: 44px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: normal;
+        height: 40px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical; 
+    }
+
+    .goods-price {
+        font-size: 20px;
+    }
+
+    .goods-origin {
+        text-decoration:line-through;
+        color: $defaultGraysColor;
+        margin-left: 6px;
+    }
+
+    .goods-sellcount {
+        color: $defaultGraysColor;
+        font-size: 12px;
+    }
+
+    .goods-description {
+        margin-top: 8px;
+        line-height: 16px;
+        color: $defaultDescsColor;
+
+        & > .drop-container {
+            max-height:80px;
+            height: 32px;
+        }
+
+        & > .drop-allow {
+            height: 6px;
+        }
+
+        &.drop-down:not(.drop-open):active {
+            opacity: 0.5;
+        }
+    }
+
+    .goods-rebate {
+        color: $weuiBtnPrimaryBg;
+    }
+
+    .goods-feature {
+        margin-right: 6px;
+
+        & > i {
+            margin-right: 3px;
+        }
+
+        & > i:before {
+            margin-top: -3px;
+        }
+    }
+
+    .weui_cell {
+        height: 28px;
+        line-height: 28px;
+    }
+
+    .weui_cells {
+        margin: 0px;
+    }
+}
+
+.goods-options {
+    /*font-size: 16px;*/
+    /*margin-top: 6px;*/
+    /*transform: translateY(-0.5px);*/
+
+    .weui_cell_ft:after {
+        margin-left: 0.3em;
+    }
+
+    &:active {
+        background: #ECECEC;
+    }
+}
+
+
+.goods-arglist {
+    margin-left: $gap10;
+    margin-right: $gap10;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+
+    & .weui_cell_hd {
+        width: 7em;
+        margin-right: $gap15;
+        color: #888;
+        align-self: flex-start;
+    }
+
+    & .weui_cell_bd {
+        align-self: flex-start;
+    }
+    
+    &:before,
+    &:after {
+        display: none;
+    }
+
+    & .args-dotcell {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+}
+
+
+#toolbar {
+    /*&:not(.toolbar-showing) {
+        display: none;
+    }
+
+    transform:none;
+    transition: none;*/
+    position: fixed;
+}
+
+
+#detTop {
+    position: fixed;
+    left: 0px;
+    top : 0px;
+    width: 100%;
+    z-index: 10;
+    /*opacity: 0;*/
+    /*transform: translateY(-100%);*/
+    transition: transform ease-in-out 0.3s;
+
+    /*&:before {
+        margin-top: -16px;
+    }
+
+    &:after {
+        margin-top: -4px;
+    }*/
+
+    &:after {
+        content: attr(data-label);
+        line-height: 1;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.85);
+        position: absolute;
+        left: 50%;
+        top: 0px;
+        transform: translate(-50%, 0px);
+        transform-origin: 0% 0%;
+        background: rgba(0, 0, 0, 0.10);
+        padding: 2px 4px;
+        /*border-radius: 2px;*/
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &.tooltip-showing:after {
+        animation: fadeTooltip 4s ease-in-out;
+    }
+
+    &.topbar-showing {
+        transform: translateY(0);
+    }
+
+    .detnav {
+        padding: 6px 8px;
+        overflow: hidden;
+        height: 36px;
+        line-height: 36px;
+
+        @include backdrop();
+        @include clearfix();
+
+        &:after {
+            @include setBottomLine(rgba(0, 0, 0, 0.2));
+        }
+    }
+
+    .detimage {
+        position: relative;
+        display: block;
+        float: left;
+        width: 36px;
+        height: 36px;
+
+        & > img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+        /*&:after {
+            content: " ";
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid rgba(0, 0, 0, .1);
+            transform: scale(.5);
+            transform-origin: 0 0;
+            box-sizing: border-box;
+            border-radius: 6px;
+        }*/
+    }
+
+    .dettitle {
+        font-size: 16px;
+        margin-left: 44px;
+        margin-right: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .detprice {
+        /*color: #04be02;*/
+        float: right;
+        font-size: 18px;
+        margin-right: 5px;
+    }
+}
+
+
+#avatar {
+    position: absolute;
+    left: 10px;
+    top : 15px;
+    width: 58px;
+    height: 59px;
+    z-index: 5;
+    transform: translateY(-80px) translateZ(0px);
+    /*border-radius: 4px;*/
+    /*overflow: hidden;*/
+    /*background: #fff;*/
+    /*border: 1px solid #fff;*/
+    background: url(../bitmaps/common/avatar.png) no-repeat 0px 0px;
+    background-size: cover;
+
+    .body-load & {
+        transition: transform ease-in-out 0.3s;
+        transform: translateY(0px) translateZ(0px);
+    }
+
+    & > img {
+        display: block;
+        width: 52px;
+        height: 52px;
+        margin-left: 2px;
+        margin-top : 2px;
+        border-radius: 9999px;
+    }
+
+    &:after {
+        content: " ";
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background: url(../bitmaps/common/avatar_cover.png) no-repeat 0px 0px;
+        background-size: cover;
+    }
+}
+
+
+#detialRichContents {
+    /*margin: 0px 10px 10px 10px;
+    border-radius: 6px;
+    box-shadow: rgba(255, 255, 255, 0.75) 0px 0px 1px inset, rgba(0, 0, 0, 0.25) 0px 0px 3px;
+    overflow: hidden;*/
+    /*padding: 24px 0px;*/
+
+    & img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.share-layer {
+    position: fixed;
+    z-index: 99999;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+
+    &:after {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url(../bitmaps/common/share.png) no-repeat top right;
+        background-size: 289px 322px;
+    }
+}
+
+#specTrigger {
+    display: block;
+}

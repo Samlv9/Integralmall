@@ -19,6 +19,14 @@ html {
         -webkit-user-select: none;
         user-select: none;
     }
+
+    &.allow-native-touch {
+        height: auto;
+
+        & > body {
+            height: auto;
+        }
+    }
 }
 
 main, 

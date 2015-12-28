@@ -140,39 +140,53 @@ gulp.task("build:sass", ["update"], function () {
     return gulp.src([
         /* 商品详情页 */
         "sass/detail.scss",
+        "sass/detail_native.scss",
+        "sass/spec_native.scss",
+        "sass/option_native.scss",
 
         /* 确认订单页 */
         "sass/order.scss",
+        "sass/order_native.scss",
 
         /* 用户中心 */
         "sass/usercenter.scss",
+        "sass/usercenter_native.scss",
 
         /* 我的合伙人 */
         "sass/partner.scss",
+        "sass/partner_native.scss",
 
         /* 订单查询 */
         "sass/query.scss",
+        "sass/query_native.scss",
 
         /* 订单详情 */
         "sass/result.scss",
+        "sass/result_native.scss",
 
         /* 物流详情 */
         "sass/express.scss",
+        "sass/express_native.scss",
 
         /* 我的积分 */
         "sass/credit.scss",
+        "sass/credit_native.scss",
 
         /* 积分提现 */
         "sass/drawcash.scss",
+        "sass/drawcash_native.scss",
 
         /* 积分概览 */
         "sass/logs.scss",
+        "sass/logs_native.scss",
 
         /* 积分明细 */
         "sass/extra.scss",
+        "sass/extra_native.scss",
 
         /* 404 页面 */
-        "sass/404.scss"
+        "sass/404.scss",
+        "sass/404_native.scss"
     ])
     .pipe(sourcemaps.init())
     .pipe(sass({ "outputStyle":"compressed" }).on("error", console.log))
@@ -191,40 +205,53 @@ gulp.task("build:script", ["update"], function () {
 
         /* 商品详情页 */
         "src/detail.js",
+        "src/detail_native.js",
+        "src/spec_native.js",
+        "src/option_native.js",
 
         /* 确认订单页 */
         "src/order.js",
+        "src/order_native.js",
 
         /* 用户中心 */
         "src/usercenter.js",
+        "src/usercenter_native.js",
 
         /* 我的合伙人 */
         "src/partner.js",
+        "src/partner_native.js",
 
         /* 订单查询 */
         "src/query.js",
+        "src/query_native.js",
 
         /* 订单详情 */
         "src/result.js",
+        "src/result_native.js",
 
         /* 物流详情 */
         "src/express.js",
+        "src/express_native.js",
 
         /* 我的积分 */
         "src/credit.js",
+        "src/credit_native.js",
 
         /* 积分提现 */
         "src/drawcash.js",
+        "src/drawcash_native.js",
 
         /* 积分概览 */
         "src/logs.js",
+        "src/logs_native.js",
 
         /* 积分明细 */
         "src/extra.js",
-
+        "src/extra_native.js",
 
         /* 404 */
-        "src/404.js"
+        "src/404.js",
+        "src/404_native.js"
 
     ])
     .pipe(sourcemaps.init())
@@ -244,39 +271,53 @@ gulp.task("build:templates", ["update"], function () {
     return gulp.src([
         /* 商品详情页 */
         "tmpl/detail.html",
+        "tmpl/detail_native.html",
+        "tmpl/spec_native.html",
+        "tmpl/option_native.html",
 
         /* 确认订单页 */
         "tmpl/order.html",
+        "tmpl/order_native.html",
 
         /* 用户中心页 */
         "tmpl/usercenter.html",
+        "tmpl/usercenter_native.html",
 
         /* 我的合伙人 */
         "tmpl/partner.html",
+        "tmpl/partner_native.html",
 
         /* 订单查询 */
         "tmpl/query.html",
+        "tmpl/query_native.html",
 
         /* 订单详情 */
         "tmpl/result.html",
+        "tmpl/result_native.html",
 
         /* 物流详情 */
         "tmpl/express.html",
+        "tmpl/express_native.html",
 
         /* 我的积分 */
         "tmpl/credit.html",
+        "tmpl/credit_native.html",
 
         /* 积分提现 */
         "tmpl/drawcash.html",
+        "tmpl/drawcash_native.html",
 
         /* 积分概览 */
         "tmpl/logs.html",
+        "tmpl/logs_native.html",
 
         /* 积分明细 */
         "tmpl/extra.html",
+        "tmpl/extra_native.html",
 
         /* 404 */
-        "tmpl/404.html"
+        "tmpl/404.html",
+        "tmpl/404_native.html"
         
     ])
     .pipe(data(function(file) {

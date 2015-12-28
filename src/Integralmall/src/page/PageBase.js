@@ -51,8 +51,6 @@ var PageBase = derive(Sprite, function PageBase( disableContainer ) {
     }
 
     /// 页面加载完成；
-    window.addEventListener("load", function( evt ) {
-        document.body.classList.add("body-load");
-    });
+    document.body.classList.add("body-load");
 });
 

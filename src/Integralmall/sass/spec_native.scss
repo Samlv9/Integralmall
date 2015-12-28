@@ -1,0 +1,38 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+/*@import "./view/uiicon";*/
+/*@import "./view/scrollcontainer";*/
+/*@import "./view/swipercontainer";*/
+/*@import "./view/dropdown";*/
+/*@import "./view/toolbar";*/
+/*@import "./view/overlay";*/
+/*@import "./view/radiobutton";*/
+/*@import "./view/counter";*/
+/*@import "./view/tooltip";*/
+
+@import "./weui/base/fn";
+@import "./weui/icon/weui_icon_font";
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+@import "./weui/widget/weui_cell/weui_access";
+/*@import "./weui/widget/weui_tips/weui_toast";
+@import "./weui/widget/weui_tips/weui_mask";
+@import "./weui/widget/weui_tips/weui_dialog";*/
+
+@import "./utils/weui_reset";
+
+
+#spec {
+    & .weui_cell_hd {
+        width: 7em;
+        margin-right: $gap15;
+        color: #888;
+        align-self: flex-start;
+    }
+
+    & .weui_cell_bd {
+        align-self: flex-start;
+    }
+}

@@ -1,0 +1,36 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+/*@import "./view/scrollcontainer";*/
+
+@import "./weui/base/fn";
+/*@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_page/weui_msg";*/
+
+
+#pageNotFound {
+    display: block;
+    width: 187px;
+    height: 229px;
+    margin: 0 auto;
+    margin-top: 128px;
+}
+
+
+.weui_extra_area {
+    margin-bottom: $weuiMsgExtraAreaGap;
+    font-size:14px;
+    color:$globalTextColor;
+    a {
+        color:$globalLinkColor;
+    }
+}
+
+@media screen and (min-height: $weuiMsgExtraAreaOfMinHeight) {
+    .weui_extra_area {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+}

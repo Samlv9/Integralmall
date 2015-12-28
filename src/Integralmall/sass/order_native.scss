@@ -1,0 +1,57 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+/*@import "./view/uiicon";*/
+/*@import "./view/scrollcontainer";*/
+
+@import "./weui/base/fn";
+/*@import "./weui/icon/weui_icon_font";*/
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+@import "./weui/widget/weui_cell/weui_access";
+@import "./weui/widget/weui_tips/weui_toast";
+@import "./weui/widget/weui_tips/weui_mask";
+@import "./weui/widget/weui_tips/weui_dialog";
+
+@import "./utils/weui_reset";
+@import "./view/ordercells";
+
+
+#address {
+    margin-right: $gap5;
+
+    & > .fillguid {
+        font-size: 16px;
+    }
+
+    & > .headline {
+        font-size: 16px;
+    }
+    & > .location {
+        color: #808080;
+        overflow: hidden;
+        max-height: 40px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    &.no-data {
+        .headline { display: none; }
+        .location { display: none; }
+    }
+
+    &:not(.no-data) {
+        .fillguid { display: none; }
+    }
+}
+
+
+.autoresize {
+    position: relative;
+
+    & > textarea {
+        position: relative;
+    }
+}

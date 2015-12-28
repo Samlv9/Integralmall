@@ -1,0 +1,141 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+/*@import "./view/uiicon";*/
+/*@import "./view/scrollcontainer";*/
+
+@import "./weui/base/fn";
+/*@import "./weui/icon/weui_icon_font";*/
+/*@import "./weui/widget/weui_button/weui_button";*/
+@import "./weui/widget/weui_cell/weui_cell_global";
+/*@import "./weui/widget/weui_cell/weui_form";*/
+/*@import "./weui/widget/weui_cell/weui_access";*/
+
+@import "./utils/weui_reset";
+
+
+/*.weui_cells_title {
+    margin: 0.5em 0em;
+}*/
+
+.express-telnum {
+    color: $globalLinkColor;
+}
+
+
+.express-status.express-processing-status {
+    color: #04be02;
+}
+
+
+.track-express-logs {
+    color: $defaultGraysColor;
+    background-color: $weuiCellBg;
+    line-height: 1.2;
+    position: relative;
+    padding: $gap15 $gap5;
+    margin-bottom: $weuiCellsMarginTop;
+
+    &:before {
+        @include setTopLine($weuiCellBorderColor);
+    }
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
+
+    .trace-timestamp {
+        color: #D9D9D9;
+        font-size: 12px;
+    }
+
+    .track-leaf {
+        
+        display: flex;
+        position: relative;
+
+        .track-leaf-content {
+            margin-left: $gap5;
+            margin-right: $gap10;
+            padding: $gap10 0px;
+            flex: 1;
+        }
+
+        .track-leaf-header {
+            position: relative;
+            width: 44px;
+
+            /*height: 100%;*/
+
+
+            &:before,
+            &:after {
+                content: " ";
+                position: absolute;
+                width: 0px;
+                height: 50%;
+                border-left: 1px solid #D9D9D9;
+                left: 50%;
+                top : 50%;
+                margin-left: -0.5px;
+            }
+            &:after {
+                transform: translateY(-100%);
+            }
+        }
+        .track-leaf-dot {
+            position: absolute;
+            height: 100%;
+            width : 100%;
+            left: 0px;
+            top : 0px;
+
+            &:before,
+            &:after {
+                content: " ";
+                position: absolute;
+                left: 50%;
+                top : 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                border-radius: 9999px;
+            }
+
+            &:before {
+                background: #fff;
+                border: 1px solid #D9D9D9;
+                width: 10px;
+                height: 10px;
+            }
+
+            &:after {
+                background: #D9D9D9;
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        &:first-child {
+            .track-leaf-header:after {
+                display: none;
+            }
+
+            .track-leaf-dot:after {
+                background: $weuiBtnPrimaryBg;
+                width: 6px;
+                height: 6px;
+            }
+            .track-message {
+                color: $weuiBtnPrimaryBg;
+            }
+            .trace-timestamp {
+                color: $weuiBtnPrimaryBg;
+                
+            }
+        }
+
+        &:last-child .track-leaf-header:before {
+            display: none;
+        }
+
+    }
+}

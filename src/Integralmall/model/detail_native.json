@@ -1,0 +1,67 @@
+﻿{
+    "title": "商品详情页",
+    "detailImages": [
+        {
+            "link": "javascript:void(0);",
+            "path": "detail/banner/1.jpg"
+        },
+        {
+            "link": "javascript:void(0);",
+            "path": "detail/banner/2.jpg"
+        },
+        {
+            "link": "javascript:void(0);",
+            "path": "detail/banner/3.jpg"
+        }
+    ],
+
+    "detailIntroImages": [
+        {
+            "path": "detail/intro/1.jpg"
+        },
+        {
+            "path": "detail/intro/2.jpg"
+        },
+        {
+            "path": "detail/intro/3.jpg"
+        },
+        {
+            "path": "detail/intro/4.jpg"
+        },
+        {
+            "path": "detail/intro/5.jpg"
+        },
+        {
+            "path": "detail/intro/6.jpg"
+        },
+        {
+            "path": "detail/intro/7.jpg"
+        },
+        {
+            "path": "detail/intro/8.jpg"
+        },
+        {
+            "path": "detail/intro/9.jpg"
+        },
+        {
+            "path": "detail/intro/10.jpg"
+        },
+        {
+            "path": "detail/intro/11.jpg"
+        }
+    ],
+
+    "dependencies": [
+        {
+            "desc": "Swipe",
+            "module": "swiper/swiper.js"
+        }
+    ],
+
+    "depsStylesheets": [
+        {
+            "desc": "Swipe.css",
+            "module": "swiper/swiper.css"
+        }
+    ]
+}

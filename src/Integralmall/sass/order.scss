@@ -54,12 +54,4 @@
     & > textarea {
         position: relative;
     }
-
-    & > .textwrap {
-        width: 100%;
-        position: absolute;
-        left: -9999px;
-        top : 0px;
-        word-break: break-all;
-    }
 }

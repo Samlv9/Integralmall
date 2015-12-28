@@ -1,0 +1,106 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+/*@import "./view/uiicon";*/
+/*@import "./view/scrollcontainer";*/
+/*@import "./view/swipercontainer";*/
+/*@import "./view/dropdown";*/
+/*@import "./view/toolbar";*/
+/*@import "./view/overlay";*/
+@import "./view/radiobutton";
+@import "./view/counter";
+/*@import "./view/tooltip";*/
+
+@import "./weui/base/fn";
+@import "./weui/icon/weui_icon_font";
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+@import "./weui/widget/weui_cell/weui_access";
+/*@import "./weui/widget/weui_tips/weui_toast";
+@import "./weui/widget/weui_tips/weui_mask";
+@import "./weui/widget/weui_tips/weui_dialog";*/
+
+@import "./utils/weui_reset";
+
+
+#option {
+    height: 100%;
+    background: $pageDefaultBackgroundColor;
+
+    .weui_cells {
+        font-size: inherit;
+    }
+
+    .weui_cell {
+        padding: $gap10;
+    }
+
+    .weui_cell_hd,
+    .weui_cell_bd {
+        align-self: flex-start;
+    }
+
+    .weui_cell_hd {
+        margin-right: $gap10;
+    }
+
+    .option-goods-thumb {
+        display: block;
+        width: 80px;
+        height: 80px;
+    }
+
+    .option-goods-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        height: 40px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: normal;
+        margin-bottom: 8px;
+    }
+
+    .option-goods-price {
+        font-size: 20px;
+
+    }
+
+    .option-goods-origin {
+        text-decoration:line-through;
+        color: $defaultGraysColor;
+        margin-left: 6px;
+    }
+}
+
+
+.option-chooser {
+    margin-top: $gap15;
+
+    & > .option-chooser-lists {
+        font-size: 16px;
+
+        padding-left: $gap10;
+        /*padding-top: $gap10;*/
+        @include clearfix();
+
+        & .radio-button {
+            float: left;
+            margin-right: $gap10;
+            margin-top: $gap10;
+        }
+
+        & .counter {
+            margin-top: $gap10;
+        }
+    }
+
+    & > .option-chooser-title {
+        color: #999;
+        padding: $gap5 0px;
+        margin-left: $gap10;
+        border-bottom: 1px solid #E0E0E0;
+    }
+}

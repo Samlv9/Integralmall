@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html class="allow-native-touch">
+<head>
+{{>./partials/headtags}}</head>
+<body>
+
+
+
+<!-- ================================================================================ -->
+<!-- 微信个人头像展示 -->
+<!-- ================================================================================ -->
+<div class="weui_cells user-profile">
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><img class="avatar" src="{{&bitmaps}}/common/avatar.jpg" width="72" height="72" /></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="wechat-name">用户昵称</div>
+            <div class="wechat-region"><span class="wechat-province">广东省</span> <span class="wechat-city">广州市</span></div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ================================================================================ -->
+<!-- 个人功能 -->
+<!-- ================================================================================ -->
+<div class="weui_cells weui_cells_access user-action">
+    <a class="weui_cell" href="query_native.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-order-query-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">订单查询</div>
+        <div class="weui_cell_ft"></div>
+    </a>
+</div>
+
+
+<div class="weui_cells weui_cells_access user-action">
+    <a class="weui_cell" href="credit_native.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-credit-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">我的积分</div>
+        <div class="weui_cell_ft"></div>
+    </a>
+
+    <a class="weui_cell"  href="partner_native.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-member-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">我的合伙人</div>
+        <div class="weui_cell_ft"></div>
+    </a>
+</div>
+
+
+
+
+{{>./partials/foottags}}
+</body>
+</html>

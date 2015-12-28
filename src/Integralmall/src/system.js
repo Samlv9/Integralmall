@@ -29,10 +29,12 @@
 
 /// TODU:
 /// 这里在 `document` 上取消 `touchmove` 默认行为，防止浏览器出现弹性滚动条。
-document.addEventListener("touchmove", function disableMovement( evt ) {
-    /// 启用自定义的滚动行为。
-    evt.preventDefault();
-});
+if ( !document.documentElement.classList.contains("allow-native-touch") ) {
+    document.addEventListener("touchmove", function disableMovement( evt ) {
+        /// 启用自定义的滚动行为。
+        evt.preventDefault();
+    });
+}
 
 
 /// TODU:
@@ -80,8 +82,7 @@ function doTapClickHandler( evt ) {
         document.addEventListener("touchend" , doTapClickHandler, true);
         document.addEventListener("touchcancel", doTapClickHandler, true);
 
-        /// 禁用默认的 click 事件调度；
-        evt.preventDefault();
+        
 
         /// 隐藏焦点状态；
         if ( document.activeElement ) {
@@ -108,6 +109,9 @@ function doTapClickHandler( evt ) {
     }
 
     if ( evt.type == "touchend" ) {
+        /// 禁用默认的 click 事件调度；
+        evt.preventDefault();
+
         document.removeEventListener("touchmove", doTapClickHandler, true);
         document.removeEventListener("touchend" , doTapClickHandler, true);
         document.removeEventListener("touchcancel", doTapClickHandler, true);

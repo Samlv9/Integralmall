@@ -83,6 +83,12 @@
             }
         }
         .track-leaf-dot {
+            position: absolute;
+            height: 100%;
+            width : 100%;
+            left: 0px;
+            top : 0px;
+
             &:before,
             &:after {
                 content: " ";
@@ -114,12 +120,12 @@
             }
 
             .track-leaf-dot:after {
-                background: $weuiBtnPrimaryActiveBg;
+                background: $weuiBtnPrimaryBg;
                 width: 6px;
                 height: 6px;
             }
             .track-message {
-                color: $weuiBtnPrimaryActiveBg;
+                color: $weuiBtnPrimaryBg;
             }
             .trace-timestamp {
                 color: $weuiBtnPrimaryBg;

@@ -1,0 +1,98 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+@import "./view/uiicon";
+/*@import "./view/scrollcontainer";*/
+/*@import "./view/swipercontainer";*/
+
+@import "./weui/base/fn";
+@import "./weui/icon/weui_icon_font";
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+@import "./weui/widget/weui_cell/weui_access";
+@import "./weui/widget/weui_tips/weui_toast";
+@import "./weui/widget/weui_tips/weui_mask";
+@import "./weui/widget/weui_tips/weui_dialog";
+
+@import "./utils/weui_reset";
+@import "./view/ordercells";
+
+
+.order-status-overview {
+    font-size: 16px;
+
+
+    & .weui_cell_ft {
+        font-size: 14px;
+    }
+
+
+    &.order-done-status .status .weui_cell_ft {
+        color: #04be02;
+    }
+
+    &.order-processing-status .status .weui_cell_ft {
+        color: #E64340;
+
+    }
+
+    &.order-normal-status .status .weui_cell_ft {
+        color: $defaultTextColor;
+    }
+
+    .express:active {
+        background: #ECECEC;
+    }
+}
+
+
+
+.order-address {
+    & > .headline {
+        font-size: 16px;
+    }
+    & > .location {
+        color: #808080;
+        /*overflow: hidden;*/
+        /*white-space: nowrap;*/
+        /*text-overflow: ellipsis;*/
+    }
+}
+
+.order-help {
+    margin-bottom: $weuiCellsMarginTop;
+
+
+    a {
+        color: $globalLinkColor;
+    }
+}
+
+/*.weui_cells_title {
+    margin: 0.5em 0em;
+}*/
+
+#toast {
+    font-size: 16px;
+    transition: opacity linear 0.3s, visibility linear 0.3s;
+    opacity: 0;
+    visibility: hidden;
+
+    &.show-toast {
+        opacity: 1;
+        visibility: visible; 
+    }
+
+    &:not(.toast-complete) {
+        .weui_icon_toast {
+            display: none;
+        }
+    }
+
+    &.toast-complete {
+        .weui_loading {
+            display: none;
+        }
+    }
+}
