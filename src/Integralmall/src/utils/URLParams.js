@@ -25,36 +25,59 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-///
-/// <reference path='../core/derive.js' />
-/// <reference path='../view/Sprite.js' />
-/// <reference path='../view/ScrollContainer.js' />
-/// <reference path='../view/FPSRendener.js' />
-/// <reference path='../utils/URLParams.js' />
 
 
-var PageBase = derive(Sprite, function PageBase( disableContainer ) {
-    Sprite.call(this, document.body);
-
-    /// 帧频计数器；
-    new FPSRendener();
-    
-    /// Remote Console JS;
-    console.log("PageBase -> Remote Init: " + (new Date().toJSON()));
-
-    /// 全局配置文件；
-    this._appConfigParam = domain["APP_CONFIG_PARAMS"] || {};
-
-    /// URL 参数；
-    this._urlParams = new URLParams(location.search);
-
-
-    /// 主滚动容器；
-    if ( !disableContainer ) {
-        this._mainContainer = new ScrollContainer("#main");
+function URLParams( search ) {
+    if ( !search ) {
+        return;
     }
 
-    /// 页面加载完成；
-    document.body.classList.add("body-load");
-});
+    search = "" + search;
 
+    if ( search.indexOf("?") == 0 || search.indexOf("#") == 0 ) {
+
+        search = search.slice(1);
+    }
+
+    var urlParts = search.split("&");
+
+    for ( var i = 0; i < urlParts.length; ++i ) {
+        var urlToken = urlParts[i];
+        var urlParam = urlToken.split("=");
+
+        if ( !urlParam.length ) {
+            continue;
+        }
+
+        if ( urlParam.length == 1 ) {
+            this[urlParam[0]] = null;
+            continue;
+        }
+
+        var keyParam = urlParam[0];
+        var valParam = urlParam[1];
+
+        switch( valParam ) {
+            case "null" :
+            case "undefined" :
+                valParam = null;
+                break;
+            case "true" :
+                valParam = true;
+                break;
+            case "false" :
+                valParam = false;
+                break;
+            default :
+                var f = parseFloat(valParam);
+
+                if ( !isNaN(f) ) {
+                    valParam = f;
+                }
+
+                break;
+        }
+
+        this[keyParam] = valParam;
+    }
+}
