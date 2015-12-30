@@ -81,7 +81,6 @@ function HideWeToast() {
 
 function CreateToastElement() {
     var html = WE_TOAST_TEMPLATE.replace('{{TOAST_LOADING}}', WE_TOAST_LOADING);
-    console.log(html);
     var div = document.createElement("div");
         div.innerHTML = html;
 
