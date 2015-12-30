@@ -60,6 +60,9 @@ var Page = derive(PageBase, function Page() {
     /// Touch;
     this._startTouchY = 0;
 
+    /// dropdown
+    this._descDropdown = new Dropdown("#descDropdown");
+
 
     /// 事件处理；
     this._showShareTipLayer = this._showShareTipLayer.bind(this);

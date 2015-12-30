@@ -3,7 +3,7 @@
 <head>
 {{>./partials/headtags}}</head>
 <body><div id="stage">
-<main id="main" class="scroll-container">
+<main id="main" class="scroll-container with-site-bar">
 {{>./widgets/fixtop}}
 <content id="content">
 {{>./widgets/header}}
@@ -42,9 +42,9 @@
         <div class="weui_cell_ft"></div>
     </a>
 
-    <a class="weui_cell"  href="partner.html">
+    <a class="weui_cell"  href="help.html">
         <div class="weui_cell_hd"><i class="ui-icon ui-member-icon"></i></div>
-        <div class="weui_cell_bd weui_cell_primary">我的合伙人</div>
+        <div class="weui_cell_bd weui_cell_primary">帮助与反馈</div>
         <div class="weui_cell_ft"></div>
     </a>
 </div>
@@ -53,6 +53,9 @@
 {{>./widgets/footer}}
 </content>
 </main>
+
+
+{{>./widgets/sitefooter}}
 
 
 </div><!--STAGE END-->

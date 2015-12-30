@@ -33,4 +33,6 @@
 
 var Page = derive(PageBase, function Page() {
     PageBase.call(this);
+
+    this._mainContainer.maxTopEdgeBounces = 120;
 });

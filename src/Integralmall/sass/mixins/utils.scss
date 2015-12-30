@@ -22,8 +22,8 @@
 }
 
 
-@mixin backdrop($blur:8px) {
+@mixin backdrop($blur:8px, $color: rgba(239, 239, 244, 0.75)) {
     /*box-shadow: rgba(0, 0, 0, 0.15) 0px $top 1px;*/
-    background: rgba(239, 239, 244, 0.75);
+    background: $color;
     -webkit-backdrop-filter: blur($blur);
 }

@@ -1,4 +1,28 @@
-﻿.tooltip {
+﻿@keyframes fadeTooltip {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    15% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    85% {
+        opacity: 1;
+        visibility: visible; 
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
+.tooltip {
 
     &:after {
         position: absolute;
@@ -42,29 +66,5 @@
     &.tooltip-showing:before,
     &.tooltip-showing:after {
         animation: fadeTooltip 3s ease-in-out;
-    }
-}
-
-
-@keyframes fadeTooltip {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    15% {
-        opacity: 1;
-        visibility: visible;
-    }
-
-
-    85% {
-        opacity: 1;
-        visibility: visible; 
-    }
-
-    100% {
-        opacity: 0;
-        visibility: hidden;
     }
 }

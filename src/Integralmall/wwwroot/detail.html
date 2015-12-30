@@ -47,6 +47,12 @@
 
 
 <!-- ================================================================================ -->
+<!-- 预加载分享提示图片 -->
+<!-- ================================================================================ -->
+<img hidden src="/common/share.png" />
+
+
+<!-- ================================================================================ -->
 <!-- 详情页面头像栏 -->
 <!-- ================================================================================ -->
 <a id="avatar" href="usercenter.html"><img src="resources/bitmaps/common/avatar.jpg" /></a>
@@ -173,9 +179,7 @@
 <!-- ================================================================================ -->
 <!-- 详情页面 -->
 <!-- ================================================================================ -->
-<aside id="side" class="scroll-container">
-
-
+<div id="sideWrapper">
 <!-- ================================================================================ -->
 <!-- 详情页面固定头部 -->
 <!-- ================================================================================ -->
@@ -186,11 +190,16 @@
 </nav></header>
 
 
+<aside id="side" class="scroll-container">
 <content id="sideContent">
 <!-- ================================================================================ -->
 <!-- 返回简介页面提示 -->
 <!-- ================================================================================ -->
-<div id="detailBackPrompts"><div class="text">释放手指，返回商品简介</div></div>
+<div id="detailBackPrompts"><div class="wrapper">
+    <img class="allow" src="resources/bitmaps/common/allow.png" width="36" height="24" />
+    <span class="text">释放手指，返回商品简介</span>
+</div>
+</div>
 
 
 <!-- ================================================================================ -->
@@ -200,8 +209,7 @@
 <p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234669550.jpg" style="" title="1442218234669550.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234799622.jpg" style="" title="1442218234799622.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234850608.jpg" style="" title="1442218234850608.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234479567.jpg" style="" title="1442218234479567.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234872490.jpg" style="" title="1442218234872490.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234786821.jpg" style="" title="1442218234786821.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234967636.jpg" style="" title="1442218234967636.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234843115.jpg" style="" title="1442218234843115.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234556735.jpg" style="" title="1442218234556735.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234918292.jpg" style="" title="1442218234918292.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235889701.jpg" style="" title="1442218235889701.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235824362.jpg" style="" title="1442218235824362.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235453511.jpg" style="" title="1442218235453511.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235633069.jpg" style="" title="1442218235633069.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235421874.jpg" style="" title="1442218235421874.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235245943.jpg" style="" title="1442218235245943.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235537253.jpg" style="" title="1442218235537253.jpg"/></p>
 </article>
 </content>
-
-
+</aside>
 <!-- ================================================================================ -->
 <!-- 底部工具栏 -->
 <!-- ================================================================================ -->
@@ -209,9 +217,8 @@
     <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
     <a class="weui_btn weui_btn_primary" href="order.html">立即购买</a>
 </div>
-
-
-</aside></div><!--PAGE END-->
+</div>
+</div><!--PAGE END-->
 <!-- ================================================================================ -->
 <!-- 商品属性 -->
 <!-- ================================================================================ -->

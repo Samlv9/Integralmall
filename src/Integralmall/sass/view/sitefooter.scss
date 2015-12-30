@@ -1,0 +1,48 @@
+﻿@import "../weui/base/fn";
+@import "../mixins/utils";
+@import "../vars/common";
+
+#siteFooter {
+    position: absolute;
+    left    : 0px;
+    bottom  : 0px;
+    width   : 100%;
+    z-index : 999;
+
+    &:before {
+        z-index: 1;
+        @include setTopLine(#B9B9B9);
+    }
+
+    #siteNav {
+        display: flex;
+        @include backdrop(8px, rgba(245, 245, 245, 0.75));
+    }
+
+    .site-button {
+        flex: 1;
+        color: $defaultGraysColor;
+        display: block;
+        align-self: flex-start;
+        text-align: center;
+
+        .icon,.text {
+            display: block;
+        }
+
+        .icon {
+            transform: translateY(4px);
+        }
+
+        .text {
+            height: 18px;
+            line-height: 18px;
+            font-size: 12px;
+            transform: scale(0.8333);
+        }
+
+        &.selected {
+            color: $weuiBtnPrimaryBg;
+        }
+    }
+}

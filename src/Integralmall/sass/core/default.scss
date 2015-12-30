@@ -64,6 +64,11 @@ address {
 
 #main {
     height: 100%;
+    
+
+    &.with-site-bar {
+        height: calc(100% - 50px);
+    }
 }
 
 #stage {

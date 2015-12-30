@@ -58,6 +58,7 @@ var ScrollContainer = derive(Sprite, function ScrollContainer( selector ) {
     this._contentHeight  = 0;
     this._viewportWidth  = 0;
     this._viewportHeight = 0;
+    this._alwaysRealtimeSize = false;
 
     this._lockAtDir = ScrollDirection.NONE;
     this._startXval = 0;
@@ -180,25 +181,25 @@ Object.defineProperties(ScrollContainer.prototype, {
     /// <field type='Number'>
     /// 获取内容区的宽度。</field>
     contentWidth: {
-        get: function () { return this._contentWidth; }
+        get: function () { return this._alwaysRealtimeSize ? this._content.width : this._contentWidth; }
     },
 
     /// <field type='Number'>
     /// 获取内容区的高度。</field>
     contentHeight: {
-        get: function () { return this._contentHeight; }
+        get: function () { return this._alwaysRealtimeSize ? this._content.height : this._contentHeight; }
     },
 
     /// <filed type='Number'>
     /// 获取滚动区域的宽度。</field>
     viewportWidth: {
-        get: function () { return this._viewportWidth; }
+        get: function () { return this._alwaysRealtimeSize ? this.width : this._viewportWidth; }
     },
 
     /// <field type='Number'>
     /// 获取滚动区域的高度。</field>
     viewportHeight: {
-        get: function () { return this._viewportHeight; }
+        get: function () { return this._alwaysRealtimeSize ? this.height : this._viewportHeight; }
     },
 
     /// <field type='Boolean'>
@@ -234,6 +235,13 @@ Object.defineProperties(ScrollContainer.prototype, {
         get: function () { return this._maxTopEdgeBounces; },
         set: function( value ) {
             this._maxTopEdgeBounces = value;
+        }
+    },
+
+    alwaysRealtimeSize: {
+        get: function () { return this._alwaysRealtimeSize; },
+        set: function( value ) {
+            this._alwaysRealtimeSize = value;
         }
     }
 });

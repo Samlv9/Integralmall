@@ -109,7 +109,7 @@
     position: relative;
 
     .scroll-container.no-data & {
-        background: url(../bitmaps/common/orderempty.png) no-repeat center center;
+        background: url(../bitmaps/common/orderempty.png) no-repeat center 150px;
         background-size: 120px 120px;
     }
 }

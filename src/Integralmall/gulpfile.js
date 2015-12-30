@@ -138,6 +138,13 @@ gulp.task("build", ["build:script", "build:sass", "build:templates"], function( 
 gulp.task("build:sass", ["update"], function () {
     /// 编译项目中的 sass/scss 文件。
     return gulp.src([
+        /* 首页 */
+        "sass/index.scss",
+
+        /* 我的购物车 */
+        "sass/cart.scss",
+
+
         /* 商品详情页 */
         "sass/detail.scss",
         "sass/detail_native.scss",
@@ -184,6 +191,9 @@ gulp.task("build:sass", ["update"], function () {
         "sass/extra.scss",
         "sass/extra_native.scss",
 
+        /* 帮助与反馈 */
+        "sass/help.scss",
+
         /* 404 页面 */
         "sass/404.scss",
         "sass/404_native.scss"
@@ -202,6 +212,12 @@ gulp.task("build:script", ["update"], function () {
     return gulp.src([
         /* 运行环境 */
         "src/system.js",
+
+        /* 首页 */
+        "src/index.js",
+
+        /* 我的购物车 */
+        "src/cart.js",
 
         /* 商品详情页 */
         "src/detail.js",
@@ -249,6 +265,9 @@ gulp.task("build:script", ["update"], function () {
         "src/extra.js",
         "src/extra_native.js",
 
+        /* 帮助与反馈 */
+        "src/help.js",
+
         /* 404 */
         "src/404.js",
         "src/404_native.js"
@@ -269,6 +288,12 @@ gulp.task("build:script", ["update"], function () {
 gulp.task("build:templates", ["update"], function () {
     /// 编译项目中的模板文件。
     return gulp.src([
+        /* 首页 */
+        "tmpl/index.html",
+
+        /* 我的购物车 */
+        "tmpl/cart.html",
+
         /* 商品详情页 */
         "tmpl/detail.html",
         "tmpl/detail_native.html",
@@ -314,6 +339,9 @@ gulp.task("build:templates", ["update"], function () {
         /* 积分明细 */
         "tmpl/extra.html",
         "tmpl/extra_native.html",
+
+        /* 帮助与反馈 */
+        "tmpl/help.html",
 
         /* 404 */
         "tmpl/404.html",

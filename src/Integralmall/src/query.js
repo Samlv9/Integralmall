@@ -180,10 +180,16 @@ Page.prototype._fetchPageOrderListSuccess = function _fetchPageOrderListSuccess(
 
     if ( dataJSON.code == "0" ) {
         this._redenPageOrderList(dataJSON.list, loader);
+        container.updateFrameSizes();
     }
 
+    else {
+        this._fetchPageOrderListFailure(loader);
+        return;
+    }
+
+
     this._allListStatus[pageId] = false;
-    container.updateFrameSizes();
     //console.log("dataJSON:", dataJSON);
 }
 

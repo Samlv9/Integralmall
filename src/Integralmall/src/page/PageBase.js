@@ -37,10 +37,10 @@ var PageBase = derive(Sprite, function PageBase( disableContainer ) {
     Sprite.call(this, document.body);
 
     /// 帧频计数器；
-    new FPSRendener();
+    //new FPSRendener();
     
     /// Remote Console JS;
-    console.log("PageBase -> Remote Init: " + (new Date().toJSON()));
+    //console.log("PageBase -> Remote Init: " + (new Date().toJSON()));
 
     /// 全局配置文件；
     this._appConfigParam = domain["APP_CONFIG_PARAMS"] || {};
