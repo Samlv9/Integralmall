@@ -57,3 +57,32 @@
 .ui-icon.ui-lg-icon.ui-cash-icon {
     background-position: -44px 0px;
 }
+
+.ui-icon.ui-index-icon {
+    background-position: 0px -96px;
+
+    .selected & {
+        background-position: -32px -96px;
+    }
+}
+.ui-icon.ui-cart-icon {
+    background-position: -64px -96px;
+
+    .selected & {
+        background-position: -96px -96px;
+    }
+}
+.ui-icon.ui-partner-icon {
+    background-position: -128px -96px;
+
+    .selected & {
+        background-position: -160px -96px;
+    }
+}
+.ui-icon.ui-usercenter-icon {
+    background-position: -192px -96px;
+
+    .selected & {
+        background-position: -224px -96px;
+    }
+}

@@ -2,20 +2,36 @@
 
 .radio-button {
     position: relative;
+    display: inline-block;
+    vertical-align: top;
 
     & > .radio-label {
-        padding: 0px 12px;
+        position: relative;
+        padding: 0px 16px;
         height: 44px;
         line-height: 44px;
-        display: inline-block;
-        vertical-align: top;
+        display: block;
         background: #fff;
-        border: 1px solid #DBDBDB;
-        border-radius: 2px;
-        color: #353535;
-        min-width: 52px;
+        /*border: 1px solid #DBDBDB;*/
+        border-radius: 9999px;
+        min-width: 64px;
         text-align: center;
         box-sizing: border-box;
+
+        &:after {
+            content: " ";
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid rgb(0, 0, 0);
+            opacity: 0.2;
+            transform: scale(.5);
+            transform-origin: 0 0;
+            box-sizing: border-box;
+            border-radius: 9999px;
+        }
     }
 
     & > input[type=radio] {
@@ -25,7 +41,7 @@
 
     & > input[type=radio]:disabled + .radio-label {
         color: #DBDBDB;
-        border-color: #DBDBDB;
+        /*border-color: #DBDBDB;*/
     }
 
     & > input[type=radio]:not(:disabled):active + .radio-label {
@@ -33,7 +49,10 @@
     }
 
     & > input[type=radio]:not(:disabled):checked + .radio-label {
-        border-color: #04be02;
+        &:after {
+            border-color: #04be02;
+            opacity: 0.8;
+        }
         color: #04be02;
     }
 }
