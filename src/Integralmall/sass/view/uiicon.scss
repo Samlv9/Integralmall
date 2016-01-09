@@ -86,3 +86,24 @@
         background-position: -224px -96px;
     }
 }
+
+
+.ui-icon.ui-72x72-icon {
+    background: url(../bitmaps/common/scale9.png) no-repeat 0px 0px;
+    background-size: 288px 288px;
+    width: 72px;
+    height: 72px;
+}
+
+.ui-icon.ui-72x72-icon.ui-signin-icon {
+    background-position: -144px 0px;
+}
+
+
+.ui-icon.ui-72x72-icon.ui-vip-icon {
+    background-position: -72px 0px;
+}
+
+.ui-icon.ui-72x72-icon.ui-category-icon {
+    background-position: 0px 0px;
+}

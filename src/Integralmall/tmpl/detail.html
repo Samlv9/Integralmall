@@ -5,18 +5,19 @@
 <body><div id="stage"><div id="page">
 {{>./widgets/fixtop}}
 <main id="main" class="scroll-container">
-
-
-<!-- ================================================================================ -->
-<!-- 预加载分享提示图片 -->
-<!-- ================================================================================ -->
-<img hidden src="{{$bitmaps}}/common/share.png" />
-
-
 <!-- ================================================================================ -->
 <!-- 详情页面头像栏 -->
 <!-- ================================================================================ -->
-<a id="avatar" href="usercenter.html"><img src="{{&bitmaps}}/common/avatar.jpg" /></a>
+<!--<a id="avatar" href="usercenter.html"><img src="{{&bitmaps}}/common/avatar.jpg" /></a>-->
+
+
+<!-- ================================================================================ -->
+<!-- 推荐栏 -->
+<!-- ================================================================================ -->
+<div id="recommend" class="recommend">
+    <div class="recomd-header"><img class="recomd-avatar" src="{{&bitmaps}}/common/avatar.jpg" width="36" height="36" /></div>
+    <div class="recomd-content">BIYI为你推荐“VJF商城”，临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟～</div>
+</div>
 
 
 <content id="content">

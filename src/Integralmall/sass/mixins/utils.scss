@@ -22,8 +22,17 @@
 }
 
 
-@mixin backdrop($blur:8px, $color: rgba(239, 239, 244, 0.75)) {
+@mixin backdrop($blur:8px, $color: rgba(239, 239, 244, 0.85)) {
     /*box-shadow: rgba(0, 0, 0, 0.15) 0px $top 1px;*/
     background: $color;
     -webkit-backdrop-filter: blur($blur);
+}
+
+
+@mixin mutiline-text-overflow($line: 2) {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient:vertical;
 }

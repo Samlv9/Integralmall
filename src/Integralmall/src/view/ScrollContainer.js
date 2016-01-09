@@ -820,6 +820,8 @@ ScrollContainer.prototype._doForceBounces = function _doForceBounces() {
 ScrollContainer.prototype.scrollTo = function scrollTo( time, x, y ) {
     /// 手动滚动；
     this._stopAllDelayTimer();
+    this._showIndicator(0, 0);
+    this._showIndicator(1, 0);
 
     this._distsXval = x;
     this._distsYval = y;

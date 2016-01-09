@@ -28,6 +28,7 @@
 ///
 /// <reference path='core/derive.js' />
 /// <reference path='page/PageBase.js' />
+/// <reference path='view/Sprite.js' />
 
 
 
@@ -35,4 +36,13 @@ var Page = derive(PageBase, function Page() {
     PageBase.call(this);
 
     this._mainContainer.maxTopEdgeBounces = 120;
+    this._mainContainer.disableIndicator = true;
+
+    /// flex group;
+    this._flexGroup = new Sprite("#flexGroup");
+    this._flexGroup.element.on("touchmove", function( evt ) {
+        /// 禁止滚动；
+        evt.preventDefault();
+        evt.stopPropagation();
+    });
 });

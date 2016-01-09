@@ -1,0 +1,29 @@
+﻿@import "../vars/common";
+@import "../weui/base/fn";
+
+.notice {
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    padding: $gap15 0px;
+    line-height: 1;
+    color: $defaultGraysColor;
+    transform: translateY(0px) translateZ(0px);
+
+    &:before {
+        content: " ";
+        position: absolute;
+        left: $gap15;
+        right: $gap15;
+        top: 50%;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    & > .text {
+        padding: 0px $gap10;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        background: $pageDefaultBackgroundColor;
+    }
+}

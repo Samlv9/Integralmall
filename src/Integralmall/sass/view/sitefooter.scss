@@ -16,7 +16,7 @@
 
     #siteNav {
         display: flex;
-        @include backdrop(8px, rgba(245, 245, 245, 0.75));
+        @include backdrop(8px, rgba(245, 245, 245, 0.85));
     }
 
     .site-button {

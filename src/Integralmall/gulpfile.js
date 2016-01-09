@@ -70,7 +70,7 @@ gulp.task("update", [
 
     /* SCRIPTS */
     "update:zeptojs",
-    "update:gsap",
+    //"update:gsap",
     "update:swiper"
 ], function( callback ) {
     /// 更新项目需要的第三方库。
@@ -129,7 +129,7 @@ gulp.task("update:bitmaps", function () {
 });
 
 
-gulp.task("build", ["build:script", "build:sass", "build:templates"], function( callback ) {
+gulp.task("build", ["build:script", "build:sass", "build:templates", "build:static"], function( callback ) {
     /// 编译整个项目。
     return callback();
 });
@@ -196,7 +196,10 @@ gulp.task("build:sass", ["update"], function () {
 
         /* 404 页面 */
         "sass/404.scss",
-        "sass/404_native.scss"
+        "sass/404_native.scss",
+
+        /* 非微信打开页面 */
+        "sass/external.scss"
     ])
     .pipe(sourcemaps.init())
     .pipe(sass({ "outputStyle":"compressed" }).on("error", console.log))
@@ -377,6 +380,14 @@ gulp.task("build:templates", ["update"], function () {
         return opts;
     }))
     .pipe(mustache(null, { "extension": ".html" }).on("error", console.log))
+    .pipe(gulp.dest(__WEBROOT__));
+});
+
+
+gulp.task("build:static", function() {
+    gulp.src([
+        "tmpl/external.html"
+    ])
     .pipe(gulp.dest(__WEBROOT__));
 });
 

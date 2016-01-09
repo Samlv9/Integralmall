@@ -39,6 +39,7 @@ var Page = derive(PageBase, function Page() {
 
     /// 容器；
     this._queryContainer = new Sprite("#queryContainer");
+    this._queryButtons = $("#queryNav .query-button");
     this._pageId   = this._urlParams["pageId"  ] || 0;
     this._pageNum  = this._urlParams["pageNum" ] || 1;
     this._pageSize = this._urlParams["pageSize"] || 5;
@@ -54,6 +55,7 @@ var Page = derive(PageBase, function Page() {
     this._fetchDataSuccess = this._fetchDataSuccess.bind(this);
     this._fetchDataFailure = this._fetchDataFailure.bind(this);
     this._listScrollHandler = this._listScrollHandler.bind(this);
+    this._queryButtonHandler = this._queryButtonHandler.bind(this);
     this._initPage();
 });
 
@@ -61,8 +63,16 @@ var Page = derive(PageBase, function Page() {
 Page.prototype._initPage = function _initPage() {
     this._setupScrollListener(true);
     this._fetchListData(this._pageId, this._pageNum, this._pageSize);
+    this._queryButtons.eq(this._pageId).addClass("selected");
+    this._queryButtons.on("click", this._queryButtonHandler);
+}
 
-    $("#queryHeader .query-button").eq(this._pageId).addClass("selected");
+
+Page.prototype._queryButtonHandler = function _queryButtonHandler( evt ) {
+    evt.preventDefault();
+
+    var target = evt.currentTarget;
+    location.replace(target.getAttribute("href"));
 }
 
 

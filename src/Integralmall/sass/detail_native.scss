@@ -388,6 +388,11 @@
         max-width: 100%;
         height: auto;
     }
+
+    & p br {
+        /* 去掉文本编辑器中预留的空行。*/
+        display: none;
+    }
 }
 
 .share-layer {

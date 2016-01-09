@@ -1,0 +1,7 @@
+﻿.lazyable {
+    transition: opacity linear 0.5s;
+
+    &:not(.loaded) {
+        opacity: 0;
+    }
+}

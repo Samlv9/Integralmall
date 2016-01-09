@@ -42,7 +42,7 @@ var Page = derive(PageBase, function Page() {
         "loop": true,
         "simulateTouch": false,
         "threshold": 5,
-        "autoplay": 4000,
+        //"autoplay": 4000,
         "preloadImages": false,
         "lazyLoading": true
     });

@@ -9,7 +9,7 @@
 @import "./view/overlay";
 @import "./view/radiobutton";
 @import "./view/counter";
-/*@import "./view/tooltip";*/
+@import "./view/recommend";
 
 @import "./weui/base/fn";
 @import "./weui/icon/weui_icon_font";
@@ -48,13 +48,31 @@
 }
 
 
+#recommend {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+
+    & + content {
+        padding-top: 56px;
+        box-sizing: border-box;
+    }
+}
+
+
 #detailSwiper {
     position: relative;
     z-index: 1;
-    margin-top: -64px;
     height: 100vw;
-    background: #ddd;
+    overflow: visible;
+    transform: translateY(0px) translateZ(0px);
+    /*margin-top: -64px;*/
 
+    & > .swiper-pagination {
+        transition: none;
+        transform: translateY(0px) translateZ(0px);
+    }
 
     & .swiper-pagination-bullet-active {
         background: rgba(255, 255, 255, 0.8);
@@ -64,7 +82,19 @@
         width: 20px;
         height: 20px;
         margin-left: -10px;
-        margin-top : 32px - 10px;
+        margin-top : -10px;
+    }
+
+    & .swiper-image {
+        background: #ddd;
+        height: 100%;
+        object-fit:cover;
+        transform-origin: center top;
+        transform: translateY(0px) translateZ(0px);
+    }
+
+    & .swiper-slide-active {
+        z-index: 2;
     }
 }
 
@@ -492,6 +522,11 @@
         display: block;
         max-width: 100%;
         height: auto;
+    }
+
+    & p br {
+        /* 去掉文本编辑器中预留的空行。*/
+        display: none;
     }
 }
 

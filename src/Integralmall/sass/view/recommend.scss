@@ -1,0 +1,40 @@
+﻿@import "../weui/base/fn";
+@import "../mixins/utils";
+
+.recommend {
+    padding: $gap10 $gap10;
+    /*background: #f8f8f8;*/
+    display: flex;
+
+    @include backdrop();
+
+    & > .recomd-header {
+        width: 36px;
+        height: 36px;
+
+        & .recomd-avatar {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+        }
+    }
+
+    & > .recomd-content {
+        flex: 1;
+        line-height: 18px;
+        padding-left: $gap10;
+        height: 36px;
+
+        @include mutiline-text-overflow(2);
+    }
+
+    // onepx
+    position: relative;
+    &:before {
+        @include setTopLine($weuiCellBorderColor);
+    }
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
+}

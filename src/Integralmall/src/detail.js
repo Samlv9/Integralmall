@@ -43,7 +43,7 @@ var Page = derive(PageBase, function Page() {
 
     /// 配置参数；
     this._threshold = 44;
-    this._avatarOverlay = 30;
+    //this._avatarOverlay = 30;
     this._isShowMore = false;
     this._isLoadMore = false;
     this._isIOS = Device.isIOS();
@@ -52,16 +52,32 @@ var Page = derive(PageBase, function Page() {
     this._isAjax = false;
 
     /// 图片轮播插件；
+    this._recentHeight = 0;
     this._swiperSprite = new Sprite("#detailSwiper");
+    this._swiperPagination = new Sprite(this._swiperSprite.element.children(".swiper-pagination"));
+    this._swiperWidth  = this._swiperSprite.width;
+    this._swiperHeight = this._swiperSprite.height;
     this._detailSwiper = new Swiper(this._swiperSprite.natural, {
         "pagination": ".swiper-pagination",
         "loop": true,
         "simulateTouch": false,
         "threshold": 5,
-        "autoplay": 4000,
+        //"autoplay": 4000,
         "preloadImages": false,
-        "lazyLoading": true
+        //"effect": "coverflow",
+        "coverflow": { "slideShadows": false, "rotate": 60 },
+        "cube": { "slideShadows": false, "shadow": false },
+        "lazyLoading": true,
+        //"autoplayDisableOnInteraction": false
     });
+    this._slides = this._swiperSprite.natural.querySelectorAll(".swiper-slide");
+    this._slideSprites = [];
+    this._imageSprites = [];
+
+    for ( var i = 0; i < this._slides.length; ++i ) {
+        this._slideSprites[i] = new Sprite(this._slides.item(i));
+        this._imageSprites[i] = new Sprite(this._slides.item(i).querySelector(".swiper-image"));
+    }
 
     /// 下拉加载更多。
     this._morePromptsSprite = new Sprite("#detailMorePrompts");
@@ -70,9 +86,9 @@ var Page = derive(PageBase, function Page() {
 
     /// 简介页面容器；
     this._mainContainer.disableIndicator = true;
-    this._mainContainer.maxTopEdgeBounces = 64;
+    this._mainContainer.maxTopEdgeBounces = 165;
     this._resetAvatarTransition = false;
-    this._avatar = new Sprite("#avatar");
+    //this._avatar = new Sprite("#avatar");
     this._intros = new Sprite("#detailIntroduct");
 
     /// 详情页面容器；
@@ -85,6 +101,11 @@ var Page = derive(PageBase, function Page() {
     this._optionOverlay   = new Overlay("#optionOverlay");
     this._optionContainer = new ScrollContainer("#option");
     this._optionTrigger   = new Sprite("#optionTrigger");
+
+    /// 推荐栏（该栏可能没有）；
+    this._recommend = document.getElementById("recommend");
+    this._recommend = this._recommend ? new Sprite(this._recommend) : null;
+    this._recommendOffset = this._swiperHeight + 1; // 增加 1px 偏移（覆盖Swiper），防止Recommend与Swiper因为计算精度产生间隙。
 
 
     /// 立即购买
@@ -278,7 +299,8 @@ Page.prototype._sidePullUpHandler = function _sidePullUpHandler( evt ) {
         this._isShowMore = false;
         this._showMainPage();
         this._mainContainer.scrollY = 0;
-        this._avatar.y = 0;
+        //this._avatar.y = 0;
+        this._swiperSprite.y = 0;
     }
 }
 
@@ -296,35 +318,67 @@ Page.prototype._sidePullDownHandler = function _sidePullDownHandler() {
 
 
 Page.prototype._viewScrollHandler = function _viewScrollHandler( evt ) {
-    if ( !this._isIOS ) {
-        var sY = this._mainContainer.scrollY;
-        var dY = window.innerWidth - 154;
+    /// 更新推荐栏位置；
+    if ( this._recommend ) {
+        var Ypos = Math.max(-this._recommend.height, Math.min(0, this._mainContainer.scrollY + this._recommendOffset));
 
-        if ( sY <= -dY ) {
-            this._avatar.natural.style.display = "none";
-        }
-
-        else {
-            this._avatar.natural.style.display = "block";
+        if ( this._recommend.y != Ypos ) {
+            this._recommend.y = Ypos;
         }
     }
 
-    else {
-        var bound  = this._intros.natural.getBoundingClientRect().top;
-        var offset = Math.min((this._avatar.height + this._avatarOverlay), bound);
+    /// 拉伸图片轮播；
+    var height = Math.max(0, this._mainContainer.scrollY) * 1.5;
 
-        /// 头像位置；
-        this._avatar.y = offset - (this._avatar.height + this._avatarOverlay);
+    if ( this._recentHeight != height ) {
+        this._recentHeight = height;
 
-        if ( !this._resetAvatarTransition ) {
-            this._resetAvatarTransition = true;
-            this._avatar.natural.style.transition = 
-            this._avatar.natural.style.webkitTransition = "none";
+        var scale = (height + this._swiperHeight) / this._swiperHeight;
+        var Ypos  = -height;
+
+        for ( var i = 0; i < this._slideSprites.length; ++i ) {
+            this._imageSprites[i].scaleX = this._imageSprites[i].scaleY = scale;
         }
 
-        /// 更新 Swiper 的偏移位置；
+        this._swiperSprite.y = Ypos;
+        this._swiperPagination.y = height;
+    }
+
+    /// 更新 Swiper 的偏移位置；
+    if ( this._mainContainer.scrollY <= 0 ) {
         this._swiperSprite.y = Math.min(this._swiperSprite.height, Math.max(0, -this._mainContainer.scrollY) * 0.5);
     }
+
+
+    //if ( !this._isIOS ) {
+        //var sY = this._mainContainer.scrollY;
+        //var dY = window.innerWidth - 154;
+
+        //if ( sY <= -dY ) {
+        //    this._avatar.natural.style.display = "none";
+        //}
+
+        //else {
+        //    this._avatar.natural.style.display = "block";
+        //}
+    //}
+
+    //else {
+        //var bound  = this._intros.natural.getBoundingClientRect().top;
+        //var offset = Math.min((this._avatar.height + this._avatarOverlay), bound);
+
+        /// 头像位置；
+        //this._avatar.y = offset - (this._avatar.height + this._avatarOverlay);
+
+        //if ( !this._resetAvatarTransition ) {
+        //    this._resetAvatarTransition = true;
+        //    this._avatar.natural.style.transition = 
+        //    this._avatar.natural.style.webkitTransition = "none";
+        //}
+
+        /// 更新 Swiper 的偏移位置；
+        //this._swiperSprite.y = Math.min(this._swiperSprite.height, Math.max(0, -this._mainContainer.scrollY) * 0.5);
+    //}
 
     /// 更新 morePrompts 位置;
     //var bottom = Math.min(this._distance, Math.max(0, -this._mainContainer.scrollHeight - this._mainContainer.scrollY));
@@ -418,7 +472,8 @@ Page.prototype._topbarClickHandler = function _topbarClickHandler( evt ) {
         this._isShowMore = false;
         this._showMainPage();
         this._mainContainer.scrollY = 0;
-        this._avatar.y = 0;
+        this._swiperSprite.y = 0;
+        //this._avatar.y = 0;
     } 
 }
 
