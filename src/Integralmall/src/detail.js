@@ -105,7 +105,11 @@ var Page = derive(PageBase, function Page() {
     /// 推荐栏（该栏可能没有）；
     this._recommend = document.getElementById("recommend");
     this._recommend = this._recommend ? new Sprite(this._recommend) : null;
-    this._recommendOffset = this._swiperHeight + 1; // 增加 1px 偏移（覆盖Swiper），防止Recommend与Swiper因为计算精度产生间隙。
+    this._recommendOffset = this._swiperHeight + 1 - 56; // 增加 1px 偏移（覆盖Swiper），防止Recommend与Swiper因为计算精度产生间隙。
+
+
+    /// 侧边导航；
+    this._sideNav = new Sprite("#sideNav");
 
 
     /// 立即购买
@@ -130,7 +134,17 @@ var Page = derive(PageBase, function Page() {
     this._shareButton = $(".share-button");
     this._shareTipLayer = null;
 
+    /// 侧边显示更多导航；
+    this._showOptsOverlay = new Sprite("#showOptsOverlay");
+    this._sideBackTop = new Sprite("#sideBackTop");
+
+    /// 工具层；
+    this._optsOverlay = new Overlay("#optsOverlay");
+    this._optsContent = new Sprite(this._optsOverlay.element.children(".overlay-content"));
+
     /// 事件处理；
+    this._showOptsOverlayHandler = this._showOptsOverlayHandler.bind(this);
+    this._hideRecommend = this._hideRecommend.bind(this);
     this._showShareTipLayer = this._showShareTipLayer.bind(this);
     this._viewPullUpHandler = this._viewPullUpHandler.bind(this);
     this._viewScrollHandler = this._viewScrollHandler.bind(this);
@@ -154,9 +168,12 @@ var Page = derive(PageBase, function Page() {
     this._sideContainer.addEventListener("scroll", this._sideScrollHandler);
     this._sideContainer.addEventListener("drag"  , this._dragSideViewHandler);
     this._topbar.natural.addEventListener("click", this._topbarClickHandler);
+    this._sideBackTop.natural.addEventListener("click", this._topbarClickHandler);
     this._optionTrigger.natural.addEventListener("click", this._showOptionLayer);
     this._specTrigger.natural.addEventListener("click", this._showSpecLayer);
     this._shareButton.on("click", this._showShareTipLayer);
+    this._recommend.natural.addEventListener("click", this._hideRecommend);
+    this._showOptsOverlay.natural.addEventListener("click", this._showOptsOverlayHandler);
 
     this._buyNowTrigger.on("click", this._showBuyNowOptionLayer);
     this._chooseAttribute.on("click", this._chooseAttributeconfirm);
@@ -266,6 +283,14 @@ Page.prototype._confirmAjax = function(data, textStatus, jqXHR){
 
 ////**jiajia end**///
 
+
+Page.prototype._showOptsOverlayHandler = function _showOptsOverlayHandler( evt ) {
+    this._optsOverlay.open();
+    var oPos = (evt.currentTarget).getBoundingClientRect().top - this._optsContent.height;
+    this._optsContent.natural.style.top = (oPos - 12) + "px";
+}
+
+
 Page.prototype._viewPullUpHandler = function _viewPullUpHandler( evt ) {
     /// 查看更多
     //var bottom = Math.min(this._distance, Math.max(0, -this._mainContainer.scrollHeight - this._mainContainer.scrollY));
@@ -312,6 +337,7 @@ Page.prototype._sidePullDownHandler = function _sidePullDownHandler() {
     if ( bottom >= this._threshold ) {
         this._showTopbar();
         this._showToolbar();
+        this._showSideNav();
         this._resizeSideContainer(true);
     }
 }
@@ -415,6 +441,14 @@ Page.prototype._viewScrollHandler = function _viewScrollHandler( evt ) {
 
 
 Page.prototype._sideScrollHandler = function _sideScrollHandler( evt ) {
+    //if ( this._sideContainer.scrollY <= -480 ) {
+    //    this._sideBackTop.natural.style.display = "block";
+    //}
+
+    //else {
+    //    this._sideBackTop.natural.style.display = "none";
+    //}
+
     ///// 更新 backPrompts 位置;
     //var top = Math.min(this._distance, Math.max(0, this._sideContainer.scrollY));
     //var height = Math.max(44, top * 0.75);
@@ -451,6 +485,7 @@ Page.prototype._dragSideViewHandler = function _dragSideViewHandler( evt ) {
     if ( evt.vy > 0 ) {
         this._showToolbar();
         this._showTopbar();
+        this._showSideNav();
         this._resizeSideContainer(true);
 
         if ( !(Preferences.get("showToptip", true) || 0) ) {
@@ -462,6 +497,7 @@ Page.prototype._dragSideViewHandler = function _dragSideViewHandler( evt ) {
     else {
         this._hideTopbar();
         this._hideToolbar();
+        this._hideSideNav();
         this._resizeSideContainer(false);
     }
 }
@@ -482,6 +518,7 @@ Page.prototype._showMorePage = function _showMorePage () {
     /// 切换至详情页面；
     this._mainContainer.y = -this.height;
     this._sideWrapperContainer.y = -this.height;
+    this._sideNav.natural.classList.remove("side-nav-hidden");
 }
 
 
@@ -489,6 +526,7 @@ Page.prototype._showMainPage = function _showMainPage () {
     /// 切换至简介页面
     this._mainContainer.y = 0;
     this._sideWrapperContainer.y = 0;
+    this._sideNav.natural.classList.add("side-nav-hidden");
 }
 
 
@@ -511,6 +549,16 @@ Page.prototype._showTopbar = function _showTopbar() {
 
 Page.prototype._hideTopbar = function _hideTopbar() {
     this._topbar.natural.classList.remove("topbar-showing");
+}
+
+
+Page.prototype._showSideNav = function _showSideNav () {
+    this._sideNav.natural.classList.add("sidenav-showing");
+}
+
+
+Page.prototype._hideSideNav = function _hideSideNav () {
+    this._sideNav.natural.classList.remove("sidenav-showing");
 }
 
 
@@ -554,4 +602,9 @@ Page.prototype._showShareTipLayer = function _showShareTipLayer( evt ) {
     }
 
     document.body.appendChild(this._shareTipLayer);
+}
+
+
+Page.prototype._hideRecommend = function _hideRecommend( evt ) {
+    this._recommend.natural.classList.add("hidden-recommend");
 }

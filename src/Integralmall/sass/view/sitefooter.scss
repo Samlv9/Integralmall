@@ -20,6 +20,7 @@
     }
 
     .site-button {
+        position: relative;
         flex: 1;
         color: $defaultGraysColor;
         display: block;
@@ -44,5 +45,35 @@
         &.selected {
             color: $weuiBtnPrimaryBg;
         }
+    }
+}
+
+
+.white-counter {
+    &:after {
+        position: absolute;
+        left : 50%;
+        top  : 2px;
+        content: attr(data-label);
+        /*color: rgba(0, 0, 0, 0.75);*/
+        color: rgba(255, 255, 255, 0.85);
+        background: rgba(244, 53, 48, 0.85);
+        /*opacity: 0.75;*/
+        border-radius: 9999px;
+        text-align: center;
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px;
+        /*transform-origin: center right;*/
+        transform: scale(0.6) translateX(-10%);
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        padding: 0px 6px;
+        box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 1px;
+    }
+
+    &:not(.show-counter):before {
+        display: none;
     }
 }

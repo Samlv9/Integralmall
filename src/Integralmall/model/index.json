@@ -3,24 +3,16 @@
     "ishome": "selected",
     "bannerImages": [
         {
-            "link": "javascript:void(0);",
-            "path": "detail/banner/1.jpg"
+            "link": "detail.html",
+            "path": "index/banner/1.png"
         },
         {
-            "link": "javascript:void(0);",
-            "path": "detail/banner/2.jpg"
+            "link": "detail.html",
+            "path": "index/banner/2.png"
         },
         {
-            "link": "javascript:void(0);",
-            "path": "detail/banner/1.jpg"
-        },
-        {
-            "link": "javascript:void(0);",
-            "path": "detail/banner/2.jpg"
-        },
-        {
-            "link": "javascript:void(0);",
-            "path": "detail/banner/3.jpg"
+            "link": "detail.html",
+            "path": "index/banner/3.png"
         }
     ],
     "dependencies": [

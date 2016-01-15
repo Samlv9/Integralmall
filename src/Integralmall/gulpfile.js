@@ -144,6 +144,15 @@ gulp.task("build:sass", ["update"], function () {
         /* 我的购物车 */
         "sass/cart.scss",
 
+        /* 手机绑定 */
+        "sass/associate.scss",
+
+        /* 用户协议 */
+        "sass/license.scss",
+
+        /* 分类页面 */
+        "sass/category.scss",
+
 
         /* 商品详情页 */
         "sass/detail.scss",
@@ -222,11 +231,20 @@ gulp.task("build:script", ["update"], function () {
         /* 我的购物车 */
         "src/cart.js",
 
+        /* 手机绑定 */
+        "src/associate.js",
+
+        /* 用户协议 */
+        "src/license.js",
+
         /* 商品详情页 */
         "src/detail.js",
         "src/detail_native.js",
         "src/spec_native.js",
         "src/option_native.js",
+
+        /* 分类页面 */
+        "src/category.js",
 
         /* 确认订单页 */
         "src/order.js",
@@ -297,11 +315,20 @@ gulp.task("build:templates", ["update"], function () {
         /* 我的购物车 */
         "tmpl/cart.html",
 
+        /* 手机绑定 */
+        "tmpl/associate.html",
+
+        /* 用户协议 */
+        "tmpl/license.html",
+
         /* 商品详情页 */
         "tmpl/detail.html",
         "tmpl/detail_native.html",
         "tmpl/spec_native.html",
         "tmpl/option_native.html",
+
+        /* 分类页面 */
+        "tmpl/category.html",
 
         /* 确认订单页 */
         "tmpl/order.html",

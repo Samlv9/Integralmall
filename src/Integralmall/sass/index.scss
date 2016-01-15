@@ -1,4 +1,4 @@
-﻿@import "./core/default.scss";
+﻿@import "./core/default";
 @import "./vars/common";
 
 @import "./view/uiicon";
@@ -10,6 +10,9 @@
 @import "./view/table";
 @import "./view/notice";
 @import "./view/lazyable";
+@import "./view/sidenav";
+@import "./view/overlay";
+@import "./view/gridbtngroup";
 
 /*@import "./weui/base/fn";*/
 /*@import "./weui/icon/weui_icon_font";*/
@@ -32,6 +35,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
+    right: 0px;
     z-index: 2;
 
     & + content {
@@ -63,7 +67,7 @@
     }
 
     & .swiper-image {
-        background: #ddd;
+        background: #eee;
         height: 100%;
         object-fit:cover;
         transform-origin: center top;
@@ -206,3 +210,21 @@
 }
 
 
+#sideNav {
+    transition: transform ease-in-out 0.3s, visibility ease-in-out 0.3s, opacity ease-in-out 0.3s;
+    transform: translateX(100%) translateZ(0);
+
+    &.sidenav-showing {
+        transform: translateX(0%) translateZ(0);
+    }
+
+    &.side-nav-hidden {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    & > #showOptsOverlay,
+    & > #sideGotoCart {
+        display: none;
+    }
+}

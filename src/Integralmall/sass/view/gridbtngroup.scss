@@ -1,0 +1,56 @@
+﻿@import "../vars/common";
+
+
+.grid-button-group {
+    font-size: 12px;
+
+    & > .grid-wrapper {
+        position: relative;
+    }
+
+    & > .grid-wrapper > .grid-button {
+        position: relative;
+        padding: 5px;
+        display: block;
+        color: $defaultGraysColor;
+        line-height: 32px;
+        /*min-width: 120px;*/
+
+        &:first-child {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        &:last-child {
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        &:active {
+            background: #f8f8f8;
+        }
+
+        & + .grid-button:after {
+            content: " ";
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top: 1px solid rgba(0, 0, 0, .1);
+            transform: scale(.5);
+            transform-origin: 0 0;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+
+        & > span {
+            padding-right: 10px;
+        }
+
+        & > i {
+            transform: scale(0.85);
+        }
+    }
+}

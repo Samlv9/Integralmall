@@ -410,8 +410,23 @@
         display: block;
         width: 100%;
         height: 100%;
-        background: url(../bitmaps/common/share.png) no-repeat top right;
-        background-size: 289px 322px;
+        position: absolute;
+        left: 0px;
+        top : 0px;
+        background: url(../bitmaps/common/share_allow.png) no-repeat top right;
+        background-size: 79px 61px;
+    }
+
+    &:before {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top : 0px;
+        background: url(../bitmaps/common/share.png) no-repeat top center;
+        background-size: 335px 209px;
     }
 }
 

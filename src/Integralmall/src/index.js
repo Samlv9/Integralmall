@@ -30,6 +30,7 @@
 /// <reference path='core/template.js' />
 /// <reference path='page/PageBase.js' />
 /// <reference path='view/Sprite.js' />
+/// <reference path='view/Overlay.js' />
 
 
 
@@ -107,12 +108,23 @@ var Page = derive(PageBase, function Page() {
     this._hasLoadCategories = false;
     this._isFetchRecommends = false;
     this._isFetchRecommendsComplete = false;
-    this._pageId = 1;
-    this._pageSize = 8;
+    this._pageId   = this._appConfigParam["PAGE_ID"  ] || 1;
+    this._pageSize = this._appConfigParam["PAGE_SIZE"] || 8;
+    this._pageType = this._appConfigParam["PAGE_TYPE"] || "";
 
     /// 返回顶部；
     this._navToIndex = new Sprite("#navToIndex");
 
+    /// 侧边显示更多导航；
+    this._showOptsOverlay = new Sprite("#showOptsOverlay");
+    this._sideBackTop = new Sprite("#sideBackTop");
+
+    /// 工具层；
+    this._optsOverlay = new Overlay("#optsOverlay");
+    this._optsContent = new Sprite(this._optsOverlay.element.children(".overlay-content"));
+
+    /// 侧边导航；
+    this._sideNav = new Sprite("#sideNav");
 
 
     /// 委托/代理；
@@ -123,6 +135,7 @@ var Page = derive(PageBase, function Page() {
     this._fetchRecommendsHandler = this._fetchRecommendsHandler.bind(this);
     this._fetchRecommendsFailure = this._fetchRecommendsFailure.bind(this);
     this._backToTopHandler = this._backToTopHandler.bind(this);
+    this._showOptsOverlayHandler = this._showOptsOverlayHandler.bind(this);
 
     /// 事件；
     this._mainContainer.maxTopEdgeBounces = 165;
@@ -134,8 +147,8 @@ var Page = derive(PageBase, function Page() {
 Page.prototype._initPage = function _initPage() {
     this._fetchCategoriesList();
     this.drawLazyable();
-    this._navToIndex.natural.addEventListener("click", this._backToTopHandler);
-
+    this._sideBackTop.natural.addEventListener("click", this._backToTopHandler);
+    this._showOptsOverlay.natural.addEventListener("click", this._showOptsOverlayHandler);
 }
 
 
@@ -145,6 +158,13 @@ Page.prototype._backToTopHandler = function _backToTopHandler( evt ) {
     }
 
     this._mainContainer.scrollTo(500, 0, 0);
+}
+
+
+Page.prototype._showOptsOverlayHandler = function _showOptsOverlayHandler( evt ) {
+    this._optsOverlay.open();
+    var oPos = (evt.currentTarget).getBoundingClientRect().top - this._optsContent.height;
+    this._optsContent.natural.style.top = (oPos - 12) + "px";
 }
 
 
@@ -172,6 +192,15 @@ Page.prototype._fetchCategoriesListFailure = function _fetchCategoriesListFailur
 
 
 Page.prototype._mainContainerScrollHandler = function _mainContainerScrollHandler() {
+    /// 显示隐藏侧边栏；
+    if ( this._mainContainer.scrollY <= -960 ) {
+        this._showSideNav();
+    }
+
+    else {
+        this._hideSideNav();
+    }
+
     /// 更新推荐栏位置；
     if ( this._recommend ) {
         var Ypos = Math.max(-this._recommend.height, Math.min(0, this._mainContainer.scrollY + this._recommendOffset));
@@ -237,6 +266,7 @@ Page.prototype.createCategoryModule = function createCategoryModule( categories 
         var module = categories[i];
 
         if ( module.content && module.content.length ) {
+            module.bannerUrl = "category.html"; // 测试；
             module.content = this.createCategoryListModule(module.content);
 
             html += template(this._tmplCategories, module);
@@ -538,4 +568,14 @@ Page.prototype._doFetchRecommendsComplete = function _doFetchRecommendsComplete 
     this._moduleTiper.element.find(".swiper-lazy-preloader").hide();
     this._moduleTiper.element.find(".loader-text").text("更多商品，敬请期待！");
     this._mainContainer.updateFrameSizes();
+}
+
+
+Page.prototype._showSideNav = function _showSideNav () {
+    this._sideNav.natural.classList.add("sidenav-showing");
+}
+
+
+Page.prototype._hideSideNav = function _hideSideNav () {
+    this._sideNav.natural.classList.remove("sidenav-showing");
 }

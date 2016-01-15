@@ -53,6 +53,12 @@
 }
 
 
+body.no-data {
+    background: url(../bitmaps/common/logsempty.png) no-repeat center 150px;
+    background-size: 185px 178px;
+}
+
+
 .swiper-lazy-preloader {
   width: 42px;
   height: 42px;

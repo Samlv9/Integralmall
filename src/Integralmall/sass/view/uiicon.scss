@@ -20,6 +20,28 @@
     height: 44px;
 }
 
+.ui-icon.ui-x24-icon {
+    background: url(../bitmaps/common/icon24x24.png) no-repeat 0px 0px;
+    background-size: 120px 120px;
+    width : 24px;
+    height: 24px;
+}
+
+.ui-icon.ui-x24-icon.ui-sidetop-icon {
+    background-position: 0px 0px;
+}
+
+.ui-icon.ui-x24-icon.ui-sidecart-icon {
+    background-position: -24px 0px;
+}
+
+.ui-icon.ui-x24-icon.ui-sideopts-icon {
+    background-position: -48px 0px;
+}
+.ui-icon.ui-x24-icon.ui-sideuser-icon {
+    background-position: -72px 0px;
+}
+
 .ui-icon.ui-share-icon {
     background-position: 0px 0px;
 }

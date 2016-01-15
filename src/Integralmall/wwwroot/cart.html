@@ -38,7 +38,20 @@
 <script type="text/javascript" src="resources/scripts/system.js"></script>
 <!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
 <body><div id="stage">
-<main id="main" class="scroll-container with-site-bar">
+<!-- ================================================================================ -->
+<!-- 编辑栏 -->
+<!-- ================================================================================ -->
+<div id="operation" class="operation">
+    <nav id="ocNav"><a class="oc-button" href="index.html">商城首页</a></nav>
+    <nav id="opNav">
+        <a id="btnDoneCart" class="weui_btn weui_btn_primary weui_btn_inline" href="javascript:void(0);" onclick="document.body.classList.remove('shop-edit-mode');">完成</a>
+        <a id="btnEditCart" class="weui_btn weui_btn_default weui_btn_inline" href="javascript:void(0);" onclick="document.body.classList.add('shop-edit-mode');">编辑</a>
+    </nav>
+</div>
+
+
+
+<main id="main" class="scroll-container">
 <!-- ================================================================================ -->
 <!-- 固定定位元素 -->
 <!-- ================================================================================ -->
@@ -46,10 +59,170 @@
 <!-- ================================================================================ -->
 <!-- 统一头部 -->
 <!-- ================================================================================ -->
+<!-- ================================================================================ -->
+<!-- 商品列表 -->
+<!-- ================================================================================ -->
+<div id="cart" class="cart">
+    <div class="weui_cells weui_cells_access weui_cells_checkbox shopcart">
+        <a class="weui_cell shop-cell-header" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">微积分商城</div>
+            <div class="weui_cell_ft"></div>
+        </a>
+
+
+        <!--商品列表-->
+        <a class="weui_cell shop-cell-bodyer" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="shop-item">
+                    <div class="shop-item-thumb"><img class="shop-item-image" src="resources/bitmaps/common/thumb.jpg" width="72" height="72" /></div>
+                    <div class="shop-item-detail">
+                        <div class="shop-item-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文</div>
+                        <div class="shop-item-prop">款式、颜色</div>
+                        <div class="shop-item-rebate">返佣 <span>88</span> 积分</div>
+                        <div class="shop-item-info"><span class="shop-item-price"><small>￥</small><span>280.00</span></span><span class="shop-item-origin">￥<span>1800.00</span></span></div>
+                    </div>
+                </div>
+                <div class="shop-counter">
+                    <span class="counter counter-minus"><span class="inner">-</span></span>
+                    <span class="counter counter-input"><input class="inner weui_input" type="number" value="0" /></span>
+                    <span class="counter counter-plus"><span class="inner">+</span></span>
+                </div>
+            </div>
+            <div class="weui_cell_ft"></div>
+        </a>
+
+        <a class="weui_cell shop-cell-bodyer" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="shop-item">
+                    <div class="shop-item-thumb"><img class="shop-item-image" src="resources/bitmaps/common/thumb.jpg" width="72" height="72" /></div>
+                    <div class="shop-item-detail">
+                        <div class="shop-item-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文</div>
+                        <div class="shop-item-prop">款式、颜色</div>
+                        <div class="shop-item-rebate">返佣 <span>88</span> 积分</div>
+                        <div class="shop-item-info"><span class="shop-item-price"><small>￥</small><span>280.00</span></span><span class="shop-item-origin">￥<span>1800.00</span></span></div>
+                    </div>
+                </div>
+                <div class="shop-counter">
+                    <span class="counter counter-minus"><span class="inner">-</span></span>
+                    <span class="counter counter-input"><input class="inner weui_input" type="number" value="0" /></span>
+                    <span class="counter counter-plus"><span class="inner">+</span></span>
+                </div>
+            </div>
+            <div class="weui_cell_ft"></div>
+        </a>
+
+        <a class="weui_cell shop-cell-bodyer" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="shop-item">
+                    <div class="shop-item-thumb"><img class="shop-item-image" src="resources/bitmaps/common/thumb.jpg" width="72" height="72" /></div>
+                    <div class="shop-item-detail">
+                        <div class="shop-item-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文</div>
+                        <div class="shop-item-prop">款式、颜色</div>
+                        <div class="shop-item-rebate">返佣 <span>88</span> 积分</div>
+                        <div class="shop-item-info"><span class="shop-item-price"><small>￥</small><span>280.00</span></span><span class="shop-item-origin">￥<span>1800.00</span></span></div>
+                    </div>
+                </div>
+                <div class="shop-counter">
+                    <span class="counter counter-minus"><span class="inner">-</span></span>
+                    <span class="counter counter-input"><input class="inner weui_input" type="number" value="0" /></span>
+                    <span class="counter counter-plus"><span class="inner">+</span></span>
+                </div>
+            </div>
+            <div class="weui_cell_ft"></div>
+        </a>
+    </div>
+
+
+    <div class="weui_cells weui_cells_access weui_cells_checkbox shopcart">
+        <a class="weui_cell shop-cell-header" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">微积分商城</div>
+            <div class="weui_cell_ft"></div>
+        </a>
+
+
+        <!--商品列表-->
+        <a class="weui_cell shop-cell-bodyer" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="shop-item">
+                    <div class="shop-item-thumb"><img class="shop-item-image" src="resources/bitmaps/common/thumb.jpg" width="72" height="72" /></div>
+                    <div class="shop-item-detail">
+                        <div class="shop-item-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文</div>
+                        <div class="shop-item-prop">款式、颜色</div>
+                        <div class="shop-item-rebate">返佣 <span>88</span> 积分</div>
+                        <div class="shop-item-info"><span class="shop-item-price"><small>￥</small><span>280.00</span></span><span class="shop-item-origin">￥<span>1800.00</span></span></div>
+                    </div>
+                </div>
+                <div class="shop-counter">
+                    <span class="counter counter-minus"><span class="inner">-</span></span>
+                    <span class="counter counter-input"><input class="inner weui_input" type="number" value="0" /></span>
+                    <span class="counter counter-plus"><span class="inner">+</span></span>
+                </div>
+            </div>
+            <div class="weui_cell_ft"></div>
+        </a>
+    </div>
+
+
+    <div class="weui_cells weui_cells_access weui_cells_checkbox shopcart">
+        <a class="weui_cell shop-cell-header" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">微积分商城</div>
+            <div class="weui_cell_ft"></div>
+        </a>
+
+
+        <!--商品列表-->
+        <a class="weui_cell shop-cell-bodyer" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="shop-item">
+                    <div class="shop-item-thumb"><img class="shop-item-image" src="resources/bitmaps/common/thumb.jpg" width="72" height="72" /></div>
+                    <div class="shop-item-detail">
+                        <div class="shop-item-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文</div>
+                        <div class="shop-item-prop">款式、颜色</div>
+                        <div class="shop-item-rebate">返佣 <span>88</span> 积分</div>
+                        <div class="shop-item-info"><span class="shop-item-price"><small>￥</small><span>280.00</span></span><span class="shop-item-origin">￥<span>1800.00</span></span></div>
+                    </div>
+                </div>
+                <div class="shop-counter">
+                    <span class="counter counter-minus"><span class="inner">-</span></span>
+                    <span class="counter counter-input"><input class="inner weui_input" type="number" value="0" /></span>
+                    <span class="counter counter-plus"><span class="inner">+</span></span>
+                </div>
+            </div>
+            <div class="weui_cell_ft"></div>
+        </a>
+
+        <a class="weui_cell shop-cell-bodyer" href="javascript:void(0);">
+            <label class="weui_cell_hd shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i></label>
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="shop-item">
+                    <div class="shop-item-thumb"><img class="shop-item-image" src="resources/bitmaps/common/thumb.jpg" width="72" height="72" /></div>
+                    <div class="shop-item-detail">
+                        <div class="shop-item-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文</div>
+                        <div class="shop-item-prop">款式、颜色</div>
+                        <div class="shop-item-rebate">返佣 <span>88</span> 积分</div>
+                        <div class="shop-item-info"><span class="shop-item-price"><small>￥</small><span>280.00</span></span><span class="shop-item-origin">￥<span>1800.00</span></span></div>
+                    </div>
+                </div>
+                <div class="shop-counter">
+                    <span class="counter counter-minus"><span class="inner">-</span></span>
+                    <span class="counter counter-input"><input class="inner weui_input" type="number" value="0" /></span>
+                    <span class="counter counter-plus"><span class="inner">+</span></span>
+                </div>
+            </div>
+            <div class="weui_cell_ft"></div>
+        </a>
+    </div>
 
 
 
-我的购物车
 
 
 
@@ -61,35 +234,33 @@
 
 
 
+
+
+</div>
 <!-- ================================================================================ -->
 <!-- 统一底部 -->
 <!-- ================================================================================ -->
 </content>
 </main>
-
-
 <!-- ================================================================================ -->
-<!-- 页面底部导航栏 -->
+<!-- 底部栏 -->
 <!-- ================================================================================ -->
-<footer id="siteFooter"><nav id="siteNav">
-    <a id="navToIndex" class="site-button " href="index.html">
-        <span class="icon"><i class="ui-icon ui-index-icon"></i></span>
-        <span class="text">微积分</span>
-    </a>
-    <a id="navToCart" class="site-button selected" href="cart.html">
-        <span class="icon"><i class="ui-icon ui-cart-icon"></i></span>
-        <span class="text">购物车</span>
-    </a>
-    <a id="navToPartner" class="site-button " href="partner.html">
-        <span class="icon"><i class="ui-icon ui-partner-icon"></i></span>
-        <span class="text">合伙人</span>
-    </a>
-    <a id="navToUserCenter" class="site-button " href="usercenter.html">
-        <span class="icon"><i class="ui-icon ui-usercenter-icon"></i></span>
-        <span class="text">个人中心</span>
-    </a>
+<div id="footCart" class="footcart"><nav id="ftNav">
+    <label class="shop-check"><input class="weui_check" type="checkbox" checked="checked" /><i class="weui_icon_checked"></i><span class="shop-check-label">全选</span></label>
+    <div class="shop-controls">
+        <!--提交组-->
+        <div class="shop-controls-group">
+            <div class="shop-describs"><p class="shop-price">合计：¥<output>888.00</output></p><p class="shop-notice">(不含运费)</p></div>
+            <div class="shop-buttons"><a class="weui_btn weui_btn_primary weui_btn_inline" href="order.html">去结算(1)</a></div>
+        </div>
+        <!--删除组-->
+        <div class="shop-controls-group">
+            <div class="shop-describs"></div>
+            <div class="shop-buttons"><a class="weui_btn weui_btn_warn weui_btn_inline" href="javascript:void(0);">删除(1)</a></div>
+        </div>
+    </div>
 </nav>
-</footer>
+</div>
 
 
 </div><!--STAGE END-->

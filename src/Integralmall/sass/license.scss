@@ -1,0 +1,158 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+/*@import "./view/uiicon";*/
+@import "./view/scrollcontainer";
+/*@import "./view/flexbutton";*/
+
+@import "./weui/base/fn";
+@import "./weui/icon/weui_icon_font";
+@import "./weui/widget/weui_cell/weui_check";
+@import "./weui/widget/weui_button/weui_button";
+/*@import "./weui/widget/weui_cell/weui_cell_global";*/
+/*@import "./weui/widget/weui_cell/weui_form";*/
+/*@import "./weui/widget/weui_cell/weui_access";*/
+
+/*@import "./utils/weui_reset";*/
+
+
+html > body {
+    background: #fff;
+
+}
+
+#main {
+    & > .scroll-track {
+        z-index: 10;
+    }
+    & > content {
+        box-sizing: border-box;
+        padding-bottom: 100px;
+    }
+}
+
+
+#vipBanner {
+    height: 0px;
+    padding-bottom: 50%;
+
+    background: url(../bitmaps/common/vip_banner.png) no-repeat 0px 0px;
+    background-size: cover;
+}
+
+
+#vipPromise {
+    padding: 15px 15px;
+    padding-bottom: 20px;
+    font-size: 12px;
+
+    .show-license & {
+        display: none;
+    }
+
+    & > .vip-promise-item {
+        display: flex;
+        align-items: flex-start;
+
+
+        & + .vip-promise-item {
+            margin-top: 10px;
+        }
+
+        & > .icon {
+            margin-right: 5px;
+            & > i:before {
+                font-size: 18px;
+                color: #ffb221;
+            }
+        }
+
+        & > .desc {
+            flex: 1;
+
+            & > .t {
+                color: #454545;
+            }
+
+            & > .d {
+                color: #888888;
+            }
+        }
+    }
+}
+
+
+#vipLicense {
+    padding: 15px 15px;
+    display: none;
+
+    .show-license & {
+        display: block;
+    }
+}
+
+
+#vipAccept {
+    z-index: 8;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: #fff;
+    padding: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 12px;
+    border-top: 1px dotted #d9d9d9;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: 100%;
+        width: 100%;
+        height: 10px;
+        margin-bottom: 1px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 1));
+    }
+
+    .accept-check {
+        display: inline-block;
+        vertical-align: middle;
+        white-space: nowrap;
+
+        .weui_icon_checked {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .weui_icon_checked:before {
+            content: '\EA01';
+            color: #C9C9C9;
+            font-size: 18px;
+        }
+
+        .weui_check:checked+.weui_icon_checked:before {
+            content: '\EA06';
+            color: #09BB07;
+        }
+
+        .accept-check-label {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left:0.35em;
+        }
+    }
+
+    .show-license {
+        display: inline-block;
+        vertical-align: middle;
+        color: $globalLinkColor;
+        margin-left: -0.35em;
+    }
+}
+
+
+#acceptLicense {
+    margin-top: 10px;
+}

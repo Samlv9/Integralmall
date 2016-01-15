@@ -47,10 +47,10 @@
 <!-- ================================================================================ -->
 <!-- 推荐栏 -->
 <!-- ================================================================================ -->
-<div id="recommend" class="recommend">
+<div id="recommend"><div class="recommend">
     <div class="recomd-header"><img class="recomd-avatar" src="resources/bitmaps/common/avatar.jpg" width="36" height="36" /></div>
     <div class="recomd-content">BIYI为你推荐“VJF商城”，临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟～</div>
-</div>
+</div></div>
 
 
 <content id="content">
@@ -63,11 +63,9 @@
 <div id="bannerSwiper" class="swiper-container">
     <div class="swiper-pagination"></div>
     <div class="swiper-wrapper">
-        <a class="swiper-slide" href="javascript:void(0);"><img class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/detail/banner/1.jpg" /><span class="swiper-lazy-preloader"></span></a>
-        <a class="swiper-slide" href="javascript:void(0);"><img class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/detail/banner/2.jpg" /><span class="swiper-lazy-preloader"></span></a>
-        <a class="swiper-slide" href="javascript:void(0);"><img class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/detail/banner/1.jpg" /><span class="swiper-lazy-preloader"></span></a>
-        <a class="swiper-slide" href="javascript:void(0);"><img class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/detail/banner/2.jpg" /><span class="swiper-lazy-preloader"></span></a>
-        <a class="swiper-slide" href="javascript:void(0);"><img class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/detail/banner/3.jpg" /><span class="swiper-lazy-preloader"></span></a>
+        <a class="swiper-slide" href="detail.html"><img src="resources/bitmaps/common/lazy_transparent.png" class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/index/banner/1.png" /><span class="swiper-lazy-preloader"></span></a>
+        <a class="swiper-slide" href="detail.html"><img src="resources/bitmaps/common/lazy_transparent.png" class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/index/banner/2.png" /><span class="swiper-lazy-preloader"></span></a>
+        <a class="swiper-slide" href="detail.html"><img src="resources/bitmaps/common/lazy_transparent.png" class="swiper-image swiper-lazy" data-src="resources/bitmaps/cdn/index/banner/3.png" /><span class="swiper-lazy-preloader"></span></a>
     </div>
 </div>
 <!-- ================================================================================ -->
@@ -118,6 +116,26 @@
 
 
 <!-- ================================================================================ -->
+<!-- 页面侧边导航栏 -->
+<!-- ================================================================================ -->
+<div id="sideNav" class="side-nav">
+    <a id="showOptsOverlay" class="side-nav-button" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-sideopts-icon"></i></a>
+    <a id="sideGotoCart" class="side-nav-button circle-counter" href="javascript:void(0);" data-label="20+"><i class="ui-icon ui-x24-icon ui-sidecart-icon"></i></a>
+    <a id="sideBackTop" class="side-nav-button" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-sidetop-icon"></i></a>
+</div>
+<!-- ================================================================================ -->
+<!-- 更多按钮 -->
+<!-- ================================================================================ -->
+<div id="optsOverlay" class="overlay no-mask">
+<div class="overlay-mask"></div>
+<div class="overlay-content dialog-content grid-button-group"><div class="grid-wrapper">
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-index-icon"></i><span>商城首页</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-cart-icon"></i><span>购物车</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-partner-icon"></i><span>合伙人</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-usercenter-icon"></i><span>个人中心</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-cart-icon"></i><span>订单管理</span></a>
+</div></div>
+</div><!-- ================================================================================ -->
 <!-- 页面底部导航栏 -->
 <!-- ================================================================================ -->
 <footer id="siteFooter"><nav id="siteNav">
@@ -125,7 +143,7 @@
         <span class="icon"><i class="ui-icon ui-index-icon"></i></span>
         <span class="text">微积分</span>
     </a>
-    <a id="navToCart" class="site-button " href="cart.html">
+    <a id="navToCart" class="site-button white-counter show-counter " href="cart.html" data-label="24">
         <span class="icon"><i class="ui-icon ui-cart-icon"></i></span>
         <span class="text">购物车</span>
     </a>

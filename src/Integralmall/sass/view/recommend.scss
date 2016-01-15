@@ -5,8 +5,16 @@
     padding: $gap10 $gap10;
     /*background: #f8f8f8;*/
     display: flex;
+    transform: translateY(0) translateZ(0px);
 
-    @include backdrop();
+    /*@include backdrop();*/
+    background: #fff;
+
+    &.hidden-recommend,
+    .hidden-recommend > & {
+        transform: translateY(-100%) translateZ(0px);
+        transition: transform ease-in-out 0.3s;
+    }
 
     & > .recomd-header {
         width: 36px;
@@ -27,6 +35,16 @@
         height: 36px;
 
         @include mutiline-text-overflow(2);
+    }
+
+    & > .recomd-cancel {
+        margin-left: 5px;
+        display: block;
+        align-self: center;
+
+        & > i:before {
+            color: #aaa;
+        }
     }
 
     // onepx

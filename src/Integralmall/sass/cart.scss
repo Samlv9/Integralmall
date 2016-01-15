@@ -4,13 +4,177 @@
 @import "./view/uiicon";
 @import "./view/scrollcontainer";
 @import "./view/sitefooter";
+@import "./view/counter";
 
-/*@import "./weui/base/fn";*/
-/*@import "./weui/icon/weui_icon_font";*/
-/*@import "./weui/widget/weui_button/weui_button";*/
-/*@import "./weui/widget/weui_cell/weui_cell_global";*/
-/*@import "./weui/widget/weui_cell/weui_form";*/
-/*@import "./weui/widget/weui_cell/weui_access";*/
+@import "./weui/base/fn";
+@import "./weui/icon/weui_icon_font";
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+@import "./weui/widget/weui_cell/weui_check";
+@import "./weui/widget/weui_cell/weui_access";
+@import "./utils/weui_reset";
 
-/*@import "./utils/weui_reset";*/
+@import "./view/shopcart";
+
+
+#operation {
+    position: relative;
+    z-index: 9;
+    display: flex;
+
+    &:before {
+        @include setTopLine($weuiCellBorderColor);
+    }
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
+
+
+    & > #opNav {
+        flex: 1;
+        position: relative;
+        padding: 10px 15px;
+
+        @include backdrop(8px, rgba(255, 255, 255, 0.85));
+        @include clearfix();
+    }
+    
+    & .weui_btn {
+        float: right;
+        font-size: inherit;
+        margin-left: 0px;
+        height: 28px;
+        line-height: 28px;
+        padding-left: 12px;
+        padding-right: 12px;
+        transform: translateX(62px) translateZ(0px);
+        transition: transform ease-in-out 0.3s, opacity ease-in-out 0.3s, visibility ease-in-out 0.3s;
+        opacity: 0;
+        visibility: hidden;
+
+        &#btnEditCart {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .shop-edit-mode & {
+            transform: translateX(0px) translateZ(0px);
+
+            &#btnEditCart {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &#btnDoneCart {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    & .weui_btn + .weui_btn {
+        margin-right: 10px;
+    }
+
+
+    & > #ocNav {
+        position: relative;
+        padding: 10px 15px;
+        @include backdrop(8px, rgba(255, 255, 255, 0.85));
+
+        & .oc-button {
+            display: block;
+            color: $globalLinkColor;
+            font-size: 16px;
+            height: 28px;
+            line-height: 28px;
+        }
+    }
+}
+
+#footCart {
+    position: absolute;
+    z-index: 10;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+
+    &:before {
+        z-index: 1;
+        @include setTopLine(#B9B9B9);
+    }
+    /*&:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }*/
+
+
+    & > #ftNav {
+        position: relative;
+        padding: 6px 15px;
+        display: flex;
+        align-items: center;
+        height: 38px;
+        overflow: hidden;
+
+        @include backdrop(8px, rgba(245, 245, 245, 0.85));
+        /*@include clearfix();*/
+
+
+        & > .shop-controls {
+            flex: 1;
+            align-self: flex-start;
+            transform: translateY(0px) translateZ(0px);
+            transition: transform ease-in-out 0.3s;
+            height: 100%;
+
+            .shop-edit-mode & {
+                transform: translateY(-44px) translateZ(0px);
+            }
+
+            & .shop-controls-group {
+                display: flex;
+                text-align: right;
+                height: 100%;
+            
+                & > .shop-describs {
+                    flex: 1;
+                    padding: 0px 10px;
+                }
+
+                & + .shop-controls-group {
+                    margin-top: 6px;
+
+                }
+            }
+        }
+
+        & .shop-price {
+            height: 20px;
+            line-height: 20px;
+            color: #04be02;
+        }
+
+        & .shop-notice {
+            font-size: 12px;
+            height: 14px;
+            line-height: 14px;
+            color: $defaultGraysColor;
+        }
+
+        & .weui_btn {
+            vertical-align: top;
+            font-size: 16px;
+            padding-left: 12px;
+            padding-right: 12px;
+            height: 38px;
+            line-height: 38px;
+        }
+    }
+}
+
+
+#main {
+    height: calc(100% - 98px);
+}
 

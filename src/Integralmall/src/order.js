@@ -35,6 +35,7 @@
 var Page = derive(PageBase, function Page() {
     PageBase.call(this);
 
+    this._allowWordMaxCount = 200;
     this._userAddress = '';
     this._isAjax = false;
 
@@ -197,9 +198,26 @@ Page.prototype._createOrderSuccess = function( data, textStatus, jqXHR ){
     }
 
 }
+
 Page.prototype._resizeTextarea = function _resizeTextarea( evt ) {
     var textarea = evt.currentTarget;
 
     textarea.style.height = "0px";
     textarea.style.height = textarea.scrollHeight + "px";
+
+    this._updateWordsCounter( textarea );
+}
+
+
+Page.prototype._updateWordsCounter = function _updateWordsCounter( textarea ) {
+    var counter = $(textarea).next(".weui_textarea_counter");
+        counter.children("span").text(textarea.value.length);
+
+    if ( textarea.value.length > this._allowWordMaxCount ) {
+        counter.addClass("too-much-words");
+    }
+
+    else {
+        counter.removeClass("too-much-words");
+    }
 }
