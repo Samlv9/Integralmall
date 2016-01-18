@@ -18,6 +18,7 @@
 
 
 .shop-check {
+    position: relative;
     display: block;
     white-space: nowrap;
 
@@ -43,6 +44,17 @@
         vertical-align: top;
         margin-left:0.35em;
         padding: 1px 0px;
+    }
+
+
+    &:after {
+        position: absolute;
+        left: -10px;
+        top : -10px;
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 0, 0, 0);
+        content: "";
     }
 }
 

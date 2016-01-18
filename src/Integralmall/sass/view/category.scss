@@ -1,4 +1,6 @@
-﻿.category {
+﻿@import "../mixins/utils";
+
+.category {
     position: relative;
     background: #fff;
 
@@ -39,6 +41,12 @@
         flex-flow: row wrap;
     }
 
+    &.use-float > .category-content {
+        display: block;
+
+        @include clearfix();
+    }
+
     & > .category-content > .category-token {
         display: block;
         position: relative;
@@ -71,9 +79,13 @@
             background-repeat: no-repeat;
         }
         
-        &._1by3 { flex: 1 1 33.33%; & > .category-token-inside { padding-bottom: 120%; } }
-        &._2by3 { flex: 2 2 66.66%; & > .category-token-inside { padding-bottom: 60%;  } }
-        &._1by2 { flex: 1 1 50.00%; & > .category-token-inside { padding-bottom: 60%;  } }
-        &._1by1 { flex: 1 1 100.00%;& > .category-token-inside { padding-bottom: 100%; } }
+        &._1by3 { width: 33.333333333%; flex: 1 1 33.33%; & > .category-token-inside { padding-bottom: 120%; } }
+        &._2by3 { width: 66.666666666%; flex: 2 2 66.66%; & > .category-token-inside { padding-bottom: 60%;  } }
+        &._1by2 { width: 50.00%; flex: 1 1 50.00%; & > .category-token-inside { padding-bottom: 60%;  } }
+        &._1by1 { width: 100.00%; flex: 1 1 100.00%;& > .category-token-inside { padding-bottom: 100%; } }
+    }
+
+    &.use-float > .category-content > .category-token {
+        float: left;
     }
 }

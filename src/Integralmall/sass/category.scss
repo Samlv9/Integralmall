@@ -24,13 +24,6 @@
 /*@import "./utils/weui_reset";*/
 
 
-#main {
-    & > .scroll-track {
-        z-index: 3;
-    }
-}
-
-
 #recommend {
     position: absolute;
     left: 0px;
@@ -48,7 +41,7 @@
 #banner {
     & > .banner-image {
         display: block;
-        max-width: 100%;
+        width: 100%;
         transform: translateY(0px) translateZ(0px);
     }
 

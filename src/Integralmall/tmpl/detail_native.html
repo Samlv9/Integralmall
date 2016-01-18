@@ -4,15 +4,23 @@
 {{>./partials/headtags}}</head>
 <body>
 <!-- ================================================================================ -->
-<!-- 预加载分享提示图片 -->
+<!-- 推荐栏 -->
 <!-- ================================================================================ -->
-<img hidden src="{{$bitmaps}}/common/share.png" />
+<div id="recommend"><div class="recommend">
+    <div class="recomd-header"><img class="recomd-avatar" src="{{&bitmaps}}/common/avatar.jpg" width="36" height="36" /></div>
+    <div class="recomd-content">BIYI为你推荐“VJF商城”，临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟～</div>
+    <div class="recomd-cancel"><i class="weui_icon_cancel"></i></div>
+</div></div>
 
 
 <!-- ================================================================================ -->
-<!-- 详情页面头像栏 -->
+<!-- 详情页面固定头部 -->
 <!-- ================================================================================ -->
-<a id="avatar" href="usercenter_native.html"><img src="{{&bitmaps}}/common/avatar.jpg" /></a>
+<header id="detTop" data-label="轻触返回顶部"><nav class="detnav">
+    <div class="detimage"><img src="{{&cdnImg}}/detail/banner/1.jpg" /></div>
+    <div class="detprice">￥<span>280.00</span></div>
+    <div class="dettitle">商品名称- 很长很长的文字很长很长的文字很长很长的文字很长很长的文字</div>
+</nav></header>
 
 
 <!-- ================================================================================ -->
@@ -20,7 +28,7 @@
 <!-- ================================================================================ -->
 <div id="toolbar" class="toolbar">
     <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
-    <a class="weui_btn weui_btn_primary" href="order_native.html">立即购买</a>
+    <a class="weui_btn weui_btn_primary" href="order_native.html">加入购物车</a>
 </div>
 
 
@@ -87,7 +95,7 @@
 <!-- 购买按钮 -->
 <!-- ================================================================================ -->
 <div class="goods-controls weui_btn_group">
-    <a class="weui_btn weui_btn_primary" href="order_native.html">立即购买</a>
+    <a class="weui_btn weui_btn_primary" href="order_native.html">加入购物车</a>
     <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
 </div>
 
@@ -120,6 +128,9 @@
 
 
 
+
+
+{{>./widgets/sidenav}}
 {{>./partials/foottags}}
 </body>
 </html>

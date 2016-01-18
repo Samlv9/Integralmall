@@ -172,7 +172,7 @@ var Page = derive(PageBase, function Page() {
     this._optionTrigger.natural.addEventListener("click", this._showOptionLayer);
     this._specTrigger.natural.addEventListener("click", this._showSpecLayer);
     this._shareButton.on("click", this._showShareTipLayer);
-    this._recommend.natural.addEventListener("click", this._hideRecommend);
+    this._recommend && this._recommend.natural.addEventListener("click", this._hideRecommend);
     this._showOptsOverlay.natural.addEventListener("click", this._showOptsOverlayHandler);
 
     this._buyNowTrigger.on("click", this._showBuyNowOptionLayer);

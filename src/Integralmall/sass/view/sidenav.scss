@@ -11,6 +11,10 @@
 
     @include backdrop(8px, rgba(0, 0, 0, 0.6));
 
+    html.allow-native-touch & {
+        position: fixed;
+    }
+
     & > .side-nav-button {
         position: relative;
         display: block;
@@ -48,6 +52,10 @@
     height: 100%;
     display: none;
     @include backdrop(1px, rgba(255, 255, 255, 0.2));
+
+    html.allow-native-touch & {
+        position: fixed;
+    }
 }
 
 

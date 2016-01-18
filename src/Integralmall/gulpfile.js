@@ -140,18 +140,23 @@ gulp.task("build:sass", ["update"], function () {
     return gulp.src([
         /* 首页 */
         "sass/index.scss",
+        "sass/index_native.scss",
 
         /* 我的购物车 */
         "sass/cart.scss",
+        "sass/cart_native.scss",
 
         /* 手机绑定 */
         "sass/associate.scss",
+        "sass/associate_native.scss",
 
         /* 用户协议 */
         "sass/license.scss",
+        "sass/license_native.scss",
 
         /* 分类页面 */
         "sass/category.scss",
+        "sass/category_native.scss",
 
 
         /* 商品详情页 */
@@ -213,7 +218,7 @@ gulp.task("build:sass", ["update"], function () {
     .pipe(sourcemaps.init())
     .pipe(sass({ "outputStyle":"compressed" }).on("error", console.log))
     //.pipe(pse2class({ "pseudos":['active'] }))
-    .pipe(autoprefixer({ "browsers":["> 5%"] }))
+    .pipe(autoprefixer())
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(__WEBROOT__ + "/" + __STYLES__));
 });
@@ -227,15 +232,19 @@ gulp.task("build:script", ["update"], function () {
 
         /* 首页 */
         "src/index.js",
+        "src/index_native.js",
 
         /* 我的购物车 */
         "src/cart.js",
+        "src/cart_native.js",
 
         /* 手机绑定 */
         "src/associate.js",
+        "src/associate_native.js",
 
         /* 用户协议 */
         "src/license.js",
+        "src/license_native.js",
 
         /* 商品详情页 */
         "src/detail.js",
@@ -245,6 +254,7 @@ gulp.task("build:script", ["update"], function () {
 
         /* 分类页面 */
         "src/category.js",
+        "src/category_native.js",
 
         /* 确认订单页 */
         "src/order.js",
@@ -311,15 +321,19 @@ gulp.task("build:templates", ["update"], function () {
     return gulp.src([
         /* 首页 */
         "tmpl/index.html",
+        "tmpl/index_native.html",
 
         /* 我的购物车 */
         "tmpl/cart.html",
+        "tmpl/cart_native.html",
 
         /* 手机绑定 */
         "tmpl/associate.html",
+        "tmpl/associate_native.html",
 
         /* 用户协议 */
         "tmpl/license.html",
+        "tmpl/license_native.html",
 
         /* 商品详情页 */
         "tmpl/detail.html",
@@ -329,6 +343,7 @@ gulp.task("build:templates", ["update"], function () {
 
         /* 分类页面 */
         "tmpl/category.html",
+        "tmpl/category_native.html",
 
         /* 确认订单页 */
         "tmpl/order.html",

@@ -9,6 +9,10 @@
     width   : 100%;
     z-index : 999;
 
+    html.allow-native-touch & {
+        position: fixed;
+    }
+
     &:before {
         z-index: 1;
         @include setTopLine(#B9B9B9);

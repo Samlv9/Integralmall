@@ -1,0 +1,17 @@
+﻿{
+    "title": "分类",
+    "dependencies": [
+        {
+            "desc": "ZeptoJs Ajax Module",
+            "module": "zeptojs/ajax.js"
+        },
+        {
+            "desc": "ZeptoJs Callbacks Module",
+            "module": "zeptojs/callbacks.js"
+        },
+        {
+            "desc": "ZeptoJs Deferred Module",
+            "module": "zeptojs/deferred.js"
+        }
+    ]
+}

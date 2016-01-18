@@ -48,7 +48,7 @@ var Sprite = derive(EventDispatcher, function Sprite( selector ) {
     this._hrwAccelEnabled = true;
 
     if ( this._element.length != 1 ) {
-        throw new Error("当前选择器选中了零个或多个元素，但 Sprite 必须且只能包含有一个有效的元素。");
+        throw new Error("当前选择器选中了零个或多个元素，但 Sprite 必须且只能包含有一个有效的元素。=>" + selector);
     }
 
     Sprite.reg(this);

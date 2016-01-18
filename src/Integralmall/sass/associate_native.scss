@@ -1,0 +1,55 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+/*@import "./view/uiicon";*/
+@import "./view/scrollcontainer";
+/*@import "./view/flexbutton";*/
+@import "./view/vcodebtn";
+
+@import "./weui/base/fn";
+@import "./weui/icon/weui_icon_font";
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+/*@import "./weui/widget/weui_cell/weui_access";*/
+@import "./weui/widget/weui_tips/weui_toast";
+@import "./weui/widget/weui_tips/weui_mask";
+@import "./weui/widget/weui_tips/weui_dialog";
+
+@import "./utils/weui_reset";
+
+
+
+#assocImage {
+    margin-top: $weuiCellsMarginTop;
+    position: relative;
+    /*height: 38.93vw;*/
+
+    &:before {
+        @include setTopLine($weuiCellBorderColor);
+    }
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
+
+    & > .assoc-image {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    & > .assoc-telnum {
+        position: absolute;
+        left: 0px;
+        bottom: 12px;
+        right: 0px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+
+    &:not(.show-telnum) > .assoc-telnum {
+        display: none;
+    }
+}

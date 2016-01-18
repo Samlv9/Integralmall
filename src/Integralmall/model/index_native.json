@@ -1,0 +1,43 @@
+﻿{
+    "title": "首页",
+    "ishome": "selected",
+    "bannerImages": [
+        {
+            "link": "detail.html",
+            "path": "index/banner/1.png"
+        },
+        {
+            "link": "detail.html",
+            "path": "index/banner/2.png"
+        },
+        {
+            "link": "detail.html",
+            "path": "index/banner/3.png"
+        }
+    ],
+    "dependencies": [
+        {
+            "desc": "ZeptoJs Ajax Module",
+            "module": "zeptojs/ajax.js"
+        },
+        {
+            "desc": "ZeptoJs Callbacks Module",
+            "module": "zeptojs/callbacks.js"
+        },
+        {
+            "desc": "ZeptoJs Deferred Module",
+            "module": "zeptojs/deferred.js"
+        },
+        {
+            "desc": "Swipe",
+            "module": "swiper/swiper.js"
+        }
+    ],
+
+    "depsStylesheets": [
+        {
+            "desc": "Swipe.css",
+            "module": "swiper/swiper.css"
+        }
+    ]
+}

@@ -58,6 +58,14 @@ Overlay.prototype._initOverlayConstructor = function _initOverlayConstructor() {
     this.addEventListener("statChange", this._onStatChangeHandler);
     this._mask  .on("click", this._cancelOverlayHandler);
     this.element.on("click", ".overlay-cancel", this._cancelOverlayHandler);
+
+
+    if ( document.documentElement.classList.contains("allow-native-touch") ) {
+        this.natural.addEventListener("touchmove", function( evt ) {
+            evt.stopPropagation();
+            evt.preventDefault();
+        });
+    }
 }
 
 

@@ -33,7 +33,7 @@
     }
 
     .weui_cell {
-        padding: $gap10;
+        padding: $gap15;
     }
 
     .weui_cell_hd,
@@ -75,32 +75,72 @@
     }
 }
 
+.option-chooser-title {
+    margin-top: 0.77em;
+    padding: 0px $gap10;
+    color: $globalTextColor;
+    font-size: $weuiCellTipsFontSize;
+}
 
 .option-chooser {
-    margin-top: $gap15;
+    margin-top: $weuiCellsMarginTop;
+    position: relative;
+    padding: $gap10;
+    background-color: $weuiCellBg;
+    color: #666;
 
-    & > .option-chooser-lists {
-        font-size: 16px;
+    &:before {
+        @include setTopLine($weuiCellBorderColor);
+    }
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
 
-        padding-left: $gap10;
-        /*padding-top: $gap10;*/
+    .radio-button {
+        float: left;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .option-chooser-item {
+        .option-item-name {
+            color: #999;
+            font-size: 12px;
+        }
+
+    }
+
+    .option-chooser-item + .option-chooser-item {
+        margin-top: $gap10 * 2;
+    }
+    
+    .option-item-content {
         @include clearfix();
+    }
 
-        & .radio-button {
-            float: left;
-            margin-right: $gap10;
-            margin-top: $gap10;
-        }
+    /*margin-top: 0.77em;*/
 
-        & .counter {
-            margin-top: $gap10;
+    /*.option-chooser-title {
+        padding: 0px $gap10;
+        color: $globalTextColor;
+        font-size: $weuiCellTipsFontSize;
+    }
+    
+
+    .option-chooser-lists {
+        color: #808080;
+        padding: $gap15 $gap10 $gap5 $gap10;
+        background-color: $weuiCellBg;
+        
+
+        .option-item-content {
+            @include clearfix();
         }
     }
 
-    & > .option-chooser-title {
-        color: #999;
-        padding: $gap5 0px;
-        margin-left: $gap10;
-        border-bottom: 1px solid #E0E0E0;
-    }
+    .radio-button {
+        float: left;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }*/
 }

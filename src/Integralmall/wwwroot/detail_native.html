@@ -41,15 +41,23 @@
 <!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
 <body>
 <!-- ================================================================================ -->
-<!-- 预加载分享提示图片 -->
+<!-- 推荐栏 -->
 <!-- ================================================================================ -->
-<img hidden src="/common/share.png" />
+<div id="recommend"><div class="recommend">
+    <div class="recomd-header"><img class="recomd-avatar" src="resources/bitmaps/common/avatar.jpg" width="36" height="36" /></div>
+    <div class="recomd-content">BIYI为你推荐“VJF商城”，临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟～</div>
+    <div class="recomd-cancel"><i class="weui_icon_cancel"></i></div>
+</div></div>
 
 
 <!-- ================================================================================ -->
-<!-- 详情页面头像栏 -->
+<!-- 详情页面固定头部 -->
 <!-- ================================================================================ -->
-<a id="avatar" href="usercenter_native.html"><img src="resources/bitmaps/common/avatar.jpg" /></a>
+<header id="detTop" data-label="轻触返回顶部"><nav class="detnav">
+    <div class="detimage"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" /></div>
+    <div class="detprice">￥<span>280.00</span></div>
+    <div class="dettitle">商品名称- 很长很长的文字很长很长的文字很长很长的文字很长很长的文字</div>
+</nav></header>
 
 
 <!-- ================================================================================ -->
@@ -57,7 +65,7 @@
 <!-- ================================================================================ -->
 <div id="toolbar" class="toolbar">
     <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
-    <a class="weui_btn weui_btn_primary" href="order_native.html">立即购买</a>
+    <a class="weui_btn weui_btn_primary" href="order_native.html">加入购物车</a>
 </div>
 
 
@@ -124,7 +132,7 @@
 <!-- 购买按钮 -->
 <!-- ================================================================================ -->
 <div class="goods-controls weui_btn_group">
-    <a class="weui_btn weui_btn_primary" href="order_native.html">立即购买</a>
+    <a class="weui_btn weui_btn_primary" href="order_native.html">加入购物车</a>
     <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
 </div>
 
@@ -157,7 +165,29 @@
 
 
 
+
+
 <!-- ================================================================================ -->
+<!-- 页面侧边导航栏 -->
+<!-- ================================================================================ -->
+<div id="sideNav" class="side-nav">
+    <a id="showOptsOverlay" class="side-nav-button" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-sideopts-icon"></i></a>
+    <a id="sideGotoCart" class="side-nav-button circle-counter" href="javascript:void(0);" data-label="20+"><i class="ui-icon ui-x24-icon ui-sidecart-icon"></i></a>
+    <a id="sideBackTop" class="side-nav-button" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-sidetop-icon"></i></a>
+</div>
+<!-- ================================================================================ -->
+<!-- 更多按钮 -->
+<!-- ================================================================================ -->
+<div id="optsOverlay" class="overlay no-mask">
+<div class="overlay-mask"></div>
+<div class="overlay-content dialog-content grid-button-group"><div class="grid-wrapper">
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-index-icon"></i><span>商城首页</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-cart-icon"></i><span>购物车</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-partner-icon"></i><span>合伙人</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-usercenter-icon"></i><span>个人中心</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-cart-icon"></i><span>订单管理</span></a>
+</div></div>
+</div><!-- ================================================================================ -->
 <!-- ScriptManager -->
 <!-- ================================================================================ -->
 <!-- ZeptoJs -->

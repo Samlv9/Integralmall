@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html class="allow-native-touch">
+<head>
+{{>./partials/headtags}}</head>
+<body class="show-loading">
+<!-- ================================================================================ -->
+<!-- 推荐栏 -->
+<!-- ================================================================================ -->
+<div id="recommend"><div class="recommend">
+    <div class="recomd-header"><img class="recomd-avatar" src="{{&bitmaps}}/common/avatar.jpg" width="36" height="36" /></div>
+    <div class="recomd-content">BIYI为你推荐“VJF商城”，临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟～</div>
+</div></div>
+<!-- ================================================================================ -->
+<!-- 图片轮播插件 -->
+<!-- ================================================================================ -->
+<div id="bannerSwiper" class="swiper-container">
+    <div class="swiper-pagination"></div>
+    <div class="swiper-wrapper">
+    {{#bannerImages}}
+        <a class="swiper-slide" href="{{&link}}"><img src="{{&bitmaps}}/common/lazy_transparent.png" class="swiper-image swiper-lazy" data-src="{{&cdnImg}}/{{&path}}" /><span class="swiper-lazy-preloader"></span></a>
+    {{/bannerImages}}
+    </div>
+</div>
+<!-- ================================================================================ -->
+<!-- 九宫格按钮组 -->
+<!-- ================================================================================ -->
+<div id="scale9Controls" class="scale9-button-group">
+    <a class="scale9-button" href="javascript:void(0);">
+        <div class="scale9-icon"><i class="ui-icon ui-72x72-icon ui-signin-icon"></i></div>
+        <div class="scale9-text">每日签到</div>
+    </a>
+    <a class="scale9-button" href="javascript:void(0);">
+        <div class="scale9-icon"><i class="ui-icon ui-72x72-icon ui-vip-icon"></i></div>
+        <div class="scale9-text">会员专区</div>
+    </a>
+    <a class="scale9-button" href="javascript:void(0);">
+        <div class="scale9-icon"><i class="ui-icon ui-72x72-icon ui-category-icon"></i></div>
+        <div class="scale9-text">全部分类</div>
+    </a>
+</div>
+<!-- ================================================================================ -->
+<!-- 分类列表 -->
+<!-- ================================================================================ -->
+<div id="shopCategories" class="shop-categories"></div>
+<!-- ================================================================================ -->
+<!-- 商品列表 -->
+<!-- ================================================================================ -->
+<div id="notice" class="notice"><div class="text">最后更新于：2016/01/08 12:00</div></div>
+<div id="shopTable" class="shop-table use-float"></div>
+<!-- ================================================================================ -->
+<!-- 动态模块加载器 -->
+<!-- ================================================================================ -->
+<div id="moduleTiper" class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
+
+
+{{>./widgets/sidenav}}
+{{>./widgets/sitefooter}}
+
+
+<!-- ================================================================================ -->
+<!-- 页面模板区 -->
+<!-- ================================================================================ -->
+{{=<% %>=}}
+<script type="text/template" id="tmplCategories">
+<div class="category use-float">
+    <a class="category-banner lazyable loaded" href="{{bannerUrl}}" data-src="{{bannerImg}}" style="background-image: url({{bannerImg}});"></a>
+    <div class="category-content">{{content}}</div>
+</div>
+</script>
+<script type="text/template" id="tmplCategoriesToken">
+    <a class="category-token {{layout}}" href="{{itemUrl}}"><div class="category-token-inside lazyable loaded" data-src="{{itemImg}}" style="background-image: url({{itemImg}});"></div></a>
+</script>
+<script type="text/template" id="tmplShopItem">
+<a class="shop-item" href="{{url}}">
+    <div class="shop-item-thumb lazyable loaded" data-src="{{thumb}}" style="background-image: url({{thumb}});"></div>
+    <div class="shop-item-title">{{title}}</div>
+    <div class="shop-item-price">￥{{price}}</div>
+</a>
+</script>
+<%={{ }}=%>
+{{>./partials/foottags}}
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="allow-native-touch">
+<head>
+<!-- UTF-8 页面编码 -->
+<meta charset="utf-8" />
+<!-- DNS 预解析 -->
+<meta http-equiv="X-DNS-Prefetch-Control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!-- App 独立模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<title>分类</title>
+<!-- Apple Touch Icon -->
+<!-- IPhone 4s/5/5s/6/6s -->
+<!--<link rel="apple-touch-icon" sizes="120x120" href="icon_120x120.png" />-->
+<!-- IPhone 6/6s Plus -->
+<!--<link rel="apple-touch-icon" sizes="180x180" href="icon_180x180.png" />-->
+<!-- Chrome Touch Icon -->
+<!--<link rel="apple-touch-icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="apple-touch-icon" sizes="128x128" href="icon_128x128.png" />-->
+<!--<link rel="icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="icon" sizes="128x128" href="icon_128x128.png" />-->
+<!-- ================================================================================ -->
+<!-- StyleManager -->
+<!-- ================================================================================ -->
+<!-- ================================================================================ -->
+<!-- 页面样式文件 -->
+<!-- ================================================================================ -->
+<link rel="stylesheet" href="resources/stylesheets/category_native.css" />
+<!-- html5 标签补丁 -->
+<script type="text/javascript" id="html5shiv">///<![CDATA[
+    document.createElement("main");
+    document.createElement("content");
+///]]></script>
+<!-- 运行环境设置 -->
+<script type="text/javascript" src="resources/scripts/system.js"></script>
+<!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
+<body class="show-loading">
+<!-- ================================================================================ -->
+<!-- 推荐栏 -->
+<!-- ================================================================================ -->
+<div id="recommend"><div class="recommend">
+    <div class="recomd-header"><img class="recomd-avatar" src="resources/bitmaps/common/avatar.jpg" width="36" height="36" /></div>
+    <div class="recomd-content">BIYI为你推荐“VJF商城”，临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟～</div>
+</div></div>
+
+
+<!-- ================================================================================ -->
+<!-- 广告栏 -->
+<!-- ================================================================================ -->
+<div id="banner"><img class="banner-image" src="resources/bitmaps/cdn/index/banner/3.png" /></div>
+
+
+<!-- ================================================================================ -->
+<!-- 商品列表 -->
+<!-- ================================================================================ -->
+<div id="notice" class="notice"><div class="text">最后更新于：2016/01/08 12:00</div></div>
+<div id="shopTable" class="shop-table use-float"></div>
+<!-- ================================================================================ -->
+<!-- 动态模块加载器 -->
+<!-- ================================================================================ -->
+<div id="moduleTiper" class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
+
+
+
+<!-- ================================================================================ -->
+<!-- 页面侧边导航栏 -->
+<!-- ================================================================================ -->
+<div id="sideNav" class="side-nav">
+    <a id="showOptsOverlay" class="side-nav-button" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-sideopts-icon"></i></a>
+    <a id="sideGotoCart" class="side-nav-button circle-counter" href="javascript:void(0);" data-label="20+"><i class="ui-icon ui-x24-icon ui-sidecart-icon"></i></a>
+    <a id="sideBackTop" class="side-nav-button" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-sidetop-icon"></i></a>
+</div>
+<!-- ================================================================================ -->
+<!-- 更多按钮 -->
+<!-- ================================================================================ -->
+<div id="optsOverlay" class="overlay no-mask">
+<div class="overlay-mask"></div>
+<div class="overlay-content dialog-content grid-button-group"><div class="grid-wrapper">
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-index-icon"></i><span>商城首页</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-cart-icon"></i><span>购物车</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-partner-icon"></i><span>合伙人</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-usercenter-icon"></i><span>个人中心</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-cart-icon"></i><span>订单管理</span></a>
+</div></div>
+</div>
+
+<!-- ================================================================================ -->
+<!-- 页面模板区 -->
+<!-- ================================================================================ -->
+<script type="text/template" id="tmplShopItem">
+<a class="shop-item" href="{{url}}">
+    <div class="shop-item-thumb lazyable loaded" data-src="{{thumb}}" style="background-image: url({{thumb}});"></div>
+    <div class="shop-item-title">{{title}}</div>
+    <div class="shop-item-price">￥{{price}}</div>
+</a>
+</script>
+<!-- ================================================================================ -->
+<!-- ScriptManager -->
+<!-- ================================================================================ -->
+<!-- ZeptoJs -->
+<script type="text/javascript" src="resources/libraries/zeptojs/zepto.js"></script>
+<!-- ZeptoJs Event Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/event.js"></script>
+<!-- ZeptoJs Ajax Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/ajax.js"></script>
+<!-- ZeptoJs Callbacks Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/callbacks.js"></script>
+<!-- ZeptoJs Deferred Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/deferred.js"></script>
+<!-- ================================================================================ -->
+<!-- 页面入口点 -->
+<!-- ================================================================================ -->
+<script type="text/javascript" src="resources/scripts/category_native.js"></script>
+</body>
+</html>

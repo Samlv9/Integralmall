@@ -6,7 +6,14 @@
     background: #fff;
     position: relative;
 
-    &:after {
+    &.use-float {
+        display: block;
+
+        @include clearfix();
+    }
+
+    &:before {
+        z-index: 1;
         content: " ";
         width: 200%;
         height: 200%;
@@ -24,9 +31,11 @@
     & > .shop-item {
         display: block;
         position: relative;
+        width: 50%;
         flex: 1 1 50%;
         padding: 10px;
         box-sizing: border-box;
+        max-width: 50%;
 
         /*&:active {
             background: #f8f8f8;
@@ -45,6 +54,10 @@
             transform-origin: 0 0;
             box-sizing: border-box;
             pointer-events: none;
+        }
+
+        &:nth-child(odd):last-child:after {
+            border-right: 1px solid rgba(0, 0, 0, .1);
         }
 
         & > .shop-item-thumb {
@@ -77,6 +90,10 @@
             font-size: 16px;
             color: #04be02;
         }
+    }
+
+    & > .shop-item {
+        float: left;
     }
 
 
