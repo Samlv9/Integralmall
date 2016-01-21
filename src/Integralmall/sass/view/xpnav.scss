@@ -1,0 +1,67 @@
+﻿@import "../mixins/utils";
+
+.xp-sign-line {
+    height: 32px;
+    overflow: hidden;
+    transition: height ease-in-out 0.3s;
+}
+
+.xp-nav-list {
+    position: relative;
+    @include clearfix();
+
+    & > .xp-nav-item {
+        width: 20%;
+        float: left;
+    }
+
+
+    & > .xp-nav-item > .xp-nav-link {
+        position: relative;
+        display: block;
+        text-align:center;
+        color: #353535;
+        height: 32px;
+        line-height: 32px;
+
+        /*&.selected:before {
+            content: " ";
+            width: 7em;
+            height: 3.8em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid currentColor;
+            transform: scale(.5) translate(-50%, -50%);
+            transform-origin: 0 0;
+            box-sizing: border-box;
+            pointer-events: none;
+            border-radius: 9999px;
+        }*/
+
+        &:active {
+            opacity: 0.5;
+        }
+
+        &.selected {
+            /*font-weight: bold;*/
+            /*text-decoration: underline;*/
+            color: #04be02;
+        }
+
+        &.show-drop-allow {
+            
+
+            &:after {
+                content: " ";
+                border: 5px solid transparent;
+                border-top-color: currentColor;
+                position: absolute;
+                top: 50%;
+                right: 0px;
+                margin-top: -3px;
+                margin-right: 12px;
+            }
+        }
+    }
+}

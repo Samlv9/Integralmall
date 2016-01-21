@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html class="allow-native-touch">
+<head>
+{{>./partials/headtags}}</head>
+<body class="show-loading">
+<!-- ================================================================================ -->
+<!-- 新闻头部栏 -->
+<!-- ================================================================================ -->
+<div id="xpHeaderMask" class="disable-touchmove"></div>
+<header id="xpHeader" class="disable-touchmove">
+    <div class="xp-title"><i class="ui-icon ui-x24-icon ui-brand-icon"></i><span>挑选文章-转发赚</span><small class="xp-title-desc">-微积分钱包</small></div>
+    <nav class="xp-nav">
+    <div class="xp-sign-line"><ul class="xp-nav-list">
+        <li class="xp-nav-item"><a class="xp-nav-link selected" href="javascript:void(0);">推荐</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">生活</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">热点</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">视频</a></li>
+        <li class="xp-nav-item"><a id="xpAllNavListTrigger" class="xp-nav-link show-drop-allow" href="javascript:void(0);">更多</a></li>
+    </ul></div>
+    <div id="xpAllNavList" class="xp-sign-line"><ul class="xp-nav-list">
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+    </ul></div>
+    </nav>
+</header>
+<!-- ================================================================================ -->
+<!-- 新闻滚动轮播 -->
+<!-- ================================================================================ -->
+<div id="bannerSwiper" class="swiper-container">
+    <!--<div class="swiper-pagination"></div>-->
+    <div class="swiper-wrapper">
+    {{#bannerImages}}
+        <a class="swiper-slide" href="{{&link}}"><img src="{{&bitmaps}}/common/lazy_transparent.png" class="swiper-image swiper-lazy" data-src="{{&cdnImg}}/{{&path}}" /><span class="swiper-lazy-preloader"></span></a>
+    {{/bannerImages}}
+    </div>
+    <div class="swiper-description">美国15亿美金彩票中奖者公开领奖</div>
+</div>
+<!-- ================================================================================ -->
+<!-- 推荐新闻列表 -->
+<!-- ================================================================================ -->
+<div id="newsRC" class="newsrc">
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好日子好不如平安好日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="{{&bitmaps}}/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<!-- ================================================================================ -->
+<!-- 动态模块加载器 -->
+<!-- ================================================================================ -->
+<div id="moduleTiper" class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
+
+
+{{>./widgets/sitefooter}}
+
+
+{{>./partials/foottags}}
+</body>
+</html>

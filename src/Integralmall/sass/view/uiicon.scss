@@ -41,7 +41,15 @@
 .ui-icon.ui-x24-icon.ui-sideuser-icon {
     background-position: -72px 0px;
 }
-
+.ui-icon.ui-x24-icon.ui-brand-icon {
+    background-position: -0px -48px;
+}
+.ui-icon.ui-x24-icon.ui-loadmore-icon {
+    background-position: -0px -72px;
+}
+.ui-icon.ui-x24-icon.ui-showmore-icon {
+    background-position: -24px -72px;
+}
 .ui-icon.ui-share-icon {
     background-position: 0px 0px;
 }
@@ -78,6 +86,14 @@
 
 .ui-icon.ui-lg-icon.ui-cash-icon {
     background-position: -44px 0px;
+}
+
+.ui-icon.ui-news-icon {
+    background-position: -256px -96px;
+
+    .selected & {
+        background-position: -288px -96px;
+    }
 }
 
 .ui-icon.ui-index-icon {

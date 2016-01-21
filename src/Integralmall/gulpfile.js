@@ -138,6 +138,16 @@ gulp.task("build", ["build:script", "build:sass", "build:templates", "build:stat
 gulp.task("build:sass", ["update"], function () {
     /// 编译项目中的 sass/scss 文件。
     return gulp.src([
+        /* 新闻列表 */
+        "sass/news.scss",
+        "sass/news_native.scss",
+
+
+        /* 新闻内容页 */
+        "sass/article.scss",
+        "sass/article_native.scss",
+
+
         /* 首页 */
         "sass/index.scss",
         "sass/index_native.scss",
@@ -230,6 +240,14 @@ gulp.task("build:script", ["update"], function () {
         /* 运行环境 */
         "src/system.js",
 
+        /* 新闻列表 */
+        "src/news.js",
+        "src/news_native.js",
+
+        /* 新闻内容页 */
+        "src/article.js",
+        "src/article_native.js",
+
         /* 首页 */
         "src/index.js",
         "src/index_native.js",
@@ -319,6 +337,14 @@ gulp.task("build:script", ["update"], function () {
 gulp.task("build:templates", ["update"], function () {
     /// 编译项目中的模板文件。
     return gulp.src([
+        /* 新闻列表 */
+        "tmpl/news.html",
+        "tmpl/news_native.html",
+
+        /* 新闻内容页 */
+        "tmpl/article.html",
+        "tmpl/article_native.html",
+
         /* 首页 */
         "tmpl/index.html",
         "tmpl/index_native.html",

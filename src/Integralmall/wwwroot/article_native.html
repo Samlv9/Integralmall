@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="allow-native-touch">
+<head>
+<!-- UTF-8 页面编码 -->
+<meta charset="utf-8" />
+<!-- DNS 预解析 -->
+<meta http-equiv="X-DNS-Prefetch-Control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!-- App 独立模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<title>新闻内容</title>
+<!-- Apple Touch Icon -->
+<!-- IPhone 4s/5/5s/6/6s -->
+<!--<link rel="apple-touch-icon" sizes="120x120" href="icon_120x120.png" />-->
+<!-- IPhone 6/6s Plus -->
+<!--<link rel="apple-touch-icon" sizes="180x180" href="icon_180x180.png" />-->
+<!-- Chrome Touch Icon -->
+<!--<link rel="apple-touch-icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="apple-touch-icon" sizes="128x128" href="icon_128x128.png" />-->
+<!--<link rel="icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="icon" sizes="128x128" href="icon_128x128.png" />-->
+<!-- ================================================================================ -->
+<!-- StyleManager -->
+<!-- ================================================================================ -->
+<!-- ================================================================================ -->
+<!-- 页面样式文件 -->
+<!-- ================================================================================ -->
+<link rel="stylesheet" href="resources/stylesheets/article_native.css" />
+<!-- html5 标签补丁 -->
+<script type="text/javascript" id="html5shiv">///<![CDATA[
+    document.createElement("main");
+    document.createElement("content");
+///]]></script>
+<!-- 运行环境设置 -->
+<script type="text/javascript" src="resources/scripts/system.js"></script>
+<!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
+<body>
+<!-- ================================================================================ -->
+<!-- 新闻头部栏 -->
+<!-- ================================================================================ -->
+<div id="xpHeaderMask" class="disable-touchmove"></div>
+<header id="xpHeader" class="disable-touchmove">
+    <div class="xp-title"><i class="ui-icon ui-x24-icon ui-brand-icon"></i><span>挑选文章-转发赚</span><small class="xp-title-desc">-微积分钱包</small></div>
+    <nav class="xp-nav">
+    <div class="xp-sign-line"><ul class="xp-nav-list">
+        <li class="xp-nav-item"><a class="xp-nav-link selected" href="javascript:void(0);">推荐</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">生活</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">热点</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">视频</a></li>
+        <li class="xp-nav-item"><a id="xpAllNavListTrigger" class="xp-nav-link show-drop-allow" href="javascript:void(0);">更多</a></li>
+    </ul></div>
+    <div id="xpAllNavList"><ul class="xp-nav-list">
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+    </ul></div>
+    </nav>
+    <div class="xp-show-all-list">
+        <a id="xpShowAllListTrigger" class="xp-show-all-list-trigger" href="javascript:void(0);"></a>
+    </div>
+</header>
+<!-- ================================================================================ -->
+<!-- 新闻内容 -->
+<!-- ================================================================================ -->
+<section class="newscont">
+    <h1 class="news-title">离岸人民币盘初大涨逾离岸人民币盘初大涨逾离岸人民币盘初大涨逾300点</h1>
+    <div class="news-properties"><time class="news-prop">2016-01-18</time><a class="news-prop" href="javascript:void(0);">微积分钱包</a></div>
+    <article id="newsArticle" class="newsarti cliped">
+        <div class="conn"><p>还记得这个妹子么？今年圣诞，她的胸当然还是不会闲着！</p><p><img src="http://res.vjf.com.cn/v1/resource/load?path=resources/vjf_news/2015-12-05/1/20160121/20160121002432081853.jpg" /></p><p><iframe frameborder="0" height="502.5" scrolling="no" src="https://v.qq.com/iframe/player.html?vid=y0174ldf3gg&amp;auto=0"  width="670"></iframe></p></div>
+    </article>
+    <a id="showMoreNews" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-showmore-icon"></i><span class="text">点击展开全文</span></a>
+    <div id="newsArticleBanner"><div class="news-banner-inside"><img class="news-banner" src="resources/bitmaps/common/newsbanner.png" width="345" height="110" /></div></div>
+    <div id="newsADRecommend">
+        <!-- 百度广告区 -->
+    </div>
+    <div id="newsArticleControls">
+        <a class="weui_btn weui_btn_primary share-button" href="javascript:void(0);">分享文章有奖</a>
+        <a class="weui_btn weui_btn_default">换一篇</a>
+    </div>
+</section>
+<!-- ================================================================================ -->
+<!-- 推荐新闻列表 -->
+<!-- ================================================================================ -->
+<section id="newsRC" class="newsrc">
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好日子好不如平安好日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+    <div class="newsrc-item">
+        <div class="newsrc-thumb"><img class="newsrc-image" src="resources/bitmaps/common/newsitem.png" width="100" height="75" /></div>
+        <div class="newsrc-content">
+            <div class="newsrc-title">新物种鲜花上市了，新鲜花图片以</div>
+            <div class="newsrc-summary">什么好不如良心好，有啥好不如有人好，少年好不如晚景好，日子好不如平安好</div>
+        </div>
+    </div>
+</section>
+<!-- ================================================================================ -->
+<!-- 加载更多按钮 -->
+<!-- ================================================================================ -->
+<a id="loadMoreNews" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-loadmore-icon"></i><i class="loading-tiper swiper-lazy-preloader"></i><span class="text">查看更多推荐</span></a>
+
+
+<!-- ================================================================================ -->
+<!-- 新闻页底部 -->
+<!-- ================================================================================ -->
+<footer id="xpFooter">
+    <nav class="xp-nav">
+    <div id="xpFooterAllNavList"><ul class="xp-nav-list">
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+        <li class="xp-nav-item"><a class="xp-nav-link" href="javascript:void(0);">爆笑</a></li>
+    </ul></div>
+    </nav>
+    <div class="xp-follow"><i class="ui-icon ui-x24-icon ui-brand-icon"></i><span>微积分钱包，想赚钱关注我~</span><a class="follow-button" href="javascript:void(0);">关注</a></div>
+    <div class="xp-copyright"><span>Copyright&copy; 2015 微积分投资（深圳）有限公司，版权所有。</span></div>
+</footer>
+<!-- ================================================================================ -->
+<!-- 关注二维码层 -->
+<!-- ================================================================================ -->
+<div id="qrcodeLayer" class="qrcode-layer disable-touchmove">
+    <div class="qrcode-content">
+        <img class="qrcode-image" src="resources/bitmaps/common/qrcode.jpg" width="178" height="178" />
+        <div>长按二维码立即关注<span class="qrcode-wechat-name">微积分</span></div>
+    </div>
+</div>
+
+
+
+
+<!-- ================================================================================ -->
+<!-- ScriptManager -->
+<!-- ================================================================================ -->
+<!-- ZeptoJs -->
+<script type="text/javascript" src="resources/libraries/zeptojs/zepto.js"></script>
+<!-- ZeptoJs Event Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/event.js"></script>
+<!-- ================================================================================ -->
+<!-- 页面入口点 -->
+<!-- ================================================================================ -->
+<script type="text/javascript" src="resources/scripts/article_native.js"></script>
+</body>
+</html>

@@ -123,6 +123,7 @@
 
 .shop-counter {
     color: $defaultGraysColor;
+    transition: visibility ease-in-out 0.3s, opacity ease-in-out 0.3s;
     
     & > .counter {
         margin-bottom: 0px;
@@ -141,5 +142,8 @@
         }
     }
 
-
+    .shop-edit-mode & {
+        visibility: hidden;
+        opacity: 0;
+    }
 }

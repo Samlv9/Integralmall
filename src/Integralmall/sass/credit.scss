@@ -17,6 +17,35 @@
 
 .sectip {
     height: 120px;
-    background: #686f78;
     margin-top: -120px;
+    /*background: url(../bitmaps/common/hidden.png) no-repeat center center;*/
+    background-color: #686f78;
+    /*background-size: 32px 36px;*/
+}
+
+.income {
+    & .weui_cell_ft:before {
+        content: "￥";
+    }
+}
+
+
+#totalIncome {
+    .weui_cell:before {
+        display: none;
+    }
+
+    & > .weui_cell:first-child + .weui_cell:before {
+        display: block;
+        left: 0px;
+    }
+
+    & > .weui_cell + .weui_cell {
+        /*padding-left: 30px;*/
+        padding-top: 0px;
+    }
+
+    & > .weui_cell:first-child + .weui_cell {
+        padding-top: 15px;
+    }
 }

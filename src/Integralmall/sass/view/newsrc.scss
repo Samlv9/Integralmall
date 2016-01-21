@@ -1,0 +1,70 @@
+﻿@import "../weui/base/fn";
+@import "../mixins/utils";
+
+.newsrc {
+    position: relative;
+    &:before {
+        @include setTopLine($weuiCellBorderColor);
+    }
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
+
+    & > .newsrc-item {
+        padding: 10px 15px;
+        display: flex;
+        background: #fff;
+
+
+        &:active {
+            background: #f8f8f8;
+        }
+
+
+        & + .newsrc-item {
+            position: relative;
+            overflow: hidden;
+            &:before {
+                @include setTopLine($weuiCellBorderColor);
+                left: 15px;
+            }
+        }
+
+        & > .newsrc-thumb {
+            width: 100px;
+            height: 75px;
+            padding-right: 10px;
+
+            & > .newsrc-image {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        & > .newsrc-content {
+            flex: 1;
+            
+            & > .newsrc-title {
+                font-size: 15px;
+                height: 24px;
+                line-height: 24px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow:ellipsis;
+            }
+
+            & > .newsrc-summary {
+                margin-top: 4px;
+                height: 36px;
+                line-height: 1.5;
+                font-size: 12px;
+                color: #888;
+                @include mutiline-text-overflow(2);
+            }
+
+        }
+    }
+
+
+}

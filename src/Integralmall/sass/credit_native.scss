@@ -13,3 +13,30 @@
 /*@import "./weui/widget/weui_cell/weui_access";*/
 
 @import "./utils/weui_reset";
+
+.income {
+    & .weui_cell_ft:before {
+        content: "￥";
+    }
+}
+
+
+#totalIncome {
+    .weui_cell:before {
+        display: none;
+    }
+
+    & > .weui_cell:first-child + .weui_cell:before {
+        display: block;
+        left: 0px;
+    }
+
+    & > .weui_cell + .weui_cell {
+        /*padding-left: 30px;*/
+        padding-top: 0px;
+    }
+
+    & > .weui_cell:first-child + .weui_cell {
+        padding-top: 15px;
+    }
+}
