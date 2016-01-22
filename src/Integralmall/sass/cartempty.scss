@@ -1,0 +1,32 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+@import "./view/uiicon";
+@import "./view/scrollcontainer";
+@import "./view/sitefooter";
+
+@import "./weui/base/fn";
+/*@import "./weui/icon/weui_icon_font";*/
+@import "./weui/widget/weui_button/weui_button";
+/*@import "./weui/widget/weui_cell/weui_cell_global";*/
+/*@import "./weui/widget/weui_cell/weui_form";*/
+/*@import "./weui/widget/weui_cell/weui_access";*/
+
+/*@import "./utils/weui_reset";*/
+
+
+#emptyCartImage {
+    background: url(../bitmaps/common/emptycart.png) no-repeat center center;
+    background-size: 188px 161px;
+    height: 161px;
+    margin-top: 60px;
+}
+
+.button_sp_area {
+    /*padding: 10px 0;*/
+    width: 60%;
+    margin: 30px auto;
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    font-size: 0;
+}

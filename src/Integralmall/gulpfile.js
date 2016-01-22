@@ -156,6 +156,10 @@ gulp.task("build:sass", ["update"], function () {
         "sass/cart.scss",
         "sass/cart_native.scss",
 
+        /* 空购物车 */
+        "sass/cartempty.scss",
+        "sass/cartempty_native.scss",
+
         /* 手机绑定 */
         "sass/associate.scss",
         "sass/associate_native.scss",
@@ -264,6 +268,10 @@ gulp.task("build:script", ["update"], function () {
         "src/cart.js",
         "src/cart_native.js",
 
+        /* 空购物车 */
+        "src/cartempty.js",
+        "src/cartempty_native.js",
+
         /* 手机绑定 */
         "src/associate.js",
         "src/associate_native.js",
@@ -368,6 +376,10 @@ gulp.task("build:templates", ["update"], function () {
         /* 我的购物车 */
         "tmpl/cart.html",
         "tmpl/cart_native.html",
+
+        /* 空购物车 */
+        "tmpl/cartempty.html",
+        "tmpl/cartempty_native.html",
 
         /* 手机绑定 */
         "tmpl/associate.html",
