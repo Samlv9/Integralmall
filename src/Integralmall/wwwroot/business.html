@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- UTF-8 页面编码 -->
+<meta charset="utf-8" />
+<!-- DNS 预解析 -->
+<meta http-equiv="X-DNS-Prefetch-Control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!-- App 独立模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<title>商家信息</title>
+<!-- Apple Touch Icon -->
+<!-- IPhone 4s/5/5s/6/6s -->
+<!--<link rel="apple-touch-icon" sizes="120x120" href="icon_120x120.png" />-->
+<!-- IPhone 6/6s Plus -->
+<!--<link rel="apple-touch-icon" sizes="180x180" href="icon_180x180.png" />-->
+<!-- Chrome Touch Icon -->
+<!--<link rel="apple-touch-icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="apple-touch-icon" sizes="128x128" href="icon_128x128.png" />-->
+<!--<link rel="icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="icon" sizes="128x128" href="icon_128x128.png" />-->
+<!-- ================================================================================ -->
+<!-- StyleManager -->
+<!-- ================================================================================ -->
+<!-- ================================================================================ -->
+<!-- 页面样式文件 -->
+<!-- ================================================================================ -->
+<link rel="stylesheet" href="resources/stylesheets/business.css" />
+<!-- html5 标签补丁 -->
+<script type="text/javascript" id="html5shiv">///<![CDATA[
+    document.createElement("main");
+    document.createElement("content");
+///]]></script>
+<!-- 运行环境设置 -->
+<script type="text/javascript" src="resources/scripts/system.js"></script>
+<!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
+<body><div id="stage">
+<main id="main" class="scroll-container show-loading">
+<!-- ================================================================================ -->
+<!-- 固定定位元素 -->
+<!-- ================================================================================ -->
+<content id="content">
+<!-- ================================================================================ -->
+<!-- 统一头部 -->
+<!-- ================================================================================ -->
+<!-- ================================================================================ -->
+<!-- 品牌 名称/LOGO 信息 -->
+<!-- ================================================================================ -->
+<div class="weui_cells weui_cells_access business-profile">
+    <a class="weui_cell" href="javascript:void(0);">
+        <div class="weui_cell_hd"><img class="avatar" src="resources/bitmaps/common/avatar.jpg" width="72" height="72" /></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="business-name">广州微积分集团</div>
+            <div class="business-info">集团ID: 8888</div>
+        </div>
+    </a>
+</div>
+<!-- ================================================================================ -->
+<!-- 资金信息 -->
+<!-- ================================================================================ -->
+<div class="weui_cells weui_cells_access business-action">
+    <a class="weui_cell" href="credit.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-credit-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">资金池</div>
+        <div class="weui_cell_ft"><span class="money">20.5</span></div>
+    </a>
+</div>
+<!-- ================================================================================ -->
+<!-- 收益详情 -->
+<!-- ================================================================================ -->
+<div id="totalIncome" class="weui_cells income">
+    <div class="weui_cell weui_total_cell">
+        <div class="weui_cell_bd weui_cell_primary">总收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">今日收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">昨日收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">本周收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">本月收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+</div>
+<!-- ================================================================================ -->
+<!-- 商品库存/销量状态 -->
+<!-- ================================================================================ -->
+<div id="shopBussinessTable">
+
+
+<div class="weui_cells weui_cells_access goods-status sku-false">
+    <a class="weui_cell goods-abstract" href="detail.html">
+        <div class="weui_cell_hd"><img class="goods-thumb" src="resources/bitmaps/common/thumb.jpg" width="72" height="72" /></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="goods-abs-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长</div>
+            <div class="goods-abs-desc">定价:￥888.00· 每件收益:266.4(30%)</div>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+    <div class="weui_cell no_access sku-tiper">
+        <div class="weui_cell_bd weui_cell_primary">当前库存</div>
+        <div class="weui_cell_ft">5120件(库存不足)</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">设计存量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">总共售出</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">今日销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">本周销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">本月销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access notice-switch weui_cell_switch">
+        <div class="weui_cell_hd weui_cell_primary">交易消息推送</div>
+        <div class="weui_cell_ft"><input class="weui_switch" type="checkbox"></div>
+    </div>
+</div>
+
+
+<div class="weui_cells weui_cells_access goods-status sku-true">
+    <a class="weui_cell goods-abstract" href="detail.html">
+        <div class="weui_cell_hd"><img class="goods-thumb" src="resources/bitmaps/common/thumb.jpg" width="72" height="72" /></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="goods-abs-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长</div>
+            <div class="goods-abs-desc">定价:￥888.00· 每件收益:266.4(30%)</div>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+    <div class="weui_cell no_access sku-tiper">
+        <div class="weui_cell_bd weui_cell_primary">当前库存</div>
+        <div class="weui_cell_ft">5120件(库存不足)</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">设计存量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">总共售出</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">今日销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">本周销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">本月销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access notice-switch weui_cell_switch">
+        <div class="weui_cell_hd weui_cell_primary">交易消息推送</div>
+        <div class="weui_cell_ft"><input class="weui_switch" type="checkbox"></div>
+    </div>
+</div>
+
+
+
+</div><!--END SHOP_BUSINESS_TABLE-->
+<!-- ================================================================================ -->
+<!-- 动态模块加载器 -->
+<!-- ================================================================================ -->
+<div id="moduleTiper" class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
+
+
+<!-- ================================================================================ -->
+<!-- 统一底部 -->
+<!-- ================================================================================ -->
+</content>
+</main>
+
+
+
+</div><!--STAGE END-->
+<!-- ================================================================================ -->
+<!-- ScriptManager -->
+<!-- ================================================================================ -->
+<!-- ZeptoJs -->
+<script type="text/javascript" src="resources/libraries/zeptojs/zepto.js"></script>
+<!-- ZeptoJs Event Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/event.js"></script>
+<!-- ================================================================================ -->
+<!-- 页面入口点 -->
+<!-- ================================================================================ -->
+<script type="text/javascript" src="resources/scripts/business.js"></script>
+</body>
+</html>

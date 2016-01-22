@@ -1,0 +1,59 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+
+@import "./view/uiicon";
+@import "./view/scrollcontainer";
+/*@import "./view/sitefooter";*/
+
+@import "./weui/base/fn";
+/*@import "./weui/icon/weui_icon_font";*/
+/*@import "./weui/widget/weui_button/weui_button";*/
+@import "./weui/widget/weui_cell/weui_cell_global";
+/*@import "./weui/widget/weui_cell/weui_form";*/
+@import "./weui/widget/weui_cell/weui_access";
+
+/*@import "./utils/weui_reset";*/
+
+
+.user-avatar {
+    display: inline-block;
+    vertical-align: top;
+    width: 72px;
+    height: 72px;
+    border-radius: 4px;
+}
+
+.basic-info {
+    .weui_cell_ft:after {
+        margin-left: 6px
+    }
+
+    .weui_cell.no_access {
+        & > .weui_cell_ft:after {
+            display: none;
+        }
+    }
+}
+
+.exprise {
+    text-align: center;
+    padding: 10px 0px;
+
+    &.e1 { color: #F5A623; }
+    &.e2 { color: #888888; }
+    &.e3 { color: #D0D0D0; }
+    &.e4 { color: #D0D0D0; }
+
+    & > .exprise-image {
+        & > img {
+            display: inline-block;
+            vertical-align: top;
+            width: 188px;
+            height: 70px;
+        }
+    }
+
+    & > .exprise-state {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+{{>./partials/headtags}}</head>
+<body><div id="stage">
+<main id="main" class="scroll-container show-loading">
+{{>./widgets/fixtop}}
+<content id="content">
+{{>./widgets/header}}
+<!-- ================================================================================ -->
+<!-- 品牌 名称/LOGO 信息 -->
+<!-- ================================================================================ -->
+<div class="weui_cells weui_cells_access business-profile">
+    <a class="weui_cell" href="javascript:void(0);">
+        <div class="weui_cell_hd"><img class="avatar" src="{{&bitmaps}}/common/avatar.jpg" width="72" height="72" /></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="business-name">广州微积分集团</div>
+            <div class="business-info">集团ID: 8888</div>
+        </div>
+    </a>
+</div>
+<!-- ================================================================================ -->
+<!-- 资金信息 -->
+<!-- ================================================================================ -->
+<div class="weui_cells weui_cells_access business-action">
+    <a class="weui_cell" href="credit.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-credit-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">资金池</div>
+        <div class="weui_cell_ft"><span class="money">20.5</span></div>
+    </a>
+</div>
+<!-- ================================================================================ -->
+<!-- 收益详情 -->
+<!-- ================================================================================ -->
+<div id="totalIncome" class="weui_cells income">
+    <div class="weui_cell weui_total_cell">
+        <div class="weui_cell_bd weui_cell_primary">总收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">今日收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">昨日收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">本周收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">本月收益</div>
+        <div class="weui_cell_ft">5120.00</div>
+    </div>
+</div>
+<!-- ================================================================================ -->
+<!-- 商品库存/销量状态 -->
+<!-- ================================================================================ -->
+<div id="shopBussinessTable">
+
+
+<div class="weui_cells weui_cells_access goods-status sku-false">
+    <a class="weui_cell goods-abstract" href="detail.html">
+        <div class="weui_cell_hd"><img class="goods-thumb" src="{{&bitmaps}}/common/thumb.jpg" width="72" height="72" /></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="goods-abs-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长</div>
+            <div class="goods-abs-desc">定价:￥888.00· 每件收益:266.4(30%)</div>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+    <div class="weui_cell no_access sku-tiper">
+        <div class="weui_cell_bd weui_cell_primary">当前库存</div>
+        <div class="weui_cell_ft">5120件(库存不足)</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">设计存量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">总共售出</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">今日销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">本周销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">本月销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access notice-switch weui_cell_switch">
+        <div class="weui_cell_hd weui_cell_primary">交易消息推送</div>
+        <div class="weui_cell_ft"><input class="weui_switch" type="checkbox"></div>
+    </div>
+</div>
+
+
+<div class="weui_cells weui_cells_access goods-status sku-true">
+    <a class="weui_cell goods-abstract" href="detail.html">
+        <div class="weui_cell_hd"><img class="goods-thumb" src="{{&bitmaps}}/common/thumb.jpg" width="72" height="72" /></div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <div class="goods-abs-name">商品名称 - 很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长很长的文字很长很长的文字很长很长的文字很长很长的文字很长很长很长</div>
+            <div class="goods-abs-desc">定价:￥888.00· 每件收益:266.4(30%)</div>
+        </div>
+        <div class="weui_cell_ft"></div>
+    </a>
+    <div class="weui_cell no_access sku-tiper">
+        <div class="weui_cell_bd weui_cell_primary">当前库存</div>
+        <div class="weui_cell_ft">5120件(库存不足)</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">设计存量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">总共售出</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">今日销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">本周销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access">
+        <div class="weui_cell_bd weui_cell_primary">本月销量</div>
+        <div class="weui_cell_ft">5120件</div>
+    </div>
+    <div class="weui_cell no_access notice-switch weui_cell_switch">
+        <div class="weui_cell_hd weui_cell_primary">交易消息推送</div>
+        <div class="weui_cell_ft"><input class="weui_switch" type="checkbox"></div>
+    </div>
+</div>
+
+
+
+</div><!--END SHOP_BUSINESS_TABLE-->
+<!-- ================================================================================ -->
+<!-- 动态模块加载器 -->
+<!-- ================================================================================ -->
+<div id="moduleTiper" class="loader-tiper">
+    <span class="swiper-lazy-preloader"></span>
+    <span class="loader-text">加载数据中</span>
+</div>
+
+
+{{>./widgets/footer}}
+</content>
+</main>
+
+
+
+</div><!--STAGE END-->
+{{>./partials/foottags}}
+</body>
+</html>

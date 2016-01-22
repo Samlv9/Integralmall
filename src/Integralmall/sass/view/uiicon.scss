@@ -50,6 +50,14 @@
 .ui-icon.ui-x24-icon.ui-showmore-icon {
     background-position: -24px -72px;
 }
+.ui-icon.ui-x24-icon.ui-exprise-icon {
+    background-position: -0px -24px;
+
+    &.e1 { background-position: -0px -24px;  }
+    &.e2 { background-position: -24px -24px; }
+    &.e3 { background-position: -48px -24px; }
+    &.e4 { background-position: -72px -24px; }
+}
 .ui-icon.ui-share-icon {
     background-position: 0px 0px;
 }
@@ -79,6 +87,23 @@
 .ui-icon.ui-member-icon {
     background-position: -64px -32px;
 }
+
+.ui-icon.ui-shop-icon {
+    background-position: -64px -32px;
+}
+
+.ui-icon.ui-guide-icon {
+    background-position: -96px -32px;
+}
+
+.ui-icon.ui-about-icon {
+    background-position: -128px -32px;
+}
+
+.ui-icon.ui-business-icon {
+    background-position: -160px -32px;
+}
+
 
 .ui-icon.ui-lg-icon.ui-diamond-icon {
     background-position: 0px 0px;

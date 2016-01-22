@@ -23,12 +23,6 @@
     /*background-size: 32px 36px;*/
 }
 
-.income {
-    & .weui_cell_ft:before {
-        content: "￥";
-    }
-}
-
 
 #totalIncome {
     .weui_cell:before {
@@ -41,7 +35,6 @@
     }
 
     & > .weui_cell + .weui_cell {
-        /*padding-left: 30px;*/
         padding-top: 0px;
     }
 

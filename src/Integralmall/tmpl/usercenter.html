@@ -12,14 +12,18 @@
 <!-- ================================================================================ -->
 <!-- 微信个人头像展示 -->
 <!-- ================================================================================ -->
-<div class="weui_cells user-profile">
-    <div class="weui_cell">
+<div class="weui_cells weui_cells_access user-profile">
+    <a class="weui_cell" href="userinfo.html">
         <div class="weui_cell_hd"><img class="avatar" src="{{&bitmaps}}/common/avatar.jpg" width="72" height="72" /></div>
         <div class="weui_cell_bd weui_cell_primary">
             <div class="wechat-name">用户昵称</div>
             <div class="wechat-region"><span class="wechat-province">广东省</span> <span class="wechat-city">广州市</span></div>
         </div>
-    </div>
+        <div class="weui_cell_ft"><div class="vip-ft">
+            <div class="vip-icon"><i class="ui-icon ui-x24-icon ui-exprise-icon e1"></i></div>
+            <div class="vip-exprise e1">[10/30]</div>
+        </div></div>
+    </a>
 </div>
 
 
@@ -38,13 +42,37 @@
 <div class="weui_cells weui_cells_access user-action">
     <a class="weui_cell" href="credit.html">
         <div class="weui_cell_hd"><i class="ui-icon ui-credit-icon"></i></div>
-        <div class="weui_cell_bd weui_cell_primary">我的积分</div>
+        <div class="weui_cell_bd weui_cell_primary">我的零钱</div>
+        <div class="weui_cell_ft"><span class="money">20.5</span></div>
+    </a>
+
+    <a class="weui_cell"  href="index.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-shop-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">我的店铺</div>
+        <div class="weui_cell_ft"></div>
+    </a>
+</div>
+
+
+<div class="weui_cells weui_cells_access user-action">
+    <a class="weui_cell" href="guide.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-guide-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">新手教程</div>
         <div class="weui_cell_ft"></div>
     </a>
 
-    <a class="weui_cell"  href="help.html">
-        <div class="weui_cell_hd"><i class="ui-icon ui-member-icon"></i></div>
-        <div class="weui_cell_bd weui_cell_primary">帮助与反馈</div>
+    <a class="weui_cell"  href="about.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-about-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">关于微积分</div>
+        <div class="weui_cell_ft"></div>
+    </a>
+</div>
+
+
+<div class="weui_cells weui_cells_access user-action">
+    <a class="weui_cell" href="business.html">
+        <div class="weui_cell_hd"><i class="ui-icon ui-business-icon"></i></div>
+        <div class="weui_cell_bd weui_cell_primary">入驻商户</div>
         <div class="weui_cell_ft"></div>
     </a>
 </div>

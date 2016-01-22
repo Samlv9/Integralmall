@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+{{>./partials/headtags}}</head>
+<body><div id="stage">
+<main id="main" class="scroll-container with-site-bar">
+{{>./widgets/fixtop}}
+<content id="content">
+{{>./widgets/header}}
+<!-- ================================================================================ -->
+<!-- 会员有效期 -->
+<!-- ================================================================================ -->
+<div class="weui_cells"><div class="weui_cell">
+    <div class="weui_cell_bd weui_cell_primary exprise e1">
+        <div class="exprise-image"><img src="{{&bitmaps}}/exprise/1.png" width="188" height="70" /></div>
+        <div class="exprise-state">[10/30]</div>
+    </div>
+</div></div>
+
+
+
+<!-- ================================================================================ -->
+<!-- 会员基本信息 -->
+<!-- ================================================================================ -->
+<div class="weui_cells weui_cells_access basic-info">
+    <a class="weui_cell no_access" href="javascript:void(0);">
+        <div class="weui_cell_bd weui_cell_primary">头像</div>
+        <div class="weui_cell_ft"><img class="user-avatar" src="{{&bitmaps}}/common/avatar.jpg" width="72" height="72" /></div>
+    </a>
+    <a class="weui_cell no_access" href="javascript:void(0);">
+        <div class="weui_cell_bd weui_cell_primary">昵称</div>
+        <div class="weui_cell_ft"><span class="username">分分钟超神</span></div>
+    </a>
+    <a class="weui_cell" href="associate.html">
+        <div class="weui_cell_bd weui_cell_primary">手机</div>
+        <div class="weui_cell_ft">未绑定</div>
+    </a>
+</div>
+
+
+
+
+
+{{>./widgets/footer}}
+</content>
+</main>
+
+
+
+</div><!--STAGE END-->
+{{>./partials/foottags}}
+</body>
+</html>

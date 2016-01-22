@@ -183,6 +183,14 @@ gulp.task("build:sass", ["update"], function () {
         "sass/usercenter.scss",
         "sass/usercenter_native.scss",
 
+        /* 个人信息 */
+        "sass/userinfo.scss",
+        "sass/userinfo_native.scss",
+
+        /* 商家信息 */
+        "sass/business.scss",
+        "sass/business_native.scss",
+
         /* 我的合伙人 */
         "sass/partner.scss",
         "sass/partner_native.scss",
@@ -282,6 +290,14 @@ gulp.task("build:script", ["update"], function () {
         "src/usercenter.js",
         "src/usercenter_native.js",
 
+        /* 个人信息 */
+        "src/userinfo.js",
+        "src/userinfo_native.js",
+
+        /* 商家信息 */
+        "src/business.js",
+        "src/business_native.js",
+
         /* 我的合伙人 */
         "src/partner.js",
         "src/partner_native.js",
@@ -378,6 +394,14 @@ gulp.task("build:templates", ["update"], function () {
         /* 用户中心页 */
         "tmpl/usercenter.html",
         "tmpl/usercenter_native.html",
+
+        /* 个人信息 */
+        "tmpl/userinfo.html",
+        "tmpl/userinfo_native.html",
+
+        /* 商家信息 */
+        "tmpl/business.html",
+        "tmpl/business_native.html",
 
         /* 我的合伙人 */
         "tmpl/partner.html",

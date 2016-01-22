@@ -14,12 +14,6 @@
 
 @import "./utils/weui_reset";
 
-.income {
-    & .weui_cell_ft:before {
-        content: "￥";
-    }
-}
-
 
 #totalIncome {
     .weui_cell:before {
