@@ -25,11 +25,18 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+///
+/// <reference path='utils/Device.js' />
 
 
 /// TODU:
 /// 这里在 `document` 上取消 `touchmove` 默认行为，防止浏览器出现弹性滚动条。
-if ( !document.documentElement.classList.contains("allow-native-touch") ) {
+if ( !Device.isIOS() ) {
+
+    document.documentElement.classList.add("allow-native-touch");
+}
+
+else {
     document.addEventListener("touchmove", function disableMovement( evt ) {
         /// 启用自定义的滚动行为。
         evt.preventDefault();
