@@ -36,7 +36,8 @@ if ( !Device.isIOS() ) {
     document.documentElement.classList.add("allow-native-touch");
 }
 
-else {
+
+if ( !document.documentElement.classList.contains("allow-native-touch") ) {
     document.addEventListener("touchmove", function disableMovement( evt ) {
         /// 启用自定义的滚动行为。
         evt.preventDefault();
