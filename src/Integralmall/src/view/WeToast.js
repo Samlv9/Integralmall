@@ -61,7 +61,7 @@ var WE_DONE_TOAST_INTERVAL = 0;
 
 function ShowWeToast( textContent, autoRemove ) {
     if ( !WE_TOAST_ELEMENT ) {
-        WE_TOAST_ELEMENT = CreateToastElement('weui_loading_toast');
+        WE_TOAST_ELEMENT = CreateToastElement('weui_loading_toast', WE_TOAST_LOADING);
     }
 
     textContent = textContent || '请稍后...';
@@ -77,7 +77,7 @@ function ShowWeToast( textContent, autoRemove ) {
 
 function ShowWeToastDone( textContent, autoRemove ) {
     if ( !WE_DONE_TOAST_ELEMENT ) {
-        WE_DONE_TOAST_ELEMENT = CreateToastElement('');
+        WE_DONE_TOAST_ELEMENT = CreateToastElement('', WE_TOAST_ICON);
     }
 
     textContent = textContent || '已完成';
@@ -104,8 +104,8 @@ function HideWeToastDone() {
 }
 
 
-function CreateToastElement( isLoadingToast ) {
-    var html = WE_TOAST_TEMPLATE.replace('{{TOAST_LOADING}}', WE_TOAST_LOADING);
+function CreateToastElement( isLoadingToast, toastContent ) {
+    var html = WE_TOAST_TEMPLATE.replace('{{TOAST_LOADING}}', toastContent);
         html = html.replace('{{IS_LOADING_TOAST}}', isLoadingToast);
     var div = document.createElement("div");
         div.innerHTML = html;
