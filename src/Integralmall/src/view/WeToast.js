@@ -86,7 +86,7 @@ function ShowWeToastDone( textContent, autoRemove ) {
 
     if ( autoRemove && autoRemove >= 100 ) {
         clearTimeout(WE_DONE_TOAST_INTERVAL);
-        WE_DONE_TOAST_INTERVAL = setTimeout(HideWeToast, autoRemove);
+        WE_DONE_TOAST_INTERVAL = setTimeout(HideWeToastDone, autoRemove);
     }
 }
 
