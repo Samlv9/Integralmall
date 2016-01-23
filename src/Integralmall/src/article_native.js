@@ -112,7 +112,7 @@ Page.prototype._scrollHandler = function _scrollHandler( evt ) {
 Page.prototype._showMoreNewsHandler = function _showMoreNewsHandler( evt ) {
     this._newsArticle.natural.classList.remove("cliped");
     this._showMoreNews.natural.style.display = "none";
-    this._mainContainer.updateFrameSizes();
+    //this._mainContainer.updateFrameSizes();
 }
 
 
