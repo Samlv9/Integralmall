@@ -56,7 +56,6 @@ var identy = 0;
 var isMove = false;
 var threshold = 5;
 var holdDelay = 1000;
-var lessDelay = 30;
 
 
 function doTapClickHandler( evt ) {
@@ -128,10 +127,6 @@ function doTapClickHandler( evt ) {
         document.removeEventListener("touchcancel", doTapClickHandler, true);
 
         if ( isMove ) {
-            return;
-        }
-
-        if ( Date.now() - startT <= lessDelay ) {
             return;
         }
 

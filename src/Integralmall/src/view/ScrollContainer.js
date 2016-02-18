@@ -275,6 +275,11 @@ ScrollContainer.prototype._initScrollContainer = function _initScrollContainer (
     //});
 
     this.natural.addEventListener("touchstart",  this._drawScrollContainer);
+    this.natural.addEventListener("click", function( evt ) {
+        if ( this.classList.contains("disable-pointer") ) {
+            evt.preventDefault();
+        }
+    });
 }
 
 
@@ -881,10 +886,12 @@ ScrollContainer.prototype._showIndicator = function _showIndicator( type, alpha 
     if ( type == 0 && this._scrollXTracker ) {
         if ( alpha == 1 ) {
             this._updateIndicator(type);
+            this._natural.classList.add("disable-pointer");
             this._scrollXTracker.natural.classList.remove("scroll-track-showing");
         }
 
         else {
+            this._natural.classList.remove("disable-pointer");
             this._scrollXTracker.natural.classList.remove("scroll-track-showing");
         }
     }
@@ -892,10 +899,12 @@ ScrollContainer.prototype._showIndicator = function _showIndicator( type, alpha 
     if ( type == 1 && this._scrollYTracker ) {
         if ( alpha == 1 ) {
             this._updateIndicator(type);
+            this._natural.classList.add("disable-pointer");
             this._scrollYTracker.natural.classList.add("scroll-track-showing");
         }
 
         else {
+            this._natural.classList.remove("disable-pointer");
             this._scrollYTracker.natural.classList.remove("scroll-track-showing");
         }
     }
