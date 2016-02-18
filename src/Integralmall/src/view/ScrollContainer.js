@@ -455,7 +455,7 @@ ScrollContainer.prototype._drawScrollContainer = function _drawScrollContainer( 
 
         if ( doPrevent ) {
             evt.preventDefault();
-            //evt.stopPropagation();
+            evt.stopPropagation();
         }
 
         this._touchXval = dt[0];

@@ -42,6 +42,8 @@ if ( !document.documentElement.classList.contains("allow-native-touch") ) {
         /// 启用自定义的滚动行为。
         evt.preventDefault();
     });
+
+    document.addEventListener("touchstart", doTapClickHandler);
 }
 
 
@@ -96,6 +98,9 @@ function doTapClickHandler( evt ) {
         if ( document.activeElement ) {
             document.activeElement.blur();
         }
+
+        /// 禁用默认的 click 事件调度；
+        evt.preventDefault();
         return;
     }
 
@@ -117,9 +122,6 @@ function doTapClickHandler( evt ) {
     }
 
     if ( evt.type == "touchend" ) {
-        /// 禁用默认的 click 事件调度；
-        evt.preventDefault();
-
         document.removeEventListener("touchmove", doTapClickHandler, true);
         document.removeEventListener("touchend" , doTapClickHandler, true);
         document.removeEventListener("touchcancel", doTapClickHandler, true);
@@ -150,8 +152,5 @@ function doTapClickHandler( evt ) {
         return;
     }
 }
-
-
-document.addEventListener("touchstart", doTapClickHandler);
 
 
