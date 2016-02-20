@@ -10,7 +10,7 @@
 /*@import "./weui/widget/weui_button/weui_button";*/
 @import "./weui/widget/weui_cell/weui_cell_global";
 /*@import "./weui/widget/weui_cell/weui_form";*/
-/*@import "./weui/widget/weui_cell/weui_access";*/
+@import "./weui/widget/weui_cell/weui_access";
 
 @import "./utils/weui_reset";
 
@@ -41,4 +41,11 @@
     & > .weui_cell:first-child + .weui_cell {
         padding-top: 15px;
     }
+}
+
+.page-description {
+    color: $defaultDescsColor;
+    font-size: 12px;
+    padding: $gap15;
+    text-shadow: rgba(255, 255, 255, 0.75) 1px 1px 0px;
 }

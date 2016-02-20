@@ -34,3 +34,11 @@
         height: auto;
     }
 }
+
+
+.page-description {
+    color: $defaultDescsColor;
+    font-size: 12px;
+    padding: $gap15;
+    text-shadow: rgba(255, 255, 255, 0.75) 1px 1px 0px;
+}
