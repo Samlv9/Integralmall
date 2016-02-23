@@ -63,6 +63,35 @@
     }
 }
 
+#topNav {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    z-index: 3;
+    padding: $gap15 $gap15;
+    /*transform: translateY(56px) translateZ(0px);*/
+
+    .topnav-list {
+        @include clearfix();
+    }
+
+    .top-nav-button {
+        float: right;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 9999px;
+
+        & + .top-nav-button {
+            margin-right: 15px
+        }
+    }
+
+    & + content {
+        padding-top: 56px;
+        box-sizing: border-box;
+    }
+}
+
 
 #detailSwiper {
     position: relative;
