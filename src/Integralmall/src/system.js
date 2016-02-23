@@ -68,7 +68,7 @@ function doTapClickHandler( evt ) {
         var nodeName = target.nodeName.toLowerCase();
         var nodeType = target.nodeType;
 
-        if ( (nodeType == 1) && (nodeName == "input" || nodeName == "textarea") ) {
+        if ( (nodeType == 1) && (nodeName == "input" || nodeName == "textarea" || nodeName == "select") ) {
             /// 忽略 Input/Textarea；
             return;
         }

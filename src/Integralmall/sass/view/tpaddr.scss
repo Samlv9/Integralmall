@@ -1,0 +1,14 @@
+﻿@import "../weui/base/fn";
+
+
+.tpaddr {
+    &:before {
+        z-index: 1;
+    }
+
+    .tpaddr-repeat-line {
+        height: 6px;
+        background: url(../bitmaps/common/xrepeat.png) repeat-x 0px 0px;
+        background-size: 36px 12px;
+    }
+}
