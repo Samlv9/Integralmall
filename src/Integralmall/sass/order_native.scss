@@ -5,7 +5,7 @@
 /*@import "./view/scrollcontainer";*/
 
 @import "./weui/base/fn";
-/*@import "./weui/icon/weui_icon_font";*/
+@import "./weui/icon/weui_icon_font";
 @import "./weui/widget/weui_button/weui_button";
 @import "./weui/widget/weui_cell/weui_cell_global";
 @import "./weui/widget/weui_cell/weui_form";
@@ -18,6 +18,11 @@
 @import "./utils/weui_reset";
 @import "./view/ordercells";
 @import "./view/tpaddr";
+
+.weui_icon_warn:before,
+.weui_icon_info_circle:before {
+    font-size: 21px;
+}
 
 
 #address {
