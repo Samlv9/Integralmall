@@ -658,6 +658,7 @@
     margin-top: $weuiCellsMarginTop;
     position: relative;
     padding: $gap10;
+    padding-top: $gap15;
     background-color: $weuiCellBg;
     color: #666;
 
@@ -678,6 +679,7 @@
         .option-item-name {
             color: #999;
             font-size: 12px;
+            padding-left: $gap5;
         }
 
     }

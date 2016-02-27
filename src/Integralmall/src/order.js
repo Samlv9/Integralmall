@@ -62,6 +62,14 @@ Page.prototype._initPage = function _initPage() {
     /// 微信支付
     this._weixinPay.on("click", this._weixinPayFun);
 
+
+    $("#orderPoster").on("click", function () {
+        console.log(this._mainContainer.scrollY);
+        setTimeout(function() {
+        this._mainContainer.scrollTo(600, 0, -50);
+        }.bind(this), 10);
+
+    }.bind(this));
 }
 
 Page.prototype._selectAddressFun = function ( evt ) {

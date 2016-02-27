@@ -7,8 +7,8 @@
 @import "./view/dropdown";
 @import "./view/toolbar";
 @import "./view/overlay";
-/*@import "./view/radiobutton";*/
-/*@import "./view/counter";*/
+@import "./view/radiobutton";
+@import "./view/counter";
 /*@import "./view/tooltip";*/
 @import "./view/recommend";
 @import "./view/sidenav";
@@ -93,6 +93,79 @@ body {
         padding-top: 56px;
         box-sizing: border-box;
     }
+}
+
+
+.option-chooser-title {
+    margin-top: 0.77em;
+    padding: 0px $gap10;
+    color: $globalTextColor;
+    font-size: $weuiCellTipsFontSize;
+}
+
+.option-chooser {
+    margin-top: $weuiCellsMarginTop;
+    position: relative;
+    padding: $gap10;
+    padding-top: $gap15;
+    background-color: $weuiCellBg;
+    color: #666;
+
+    &:before {
+        @include setTopLine($weuiCellBorderColor);
+    }
+    &:after {
+        @include setBottomLine($weuiCellBorderColor);
+    }
+
+    .radio-button {
+        float: left;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .option-chooser-item {
+        .option-item-name {
+            color: #999;
+            font-size: 12px;
+            padding-left: $gap5;
+        }
+
+    }
+
+    .option-chooser-item + .option-chooser-item {
+        margin-top: $gap10 * 2;
+    }
+    
+    .option-item-content {
+        @include clearfix();
+    }
+
+    /*margin-top: 0.77em;*/
+
+    /*.option-chooser-title {
+        padding: 0px $gap10;
+        color: $globalTextColor;
+        font-size: $weuiCellTipsFontSize;
+    }
+    
+
+    .option-chooser-lists {
+        color: #808080;
+        padding: $gap15 $gap10 $gap5 $gap10;
+        background-color: $weuiCellBg;
+        
+
+        .option-item-content {
+            @include clearfix();
+        }
+    }
+
+    .radio-button {
+        float: left;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }*/
 }
 
 
