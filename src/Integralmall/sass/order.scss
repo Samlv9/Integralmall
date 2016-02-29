@@ -3,6 +3,7 @@
 
 /*@import "./view/uiicon";*/
 @import "./view/scrollcontainer";
+@import "./view/toolbar";
 
 @import "./weui/base/fn";
 @import "./weui/icon/weui_icon_font";
@@ -24,6 +25,13 @@
     font-size: 21px;
 }
 
+.weui_cells:last-child {
+    margin-bottom: $weuiCellsMarginTop;
+}
+
+#toolbar {
+    transform: none;
+}
 
 #address {
     margin-right: $gap5;

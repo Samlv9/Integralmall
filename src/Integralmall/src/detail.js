@@ -516,9 +516,11 @@ Page.prototype._topbarClickHandler = function _topbarClickHandler( evt ) {
 
 Page.prototype._showMorePage = function _showMorePage () {
     /// 切换至详情页面；
-    this._mainContainer.y = -this.height;
-    this._sideWrapperContainer.y = -this.height;
+    this._mainContainer.y = -this._mainContainer.height;
+    this._sideWrapperContainer.y = -this._mainContainer.height;
     this._sideNav.natural.classList.remove("side-nav-hidden");
+    this._toolbar.natural.classList.remove("disable-transform");
+    this._topbar.natural.classList.remove("disable-visible");
 }
 
 
@@ -527,6 +529,8 @@ Page.prototype._showMainPage = function _showMainPage () {
     this._mainContainer.y = 0;
     this._sideWrapperContainer.y = 0;
     this._sideNav.natural.classList.add("side-nav-hidden");
+    this._toolbar.natural.classList.add("disable-transform");
+    this._topbar.natural.classList.add("disable-visible");
 }
 
 

@@ -29,6 +29,10 @@
         margin: 0;
     }
 
+    & > .weui_btn.weui_btn_full {
+        flex: 1;
+    }
+
     & > .weui_btn + .weui_btn {
         margin: 0;
         margin-left: $gap10;

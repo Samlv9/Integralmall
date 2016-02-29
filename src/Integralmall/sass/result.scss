@@ -18,6 +18,13 @@
 @import "./utils/weui_reset";
 @import "./view/ordercells";
 @import "./view/tpaddr";
+@import "./view/sidenav";
+
+
+.weui_icon_warn:before,
+.weui_icon_info_circle:before {
+    font-size: 21px;
+}
 
 
 #statusImage {

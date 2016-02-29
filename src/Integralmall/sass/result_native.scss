@@ -4,6 +4,8 @@
 @import "./view/uiicon";
 /*@import "./view/scrollcontainer";*/
 /*@import "./view/swipercontainer";*/
+@import "./view/sidenav";
+@import "./view/overlay";
 
 @import "./weui/base/fn";
 @import "./weui/icon/weui_icon_font";
@@ -18,6 +20,12 @@
 @import "./utils/weui_reset";
 @import "./view/ordercells";
 @import "./view/tpaddr";
+
+
+.weui_icon_warn:before,
+.weui_icon_info_circle:before {
+    font-size: 21px;
+}
 
 
 #statusImage {
