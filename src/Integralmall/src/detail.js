@@ -142,6 +142,10 @@ var Page = derive(PageBase, function Page() {
     this._optsOverlay = new Overlay("#optsOverlay");
     this._optsContent = new Sprite(this._optsOverlay.element.children(".overlay-content"));
 
+    /// 二维码；
+    this._qrcodeLayer = new Sprite("#qrcodeLayer");
+    this._attention=$("#attention");
+    
     /// 事件处理；
     this._showOptsOverlayHandler = this._showOptsOverlayHandler.bind(this);
     this._hideRecommend = this._hideRecommend.bind(this);
@@ -158,8 +162,12 @@ var Page = derive(PageBase, function Page() {
     this._chooseAttributeconfirm = this._chooseAttributeconfirm.bind(this);
     this._showBuyNowOptionLayer = this._showBuyNowOptionLayer.bind(this);
     this._sendAjax = this._sendAjax.bind(this);
+    this._showQRCodeLayer = this._showQRCodeLayer.bind(this);
 
     this._confirmAjax = this._confirmAjax.bind(this);
+
+    //add by stefanchen
+    
 
     this._mainContainer.addEventListener("pull"  , this._viewPullUpHandler);
     this._mainContainer.addEventListener("scroll", this._viewScrollHandler);
@@ -177,6 +185,8 @@ var Page = derive(PageBase, function Page() {
 
     this._buyNowTrigger.on("click", this._showBuyNowOptionLayer);
     this._chooseAttribute.on("click", this._chooseAttributeconfirm);
+
+    this._attention.on("click", this._showQRCodeLayer);
 
 });
 
@@ -611,4 +621,22 @@ Page.prototype._showShareTipLayer = function _showShareTipLayer( evt ) {
 
 Page.prototype._hideRecommend = function _hideRecommend( evt ) {
     this._recommend.natural.classList.add("hidden-recommend");
+}
+
+Page.prototype._showQRCodeLayer = function _showQRCodeLayer( evt ) {
+    console.log(this._qrcodeLayer);
+    this._qrcodeLayer.natural.classList.add("show-qrcode");
+    this._qrcodeLayer.natural.addEventListener("click", (function( evt ) {
+        //var target = evt.target;
+
+        //while( target && target != this._qrcodeLayer.natural ) {
+        //    if ( target.classList.contains("qrcode-content") ) {
+        //        return;
+        //    }
+
+        //    target = target.parentNode;
+        //}
+
+        this._qrcodeLayer.natural.classList.remove("show-qrcode");
+    }.bind(this)));
 }

@@ -596,3 +596,47 @@ body {
         opacity: 0;
     }
 }
+
+.qrcode-layer {
+    position: fixed;
+    z-index: 99999;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /*display: none;*/
+
+    &:not(.show-qrcode) {
+        display: none;
+    }
+
+
+    & > .qrcode-content {
+        position: absolute;
+        left: 50%;
+        top : 50%;
+        transform: translate(-50%, -50%);
+        color: #4a4a4a;
+        font-size: 15px;
+        padding: 25px 35px;
+        background: #fff;
+        border-radius: 6px;
+        text-align: center;
+        white-space: nowrap;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+
+        & > .qrcode-image {
+            display: block;
+            width: 178px;
+            height: 178px;
+            margin: 0 auto;
+        }
+
+        & .qrcode-wechat-name {
+            color: #04be02;
+        }
+    }
+
+
+}

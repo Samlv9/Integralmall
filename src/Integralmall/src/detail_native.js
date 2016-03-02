@@ -75,13 +75,17 @@ var Page = derive(PageBase, function Page() {
     this._optsOverlay = new Overlay("#optsOverlay");
     this._optsContent = new Sprite(this._optsOverlay.element.children(".overlay-content"));
 
+    /// 二维码；
+    this._qrcodeLayer = new Sprite("#qrcodeLayer");
+    this._attention=$("#attention");
+
     /// 推荐栏（该栏可能没有）；
     this._recommend = document.getElementById("recommend");
     this._recommend = this._recommend ? new Sprite(this._recommend) : null;
 
 
     /// 事件处理；
-    this._showShareTipLayer = this._showShareTipLayer.bind(this);
+    //this._showShareTipLayer = this._showShareTipLayer.bind(this);
     this._hideRecommend = this._hideRecommend.bind(this);
     //this._docTouchHandler = this._docTouchHandler.bind(this);
     //this._dragHandler = this._dragHandler.bind(this);
@@ -89,13 +93,14 @@ var Page = derive(PageBase, function Page() {
     this._backToTopHandler = this._backToTopHandler.bind(this);
     this._showOptsOverlayHandler = this._showOptsOverlayHandler.bind(this);
     this._topbarClickHandler = this._topbarClickHandler.bind(this);
-
+    this._showQRCodeLayer=this._showQRCodeLayer.bind(this);
 
     this._shareButton.on("click", this._showShareTipLayer);
     this._sideBackTop.natural.addEventListener("click", this._backToTopHandler);
     this._showOptsOverlay.natural.addEventListener("click", this._showOptsOverlayHandler);
     this._recommend && this._recommend.natural.addEventListener("click", this._hideRecommend);
     this._topbar.natural.addEventListener("click", this._topbarClickHandler);
+    this._attention.on("click",this._showQRCodeLayer);
     //this.addEventListener("dragUp", this._dragHandler);
     //this.addEventListener("dragDown", this._dragHandler);
     //document.addEventListener("touchstart", this._docTouchHandler);
@@ -283,4 +288,26 @@ Page.prototype._hideSideNav = function _hideSideNav () {
 
 Page.prototype._hideRecommend = function _hideRecommend( evt ) {
     this._recommend.natural.classList.add("hidden-recommend");
+}
+
+Page.prototype._showQRCodeLayer = function _showQRCodeLayer( evt ) {
+    this._qrcodeLayer.natural.addEventListener("touchmove", function( evt ) {
+            evt.stopPropagation();
+            evt.preventDefault();
+        });
+
+    this._qrcodeLayer.natural.classList.add("show-qrcode");
+    this._qrcodeLayer.natural.addEventListener("click", (function( evt ) {
+        //var target = evt.target;
+
+        //while( target && target != this._qrcodeLayer.natural ) {
+        //    if ( target.classList.contains("qrcode-content") ) {
+        //        return;
+        //    }
+
+        //    target = target.parentNode;
+        //}
+
+        this._qrcodeLayer.natural.classList.remove("show-qrcode");
+    }.bind(this)));
 }

@@ -219,7 +219,7 @@
 <!-- 底部工具栏 -->
 <!-- ================================================================================ -->
 <div id="toolbar" class="toolbar disable-transform">
-    <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
+    <a id="attention" class="weui_btn weui_btn_default " href="javascript:void(0);">关注</a>
     <a class="weui_btn weui_btn_primary" href="order.html">加入购物车</a>
 </div>
 </div><!--PAGE END-->
@@ -295,7 +295,15 @@
     </div>
 </content>
 </aside></div>
-
+<!-- ================================================================================ -->
+<!-- 关注二维码层 -->
+<!-- ================================================================================ -->
+<div id="qrcodeLayer" class="qrcode-layer disable-touchmove">
+    <div class="qrcode-content">
+        <img class="qrcode-image" src="resources/bitmaps/common/qrcode.jpg" width="178" height="178" />
+        <div>长按立即关注<span class="qrcode-wechat-name">人人微店</span></div>
+    </div>
+</div>
 
 {{>./widgets/sidenav}}
 
