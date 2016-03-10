@@ -68,7 +68,10 @@ function WeRadioSheet( title,radioItems,btnContent,trigger,dispatcher, callback 
 	            target = target.parentNode;
 	        }
     	});
-  
+    radioSheet.addEventListener("touchmove", function( evt ) {
+            evt.stopPropagation();
+            evt.preventDefault();
+        });
      var mask = $('#mask');
     var weuiActionsheet = $('#weui_actionsheet');
     trigger.on("click",function(){
