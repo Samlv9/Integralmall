@@ -16,6 +16,9 @@
 @import "./weui/widget/weui_tips/weui_toast";
 @import "./weui/widget/weui_tips/weui_mask";
 @import "./weui/widget/weui_tips/weui_dialog";
+@import "./weui/widget/weui_tips/weui_actionsheet.scss";
+@import "./weui/widget/weui_cell/weui_check/weui_check_common.scss";
+@import "./weui/widget/weui_cell/weui_check/weui_radio.scss";
 
 @import "./utils/weui_reset";
 @import "./view/ordercells";
@@ -153,4 +156,15 @@
             display: none;
         }
     }
+}
+/*add by stefanchen*/
+.radioSheetBtn{
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+.z-index999{
+    z-index:999;
 }

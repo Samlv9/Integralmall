@@ -28,19 +28,28 @@
 ///
 /// <reference path='core/derive.js' />
 /// <reference path='page/PageBase.js' />
-
+/// <reference path='view/WeRadioSheet.js' />
 
 
 var Page = derive(PageBase, function Page() {
     PageBase.call(this, true);
 
+     //向页面注入radiasheet
+    var title="选择取消订单的理由"
+    var radioItems=["F","G","H","I","J"];
+    var btnContent="确定";
+    var trigger=$("#cancelOrder");
+    WeRadioSheet(title,radioItems,btnContent,trigger,this,radioSheetBtnClick);
     /// 发货提醒；
     this._toast = new Sprite("#toast");
     this._toastTrigger = $(".toast-trigger");
     this._toastTrigger.on("click", this._showRemindToast.bind(this));
 });
 
-
+//点击确定按钮，post数据到后台
+function radioSheetBtnClick(){
+    console.log("确定按钮被点击")
+}
 
 Page.prototype._showRemindToast = function _showRemindToast() {
     /// <summary>
