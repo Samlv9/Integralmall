@@ -1,0 +1,46 @@
+﻿@import "./core/default.scss";
+@import "./vars/common";
+@import "./view/scrollcontainer";
+
+@import "./weui/base/fn";
+@import "./weui/icon/weui_icon_font";
+@import "./weui/widget/weui_button/weui_button";
+@import "./weui/widget/weui_cell/weui_cell_global";
+@import "./weui/widget/weui_cell/weui_form";
+@import "./weui/widget/weui_cell/weui_access";
+@import "./weui/widget/weui_tips/weui_toast";
+@import "./weui/widget/weui_tips/weui_mask";
+@import "./weui/widget/weui_tips/weui_dialog";
+@import "./weui/widget/weui_cell/weui_form/weui_form_common.scss";
+@import "./weui/widget/weui_cell/weui_check/weui_check_common.scss";
+@import "./weui/widget/weui_cell/weui_check/weui_radio.scss";
+@import "./weui/widget/weui_cell/weui_uploader.scss";
+@import "./weui/widget/weui_cell/weui_access.scss";
+@import "./weui/widget/weui_tips/weui_actionsheet.scss";
+
+@import "./utils/weui_reset";
+
+.status_image{
+    width:100%;
+    height:auto;
+    margin-top:17px;
+    margin-bottom:20px;
+    display:block;
+}
+.width{
+width:100%;
+height:auto;
+}
+
+.explain_text{
+   color:#888;
+}
+
+.refund_help {
+    margin-bottom: $weuiCellsMarginTop;
+
+
+    a {
+        color: $globalLinkColor;
+    }
+}

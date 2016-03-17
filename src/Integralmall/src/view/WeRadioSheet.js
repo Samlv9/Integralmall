@@ -9,8 +9,11 @@
             '<div class="weui_cells_title">{{TITLE}}</div>'+
             '<div class="weui_cells weui_cells_radio">'+
                '{{RADIO_SHEET}}'+                
-        '</div>'+        
-         '<div class="weui_btn weui_btn_primary radioSheetBtn" id="actionsheet_cancel">{{BTN_CONTENT}}</div>'+
+        '</div>'+
+        '<div class="weui_btn_group">'+
+            '<a href="javascript:void(0);" class="weui_btn weui_btn_primary radioSheetBtn"  id="actionsheet_cancel">{{BTN_CONTENT}}</a>'+
+        '</div>'+
+        // '<div class="weui_btn weui_btn_primary radioSheetBtn" id="actionsheet_cancel">{{BTN_CONTENT}}</div>'+
         '</div>'+
  '</div>';
  //radio模板
@@ -35,9 +38,9 @@ function createRadioItems(radioItems){
 //生成radiosheet
 function createWeRadioSheetElement(title, radioItems,btnContent) {
     var radioItemsHtml=createRadioItems(radioItems);
-    console.log(radioItemsHtml);
+    //console.log(radioItemsHtml);
     var html = WE_RADIO_SHEET_TEMPLATE.replace("{{TITLE}}",title).replace('{{RADIO_SHEET}}', radioItemsHtml).replace("{{BTN_CONTENT}}",btnContent);
-     console.log(html);
+    //console.log(html);
     var div = document.createElement("div");
         div.innerHTML = html;
     return div.firstElementChild;
@@ -60,7 +63,7 @@ function WeRadioSheet( title,radioItems,btnContent,trigger,dispatcher, callback 
 	            if ( target.classList.contains("radioSheetBtn") ) {          
 	                //document.body.removeChild(dialog);
 	                if ( typeof callback == "function" ) {
-	                    console.log($(".weui_check:checked").parent().parent()[0].innerText.trim());
+	                    //console.log($(".weui_check:checked").parent().parent()[0].innerText.trim());
 	                    callback.call(dispatcher || window, target, evt);
 	                }
 	                return;
