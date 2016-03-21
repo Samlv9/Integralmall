@@ -53,3 +53,13 @@
         display: none;
     }
 }
+
+.weui_icon_warn:before,
+.weui_icon_info_circle:before {
+    font-size: 21px;
+}
+
+.weui_label{
+    display:block;
+    width: 4em;
+}

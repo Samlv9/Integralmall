@@ -1,0 +1,62 @@
+﻿@import "./core/default";
+@import "./vars/common";
+
+@import "./view/uiicon";
+@import "./view/scrollcontainer";
+@import "./view/swipercontainer";
+@import "./view/sitefooter";
+@import "./view/recommend";
+@import "./view/category";
+@import "./view/table";
+@import "./view/notice";
+@import "./view/lazyable";
+@import "./view/sidenav";
+@import "./view/overlay";
+
+
+            html,
+			body {
+				width: 100%;
+				height: 100%;
+				background-color: gainsboro;
+				display: block;
+				padding: 0;
+				margin: 0;
+			}
+            
+             #classifyNav{
+             height: -webkit-calc(100%-95px);
+              overflow: hidden;
+              float: left;
+              width: 30%;
+             }
+			
+			#classifyNav content {
+				background-color: lightskyblue;		
+			}
+
+			 ul {
+				display: block;
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				overflow: scroll;
+			}
+			
+			 ul li {
+				display: block;
+				border: 1px solid grey;
+				border-top: none;
+				color: white;
+				text-align: center;
+				padding: 15px;
+				padding-right: 21px;
+			}
+			
+			.content {
+				width: 70%;
+				height: -webkit-calc(100%-95px);
+				float: right;
+			}
+			
+ 
