@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- UTF-8 页面编码 -->
+<meta charset="utf-8" />
+<!-- DNS 预解析 -->
+<meta http-equiv="X-DNS-Prefetch-Control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!-- App 独立模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<title>申请退款</title>
+<!-- Apple Touch Icon -->
+<!-- IPhone 4s/5/5s/6/6s -->
+<!--<link rel="apple-touch-icon" sizes="120x120" href="icon_120x120.png" />-->
+<!-- IPhone 6/6s Plus -->
+<!--<link rel="apple-touch-icon" sizes="180x180" href="icon_180x180.png" />-->
+<!-- Chrome Touch Icon -->
+<!--<link rel="apple-touch-icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="apple-touch-icon" sizes="128x128" href="icon_128x128.png" />-->
+<!--<link rel="icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="icon" sizes="128x128" href="icon_128x128.png" />-->
+<!-- ================================================================================ -->
+<!-- StyleManager -->
+<!-- ================================================================================ -->
+<!-- ================================================================================ -->
+<!-- 页面样式文件 -->
+<!-- ================================================================================ -->
+<link rel="stylesheet" href="resources/stylesheets/submit_refund.css" />
+<!-- html5 标签补丁 -->
+<script type="text/javascript" id="html5shiv">///<![CDATA[
+    document.createElement("main");
+    document.createElement("content");
+///]]></script>
+<!-- 运行环境设置 -->
+<script type="text/javascript" src="resources/scripts/system.js"></script>
+<!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
+<body><div id="stage">
+<main id="main" class="scroll-container ">
+<!-- ================================================================================ -->
+<!-- 固定定位元素 -->
+<!-- ================================================================================ -->
+<content id="content">
+<!-- ================================================================================ -->
+<!-- 统一头部 -->
+<!-- ================================================================================ -->
+<!--退款类型-->
+
+<div class="weui_cells_title">*退款类型</div>
+    <div class="weui_cells  weui_cells_radio">
+        <label class="weui_cell weui_check_label" for="x11">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>退货退款</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input type="radio" class="weui_check" name="radio1" id="x11">
+                <span class="weui_icon_checked"></span>
+            </div>
+        </label>
+        <label class="weui_cell weui_check_label" for="x12">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>退款</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input type="radio" name="radio1" class="weui_check" id="x12" checked="checked">
+                <span class="weui_icon_checked"></span>
+            </div>
+        </label>
+    </div>
+<!--退款金额-->
+<div class="weui_cells_title">退款金额（单位：元）</div>
+<div class="weui_cells ">
+    <div class="weui_cell">
+        <input class="weui_input" type="number" placeholder="请输入退款金额" />
+    </div>
+</div>
+
+<!--退款/退货理由-->
+<div class="weui_cells_title">*退款/退货理由</div>
+<div class="weui_cells weui_cells_access ">
+    <a class="weui_cell" href="javascript:void(0);" id="selectReason">
+        <div class="weui_cell_bd weui_cell_primary">
+            <p>*请选择一个退款理由</p>
+        </div>
+        <div class="weui_cell_ft">
+        </div>
+    </a>
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            <textarea class="weui_textarea" placeholder="描述一下你的退款原因" rows="2" ></textarea>
+        </div>
+    </div>
+</div>
+
+<!--添加图片凭证-->
+<div class="weui_cells_title">添加图片凭证</div>
+<div class="weui_cells ">
+    <div class="weui_cell padding_top15">
+        <div class="weui_uploader_bd">
+            <ul class="weui_uploader_files">
+                <li class="weui_uploader_file " style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li>
+                <li class="weui_uploader_file " style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li>
+                <li class="weui_uploader_file " style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)"></li>
+                <li class="weui_uploader_file weui_uploader_status " style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)">
+                    <div class="weui_uploader_status_content">
+                        <i class="weui_icon_warn"></i>
+                    </div>
+                </li>
+                <li class="weui_uploader_file weui_uploader_status " style="background-image:url(http://shp.qpic.cn/weixinsrc_pic/pScBR7sbqjOBJomcuvVJ6iacVrbMJaoJZkFUIq4nzQZUIqzTKziam7ibg/)">
+                    <div class="weui_uploader_status_content">50%</div>
+                </li>
+            </ul>
+            <div class="weui_uploader_input_wrp ">
+                <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="weui_btn_group">
+    <a href="javascript:void(0);" class="weui_btn weui_btn_primary">提交</a>
+</div>
+<!-- ================================================================================ -->
+<!-- 统一底部 -->
+<!-- ================================================================================ -->
+</content>
+</main>
+
+</div><!--STAGE END-->
+<!-- ================================================================================ -->
+<!-- ScriptManager -->
+<!-- ================================================================================ -->
+<!-- ZeptoJs -->
+<script type="text/javascript" src="resources/libraries/zeptojs/zepto.js"></script>
+<!-- ZeptoJs Event Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/event.js"></script>
+<!-- ================================================================================ -->
+<!-- 页面入口点 -->
+<!-- ================================================================================ -->
+<script type="text/javascript" src="resources/scripts/submit_refund.js"></script>
+</body>
+</html>

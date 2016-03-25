@@ -41,13 +41,21 @@
 <!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
 <body>
 <!-- ================================================================================ -->
+<!-- 顶部导航 -->
+<!-- ================================================================================ -->
+<div id="topNav"><div class="topnav-list">
+    <a class="top-nav-button" href="cart.html"><i class="ui-icon ui-topnav-cart-icon"></i></a>
+    <a class="top-nav-button" href="index.html"><i class="ui-icon ui-topnav-index-icon"></i></a>
+</div>    
+</div>
+<!-- ================================================================================ -->
 <!-- 推荐栏 -->
 <!-- ================================================================================ -->
-<div id="recommend"><div class="recommend">
+<!--<div id="recommend"><div class="recommend">
     <div class="recomd-header"><img class="recomd-avatar" src="resources/bitmaps/common/avatar.jpg" width="36" height="36" /></div>
     <div class="recomd-content">BIYI为你推荐“VJF商城”，临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟～</div>
     <div class="recomd-cancel"><i class="weui_icon_cancel"></i></div>
-</div></div>
+</div></div>-->
 
 
 <!-- ================================================================================ -->
@@ -64,7 +72,7 @@
 <!-- 底部工具栏 -->
 <!-- ================================================================================ -->
 <div id="toolbar" class="toolbar">
-    <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
+    <a id="attention" class="weui_btn weui_btn_default " href="javascript:void(0);">关注</a>
     <a class="weui_btn weui_btn_primary" href="order_native.html">加入购物车</a>
 </div>
 
@@ -128,27 +136,56 @@
 </div>
 
 
+<!-- 商品选项 -->
+<div class="option-chooser">
+    <div class="option-chooser-item">
+        <div class="option-item-name">颜色</div>
+        <div class="option-item-content">
+            <label class="radio-button"><input name="m" type="radio" value="1" /><span class="radio-label">土豪金</span></label>
+            <label class="radio-button"><input name="m" type="radio" value="1" /><span class="radio-label">土豪金土豪金</span></label>
+        </div>
+    </div>
+    <div class="option-chooser-item">
+        <div class="option-item-name">分类</div>
+        <div class="option-item-content">
+            <label class="radio-button"><input name="m1" type="radio" value="1" /><span class="radio-label">S</span></label>
+            <label class="radio-button"><input name="m1" type="radio" value="1" /><span class="radio-label">L</span></label>
+            <label class="radio-button"><input name="m1" type="radio" value="1" /><span class="radio-label">XL</span></label>
+            <label class="radio-button"><input name="m1" type="radio" value="1" /><span class="radio-label">XXL</span></label>
+        </div>
+    </div>
+    <div class="option-chooser-item">
+        <div class="option-item-name">数量</div>
+        <div class="option-item-content">
+            <a class="counter counter-minus" href="javascript:void(0);" ><span class="inner">-</span></a>
+            <s class="counter counter-input"><input class="inner weui_input" type="number" value="0" /></s>
+            <a class="counter counter-plus" href="javascript:void(0);"><span class="inner">+</span></a>
+        </div>
+    </div>
+</div>
+
+
 <!-- ================================================================================ -->
 <!-- 购买按钮 -->
 <!-- ================================================================================ -->
-<div class="goods-controls weui_btn_group">
+<!--<div class="goods-controls weui_btn_group">
     <a class="weui_btn weui_btn_primary" href="order_native.html">加入购物车</a>
     <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
-</div>
+</div>-->
 
 
 <!-- ================================================================================ -->
 <!-- 详细参数 -->
 <!-- ================================================================================ -->
 <!--<a class="weui_cell weui_cell_footer weui_cells_access"><span class="weui_cell_bd weui_cell_primary"><i class="ui-icon ui-m-icon ui-more-icon"></i>更多参数信息...</span></a>-->
-<a id="specTrigger" class="weui_cells arglist goods-arglist" href="spec_native.html">
+<div id="specTrigger" class="weui_cells arglist goods-arglist" href="spec_native.html" onclick="location.href=this.getAttribute('href');">
     <div class="weui_cell weui_cell_header weui_cells_access"><div class="weui_cell_bd weui_cell_primary">规格&参数</div><div class="weui_cell_ft"></div></div>
     <div class="weui_cell"><div class="weui_cell_hd">硬盘容量</div><div class="weui_cell_bd weui_cell_primary">240 GB</div></div>
     <div class="weui_cell"><div class="weui_cell_hd">接口类型</div><div class="weui_cell_bd weui_cell_primary">SATA 3</div></div>
     <div class="weui_cell"><div class="weui_cell_hd">硬盘容量</div><div class="weui_cell_bd weui_cell_primary">240 GB</div></div>
     <div class="weui_cell"><div class="weui_cell_hd">接口类型</div><div class="weui_cell_bd weui_cell_primary">SATA 3</div></div>
     <div class="weui_cell"><div class="weui_cell_hd weui_cell_primary args-dotcell">...</div></div>
-</a>
+</div>
 
 
 <div id="detailMorePrompts">
@@ -163,7 +200,15 @@
 <p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234669550.jpg" style="" title="1442218234669550.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234799622.jpg" style="" title="1442218234799622.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234850608.jpg" style="" title="1442218234850608.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234479567.jpg" style="" title="1442218234479567.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234872490.jpg" style="" title="1442218234872490.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234786821.jpg" style="" title="1442218234786821.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234967636.jpg" style="" title="1442218234967636.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234843115.jpg" style="" title="1442218234843115.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234556735.jpg" style="" title="1442218234556735.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218234918292.jpg" style="" title="1442218234918292.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235889701.jpg" style="" title="1442218235889701.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235824362.jpg" style="" title="1442218235824362.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235453511.jpg" style="" title="1442218235453511.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235633069.jpg" style="" title="1442218235633069.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235421874.jpg" style="" title="1442218235421874.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235245943.jpg" style="" title="1442218235245943.jpg"/></p><p><img src="http://img.sibu.cn/mall_new/upload/des/1442218235537253.jpg" style="" title="1442218235537253.jpg"/></p>
 </article>
 
-
+<!-- ================================================================================ -->
+<!-- 关注二维码层 -->
+<!-- ================================================================================ -->
+<div id="qrcodeLayer" class="qrcode-layer disable-touchmove">
+    <div class="qrcode-content">
+        <img class="qrcode-image" src="resources/bitmaps/common/qrcode.jpg" width="178" height="178" />
+        <div>长按立即关注<span class="qrcode-wechat-name">人人微店</span></div>
+    </div>
+</div>
 
 
 

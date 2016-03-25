@@ -62,10 +62,65 @@
 
 
 <!-- ================================================================================ -->
+<!-- 地址栏 -->
+<!-- ================================================================================ -->
+<!--<div class="weui_cells_title">收货地址</div>
+<div class="weui_cells weui_cells_access"><div class="weui_cell">
+    <address class="weui_cell_bd weui_cell_primary" id="address">
+        <div class="fillguid">请选择收货地址</div>
+        <div class="headline"><span class="username">老先生</span>，<span class="telnum">13661210903</span></div>
+        <div class="location">
+            <span class="province">广东省</span>
+            <span class="city">广州市</span>
+            <span class="region">番禺区</span>
+            <span class="street">白云公园绿地中心3402号</span>
+        </div>
+    </address>
+    <div class="weui_cell_ft"></div>
+</div></div>-->
+<div class="tpaddr weui_cells weui_cells_form">
+    <!--分割线-->
+    <div class="tpaddr-repeat-line"></div>
+    <!--收货人-->
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><label class="weui_label">收货人</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="text" placeholder="姓名"></div>
+    </div>
+    <!--手机号-->
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="number" pattern="[0-9]*" placeholder="联系人手机号码"></div>
+    </div>
+    <!--省-->
+    <div class="weui_cell weui_cell_select weui_select_after">
+        <div class="weui_cell_hd"><label class="weui_label">省</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><select class="weui_select" name="select1"><option value="1">北京</option><option value="2">上海</option><option value="3">广州</option></select></div>
+    </div>
+    <!--市-->
+    <div class="weui_cell weui_cell_select weui_select_after">
+        <div class="weui_cell_hd"><label class="weui_label">市</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><select class="weui_select" name="select2"><option value="1">北京</option><option value="2">上海</option><option value="3">广州</option></select></div>
+    </div>
+    <!--区/县-->
+    <div class="weui_cell weui_cell_select weui_select_after">
+        <div class="weui_cell_hd"><label class="weui_label">区/县</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><select class="weui_select" name="select3"><option value="1">北京</option><option value="2">上海</option><option value="3">广州</option></select></div>
+    </div>
+    <!--详细地址-->
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><label class="weui_label">详细</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="text" placeholder="请输入详细地址"></div>
+    </div>
+</div>
+
+
+<!-- ================================================================================ -->
 <!-- 订单操作控件 -->
 <!-- ================================================================================ -->
 <div class="weui_btn_group">
     <a class="weui_btn weui_btn_primary toast-trigger" href="javascript:void(0);">确认收货</a>
+    <!--add by stefanchen-->
+    <a id="cancelOrder" class="weui_btn weui_btn_default"  href="javascript:void(0);">取消订单</a>
 </div>
 
 
@@ -84,6 +139,7 @@
     </div>
     <div class="weui_cell_ft">x <span class="goods-count">2</span></div>
 </a>
+<div class="refund_cell"><a href="javascript:void(0);" class="weui_btn weui_btn_mini weui_btn_default refund_btn" >退款</a></div>
 <div class="weui_cell"><div class="weui_cell_bd weui_cell_primary">
     <p class="order-message-display">上晚自习的时候，同桌脸上爬了一个虫子，出于好心，我啪的一巴掌打过去。</p>
 </div></div>
@@ -188,8 +244,27 @@
 
 
 
-
 <!-- ================================================================================ -->
+<!-- 页面侧边导航栏 -->
+<!-- ================================================================================ -->
+<div id="sideNav" class="side-nav">
+    <a id="showOptsOverlay" class="side-nav-button" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-sideopts-icon"></i></a>
+    <a id="sideGotoCart" class="side-nav-button circle-counter" href="javascript:void(0);" data-label="20+"><i class="ui-icon ui-x24-icon ui-sidecart-icon"></i></a>
+    <a id="sideBackTop" class="side-nav-button" href="javascript:void(0);"><i class="ui-icon ui-x24-icon ui-sidetop-icon"></i></a>
+</div>
+<!-- ================================================================================ -->
+<!-- 更多按钮 -->
+<!-- ================================================================================ -->
+<div id="optsOverlay" class="overlay no-mask">
+<div class="overlay-mask"></div>
+<div class="overlay-content dialog-content grid-button-group"><div class="grid-wrapper">
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-index-icon"></i><span>商城首页</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-cart-icon"></i><span>购物车</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-partner-icon"></i><span>合伙人</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-usercenter-icon"></i><span>个人中心</span></a>
+    <a class="grid-button" href="javascript:void(0);"><i class="ui-icon ui-cart-icon"></i><span>订单管理</span></a>
+</div></div>
+</div><!-- ================================================================================ -->
 <!-- ScriptManager -->
 <!-- ================================================================================ -->
 <!-- ZeptoJs -->

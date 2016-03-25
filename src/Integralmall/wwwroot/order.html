@@ -38,10 +38,17 @@
 <script type="text/javascript" src="resources/scripts/system.js"></script>
 <!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
 <body><div id="stage">
-<main id="main" class="scroll-container">
+<div id="toolbar" class="toolbar">
+    <a id="orderPoster" class="weui_btn weui_btn_primary weui_btn_full" href="javascript:void(0);">微信支付</a>
+</div>
+
+
+<main id="main" class="scroll-container with-tool-bar">
 <!-- ================================================================================ -->
 <!-- 固定定位元素 -->
 <!-- ================================================================================ -->
+
+
 <content id="content">
 <!-- ================================================================================ -->
 <!-- 统一头部 -->
@@ -51,7 +58,7 @@
 <!-- ================================================================================ -->
 <!-- 地址栏 -->
 <!-- ================================================================================ -->
-<div class="weui_cells_title">收货地址</div>
+<!--<div class="weui_cells_title">收货地址</div>
 <div class="weui_cells weui_cells_access"><div class="weui_cell">
     <address class="weui_cell_bd weui_cell_primary" id="address">
         <div class="fillguid">请选择收货地址</div>
@@ -64,7 +71,47 @@
         </div>
     </address>
     <div class="weui_cell_ft"></div>
-</div></div>
+</div></div>-->
+<div class="tpaddr weui_cells weui_cells_form">
+    <!--分割线-->
+    <div class="tpaddr-repeat-line"></div>
+    <!--收货人-->
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><label class="weui_label">收货人</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="text" placeholder="姓名"></div>
+        <div class="weui_cell_ft"><i class="weui_icon_warn"></i></div>
+    </div>
+    <!--手机号-->
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><label class="weui_label">手机号</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="number" pattern="[0-9]*" placeholder="联系人手机号码"></div>
+    </div>
+    <!--省-->
+    <div class="weui_cell weui_cell_select weui_select_after">
+        <div class="weui_cell_hd"><label class="weui_label">省</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><select class="weui_select" name="select1"><option value="1">北京</option><option value="2">上海</option><option value="3">广州</option></select></div>
+    </div>
+    <!--市-->
+    <div class="weui_cell weui_cell_select weui_select_after">
+        <div class="weui_cell_hd"><label class="weui_label">市</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><select class="weui_select" name="select2"><option value="1">北京</option><option value="2">上海</option><option value="3">广州</option></select></div>
+    </div>
+    <!--区/县-->
+    <div class="weui_cell weui_cell_select weui_select_after">
+        <div class="weui_cell_hd"><label class="weui_label">区/县</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><select class="weui_select" name="select3"><option value="1">北京</option><option value="2">上海</option><option value="3">广州</option></select></div>
+    </div>
+    <!--详细地址-->
+    <div class="weui_cell">
+        <div class="weui_cell_hd"><label class="weui_label">详细</label></div>
+        <div class="weui_cell_bd weui_cell_primary"><input class="weui_input" type="text" placeholder="请输入详细地址"></div>
+    </div>
+</div>
+
+
+
+
+
 
 
 <!-- ================================================================================ -->
@@ -91,7 +138,7 @@
 </div></div>
 <div class="weui_cell">
     <div class="weui_cell_bd weui_cell_primary">快递费用</div>
-    <div class="weui_cell_ft"><span class="order-express-price">￥<output class="order-express-value">10.00</output></span></div>
+    <div class="weui_cell_ft"><i class="weui_icon_info_circle"></i><span class="order-express-price">￥<output class="order-express-value">10.00</output></span></div>
 </div>
 <div class="weui_cell"><div class="weui_cell_bd weui_cell_primary">
     <p class="total-desc">共 <span class="total-count">4</span> 件商品，合计 ￥<span class="total-amount">177.00</span></p>
@@ -101,11 +148,20 @@
 
 
 <!-- ================================================================================ -->
+<!-- 优惠券 -->
+<!-- ================================================================================ -->
+<div class="weui_cells weui_cells_form weui_last_cells"><div class="weui_cell weui_cell_switch">
+    <div class="weui_cell_hd weui_cell_primary">标题文字</div>
+    <div class="weui_cell_ft"><input class="weui_switch" type="checkbox"></div>
+</div></div>
+
+
+<!-- ================================================================================ -->
 <!-- 支付按钮 -->
 <!-- ================================================================================ -->
-<div class="order-controls weui_btn_group">
-    <a class="weui_btn weui_btn_primary" href="javascript:void(0);">微信支付</a>
-</div>
+<!--<div class="order-controls weui_btn_group">
+    <a id="orderPoster" class="weui_btn weui_btn_primary" href="javascript:void(0);">微信支付</a>
+</div>-->
 
 
 

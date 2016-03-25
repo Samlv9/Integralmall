@@ -54,16 +54,24 @@
 <!-- 菜单 -->
 <!-- ================================================================================ -->
 <!--<a id="menu" href="javascript:void(0);"><i class="menu-icon"></i></a>-->
+<!-- ================================================================================ -->
+<!-- 顶部导航 -->
+<!-- ================================================================================ -->
+<div id="topNav"><div class="topnav-list">
+    <a class="top-nav-button" href="cart.html"><i class="ui-icon ui-topnav-cart-icon"></i></a>
+    <a class="top-nav-button" href="index.html"><i class="ui-icon ui-topnav-index-icon"></i></a>
+</div>    
+</div>
 
 
 <!-- ================================================================================ -->
 <!-- 推荐栏 -->
 <!-- ================================================================================ -->
-<div id="recommend"><div class="recommend">
+<!--<div id="recommend"><div class="recommend">
     <div class="recomd-header"><img class="recomd-avatar" src="resources/bitmaps/common/avatar.jpg" width="36" height="36" /></div>
     <div class="recomd-content">BIYI为你推荐“VJF商城”，临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟临近圣诞还有各式精彩活动不要错过哟～</div>
     <div class="recomd-cancel"><i class="weui_icon_cancel"></i></div>
-</div></div>
+</div></div>-->
 
 
 <content id="content">
@@ -141,15 +149,42 @@
         <div class="weui_cell_ft"><output id="formOptionOutput">款式、颜色</output></div>
     </div>
 </div>-->
+<!-- 商品选项 -->
+<div class="option-chooser">
+    <div class="option-chooser-item">
+        <div class="option-item-name">颜色</div>
+        <div class="option-item-content">
+            <label class="radio-button"><input name="m" type="radio" value="1" /><span class="radio-label">土豪金</span></label>
+            <label class="radio-button"><input name="m" type="radio" value="1" /><span class="radio-label">土豪金土豪金</span></label>
+        </div>
+    </div>
+    <div class="option-chooser-item">
+        <div class="option-item-name">分类</div>
+        <div class="option-item-content">
+            <label class="radio-button"><input name="m1" type="radio" value="1" /><span class="radio-label">S</span></label>
+            <label class="radio-button"><input name="m1" type="radio" value="1" /><span class="radio-label">L</span></label>
+            <label class="radio-button"><input name="m1" type="radio" value="1" /><span class="radio-label">XL</span></label>
+            <label class="radio-button"><input name="m1" type="radio" value="1" /><span class="radio-label">XXL</span></label>
+        </div>
+    </div>
+    <div class="option-chooser-item">
+        <div class="option-item-name">数量</div>
+        <div class="option-item-content">
+            <a class="counter counter-minus" href="javascript:void(0);" ><span class="inner">-</span></a>
+            <s class="counter counter-input"><input class="inner weui_input" type="number" value="0" /></s>
+            <a class="counter counter-plus" href="javascript:void(0);"><span class="inner">+</span></a>
+        </div>
+    </div>
+</div>
 
 
 <!-- ================================================================================ -->
 <!-- 购买按钮 -->
 <!-- ================================================================================ -->
-<div class="goods-controls weui_btn_group">
+<!--<div class="goods-controls weui_btn_group">
     <a class="weui_btn weui_btn_primary" href="order.html">加入购物车</a>
     <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
-</div>
+</div>-->
 
 
 <!-- ================================================================================ -->
@@ -187,15 +222,6 @@
 
 
 <!-- ================================================================================ -->
-<!-- 主页面底部工具条 -->
-<!-- ================================================================================ -->
-<!--<div id="mainToolbar" class="toolbar toolbar-showing">
-    <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
-    <a class="weui_btn weui_btn_primary" href="order.html">加入购物车</a>
-</div>-->
-
-
-<!-- ================================================================================ -->
 <!-- 详情页面 -->
 <!-- ================================================================================ -->
 <div id="sideWrapper">
@@ -229,13 +255,15 @@
 </article>
 </content>
 </aside>
+</div>
+
+
 <!-- ================================================================================ -->
 <!-- 底部工具栏 -->
 <!-- ================================================================================ -->
-<div id="toolbar" class="toolbar">
-    <a class="weui_btn weui_btn_default share-button" href="javascript:void(0);">分享</a>
+<div id="toolbar" class="toolbar disable-transform">
+    <a id="attention" class="weui_btn weui_btn_default " href="javascript:void(0);">关注</a>
     <a class="weui_btn weui_btn_primary" href="order.html">加入购物车</a>
-</div>
 </div>
 </div><!--PAGE END-->
 <!-- ================================================================================ -->
@@ -310,7 +338,15 @@
     </div>
 </content>
 </aside></div>
-
+<!-- ================================================================================ -->
+<!-- 关注二维码层 -->
+<!-- ================================================================================ -->
+<div id="qrcodeLayer" class="qrcode-layer disable-touchmove">
+    <div class="qrcode-content">
+        <img class="qrcode-image" src="resources/bitmaps/common/qrcode.jpg" width="178" height="178" />
+        <div>长按立即关注<span class="qrcode-wechat-name">人人微店</span></div>
+    </div>
+</div>
 
 <!-- ================================================================================ -->
 <!-- 页面侧边导航栏 -->
