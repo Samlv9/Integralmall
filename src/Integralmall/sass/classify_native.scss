@@ -2,7 +2,6 @@
 @import "./vars/common";
 
 @import "./view/uiicon";
-@import "./view/scrollcontainer";
 /*@import "./view/swipercontainer";*/
 @import "./view/sitefooter";
 /*@import "./view/recommend";
@@ -18,9 +17,8 @@
 
 html,
 body {
-	width: 100%;
-	height: 100%;
-	background-color: gainsboro;
+	width: 100% !important;
+	height: 100% !important;
 	display: block;
 	padding: 0;
 	margin: 0;
@@ -36,22 +34,34 @@ body {
     z-index: 2;
 }
     #classifyNav{
-    height: calc(100% - 92px);
+    /*height: -moz-calc(100% - 92px);
+    height: -webkit-calc(100% - 92px);
+    height: calc(100% - 92px);*/
     overflow: hidden;
+    height:100%;
+    width:20%;
     float: left;
-    width: 20%;
+    top:40px;
+    bottom:52px;
+    background-color:red;
     & content {
+        width:100%;
+        height:100%;
+        display:block;
+        overflow-x:hidden;
+         overflow-y:auto;   
         border: 1px solid #E6E6EA;
-	background-color: #fff;		
+	    background-color: #fff; 		
             & ul {
             width:100%;
 			display: block;
 			list-style: none;
 			padding: 0;
 			margin: 0;
-			overflow: scroll;
+             overflow-x:hidden;
+         overflow-y:auto;  
             &  li {
-                width:100%;
+                 width:100%;
                 white-space:nowrap;
                 position:relative;
 				display: block;
@@ -59,9 +69,9 @@ body {
 				padding-top:17px;
                 padding-bottom:17px;
                 text-align:center;
+                white-space:nowrap;
                 /*padding-left: 13px;
 				padding-right: 12px;*/
-
                 font-size:12px;
                 line-height:17px;
                     &:before {
@@ -77,8 +87,8 @@ body {
                     transform-origin: 0 0;
                     -webkit-transform: scaleY(0.5);
                     transform: scaleY(0.5);
-                   // left: 15px;
-                    left:16%;
+                    /*left: 15px;*/
+                     left:16%;
                 }
                 &:first-child {
                     &:before {
@@ -88,29 +98,48 @@ body {
                 & a{
                     display:block;
                     width:100%;
-
                     & img{
-                        width:42.66666666666667%;
-                        height:auto;
-                        display: block;
-                        margin: 0 auto;
-                        margin-bottom:2px;
+                        /*width:32px;
+                        height:32px;*/
+                             width:42.66666666666667%;
+                             height:auto;
+                            display: block;
+                            margin: 0 auto;
+                            margin-bottom:2px;
                     }
                 }
 			}
+              & li:last-child{
+                margin-bottom:90px;
+            }
 		}
 	}
     }
 
 
 #classifyContent {
-	//width:calc(100% - 75px);
+    /*width:-moz-calc(100% - 75px);
+    width:-webkit-calc(100% - 75px);
+	width:calc(100% - 75px);
+    height: -moz-calc(100% - 92px);
+    height:-webkit-calc(100% - 92px);
+    height: calc(100% - 92px);*/
+    height:100%;
     width:80%;
-    height: calc(100% - 92px);
+    top:40px;
+    bottom:52px;
+    right:0;
     overflow: hidden;
-	float: right;
+	position:absolute;
     font-size:12px;
     color:#888888;
+    & content {
+        width:100%;
+        height:100%;
+        display:block;
+         overflow:auto;   
+        border: 1px solid #E6E6EA;
+    }
     & .banner{
         display:block;
         width:100%;
@@ -124,6 +153,7 @@ body {
     & ul{
         display:block;
         width:100%;
+        padding-bottom:52px;
             & li{
                     float:left;
                 display:block;
@@ -145,9 +175,17 @@ body {
                     }
                 }
             }
+            & li:last-child{
+                margin-bottom:90px;
+            }
     }
 }
-			
+
+#classifyContent content::-webkit-scrollbar,
+#classifyNav content::-webkit-scrollbar {
+		width: 0 !important;
+	}
+		
  .active{
     color:#0BB20C !important;
  }

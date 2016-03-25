@@ -2,15 +2,15 @@
 /// <reference path='core/derive.js' />
 /// <reference path='core/template.js' />
 /// <reference path='page/PageBase.js' />
-/// <reference path='view/ScrollContainer.js' />
+
 
 
 var Page = derive(PageBase, function Page() {
     PageBase.call(this,true);
-    this._classifyNav=new ScrollContainer("#classifyNav");
-    this._classifyNav.disableIndicator=true;
-    this._classifyContent=new ScrollContainer("#classifyContent");    
-    this ._classifyContent.disableIndicator=true;
+    //this._classifyNav=new ScrollContainer("#classifyNav");
+    //this._classifyNav.disableIndicator=true;
+    //this._classifyContent=new ScrollContainer("#classifyContent");    
+    //this ._classifyContent.disableIndicator=true;
     this._search_bar= $('#search_input');
     this._search_cancel=$( "#search_cancel");
     this. _search_clear=$( "#search_clear");
