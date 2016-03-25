@@ -235,7 +235,19 @@ gulp.task("build:sass", ["update"], function () {
         "sass/404_native.scss",
 
         /* 非微信打开页面 */
-        "sass/external.scss"
+        "sass/external.scss",
+
+        /* 申请退款 */
+        "sass/submit_refund.scss",
+         "sass/submit_refund_native.scss",
+
+      /* 退款详情 */
+      "sass/refund_detail.scss",
+       "sass/refund_detail_native.scss",
+       
+       /* 分类 */
+       "sass/classify.scss",
+       "sass/classify_native.scss"
     ])
     .pipe(sourcemaps.init())
     .pipe(sass({ "outputStyle":"compressed" }).on("error", console.log))
@@ -343,8 +355,20 @@ gulp.task("build:script", ["update"], function () {
 
         /* 404 */
         "src/404.js",
-        "src/404_native.js"
+        "src/404_native.js",
 
+        /* 申请退款 */
+        "src/submit_refund.js",
+        "src/submit_refund_native.js",
+
+          /* 退款详情 */
+        "src/refund_detail.js",
+         "src/refund_detail_native.js",
+
+           /* 分类 */
+        "src/classify.js",
+        "src/classify_native.js"
+         
     ])
     .pipe(sourcemaps.init())
     .pipe(reference())
@@ -452,7 +476,19 @@ gulp.task("build:templates", ["update"], function () {
 
         /* 404 */
         "tmpl/404.html",
-        "tmpl/404_native.html"
+        "tmpl/404_native.html",
+
+        /* 申请退款 */
+        "tmpl/submit_refund.html",
+         "tmpl/submit_refund_native.html",
+
+          /* 退款详情 */
+        "tmpl/refund_detail.html",
+         "tmpl/refund_detail_native.html",
+        
+           /* 分类 */
+        "tmpl/classify.html",
+         "tmpl/classify_native.html"
         
     ])
     .pipe(data(function(file) {
