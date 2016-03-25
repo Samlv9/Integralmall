@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- UTF-8 页面编码 -->
+<meta charset="utf-8" />
+<!-- DNS 预解析 -->
+<meta http-equiv="X-DNS-Prefetch-Control" content="on" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<!-- App 独立模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<title>分类</title>
+<!-- Apple Touch Icon -->
+<!-- IPhone 4s/5/5s/6/6s -->
+<!--<link rel="apple-touch-icon" sizes="120x120" href="icon_120x120.png" />-->
+<!-- IPhone 6/6s Plus -->
+<!--<link rel="apple-touch-icon" sizes="180x180" href="icon_180x180.png" />-->
+<!-- Chrome Touch Icon -->
+<!--<link rel="apple-touch-icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="apple-touch-icon" sizes="128x128" href="icon_128x128.png" />-->
+<!--<link rel="icon" sizes="192x192" href="icon_192x192.png" />-->
+<!--<link rel="icon" sizes="128x128" href="icon_128x128.png" />-->
+<!-- ================================================================================ -->
+<!-- StyleManager -->
+<!-- ================================================================================ -->
+<!-- ================================================================================ -->
+<!-- 页面样式文件 -->
+<!-- ================================================================================ -->
+<link rel="stylesheet" href="resources/stylesheets/classify_native.css" />
+<!-- html5 标签补丁 -->
+<script type="text/javascript" id="html5shiv">///<![CDATA[
+    document.createElement("main");
+    document.createElement("content");
+///]]></script>
+<!-- 运行环境设置 -->
+<script type="text/javascript" src="resources/scripts/system.js"></script>
+<!--<script type="text/javascript" src="http://192.168.0.185:8888/remote.js?89076A5C-4168-4CE6-A956-14D660F0F3B3"></script>--></head>
+<body><div id="stage">
+<!--搜索框-->
+    <div class="page slideIn searchbar">
+    <div class="bd">
+        <!--<a href="javascript:;" class="weui_btn weui_btn_primary">点击展现searchBar</a>-->
+        <div class="weui_search_bar" id="search_bar">
+            <form class="weui_search_outer">
+                <div class="weui_search_inner">
+                    <i class="weui_icon_search"></i>
+                    <input type="search" class="weui_search_input" id="search_input" placeholder="搜索" required="">
+                    <a href="javascript:" class="weui_icon_clear" id="search_clear"></a>
+                </div>
+                <label for="search_input" class="weui_search_text" id="search_text">
+                    <i class="weui_icon_search"></i>
+                    <span>搜索</span>
+                </label>
+            </form>
+            <a href="javascript:" class="weui_search_cancel" id="search_cancel">取消</a>
+        </div>
+        <!--<div class="weui_cells weui_cells_access search_show" id="search_show" style="display: none;">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<!--一级导航栏-->
+        <div  id="classifyNav" class="" >
+			<content id="classifyNavContent">
+				<ul>
+					<li class="active"> <a  href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />推荐分类</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />潮流男装</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />品牌男装</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />个护化妆</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />日用品</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />电脑办公</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />手机数码</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />母婴</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />图书音像</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />家居家纺</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />居家生活</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />家居建材</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />食品生鲜</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />酒水饮料</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />运动户外</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />鞋靴箱包</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />玩具器乐</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />潮流男装</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />品牌男装</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />个护化妆</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />日用品</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />电脑办公</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />手机数码</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />母婴</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />图书音像</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />家居家纺</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />居家生活</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />家居建材</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />食品生鲜</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />酒水饮料</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/2.jpg" />运动户外</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/3.jpg" />鞋靴箱包</a></li>
+					<li><a href="#"><img src="resources/bitmaps/cdn/detail/banner/1.jpg" />玩具器乐</a></li>
+				</ul>
+			</content>
+		</div>
+<!--二级导航栏-->
+        <div  id="classifyContent">
+			<content >
+                <img class="banner" src="resources/bitmaps/status/banner.jpg" />
+                <div class="title">为你推荐</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="resources/bitmaps/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                </ul>
+            </content>
+		</div>
+        <div style="clear:both;height:52px;width:100%;"></div>
+<!-- ================================================================================ -->
+<!-- 页面底部导航栏 -->
+<!-- ================================================================================ -->
+<footer id="siteFooter"><nav id="siteNav">
+    <a id="navToNews" class="site-button " href="news.html">
+        <span class="icon"><i class="ui-icon ui-news-icon"></i></span>
+        <span class="text">转发赚</span>
+    </a>
+    <a id="navToIndex" class="site-button " href="index.html">
+        <span class="icon"><i class="ui-icon ui-index-icon"></i></span>
+        <span class="text">微积分</span>
+    </a>
+    <a id="navToCart" class="site-button white-counter show-counter " href="cart.html" data-label="24">
+        <span class="icon"><i class="ui-icon ui-cart-icon"></i></span>
+        <span class="text">购物车</span>
+    </a>
+    <a id="navToPartner" class="site-button " href="partner.html">
+        <span class="icon"><i class="ui-icon ui-partner-icon"></i></span>
+        <span class="text">合伙人</span>
+    </a>
+    <a id="navToUserCenter" class="site-button " href="usercenter.html">
+        <span class="icon"><i class="ui-icon ui-usercenter-icon"></i></span>
+        <span class="text">个人中心</span>
+    </a>
+</nav>
+</footer>
+
+</div><!--STAGE END-->
+<!-- ================================================================================ -->
+<!-- ScriptManager -->
+<!-- ================================================================================ -->
+<!-- ZeptoJs -->
+<script type="text/javascript" src="resources/libraries/zeptojs/zepto.js"></script>
+<!-- ZeptoJs Event Module -->
+<script type="text/javascript" src="resources/libraries/zeptojs/event.js"></script>
+<!-- ================================================================================ -->
+<!-- 页面入口点 -->
+<!-- ================================================================================ -->
+<script type="text/javascript" src="resources/scripts/classify_native.js"></script>
+
+</body>
+</html>

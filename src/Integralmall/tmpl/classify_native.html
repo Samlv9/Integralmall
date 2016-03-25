@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+{{>./partials/headtags}}</head>
+<body><div id="stage">
+<!--搜索框-->
+    <div class="page slideIn searchbar">
+    <div class="bd">
+        <!--<a href="javascript:;" class="weui_btn weui_btn_primary">点击展现searchBar</a>-->
+        <div class="weui_search_bar" id="search_bar">
+            <form class="weui_search_outer">
+                <div class="weui_search_inner">
+                    <i class="weui_icon_search"></i>
+                    <input type="search" class="weui_search_input" id="search_input" placeholder="搜索" required="">
+                    <a href="javascript:" class="weui_icon_clear" id="search_clear"></a>
+                </div>
+                <label for="search_input" class="weui_search_text" id="search_text">
+                    <i class="weui_icon_search"></i>
+                    <span>搜索</span>
+                </label>
+            </form>
+            <a href="javascript:" class="weui_search_cancel" id="search_cancel">取消</a>
+        </div>
+        <!--<div class="weui_cells weui_cells_access search_show" id="search_show" style="display: none;">
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+            <div class="weui_cell">
+                <div class="weui_cell_bd weui_cell_primary">
+                    <p>实时搜索文本</p>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<!--一级导航栏-->
+        <div  id="classifyNav" class="" >
+			<content id="classifyNavContent">
+				<ul>
+					<li class="active"> <a  href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />推荐分类</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />潮流男装</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />品牌男装</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />个护化妆</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />日用品</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />电脑办公</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />手机数码</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />母婴</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />图书音像</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />家居家纺</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />居家生活</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />家居建材</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />食品生鲜</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />酒水饮料</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />运动户外</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />鞋靴箱包</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />玩具器乐</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />潮流男装</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />品牌男装</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />个护化妆</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />日用品</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />电脑办公</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />手机数码</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />母婴</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />图书音像</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />家居家纺</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />居家生活</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />家居建材</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />食品生鲜</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />酒水饮料</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />运动户外</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />鞋靴箱包</a></li>
+					<li><a href="#"><img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />玩具器乐</a></li>
+				</ul>
+			</content>
+		</div>
+<!--二级导航栏-->
+        <div  id="classifyContent">
+			<content >
+                <img class="banner" src="{{&bitmaps}}/status/banner.jpg" />
+                <div class="title">为你推荐</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/1.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                  <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/2.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                     <li>
+                        <a href="#">
+                            <img src="{{&bitmaps}}/cdn/detail/banner/3.jpg" />
+                            <div>洗衣粉</div>
+                        </a>
+                    </li>
+                </ul>
+            </content>
+		</div>
+        <div style="clear:both;height:52px;width:100%;"></div>
+{{>./widgets/sitefooter}}
+
+</div><!--STAGE END-->
+{{>./partials/foottags}}
+
+</body>
+</html>
